@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800.0 500.0">
+  <defs>
+    <clipPath id="plot-clip">
+      <rect x="77" y="66" width="583" height="367"/>
+    </clipPath>
+  </defs>
+  <rect x="0" y="0" width="800" height="500" fill="#FFFFFF"/>
+  <line x1="77" y1="433" x2="660" y2="433" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="77" y1="341.25" x2="660" y2="341.25" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="77" y1="249.5" x2="660" y2="249.5" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="77" y1="157.75" x2="660" y2="157.75" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="77" y1="66" x2="660" y2="66" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="77" y1="433" x2="660" y2="433" stroke="#333333" stroke-width="1"/>
+  <g clip-path="url(#plot-clip)">
+    <polyline points="77,249.5 84.2875,231.181 91.575,213.044 98.8625,195.272 106.15,178.042 113.438,161.525 120.725,145.888 128.012,131.286 135.3,117.865 142.588,105.76 149.875,95.0901 157.163,85.9634 164.45,78.4708 171.738,72.6871 179.025,68.67 186.312,66.4597 193.6,66.0782 200.887,67.5295 208.175,70.799 215.463,75.8539 222.75,82.6439 230.037,91.1011 237.325,101.141 244.612,112.663 251.9,125.553 259.188,139.68 266.475,154.905 273.763,171.076 281.05,188.03 288.337,205.598 295.625,223.604 302.913,241.87 310.2,260.212 317.487,278.446 324.775,296.392 332.062,313.869 339.35,330.703 346.637,346.725 353.925,361.776 361.212,375.705 368.5,388.373 375.787,399.654 383.075,409.434 390.363,417.616 397.65,424.119 404.938,428.877 412.225,431.842 419.512,432.986 426.8,432.296 434.088,429.78 441.375,425.463 448.662,419.387 455.95,411.614 463.238,402.221 470.525,391.302 477.812,378.967 485.1,365.337 492.387,350.551 499.675,334.754 506.963,318.106 514.25,300.773 521.537,282.927 528.825,264.747" fill="none" stroke="#4E79A7" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+    <polyline points="77,66 84.2875,66.9167 91.575,69.6578 98.8625,74.1958 106.15,80.4853 113.438,88.4636 120.725,98.0509 128.012,109.151 135.3,121.654 142.588,135.435 149.875,150.355 157.163,166.265 164.45,183.007 171.738,200.414 179.025,218.311 186.312,236.52 193.6,254.858 200.887,273.143 208.175,291.192 215.463,308.824 222.75,325.863 230.037,342.139 237.325,357.49 244.612,371.762 251.9,384.812 259.188,396.51 266.475,406.739 273.763,415.397 281.05,422.398 288.337,427.671 295.625,431.164 302.913,432.841 310.2,432.687 317.487,430.703 324.775,426.907 332.062,421.34 339.35,414.055 346.637,405.126 353.925,394.643 361.212,382.709 368.5,369.444 375.787,354.98 383.075,339.463 390.363,323.047 397.65,305.896 404.938,288.181 412.225,270.08 419.512,251.773 426.8,233.444 434.088,215.275 441.375,197.448 448.662,180.141 455.95,163.527 463.238,147.772 470.525,133.034 477.812,119.459 485.1,107.184 492.387,96.3302 499.675,87.0072 506.963,79.3077 514.25,73.3088 521.537,69.0702 528.825,66.6345" fill="none" stroke="#C56A00" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+  </g>
+  <line x1="77" y1="433" x2="77" y2="438" stroke="#333333" stroke-width="1"/>
+  <text x="77" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">0</text>
+  <line x1="222.75" y1="433" x2="222.75" y2="438" stroke="#333333" stroke-width="1"/>
+  <text x="222.75" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">2</text>
+  <line x1="368.5" y1="433" x2="368.5" y2="438" stroke="#333333" stroke-width="1"/>
+  <text x="368.5" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">4</text>
+  <line x1="514.25" y1="433" x2="514.25" y2="438" stroke="#333333" stroke-width="1"/>
+  <text x="514.25" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">6</text>
+  <line x1="660" y1="433" x2="660" y2="438" stroke="#333333" stroke-width="1"/>
+  <text x="660" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">8</text>
+  <line x1="72" y1="433" x2="77" y2="433" stroke="#333333" stroke-width="1"/>
+  <text x="69" y="437" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">-1</text>
+  <line x1="72" y1="341.25" x2="77" y2="341.25" stroke="#333333" stroke-width="1"/>
+  <text x="69" y="345.25" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">-0.5</text>
+  <line x1="72" y1="249.5" x2="77" y2="249.5" stroke="#333333" stroke-width="1"/>
+  <text x="69" y="253.5" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">0</text>
+  <line x1="72" y1="157.75" x2="77" y2="157.75" stroke="#333333" stroke-width="1"/>
+  <text x="69" y="161.75" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">0.5</text>
+  <line x1="72" y1="66" x2="77" y2="66" stroke="#333333" stroke-width="1"/>
+  <text x="69" y="70" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">1</text>
+  <text x="368.5" y="56" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="16" fill="#333333" text-anchor="middle">Theme: default</text>
+  <text x="368.5" y="475" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="middle">x</text>
+  <text x="12" y="249.5" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="middle" transform="rotate(-90,12,249.5)">f(x)</text>
+  <rect x="675" y="68" width="12" height="12" fill="#4E79A7" rx="2"/>
+  <text x="693" y="78" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="start">sin(x)</text>
+  <rect x="675" y="90" width="12" height="12" fill="#C56A00" rx="2"/>
+  <text x="693" y="100" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="start">cos(x)</text>
+</svg>

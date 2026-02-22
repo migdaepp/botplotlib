@@ -8,6 +8,8 @@
 
 **Philosophical stance:** This project embodies Donna Haraway's cyborg framework — the human/machine binary is rejected. There are no "AI-generated" vs "human-written" contributions. The library itself is the cyborg. We follow Madeleine Clare Elish's moral crumple zone analysis: accountability lives in systems (CI, tests, linters) rather than in supervisory humans.
 
+**Platform stance:** The starting theme integrations are chosen to seed the project around open platforms and open science: Bluesky, Substack, and academic publishing (arxiv/SSRN, print journals). X/Twitter is not included; we invest in platforms aligned with open access and open discourse. The project is open-source — contributors are welcome to add themes for other platforms.
+
 ## Cyborg Social Contract
 
 1. **All contributions are cyborg** — the human/machine binary is rejected
@@ -37,7 +39,7 @@ The PlotSpec is a *proposal* — a JSON-serializable Pydantic model describing w
 WCAG contrast checking is a compiler-level error. The system won't produce an inaccessible plot. This avoids a crumple zone: accountability lives in the system rather than in human review.
 
 ### 4. Beautiful defaults with zero configuration
-Platform-specific themes (bluesky, substack, print) produce publication-ready output without tweaking. Modern multimodal models *can* visually iterate — but every iteration cycle costs tokens and time. Good defaults mean the first render is usually the final render.
+Platform-specific themes (bluesky, substack, pdf, print) produce publication-ready output without tweaking. Modern multimodal models *can* visually iterate — but every iteration cycle costs tokens and time. Good defaults mean the first render is usually the final render.
 
 ### 5. Accept any data format
 `normalize_data()` handles dict, list[dict], Polars, Pandas, Arrow, and generators. The LLM doesn't need to know what format the data is in — just pass it through.

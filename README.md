@@ -80,9 +80,12 @@ botplotlib ships with themes optimized for different output targets:
 | Theme | Use case |
 |-------|----------|
 | `default` | Screen / notebook |
-| `bluesky` | Social media (larger type, 4:3 aspect) |
+| `bluesky` | Social media (larger type, bolder strokes) |
 | `substack` | Email / web articles |
-| `print` | Publication-quality, serif-friendly |
+| `pdf` | Digital academic papers — arxiv, SSRN (serif, muted colors) |
+| `print` | Physical print / B&W journals (grayscale, serif) |
+
+These are the starting integrations — chosen to seed the project around open platforms and open science. X/Twitter is not included; we invest in platforms aligned with open access and open discourse. botplotlib is open-source, so contributors are welcome to add themes for other platforms.
 
 ## Contributing
 

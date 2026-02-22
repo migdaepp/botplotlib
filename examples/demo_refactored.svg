@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <defs>
+    <clipPath id="plot-clip">
+      <rect x="77" y="66" width="703" height="367"/>
+    </clipPath>
+  </defs>
+  <rect x="0" y="0" width="800" height="500" fill="#FFFFFF"/>
+  <line x1="77" y1="433" x2="780" y2="433" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="77" y1="359.6" x2="780" y2="359.6" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="77" y1="286.2" x2="780" y2="286.2" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="77" y1="212.8" x2="780" y2="212.8" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="77" y1="139.4" x2="780" y2="139.4" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="77" y1="66" x2="780" y2="66" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="77" y1="433" x2="780" y2="433" stroke="#333333" stroke-width="1"/>
+  <g clip-path="url(#plot-clip)">
+    <circle cx="77" cy="433" r="4" fill="#4E79A7"/>
+    <circle cx="147.3" cy="429.33" r="4" fill="#4E79A7"/>
+    <circle cx="217.6" cy="418.32" r="4" fill="#4E79A7"/>
+    <circle cx="287.9" cy="399.97" r="4" fill="#4E79A7"/>
+    <circle cx="358.2" cy="374.28" r="4" fill="#4E79A7"/>
+    <circle cx="428.5" cy="341.25" r="4" fill="#4E79A7"/>
+    <circle cx="498.8" cy="300.88" r="4" fill="#4E79A7"/>
+    <circle cx="569.1" cy="253.17" r="4" fill="#4E79A7"/>
+    <circle cx="639.4" cy="198.12" r="4" fill="#4E79A7"/>
+    <circle cx="709.7" cy="135.73" r="4" fill="#4E79A7"/>
+    <circle cx="780" cy="66" r="4" fill="#4E79A7"/>
+  </g>
+  <line x1="77" y1="433" x2="77" y2="438" stroke="#333333" stroke-width="1"/>
+  <text x="77" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">0</text>
+  <line x1="217.6" y1="433" x2="217.6" y2="438" stroke="#333333" stroke-width="1"/>
+  <text x="217.6" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">2</text>
+  <line x1="358.2" y1="433" x2="358.2" y2="438" stroke="#333333" stroke-width="1"/>
+  <text x="358.2" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">4</text>
+  <line x1="498.8" y1="433" x2="498.8" y2="438" stroke="#333333" stroke-width="1"/>
+  <text x="498.8" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">6</text>
+  <line x1="639.4" y1="433" x2="639.4" y2="438" stroke="#333333" stroke-width="1"/>
+  <text x="639.4" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">8</text>
+  <line x1="780" y1="433" x2="780" y2="438" stroke="#333333" stroke-width="1"/>
+  <text x="780" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">10</text>
+  <line x1="72" y1="433" x2="77" y2="433" stroke="#333333" stroke-width="1"/>
+  <text x="69" y="437" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">0</text>
+  <line x1="72" y1="359.6" x2="77" y2="359.6" stroke="#333333" stroke-width="1"/>
+  <text x="69" y="363.6" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">20</text>
+  <line x1="72" y1="286.2" x2="77" y2="286.2" stroke="#333333" stroke-width="1"/>
+  <text x="69" y="290.2" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">40</text>
+  <line x1="72" y1="212.8" x2="77" y2="212.8" stroke="#333333" stroke-width="1"/>
+  <text x="69" y="216.8" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">60</text>
+  <line x1="72" y1="139.4" x2="77" y2="139.4" stroke="#333333" stroke-width="1"/>
+  <text x="69" y="143.4" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">80</text>
+  <line x1="72" y1="66" x2="77" y2="66" stroke="#333333" stroke-width="1"/>
+  <text x="69" y="70" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">100</text>
+  <text x="428.5" y="56" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="16" fill="#333333" text-anchor="middle">x squared</text>
+  <text x="428.5" y="475" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="middle">x</text>
+  <text x="12" y="249.5" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="middle" transform="rotate(-90,12,249.5)">x^2</text>
+</svg>

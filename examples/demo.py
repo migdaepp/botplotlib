@@ -1,14 +1,17 @@
 """botplotlib — flashy demo.
 
-Run:  uv run python demo.py
+Run:  uv run python examples/demo.py
 Then open the generated SVGs in your browser.
 """
 
 import math
 import random
+from pathlib import Path
 
 import botplotlib as bpl
 from botplotlib.refactor.from_matplotlib import from_matplotlib
+
+OUT = Path(__file__).parent
 
 random.seed(42)
 
@@ -29,7 +32,7 @@ fig_scatter = bpl.scatter(
     x_label="Weight (1000 lbs)",
     y_label="Miles per Gallon",
 )
-fig_scatter.save_svg("demo_scatter.svg")
+fig_scatter.save_svg(OUT / "demo_scatter.svg")
 print("  wrote demo_scatter.svg")
 
 # ---------------------------------------------------------------------------
@@ -52,7 +55,7 @@ fig_line = bpl.line(
     x_label="Month",
     y_label="Revenue ($K)",
 )
-fig_line.save_svg("demo_line.svg")
+fig_line.save_svg(OUT / "demo_line.svg")
 print("  wrote demo_line.svg")
 
 # ---------------------------------------------------------------------------
@@ -61,7 +64,12 @@ print("  wrote demo_line.svg")
 fig_bar = bpl.bar(
     {
         "language": [
-            "Python", "JavaScript", "TypeScript", "Rust", "Go", "Java",
+            "Python",
+            "JavaScript",
+            "TypeScript",
+            "Rust",
+            "Go",
+            "Java",
         ],
         "score": [92, 78, 71, 54, 48, 45],
     },
@@ -71,7 +79,7 @@ fig_bar = bpl.bar(
     x_label="Language",
     y_label="Popularity Score",
 )
-fig_bar.save_svg("demo_bar.svg")
+fig_bar.save_svg(OUT / "demo_bar.svg")
 print("  wrote demo_bar.svg")
 
 # ---------------------------------------------------------------------------
@@ -84,7 +92,7 @@ data_wave = {
     "fn": ["sin(x)"] * len(sine_x) + ["cos(x)"] * len(sine_x),
 }
 
-for theme_name in ("default", "bluesky", "substack", "print"):
+for theme_name in ("default", "bluesky", "substack", "print", "pdf"):
     fig = bpl.line(
         data_wave,
         x="x",
@@ -96,13 +104,13 @@ for theme_name in ("default", "bluesky", "substack", "print"):
         y_label="f(x)",
     )
     fname = f"demo_theme_{theme_name}.svg"
-    fig.save_svg(fname)
+    fig.save_svg(OUT / fname)
     print(f"  wrote {fname}")
 
 # ---------------------------------------------------------------------------
 # 5. Matplotlib auto-refactor demo
 # ---------------------------------------------------------------------------
-MPL_SCRIPT = '''
+MPL_SCRIPT = """
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -115,11 +123,11 @@ plt.title("x squared")
 plt.xlabel("x")
 plt.ylabel("x^2")
 plt.savefig("old_plot.png")
-'''
+"""
 
 spec = from_matplotlib(MPL_SCRIPT)
 fig_refactor = bpl.render(spec)
-fig_refactor.save_svg("demo_refactored.svg")
+fig_refactor.save_svg(OUT / "demo_refactored.svg")
 print("  wrote demo_refactored.svg  (auto-converted from matplotlib!)")
 
 # ---------------------------------------------------------------------------

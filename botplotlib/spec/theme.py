@@ -92,12 +92,38 @@ THEME_PRINT = ThemeSpec(
     ],
 )
 
+THEME_PDF = ThemeSpec(
+    font_family="Georgia, Times New Roman, serif",
+    font_name="arial",  # still use arial metrics for layout
+    text_color="#2D2D2D",
+    axis_color="#2D2D2D",
+    grid_color="#E0E0E0",
+    show_y_axis=True,
+    axis_stroke_width=0.75,
+    point_radius=3.5,
+    line_width=1.8,
+    palette=[
+        "#2B5B8A",  # navy
+        "#B5342E",  # brick red
+        "#2D7A46",  # forest green
+        "#7B4EA3",  # purple
+        "#8B6914",  # dark gold
+        "#1A7A7A",  # teal
+        "#5A5A8A",  # slate blue
+        "#8B5A2B",  # brown
+        "#A03050",  # crimson
+        "#555555",  # gray
+    ],
+)
+
 THEME_REGISTRY: dict[str, ThemeSpec] = {
     "default": DEFAULT_THEME,
     "bluesky": THEME_BLUESKY,
     "social": THEME_BLUESKY,  # alias
     "substack": THEME_SUBSTACK,
     "print": THEME_PRINT,
+    "pdf": THEME_PDF,
+    "arxiv": THEME_PDF,  # alias
 }
 
 
