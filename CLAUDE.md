@@ -23,7 +23,7 @@ uv run black --check .                  # format check
 
 ## Architecture
 
-Spec → Compile → Render pipeline. See AGENTS.md for the full module map and data input protocol.
+Spec → Compile → Render pipeline with two paths in: Python convenience API (`bpl.scatter(...)`) and direct PlotSpec JSON generation by agents. Both converge at the PlotSpec boundary. See AGENTS.md for the full dual-path diagram, module map, and data input protocol.
 
 - **Public API** (`botplotlib/_api.py`, `__init__.py`): `scatter()`, `line()`, `bar()`, `plot()`, `render()` — all return `Figure`
 - **Figure** (`botplotlib/figure.py`): wraps PlotSpec, provides `to_svg()`, `save_svg()`, `save_png()`, `_repr_svg_()` for Jupyter
@@ -33,6 +33,18 @@ Spec → Compile → Render pipeline. See AGENTS.md for the full module map and 
 - **Fonts** (`botplotlib/_fonts/`): per-character width tables (arial.json, inter.json) for text measurement without external deps
 - **Colors** (`botplotlib/_colors/`): WCAG-compliant 10-color palette, contrast ratio computation
 - **Refactor** (`botplotlib/refactor/`): AST-based matplotlib → PlotSpec converter
+
+## AI-Native Design Principles
+
+All development decisions should be evaluated against these principles (detailed rationale in AGENTS.md, research context in `research/agent-architecture.pdf`):
+
+1. **Token efficiency** — minimize the tokens needed to produce a correct plot. Fewer tokens = fewer failure points for LLMs.
+2. **Proposal / execution split** — PlotSpec is a declarative proposal; the compiler is a deterministic executor. LLMs should never reason about pixels, font metrics, or contrast ratios.
+3. **Structural quality gates** — WCAG contrast checks are compiler errors, not warnings. Accessibility is enforced by the system, not by review.
+4. **Beautiful defaults** — themes must produce publication-ready output with zero configuration. Visual iteration is possible but expensive; good defaults mean the first render is usually final.
+5. **Accept any data format** — `normalize_data()` handles the common cases so agents don't have to convert.
+6. **PlotSpec as portable artifact** — the spec is JSON-serializable, agent-exchangeable, diffable, and versionable.
+7. **Refactor as paradigm bridge** — `from_matplotlib.py` translates imperative code into declarative specs.
 
 ## Claude-Specific Guidance
 

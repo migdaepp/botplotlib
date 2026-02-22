@@ -6,14 +6,19 @@ botplotlib is an AI-native Python plotting library that produces publication-qua
 
 ## Why botplotlib?
 
-The February 2026 Matplotlib agent incident showed what happens when AI tools struggle with complex, stateful APIs: confusing output, wasted tokens, frustrated users. botplotlib takes a different approach:
+Matplotlib was designed for humans writing code at keyboards. botplotlib is designed for the way people actually make plots now: you describe what you want, your AI partner writes the code, and you evaluate the result.
 
-- **AI-native API**: one function call per plot, no figure/axes juggling
-- **Beautiful by default**: clean, modern theme with WCAG-compliant colors
-- **Matplotlib-free**: renders directly to SVG with zero heavy dependencies
-- **A cyborg open-source project**: proving that human+AI collaboration can build something genuinely excellent
+That cyborg workflow needs a different API — one that's correct on the first try, beautiful by default, accessible by construction, and token-efficient by design.
 
-This project embodies Donna Haraway's cyborg framework — we reject the human/machine binary. Every contribution is a cyborg contribution.
+- **One line, one plot**: `bpl.scatter(data, x="a", y="b", theme="bluesky")` — no figure/axes juggling, no style boilerplate
+- **Beautiful by default**: platform-specific themes (Bluesky, Substack, print) produce publication-ready output with zero configuration
+- **Accessible by construction**: WCAG contrast validation is a compiler-level gate, not a warning — the system won't produce an inaccessible plot
+- **Token-efficient**: a matplotlib scatter plot with decent styling is 15–25 lines; botplotlib is 1. Fewer tokens means fewer places an LLM can go wrong
+- **Declarative spec**: the PlotSpec is a JSON-serializable Pydantic model that any LLM can generate, any human can inspect, and any agent can modify
+- **Matplotlib-free**: hand-rolled SVG renderer (~230 lines), no heavy C dependencies
+- **Matplotlib bridge**: the refactor module translates existing matplotlib scripts into clean PlotSpecs — see what your old code *means* in a form both humans and machines can reason about
+
+This project embodies Donna Haraway's cyborg framework — we reject the human/machine binary. The matplotlib maintainers rejected AI contributions. We built a library that makes AI contributions the point.
 
 ## Installation
 
