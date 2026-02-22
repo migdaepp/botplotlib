@@ -111,7 +111,9 @@ Reputation is emergent and computed, not granted by a human authority.
 
 ## Community Health: Ecological Maintenance
 
-A healthy ecosystem needs mechanisms for growth, maintenance, and graceful decay. Without these, the registry becomes a swamp of abandoned code.
+A healthy ecosystem needs mechanisms for growth, maintenance, and graceful decay. Without these, the registry becomes a swamp of abandoned code. Note that this section draws on ideas from Robin Wall Kimmerer (braiding sweetgrass), micro
+
+Because language creates reality, framing our architecture around "zero-trust" and adversarial arenas breeds a fortress mentality that stifles open-source joy and collaboration. To build a thriving, pro-community ecosystem, we must shift from defense to symbiosis. To do this we draw on ideas from mycorrhizal networks and Robin Wall Kimmerer (braiding sweetgrass), research on gift economies and commons management (elinor ostrom), and theoretical and empirical work on Wikipedia and online community (nancy baym).
 
 ### Composting
 
@@ -127,31 +129,13 @@ If a node in the network submits obfuscated code, embeds malicious payloads, or 
 
 The goal: a system where the default is open and frictionless, and the security response is localized to the specific threat. The communitarian majority should never have to adopt high-friction workflows because of a minority of bad actors.
 
-## What This Means for the Codebase Today
-
-The current codebase needs these changes to support the extensibility model:
-
-1. **Geom registry:** Replace the hardcoded `if geom == "scatter"` / `if geom == "bar"` dispatch in `compiler.py` with a registry that maps geom names to handler functions.
-
-2. **Primitive types:** Formalize the geometric primitives (`CompiledPoint`, `CompiledLine`, `CompiledBar`, `CompiledText` are a good start, but need `CompiledPath` for arbitrary shapes like Sankey curves).
-
-3. **Renderer generalization:** The renderer currently iterates `compiled.points`, `compiled.lines`, `compiled.bars` separately. It should iterate a unified list of primitives so new geom types don't require renderer changes.
-
-4. **LayerSpec.geom as open string:** Change from `Literal["scatter", "line", "bar"]` to `str`, validated against the geom registry at compile time.
-
-5. **Recipe in AGENTS.md:** Document the step-by-step for adding a new geom so any agent can follow it.
-
-6. **First community geom:** Charlie's waterfall chart is the perfect test case. Build it using the new plugin architecture to prove the pattern works.
-
 ## Aspirational: The Decentralized Registry
 
 Long-term, the geom ecosystem doesn't need to live in one monolithic repo. Imagine:
 
 - A user asks for a Sankey diagram
 - Their agent searches a public geom registry
-- If a highly-rated Sankey geom exists, it pulls it down and applies it
+- If a high-reputation Sankey geom exists, it pulls it down and applies it
 - If none exists, the agent synthesizes one locally, uses it, and — if the user is happy — publishes it back to the registry
 
 The library expands in real time as users encounter new needs. The registry is the mycorrhizal network: nutrients (geoms) flow to where they're needed, trust builds through use, and the system self-organizes without central planning.
-
-This is future work. The immediate priority is the geom protocol, the registry, and the recipe — the foundation that makes everything else possible.
