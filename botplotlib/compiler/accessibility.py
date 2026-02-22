@@ -7,7 +7,7 @@ gate from the Cyborg Social Contract.
 
 from __future__ import annotations
 
-from botplotlib._colors.palettes import contrast_ratio, relative_luminance
+from botplotlib._colors.palettes import contrast_ratio
 
 
 class ContrastError(Exception):
@@ -49,7 +49,8 @@ def check_text_contrast(
         raise ContrastError(
             f"Text color {text_color} on background {background_color} "
             f"has contrast ratio {ratio:.2f}:1, which is below the "
-            f"WCAG AA {'large text' if font_size >= LARGE_TEXT_THRESHOLD else 'normal text'} "
+            f"WCAG AA "
+            f"{'large text' if font_size >= LARGE_TEXT_THRESHOLD else 'normal text'} "
             f"minimum of {threshold}:1."
         )
 

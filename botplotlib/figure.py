@@ -9,7 +9,7 @@ from pathlib import Path
 
 from botplotlib.compiler.compiler import CompiledPlot, compile_spec
 from botplotlib.render.svg_renderer import render_svg
-from botplotlib.spec.models import DataSpec, LayerSpec, PlotSpec
+from botplotlib.spec.models import LayerSpec, PlotSpec
 
 
 class Figure:
@@ -79,25 +79,19 @@ class Figure:
         self._spec.labels.title = value
         self._invalidate()
 
-    def add_scatter(
-        self, x: str, y: str, color: str | None = None
-    ) -> Figure:
+    def add_scatter(self, x: str, y: str, color: str | None = None) -> Figure:
         """Add a scatter layer."""
         self._spec.layers.append(LayerSpec(geom="scatter", x=x, y=y, color=color))
         self._invalidate()
         return self
 
-    def add_line(
-        self, x: str, y: str, color: str | None = None
-    ) -> Figure:
+    def add_line(self, x: str, y: str, color: str | None = None) -> Figure:
         """Add a line layer."""
         self._spec.layers.append(LayerSpec(geom="line", x=x, y=y, color=color))
         self._invalidate()
         return self
 
-    def add_bar(
-        self, x: str, y: str, color: str | None = None
-    ) -> Figure:
+    def add_bar(self, x: str, y: str, color: str | None = None) -> Figure:
         """Add a bar layer."""
         self._spec.layers.append(LayerSpec(geom="bar", x=x, y=y, color=color))
         self._invalidate()

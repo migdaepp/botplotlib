@@ -80,9 +80,17 @@ def scatter(
         Theme name (default, bluesky, substack, print).
     """
     return _build_figure(
-        data, x, y, "scatter",
-        color=color, title=title, x_label=x_label, y_label=y_label,
-        theme=theme, width=width, height=height,
+        data,
+        x,
+        y,
+        "scatter",
+        color=color,
+        title=title,
+        x_label=x_label,
+        y_label=y_label,
+        theme=theme,
+        width=width,
+        height=height,
     )
 
 
@@ -117,9 +125,17 @@ def line(
         Theme name (default, bluesky, substack, print).
     """
     return _build_figure(
-        data, x, y, "line",
-        color=color, title=title, x_label=x_label, y_label=y_label,
-        theme=theme, width=width, height=height,
+        data,
+        x,
+        y,
+        "line",
+        color=color,
+        title=title,
+        x_label=x_label,
+        y_label=y_label,
+        theme=theme,
+        width=width,
+        height=height,
     )
 
 
@@ -154,9 +170,17 @@ def bar(
         Theme name (default, bluesky, substack, print).
     """
     return _build_figure(
-        data, x, y, "bar",
-        color=color, title=title, x_label=x_label, y_label=y_label,
-        theme=theme, width=width, height=height,
+        data,
+        x,
+        y,
+        "bar",
+        color=color,
+        title=title,
+        x_label=x_label,
+        y_label=y_label,
+        theme=theme,
+        width=width,
+        height=height,
     )
 
 

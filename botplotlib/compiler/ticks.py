@@ -56,9 +56,7 @@ def nice_num(x: float, round_down: bool = False) -> float:
     return nice * (10**exp)
 
 
-def nice_ticks(
-    data_min: float, data_max: float, max_ticks: int = 7
-) -> list[float]:
+def nice_ticks(data_min: float, data_max: float, max_ticks: int = 7) -> list[float]:
     """Generate nicely spaced tick values covering *data_min* .. *data_max*.
 
     Uses Heckbert's algorithm to choose a "nice" tick spacing, then

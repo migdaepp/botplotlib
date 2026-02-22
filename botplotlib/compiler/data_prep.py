@@ -86,9 +86,7 @@ def normalize_data(data: Any) -> dict[str, list]:
 
     # 3. Polars DataFrame
     if hasattr(data, "get_column") and hasattr(data, "columns"):
-        return {
-            col: data.get_column(col).to_list() for col in data.columns
-        }
+        return {col: data.get_column(col).to_list() for col in data.columns}
 
     # 4. Pandas DataFrame
     if hasattr(data, "to_dict") and hasattr(data, "dtypes"):
@@ -96,9 +94,7 @@ def normalize_data(data: Any) -> dict[str, list]:
 
     # 5. Arrow RecordBatch/Table
     if hasattr(data, "column_names") and hasattr(data, "column"):
-        return {
-            name: data.column(name).to_pylist() for name in data.column_names
-        }
+        return {name: data.column(name).to_pylist() for name in data.column_names}
 
     # 6. Generator/iterator — materialize then transpose
     if isinstance(data, (types.GeneratorType,)) or (

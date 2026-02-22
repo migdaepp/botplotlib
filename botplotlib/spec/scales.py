@@ -1,9 +1,12 @@
 from __future__ import annotations
+
 from dataclasses import dataclass
+
 
 @dataclass
 class LinearScale:
     """Maps numeric values linearly to pixel range."""
+
     data_min: float
     data_max: float
     pixel_min: float
@@ -23,9 +26,11 @@ class LinearScale:
         t = (pixel - self.pixel_min) / (self.pixel_max - self.pixel_min)
         return self.data_min + t * (self.data_max - self.data_min)
 
+
 @dataclass
 class CategoricalScale:
     """Maps categorical values to evenly-spaced pixel positions."""
+
     categories: list[str]
     pixel_min: float
     pixel_max: float

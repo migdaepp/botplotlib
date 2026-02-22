@@ -8,16 +8,15 @@ from __future__ import annotations
 
 from typing import Optional
 
-
 # ---------------------------------------------------------------------------
 # XML-safety helpers
 # ---------------------------------------------------------------------------
 
+
 def _escape_attr(value: str) -> str:
     """Escape a string for use inside an XML attribute value (double-quoted)."""
     return (
-        value
-        .replace("&", "&amp;")
+        value.replace("&", "&amp;")
         .replace("<", "&lt;")
         .replace(">", "&gt;")
         .replace('"', "&quot;")
@@ -26,12 +25,7 @@ def _escape_attr(value: str) -> str:
 
 def _escape_text(value: str) -> str:
     """Escape a string for use as XML text content."""
-    return (
-        value
-        .replace("&", "&amp;")
-        .replace("<", "&lt;")
-        .replace(">", "&gt;")
-    )
+    return value.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
 def _to_kebab(name: str) -> str:
@@ -50,6 +44,7 @@ def _to_kebab(name: str) -> str:
 # ---------------------------------------------------------------------------
 # Core element
 # ---------------------------------------------------------------------------
+
 
 class SvgElement:
     """A single SVG/XML element with attributes, children, and optional text."""
@@ -108,6 +103,7 @@ class SvgElement:
 # SVG document (root <svg> element)
 # ---------------------------------------------------------------------------
 
+
 class SvgDocument(SvgElement):
     """Root ``<svg>`` element with convenience helpers for defs & clip paths."""
 
@@ -162,6 +158,7 @@ class SvgDocument(SvgElement):
 # Private formatting helpers
 # ---------------------------------------------------------------------------
 
+
 def _format_attr_value(value: object) -> str:
     """Coerce an attribute value to its string representation."""
     if isinstance(value, float):
@@ -182,6 +179,7 @@ def _render_attrs(attrs: dict[str, str]) -> str:
 # Convenience factory functions
 # ---------------------------------------------------------------------------
 
+
 def rect(
     x: float, y: float, width: float, height: float, **attrs: object
 ) -> SvgElement:
@@ -194,9 +192,7 @@ def circle(cx: float, cy: float, r: float, **attrs: object) -> SvgElement:
     return SvgElement("circle", cx=cx, cy=cy, r=r, **attrs)
 
 
-def line(
-    x1: float, y1: float, x2: float, y2: float, **attrs: object
-) -> SvgElement:
+def line(x1: float, y1: float, x2: float, y2: float, **attrs: object) -> SvgElement:
     """Create a ``<line>`` element."""
     return SvgElement("line", x1=x1, y1=y1, x2=x2, y2=y2, **attrs)
 
@@ -218,9 +214,7 @@ def path(d: str, **attrs: object) -> SvgElement:
     return SvgElement("path", d=d, **attrs)
 
 
-def polyline(
-    points: list[tuple[float, float]], **attrs: object
-) -> SvgElement:
+def polyline(points: list[tuple[float, float]], **attrs: object) -> SvgElement:
     """Create a ``<polyline>`` element.
 
     *points* is a list of ``(x, y)`` tuples.

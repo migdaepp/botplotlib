@@ -46,6 +46,7 @@ class ThemeSpec(BaseModel):
     margin_bottom: float = 50
     margin_left: float = 60
 
+
 # Default theme
 DEFAULT_THEME = ThemeSpec()
 
@@ -78,8 +79,16 @@ THEME_PRINT = ThemeSpec(
     point_radius=3.0,
     line_width=1.5,
     palette=[
-        "#000000", "#555555", "#888888", "#AAAAAA", "#333333",
-        "#666666", "#999999", "#BBBBBB", "#444444", "#777777",
+        "#000000",
+        "#555555",
+        "#888888",
+        "#AAAAAA",
+        "#333333",
+        "#666666",
+        "#999999",
+        "#BBBBBB",
+        "#444444",
+        "#777777",
     ],
 )
 
@@ -90,6 +99,7 @@ THEME_REGISTRY: dict[str, ThemeSpec] = {
     "substack": THEME_SUBSTACK,
     "print": THEME_PRINT,
 }
+
 
 def resolve_theme(name: str) -> ThemeSpec:
     """Look up a theme by name. Raises ValueError for unknown themes."""

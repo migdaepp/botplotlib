@@ -41,29 +41,40 @@ def render_svg(compiled: CompiledPlot) -> str:
 
     # Bars (behind points/lines)
     for bar in compiled.bars:
-        plot_group.add(rect(
-            bar.px, bar.py, bar.bar_width, bar.bar_height,
-            fill=bar.color,
-        ))
+        plot_group.add(
+            rect(
+                bar.px,
+                bar.py,
+                bar.bar_width,
+                bar.bar_height,
+                fill=bar.color,
+            )
+        )
 
     # Lines
     for ln in compiled.lines:
         if len(ln.points) >= 2:
-            plot_group.add(polyline(
-                ln.points,
-                fill="none",
-                stroke=ln.color,
-                stroke_width=ln.width,
-                stroke_linejoin="round",
-                stroke_linecap="round",
-            ))
+            plot_group.add(
+                polyline(
+                    ln.points,
+                    fill="none",
+                    stroke=ln.color,
+                    stroke_width=ln.width,
+                    stroke_linejoin="round",
+                    stroke_linecap="round",
+                )
+            )
 
     # Points (on top)
     for pt in compiled.points:
-        plot_group.add(circle(
-            pt.px, pt.py, pt.radius,
-            fill=pt.color,
-        ))
+        plot_group.add(
+            circle(
+                pt.px,
+                pt.py,
+                pt.radius,
+                fill=pt.color,
+            )
+        )
 
     doc.add(plot_group)
 
@@ -79,9 +90,7 @@ def render_svg(compiled: CompiledPlot) -> str:
             "text_anchor": txt.anchor,
         }
         if txt.rotation != 0:
-            attrs["transform"] = (
-                f"rotate({txt.rotation},{txt.x},{txt.y})"
-            )
+            attrs["transform"] = f"rotate({txt.rotation},{txt.x},{txt.y})"
         doc.add(text(txt.text, txt.x, txt.y, **attrs))
 
     # Legend
@@ -99,20 +108,30 @@ def _render_grid(doc: SvgDocument, compiled: CompiledPlot) -> None:
     if theme.show_y_grid:
         for tick in compiled.y_ticks:
             if pa.y <= tick.pixel_pos <= pa.bottom:
-                doc.add(line(
-                    pa.x, tick.pixel_pos, pa.right, tick.pixel_pos,
-                    stroke=theme.grid_color,
-                    stroke_width=1,
-                ))
+                doc.add(
+                    line(
+                        pa.x,
+                        tick.pixel_pos,
+                        pa.right,
+                        tick.pixel_pos,
+                        stroke=theme.grid_color,
+                        stroke_width=1,
+                    )
+                )
 
     if theme.show_x_grid:
         for tick in compiled.x_ticks:
             if pa.x <= tick.pixel_pos <= pa.right:
-                doc.add(line(
-                    tick.pixel_pos, pa.y, tick.pixel_pos, pa.bottom,
-                    stroke=theme.grid_color,
-                    stroke_width=1,
-                ))
+                doc.add(
+                    line(
+                        tick.pixel_pos,
+                        pa.y,
+                        tick.pixel_pos,
+                        pa.bottom,
+                        stroke=theme.grid_color,
+                        stroke_width=1,
+                    )
+                )
 
 
 def _render_axes(doc: SvgDocument, compiled: CompiledPlot) -> None:
@@ -121,18 +140,28 @@ def _render_axes(doc: SvgDocument, compiled: CompiledPlot) -> None:
     pa = compiled.plot_area
 
     if theme.show_x_axis:
-        doc.add(line(
-            pa.x, pa.bottom, pa.right, pa.bottom,
-            stroke=theme.axis_color,
-            stroke_width=theme.axis_stroke_width,
-        ))
+        doc.add(
+            line(
+                pa.x,
+                pa.bottom,
+                pa.right,
+                pa.bottom,
+                stroke=theme.axis_color,
+                stroke_width=theme.axis_stroke_width,
+            )
+        )
 
     if theme.show_y_axis:
-        doc.add(line(
-            pa.x, pa.y, pa.x, pa.bottom,
-            stroke=theme.axis_color,
-            stroke_width=theme.axis_stroke_width,
-        ))
+        doc.add(
+            line(
+                pa.x,
+                pa.y,
+                pa.x,
+                pa.bottom,
+                stroke=theme.axis_color,
+                stroke_width=theme.axis_stroke_width,
+            )
+        )
 
 
 def _render_ticks(doc: SvgDocument, compiled: CompiledPlot) -> None:
@@ -142,38 +171,54 @@ def _render_ticks(doc: SvgDocument, compiled: CompiledPlot) -> None:
 
     for tick in compiled.x_ticks:
         # Tick mark
-        doc.add(line(
-            tick.pixel_pos, pa.bottom,
-            tick.pixel_pos, pa.bottom + 5,
-            stroke=theme.axis_color,
-            stroke_width=theme.axis_stroke_width,
-        ))
+        doc.add(
+            line(
+                tick.pixel_pos,
+                pa.bottom,
+                tick.pixel_pos,
+                pa.bottom + 5,
+                stroke=theme.axis_color,
+                stroke_width=theme.axis_stroke_width,
+            )
+        )
         # Label
-        doc.add(text(
-            tick.label, tick.pixel_pos, pa.bottom + 18,
-            font_family=theme.font_family,
-            font_size=theme.tick_font_size,
-            fill=theme.text_color,
-            text_anchor="middle",
-        ))
+        doc.add(
+            text(
+                tick.label,
+                tick.pixel_pos,
+                pa.bottom + 18,
+                font_family=theme.font_family,
+                font_size=theme.tick_font_size,
+                fill=theme.text_color,
+                text_anchor="middle",
+            )
+        )
 
     for tick in compiled.y_ticks:
         if pa.y <= tick.pixel_pos <= pa.bottom:
             # Tick mark
-            doc.add(line(
-                pa.x - 5, tick.pixel_pos,
-                pa.x, tick.pixel_pos,
-                stroke=theme.axis_color,
-                stroke_width=theme.axis_stroke_width,
-            ))
+            doc.add(
+                line(
+                    pa.x - 5,
+                    tick.pixel_pos,
+                    pa.x,
+                    tick.pixel_pos,
+                    stroke=theme.axis_color,
+                    stroke_width=theme.axis_stroke_width,
+                )
+            )
             # Label
-            doc.add(text(
-                tick.label, pa.x - 8, tick.pixel_pos + 4,
-                font_family=theme.font_family,
-                font_size=theme.tick_font_size,
-                fill=theme.text_color,
-                text_anchor="end",
-            ))
+            doc.add(
+                text(
+                    tick.label,
+                    pa.x - 8,
+                    tick.pixel_pos + 4,
+                    font_family=theme.font_family,
+                    font_size=theme.tick_font_size,
+                    fill=theme.text_color,
+                    text_anchor="end",
+                )
+            )
 
 
 def _render_legend(doc: SvgDocument, compiled: CompiledPlot) -> None:
@@ -188,11 +233,15 @@ def _render_legend(doc: SvgDocument, compiled: CompiledPlot) -> None:
         # Color swatch
         doc.add(rect(la.x, y_offset - 8, 12, 12, fill=entry.color, rx=2))
         # Label
-        doc.add(text(
-            entry.label, la.x + 18, y_offset + 2,
-            font_family=theme.font_family,
-            font_size=theme.tick_font_size,
-            fill=theme.text_color,
-            text_anchor="start",
-        ))
+        doc.add(
+            text(
+                entry.label,
+                la.x + 18,
+                y_offset + 2,
+                font_family=theme.font_family,
+                font_size=theme.tick_font_size,
+                fill=theme.text_color,
+                text_anchor="start",
+            )
+        )
         y_offset += 22

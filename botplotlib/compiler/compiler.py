@@ -16,9 +16,7 @@ from dataclasses import dataclass, field
 from botplotlib._colors.palettes import assign_colors
 from botplotlib._types import Rect, TickMark
 from botplotlib.compiler.accessibility import validate_theme_accessibility
-from botplotlib.compiler.data_prep import normalize_data
 from botplotlib.compiler.layout import (
-    LayoutResult,
     TextLabel,
     avoid_collisions,
     compute_layout,
@@ -27,7 +25,6 @@ from botplotlib.compiler.ticks import format_tick, nice_ticks
 from botplotlib.spec.models import PlotSpec
 from botplotlib.spec.scales import CategoricalScale, LinearScale
 from botplotlib.spec.theme import ThemeSpec, resolve_theme
-
 
 # ---------------------------------------------------------------------------
 # Compiled geometry types
@@ -176,35 +173,41 @@ def compile_spec(spec: PlotSpec) -> CompiledPlot:
 
     # Add title, axis labels
     if layout.title_pos:
-        compiled.texts.append(CompiledText(
-            text=spec.labels.title or "",
-            x=layout.title_pos[0],
-            y=layout.title_pos[1],
-            font_size=theme.title_font_size,
-            color=theme.text_color,
-            anchor="middle",
-        ))
+        compiled.texts.append(
+            CompiledText(
+                text=spec.labels.title or "",
+                x=layout.title_pos[0],
+                y=layout.title_pos[1],
+                font_size=theme.title_font_size,
+                color=theme.text_color,
+                anchor="middle",
+            )
+        )
 
     if layout.x_label_pos:
-        compiled.texts.append(CompiledText(
-            text=spec.labels.x or "",
-            x=layout.x_label_pos[0],
-            y=layout.x_label_pos[1],
-            font_size=theme.label_font_size,
-            color=theme.text_color,
-            anchor="middle",
-        ))
+        compiled.texts.append(
+            CompiledText(
+                text=spec.labels.x or "",
+                x=layout.x_label_pos[0],
+                y=layout.x_label_pos[1],
+                font_size=theme.label_font_size,
+                color=theme.text_color,
+                anchor="middle",
+            )
+        )
 
     if layout.y_label_pos:
-        compiled.texts.append(CompiledText(
-            text=spec.labels.y or "",
-            x=layout.y_label_pos[0],
-            y=layout.y_label_pos[1],
-            font_size=theme.label_font_size,
-            color=theme.text_color,
-            anchor="middle",
-            rotation=-90,
-        ))
+        compiled.texts.append(
+            CompiledText(
+                text=spec.labels.y or "",
+                x=layout.y_label_pos[0],
+                y=layout.y_label_pos[1],
+                font_size=theme.label_font_size,
+                color=theme.text_color,
+                anchor="middle",
+                rotation=-90,
+            )
+        )
 
     for layer in spec.layers:
         if not data:
@@ -220,14 +223,25 @@ def compile_spec(spec: PlotSpec) -> CompiledPlot:
 
         if layer.geom == "bar":
             _compile_bar_layer(
-                compiled, x_col, y_col, color_col, color_map,
-                theme, plot_area,
+                compiled,
+                x_col,
+                y_col,
+                color_col,
+                color_map,
+                theme,
+                plot_area,
             )
         else:
             # Scatter or line: numeric scales
             _compile_numeric_layer(
-                compiled, layer.geom, x_col, y_col, color_col,
-                color_map, theme, plot_area,
+                compiled,
+                layer.geom,
+                x_col,
+                y_col,
+                color_col,
+                color_map,
+                theme,
+                plot_area,
             )
 
     # Add legend entries
@@ -298,13 +312,15 @@ def _compile_numeric_layer(
                 if color_col
                 else default_color
             )
-            compiled.points.append(CompiledPoint(
-                px=x_scale.map(x_vals[i]),
-                py=y_scale.map(y_vals[i]),
-                color=color,
-                radius=theme.point_radius,
-                group=color_col[i] if color_col else None,
-            ))
+            compiled.points.append(
+                CompiledPoint(
+                    px=x_scale.map(x_vals[i]),
+                    py=y_scale.map(y_vals[i]),
+                    color=color,
+                    radius=theme.point_radius,
+                    group=color_col[i] if color_col else None,
+                )
+            )
 
     elif geom == "line":
         if color_col:
@@ -314,27 +330,33 @@ def _compile_numeric_layer(
                 g = color_col[i]
                 if g not in groups:
                     groups[g] = []
-                groups[g].append((
-                    x_scale.map(x_vals[i]),
-                    y_scale.map(y_vals[i]),
-                ))
+                groups[g].append(
+                    (
+                        x_scale.map(x_vals[i]),
+                        y_scale.map(y_vals[i]),
+                    )
+                )
             for g, pts in groups.items():
-                compiled.lines.append(CompiledLine(
-                    points=pts,
-                    color=color_map.get(g, default_color),
-                    width=theme.line_width,
-                    group=g,
-                ))
+                compiled.lines.append(
+                    CompiledLine(
+                        points=pts,
+                        color=color_map.get(g, default_color),
+                        width=theme.line_width,
+                        group=g,
+                    )
+                )
         else:
             pts = [
                 (x_scale.map(x_vals[i]), y_scale.map(y_vals[i]))
                 for i in range(min(len(x_vals), len(y_vals)))
             ]
-            compiled.lines.append(CompiledLine(
-                points=pts,
-                color=default_color,
-                width=theme.line_width,
-            ))
+            compiled.lines.append(
+                CompiledLine(
+                    points=pts,
+                    color=default_color,
+                    width=theme.line_width,
+                )
+            )
 
 
 def _compile_bar_layer(
@@ -401,18 +423,18 @@ def _compile_bar_layer(
         y_px = y_scale.map(y_vals[i])
         baseline = y_scale.map(0)
         color = (
-            color_map.get(color_col[i], default_color)
-            if color_col
-            else default_color
+            color_map.get(color_col[i], default_color) if color_col else default_color
         )
-        compiled.bars.append(CompiledBar(
-            px=cx - bar_width / 2,
-            py=min(y_px, baseline),
-            bar_width=bar_width,
-            bar_height=abs(baseline - y_px),
-            color=color,
-            group=color_col[i] if color_col else None,
-        ))
+        compiled.bars.append(
+            CompiledBar(
+                px=cx - bar_width / 2,
+                py=min(y_px, baseline),
+                bar_width=bar_width,
+                bar_height=abs(baseline - y_px),
+                color=color,
+                group=color_col[i] if color_col else None,
+            )
+        )
 
 
 def _avoid_tick_collisions(

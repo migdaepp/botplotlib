@@ -9,9 +9,9 @@ Handles:
 
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 
-from botplotlib._fonts.metrics import text_bbox, text_height, text_width
+from botplotlib._fonts.metrics import text_bbox
 from botplotlib._types import Rect
 
 
@@ -134,8 +134,12 @@ class TextLabel:
     def bbox(self) -> Rect:
         """Compute bounding box for this label."""
         return text_bbox(
-            self.text, self.font_size, self.x, self.y,
-            font_name=self.font_name, anchor=self.anchor,
+            self.text,
+            self.font_size,
+            self.x,
+            self.y,
+            font_name=self.font_name,
+            anchor=self.anchor,
         )
 
 
@@ -155,8 +159,11 @@ def avoid_collisions(
     # Work with mutable copies
     result = [
         TextLabel(
-            text=lbl.text, x=lbl.x, y=lbl.y,
-            font_size=lbl.font_size, font_name=lbl.font_name,
+            text=lbl.text,
+            x=lbl.x,
+            y=lbl.y,
+            font_size=lbl.font_size,
+            font_name=lbl.font_name,
             anchor=lbl.anchor,
         )
         for lbl in labels
