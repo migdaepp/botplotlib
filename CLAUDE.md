@@ -25,9 +25,14 @@ uv run black --check .                  # format check
 
 Spec → Compile → Render pipeline. See AGENTS.md for the full module map and data input protocol.
 
-- **Spec layer** (`botplotlib/spec/`): Pydantic models (PlotSpec, LayerSpec, ThemeSpec)
-- **Compiler** (`botplotlib/compiler/`): resolves scales, ticks, layout, accessibility checks
-- **Renderer** (`botplotlib/render/`): SVG builder and renderer, optional PNG via CairoSVG
+- **Public API** (`botplotlib/_api.py`, `__init__.py`): `scatter()`, `line()`, `bar()`, `plot()`, `render()` — all return `Figure`
+- **Figure** (`botplotlib/figure.py`): wraps PlotSpec, provides `to_svg()`, `save_svg()`, `save_png()`, `_repr_svg_()` for Jupyter
+- **Spec layer** (`botplotlib/spec/`): Pydantic models (PlotSpec, LayerSpec, ThemeSpec, scales)
+- **Compiler** (`botplotlib/compiler/`): resolves theme → accessibility gate → data normalization → scales/ticks → layout → positioned geometry
+- **Renderer** (`botplotlib/render/`): hand-rolled SVG builder (~230 lines), SVG renderer, optional PNG via CairoSVG
+- **Fonts** (`botplotlib/_fonts/`): per-character width tables (arial.json, inter.json) for text measurement without external deps
+- **Colors** (`botplotlib/_colors/`): WCAG-compliant 10-color palette, contrast ratio computation
+- **Refactor** (`botplotlib/refactor/`): AST-based matplotlib → PlotSpec converter
 
 ## Claude-Specific Guidance
 
