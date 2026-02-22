@@ -1,13 +1,17 @@
 import pytest
-from botplotlib.spec.scales import LinearScale, CategoricalScale
-from botplotlib.spec.theme import (
-    ThemeSpec, DEFAULT_THEME, THEME_REGISTRY, resolve_theme,
-)
 
+from botplotlib.spec.scales import CategoricalScale, LinearScale
+from botplotlib.spec.theme import (
+    DEFAULT_THEME,
+    THEME_REGISTRY,
+    ThemeSpec,
+    resolve_theme,
+)
 
 # ---------------------------------------------------------------------------
 # LinearScale tests
 # ---------------------------------------------------------------------------
+
 
 class TestLinearScale:
     def test_map_endpoints(self):
@@ -44,6 +48,7 @@ class TestLinearScale:
 # CategoricalScale tests
 # ---------------------------------------------------------------------------
 
+
 class TestCategoricalScale:
     def test_map_returns_band_center(self):
         """Each category maps to the center of its band."""
@@ -56,7 +61,9 @@ class TestCategoricalScale:
 
     def test_band_width(self):
         """band_width divides pixel range evenly among categories."""
-        scale = CategoricalScale(categories=["x", "y", "z", "w"], pixel_min=0, pixel_max=400)
+        scale = CategoricalScale(
+            categories=["x", "y", "z", "w"], pixel_min=0, pixel_max=400
+        )
         assert scale.band_width == pytest.approx(100.0)
 
     def test_map_unknown_category_raises(self):
@@ -69,6 +76,7 @@ class TestCategoricalScale:
 # ---------------------------------------------------------------------------
 # ThemeSpec / theme registry tests
 # ---------------------------------------------------------------------------
+
 
 class TestThemeSpec:
     def test_default_theme_values(self):

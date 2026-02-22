@@ -135,3 +135,21 @@ class CompiledPlot:
         elif isinstance(prim, CompiledText):
             self.texts.append(prim)
         # CompiledPath goes only in primitives (renderer generalization handles it)
+
+
+# ---------------------------------------------------------------------------
+# Z-order for rendering
+# ---------------------------------------------------------------------------
+
+# Lower number = rendered first (further back)
+_Z_ORDER: dict[type, int] = {
+    CompiledBar: 0,
+    CompiledPath: 1,
+    CompiledLine: 2,
+    CompiledPoint: 3,
+}
+
+
+def z_order_key(primitive: Primitive) -> int:
+    """Return the z-order sort key for a primitive."""
+    return _Z_ORDER.get(type(primitive), 99)

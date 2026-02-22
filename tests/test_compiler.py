@@ -2,8 +2,6 @@
 
 from __future__ import annotations
 
-import pytest
-
 from botplotlib.compiler.compiler import CompiledPlot, compile_spec
 from botplotlib.spec.models import (
     DataSpec,
@@ -11,16 +9,17 @@ from botplotlib.spec.models import (
     LayerSpec,
     LegendSpec,
     PlotSpec,
-    SizeSpec,
 )
 
 
 def _make_scatter_spec() -> PlotSpec:
     return PlotSpec(
-        data=DataSpec(columns={
-            "x": [1, 2, 3, 4, 5],
-            "y": [2, 4, 1, 5, 3],
-        }),
+        data=DataSpec(
+            columns={
+                "x": [1, 2, 3, 4, 5],
+                "y": [2, 4, 1, 5, 3],
+            }
+        ),
         layers=[LayerSpec(geom="scatter", x="x", y="y")],
         labels=LabelsSpec(title="Test Scatter"),
     )
@@ -28,10 +27,12 @@ def _make_scatter_spec() -> PlotSpec:
 
 def _make_line_spec() -> PlotSpec:
     return PlotSpec(
-        data=DataSpec(columns={
-            "x": [1, 2, 3, 4],
-            "y": [10, 20, 15, 25],
-        }),
+        data=DataSpec(
+            columns={
+                "x": [1, 2, 3, 4],
+                "y": [10, 20, 15, 25],
+            }
+        ),
         layers=[LayerSpec(geom="line", x="x", y="y")],
         labels=LabelsSpec(title="Test Line"),
     )
@@ -39,10 +40,12 @@ def _make_line_spec() -> PlotSpec:
 
 def _make_bar_spec() -> PlotSpec:
     return PlotSpec(
-        data=DataSpec(columns={
-            "category": ["A", "B", "C", "D"],
-            "value": [23, 17, 35, 12],
-        }),
+        data=DataSpec(
+            columns={
+                "category": ["A", "B", "C", "D"],
+                "value": [23, 17, 35, 12],
+            }
+        ),
         layers=[LayerSpec(geom="bar", x="category", y="value")],
         labels=LabelsSpec(title="Test Bar"),
     )
@@ -50,11 +53,13 @@ def _make_bar_spec() -> PlotSpec:
 
 def _make_color_scatter_spec() -> PlotSpec:
     return PlotSpec(
-        data=DataSpec(columns={
-            "x": [1, 2, 3, 4, 5, 6],
-            "y": [2, 4, 1, 5, 3, 6],
-            "g": ["A", "A", "A", "B", "B", "B"],
-        }),
+        data=DataSpec(
+            columns={
+                "x": [1, 2, 3, 4, 5, 6],
+                "y": [2, 4, 1, 5, 3, 6],
+                "g": ["A", "A", "A", "B", "B", "B"],
+            }
+        ),
         layers=[LayerSpec(geom="scatter", x="x", y="y", color="g")],
         labels=LabelsSpec(title="Scatter with Color"),
         legend=LegendSpec(show=True),

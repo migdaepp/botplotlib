@@ -15,7 +15,8 @@ class TestScatter:
     def test_basic_scatter(self) -> None:
         fig = bpl.scatter(
             {"x": [1, 2, 3], "y": [4, 5, 6]},
-            x="x", y="y",
+            x="x",
+            y="y",
         )
         assert isinstance(fig, Figure)
         svg = fig.to_svg()
@@ -24,7 +25,8 @@ class TestScatter:
     def test_scatter_with_title(self) -> None:
         fig = bpl.scatter(
             {"x": [1, 2, 3], "y": [4, 5, 6]},
-            x="x", y="y",
+            x="x",
+            y="y",
             title="My Scatter",
         )
         assert "My Scatter" in fig.to_svg()
@@ -32,7 +34,9 @@ class TestScatter:
     def test_scatter_with_color(self) -> None:
         fig = bpl.scatter(
             {"x": [1, 2, 3], "y": [4, 5, 6], "g": ["A", "A", "B"]},
-            x="x", y="y", color="g",
+            x="x",
+            y="y",
+            color="g",
         )
         svg = fig.to_svg()
         assert_valid_svg(svg)
@@ -40,7 +44,9 @@ class TestScatter:
     def test_scatter_with_theme(self) -> None:
         fig = bpl.scatter(
             {"x": [1, 2, 3], "y": [4, 5, 6]},
-            x="x", y="y", theme="bluesky",
+            x="x",
+            y="y",
+            theme="bluesky",
         )
         assert_valid_svg(fig.to_svg())
 
@@ -54,7 +60,8 @@ class TestLine:
     def test_basic_line(self) -> None:
         fig = bpl.line(
             {"x": [1, 2, 3, 4], "y": [10, 20, 15, 25]},
-            x="x", y="y",
+            x="x",
+            y="y",
         )
         assert_valid_svg(fig.to_svg())
 
@@ -65,7 +72,9 @@ class TestLine:
                 "y": [10, 20, 15, 25, 8, 18, 12, 22],
                 "g": ["A", "A", "A", "A", "B", "B", "B", "B"],
             },
-            x="x", y="y", color="g",
+            x="x",
+            y="y",
+            color="g",
         )
         assert_valid_svg(fig.to_svg())
 
@@ -74,14 +83,16 @@ class TestBar:
     def test_basic_bar(self) -> None:
         fig = bpl.bar(
             {"category": ["A", "B", "C"], "value": [10, 20, 15]},
-            x="category", y="value",
+            x="category",
+            y="value",
         )
         assert_valid_svg(fig.to_svg())
 
     def test_bar_with_title(self) -> None:
         fig = bpl.bar(
             {"category": ["A", "B", "C"], "value": [10, 20, 15]},
-            x="category", y="value",
+            x="category",
+            y="value",
             title="My Bar Chart",
         )
         assert "My Bar Chart" in fig.to_svg()
@@ -99,7 +110,7 @@ class TestPlot:
 
 class TestRender:
     def test_render_from_spec(self) -> None:
-        from botplotlib.spec.models import DataSpec, LayerSpec, LabelsSpec
+        from botplotlib.spec.models import DataSpec, LabelsSpec, LayerSpec
 
         spec = PlotSpec(
             data=DataSpec(columns={"x": [1, 2, 3], "y": [4, 5, 6]}),
@@ -114,7 +125,8 @@ class TestSaveSvg:
     def test_save_svg_creates_file(self) -> None:
         fig = bpl.scatter(
             {"x": [1, 2, 3], "y": [4, 5, 6]},
-            x="x", y="y",
+            x="x",
+            y="y",
         )
         with tempfile.NamedTemporaryFile(suffix=".svg", delete=False) as f:
             fig.save_svg(f.name)
@@ -127,7 +139,8 @@ class TestReprSvg:
     def test_repr_svg(self) -> None:
         fig = bpl.scatter(
             {"x": [1, 2, 3], "y": [4, 5, 6]},
-            x="x", y="y",
+            x="x",
+            y="y",
         )
         repr_svg = fig._repr_svg_()
         assert repr_svg == fig.to_svg()

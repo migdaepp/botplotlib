@@ -14,10 +14,10 @@ from botplotlib.spec.models import (
     SizeSpec,
 )
 
-
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
+
 
 def _full_plot_spec() -> PlotSpec:
     """Return a PlotSpec with every field explicitly set."""
@@ -44,6 +44,7 @@ def _full_plot_spec() -> PlotSpec:
 # ---------------------------------------------------------------------------
 # Round-trip tests
 # ---------------------------------------------------------------------------
+
 
 class TestRoundTrip:
     """PlotSpec survives JSON round-trip via model_dump_json / model_validate_json."""
@@ -82,6 +83,7 @@ class TestRoundTrip:
 # Default values
 # ---------------------------------------------------------------------------
 
+
 class TestDefaults:
     """Empty PlotSpec has correct defaults."""
 
@@ -118,6 +120,7 @@ class TestDefaults:
 # Literal validation: LayerSpec.geom
 # ---------------------------------------------------------------------------
 
+
 class TestLayerSpecValidation:
     """LayerSpec.geom is an open string; validation happens at compile time."""
 
@@ -148,6 +151,7 @@ class TestLayerSpecValidation:
 # Literal validation: LegendSpec.position
 # ---------------------------------------------------------------------------
 
+
 class TestLegendSpecValidation:
     """LegendSpec validates position is one of top/bottom/left/right."""
 
@@ -165,6 +169,7 @@ class TestLegendSpecValidation:
 # ---------------------------------------------------------------------------
 # DataSpec: mixed types in columns
 # ---------------------------------------------------------------------------
+
 
 class TestDataSpecMixedTypes:
     """DataSpec columns can hold mixed types (str, int, float)."""
@@ -197,6 +202,7 @@ class TestDataSpecMixedTypes:
 # ---------------------------------------------------------------------------
 # Spec diff: comparing two PlotSpecs via model_dump()
 # ---------------------------------------------------------------------------
+
 
 class TestSpecDiff:
     """Two PlotSpecs can be compared by their model_dump() dicts."""

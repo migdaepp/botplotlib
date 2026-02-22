@@ -1,21 +1,119 @@
 """SVG renderer: CompiledPlot → SVG string.
 
 Converts the positioned geometry from the compiler into SVG elements
-using the svg_builder module.
+using the svg_builder module.  Plot content is rendered via a unified
+primitives pipeline: each compiled geometry object is dispatched by
+type through ``_render_primitive()``, which keeps the renderer open to
+new geom types without requiring per-type iteration loops.
+
+Rendering z-order (back to front):
+    CompiledBar  → behind everything
+    CompiledPath → above bars, below lines
+    CompiledLine → above paths
+    CompiledPoint → on top
 """
 
 from __future__ import annotations
 
-from botplotlib.compiler.compiler import CompiledPlot
+from botplotlib.geoms.primitives import (
+    CompiledBar,
+    CompiledLine,
+    CompiledPath,
+    CompiledPlot,
+    CompiledPoint,
+    Primitive,
+    z_order_key,
+)
 from botplotlib.render.svg_builder import (
     SvgDocument,
+    SvgElement,
     circle,
     group,
     line,
+    path,
     polyline,
     rect,
     text,
 )
+
+# ---------------------------------------------------------------------------
+# Primitive dispatch
+# ---------------------------------------------------------------------------
+
+
+def _render_primitive(prim: Primitive) -> SvgElement | None:
+    """Render a single primitive to an SVG element.
+
+    Returns ``None`` for primitives that should be skipped (e.g. a line
+    with fewer than 2 points).
+    """
+    if isinstance(prim, CompiledBar):
+        return rect(
+            prim.px,
+            prim.py,
+            prim.bar_width,
+            prim.bar_height,
+            fill=prim.color,
+        )
+
+    if isinstance(prim, CompiledPath):
+        attrs: dict[str, object] = {"fill": prim.fill, "stroke": prim.stroke}
+        if prim.stroke != "none":
+            attrs["stroke_width"] = prim.stroke_width
+        if prim.opacity < 1.0:
+            attrs["opacity"] = prim.opacity
+        return path(prim.d, **attrs)
+
+    if isinstance(prim, CompiledLine):
+        if len(prim.points) < 2:
+            return None
+        return polyline(
+            prim.points,
+            fill="none",
+            stroke=prim.color,
+            stroke_width=prim.width,
+            stroke_linejoin="round",
+            stroke_linecap="round",
+        )
+
+    if isinstance(prim, CompiledPoint):
+        return circle(
+            prim.px,
+            prim.py,
+            prim.radius,
+            fill=prim.color,
+        )
+
+    return None  # pragma: no cover – unknown primitive type
+
+
+# ---------------------------------------------------------------------------
+# Unified primitives list builder
+# ---------------------------------------------------------------------------
+
+
+def _collect_primitives(compiled: CompiledPlot) -> list[Primitive]:
+    """Build a z-ordered primitives list from the compiled geometry.
+
+    Reads from ``compiled.primitives`` (populated by the geom plugin
+    compiler) and sorts by z-order so that bars render behind lines,
+    which render behind points.  Python's ``sorted()`` is stable, so
+    the relative order within each type is preserved.
+    """
+    if compiled.primitives:
+        return sorted(compiled.primitives, key=z_order_key)
+
+    # Fall back to legacy typed lists (backward compat)
+    primitives: list[Primitive] = []
+    primitives.extend(compiled.bars)
+    primitives.extend(compiled.lines)
+    primitives.extend(compiled.points)
+    return sorted(primitives, key=z_order_key)
+
+
+# ---------------------------------------------------------------------------
+# Public API
+# ---------------------------------------------------------------------------
 
 
 def render_svg(compiled: CompiledPlot) -> str:
@@ -36,45 +134,13 @@ def render_svg(compiled: CompiledPlot) -> str:
     # Axes
     _render_axes(doc, compiled)
 
-    # Clipped plot content
+    # Clipped plot content — unified primitives pipeline
     plot_group = group(clip_path=f"url(#{compiled.clip_id})")
 
-    # Bars (behind points/lines)
-    for bar in compiled.bars:
-        plot_group.add(
-            rect(
-                bar.px,
-                bar.py,
-                bar.bar_width,
-                bar.bar_height,
-                fill=bar.color,
-            )
-        )
-
-    # Lines
-    for ln in compiled.lines:
-        if len(ln.points) >= 2:
-            plot_group.add(
-                polyline(
-                    ln.points,
-                    fill="none",
-                    stroke=ln.color,
-                    stroke_width=ln.width,
-                    stroke_linejoin="round",
-                    stroke_linecap="round",
-                )
-            )
-
-    # Points (on top)
-    for pt in compiled.points:
-        plot_group.add(
-            circle(
-                pt.px,
-                pt.py,
-                pt.radius,
-                fill=pt.color,
-            )
-        )
+    for prim in _collect_primitives(compiled):
+        element = _render_primitive(prim)
+        if element is not None:
+            plot_group.add(element)
 
     doc.add(plot_group)
 
@@ -98,6 +164,11 @@ def render_svg(compiled: CompiledPlot) -> str:
         _render_legend(doc, compiled)
 
     return doc.to_string()
+
+
+# ---------------------------------------------------------------------------
+# Structural elements (grid, axes, ticks, legend)
+# ---------------------------------------------------------------------------
 
 
 def _render_grid(doc: SvgDocument, compiled: CompiledPlot) -> None:

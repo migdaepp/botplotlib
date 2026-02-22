@@ -16,7 +16,6 @@ from botplotlib.render.svg_builder import (
     text,
 )
 
-
 # ---------------------------------------------------------------------------
 # SvgElement basics
 # ---------------------------------------------------------------------------
@@ -254,7 +253,9 @@ class TestValidXml:
         # Plot group
         plot = group(clip_path="url(#plot-area)")
         plot.add(line(50, 430, 610, 430, stroke="#ccc", stroke_width=1))
-        plot.add(path("M50 430 L100 380 L150 350 L200 300", fill="none", stroke="steelblue"))
+        plot.add(
+            path("M50 430 L100 380 L150 350 L200 300", fill="none", stroke="steelblue")
+        )
         plot.add(circle(100, 380, 3, fill="steelblue"))
         doc.add(plot)
 

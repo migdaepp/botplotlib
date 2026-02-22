@@ -2,8 +2,6 @@
 
 from __future__ import annotations
 
-import xml.etree.ElementTree as ET
-
 from botplotlib.compiler.compiler import compile_spec
 from botplotlib.render.svg_renderer import render_svg
 from botplotlib.spec.models import (
@@ -12,7 +10,6 @@ from botplotlib.spec.models import (
     LayerSpec,
     LegendSpec,
     PlotSpec,
-    SizeSpec,
 )
 from tests.conftest import assert_valid_svg, count_svg_elements
 
@@ -35,10 +32,12 @@ def _line_spec() -> PlotSpec:
 
 def _bar_spec() -> PlotSpec:
     return PlotSpec(
-        data=DataSpec(columns={
-            "category": ["A", "B", "C", "D"],
-            "value": [23, 17, 35, 12],
-        }),
+        data=DataSpec(
+            columns={
+                "category": ["A", "B", "C", "D"],
+                "value": [23, 17, 35, 12],
+            }
+        ),
         layers=[LayerSpec(geom="bar", x="category", y="value")],
         labels=LabelsSpec(title="Test Bar"),
     )
@@ -46,11 +45,13 @@ def _bar_spec() -> PlotSpec:
 
 def _color_scatter_spec() -> PlotSpec:
     return PlotSpec(
-        data=DataSpec(columns={
-            "x": [1, 2, 3, 4, 5, 6],
-            "y": [2, 4, 1, 5, 3, 6],
-            "g": ["A", "A", "A", "B", "B", "B"],
-        }),
+        data=DataSpec(
+            columns={
+                "x": [1, 2, 3, 4, 5, 6],
+                "y": [2, 4, 1, 5, 3, 6],
+                "g": ["A", "A", "A", "B", "B", "B"],
+            }
+        ),
         layers=[LayerSpec(geom="scatter", x="x", y="y", color="g")],
         labels=LabelsSpec(title="Scatter with Groups"),
         legend=LegendSpec(show=True),

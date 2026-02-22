@@ -42,8 +42,14 @@ class TestComputeLayout:
     def test_legend_right_reduces_plot_width(self) -> None:
         without = compute_layout(800, 500, 40, 20, 50, 60, has_legend=False)
         with_legend = compute_layout(
-            800, 500, 40, 20, 50, 60,
-            has_legend=True, legend_position="right",
+            800,
+            500,
+            40,
+            20,
+            50,
+            60,
+            has_legend=True,
+            legend_position="right",
         )
         assert with_legend.plot_area.width < without.plot_area.width
         assert with_legend.legend_area is not None
