@@ -133,6 +133,8 @@ def _(bpl):
         x="x",
         y="y",
         title="Five Points",
+        width=600,
+        height=380,
     )
     return
 
@@ -160,6 +162,8 @@ def _(bpl, random):
         title="Three Clusters",
         x_label="Feature 1",
         y_label="Feature 2",
+        width=600,
+        height=380,
     )
     fig_scatter
     return (fig_scatter,)
@@ -196,6 +200,8 @@ def _(bpl):
         title="Revenue by Segment (2024)",
         x_label="Month",
         y_label="Revenue ($M)",
+        width=600,
+        height=380,
     )
     fig_line
     return
@@ -220,6 +226,8 @@ def _(bpl):
         title="Programming Language Popularity",
         x_label="Language",
         y_label="Popularity (%)",
+        width=600,
+        height=380,
     )
     fig_bar
     return
@@ -254,6 +262,8 @@ def _(bpl):
         title="Same Data, Row-Oriented Format",
         x_label="Language",
         y_label="Popularity (%)",
+        width=600,
+        height=380,
     )
     fig_records
     return
@@ -464,18 +474,20 @@ def _(mo):
 
 @app.cell
 def _(mo):
-    MPL_SCRIPT = """\
-    import matplotlib.pyplot as plt
+    import textwrap
 
-    x = [1, 2, 3, 4, 5]
-    y = [2, 4, 7, 11, 16]
+    MPL_SCRIPT = textwrap.dedent("""\
+        import matplotlib.pyplot as plt
 
-    plt.scatter(x, y)
-    plt.title("Growth Over Time")
-    plt.xlabel("Year")
-    plt.ylabel("Value")
-    plt.show()
-    """
+        x = [1, 2, 3, 4, 5]
+        y = [2, 4, 7, 11, 16]
+
+        plt.scatter(x, y)
+        plt.title("Growth Over Time")
+        plt.xlabel("Year")
+        plt.ylabel("Value")
+        plt.show()
+    """)
     mo.md(f"```python\n{MPL_SCRIPT}```")
     return (MPL_SCRIPT,)
 

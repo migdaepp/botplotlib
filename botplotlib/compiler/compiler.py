@@ -209,6 +209,36 @@ def compile_spec(spec: PlotSpec) -> CompiledPlot:
             )
         )
 
+    # Pre-pass: collect combined numeric ranges across all layers so that
+    # multi-layer plots share a unified scale.
+    all_x_numeric: list[float] = []
+    all_y_numeric: list[float] = []
+    for layer in spec.layers:
+        if not data or layer.geom == "bar":
+            continue
+        for v in data.get(layer.x, []):
+            try:
+                all_x_numeric.append(float(v))
+            except (ValueError, TypeError):
+                pass
+        for v in data.get(layer.y, []):
+            try:
+                all_y_numeric.append(float(v))
+            except (ValueError, TypeError):
+                pass
+
+    # Pre-compute unified ticks for numeric layers
+    unified_x_ticks = (
+        nice_ticks(min(all_x_numeric), max(all_x_numeric))
+        if all_x_numeric
+        else None
+    )
+    unified_y_ticks = (
+        nice_ticks(min(all_y_numeric), max(all_y_numeric))
+        if all_y_numeric
+        else None
+    )
+
     for layer in spec.layers:
         if not data:
             continue
@@ -242,6 +272,8 @@ def compile_spec(spec: PlotSpec) -> CompiledPlot:
                 color_map,
                 theme,
                 plot_area,
+                unified_x_ticks=unified_x_ticks,
+                unified_y_ticks=unified_y_ticks,
             )
 
     # Add legend entries
@@ -266,6 +298,8 @@ def _compile_numeric_layer(
     color_map: dict[str, str],
     theme: ThemeSpec,
     plot_area: Rect,
+    unified_x_ticks: list[float] | None = None,
+    unified_y_ticks: list[float] | None = None,
 ) -> None:
     """Compile a scatter or line layer with numeric axes."""
     x_vals = [float(v) for v in x_col]
@@ -274,9 +308,9 @@ def _compile_numeric_layer(
     if not x_vals or not y_vals:
         return
 
-    # Compute scales from ticks for nice axis bounds
-    x_ticks_vals = nice_ticks(min(x_vals), max(x_vals))
-    y_ticks_vals = nice_ticks(min(y_vals), max(y_vals))
+    # Use unified ticks (from multi-layer pre-pass) or per-layer ticks
+    x_ticks_vals = unified_x_ticks or nice_ticks(min(x_vals), max(x_vals))
+    y_ticks_vals = unified_y_ticks or nice_ticks(min(y_vals), max(y_vals))
 
     x_scale = LinearScale(
         data_min=x_ticks_vals[0],
