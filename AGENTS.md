@@ -125,6 +125,13 @@ botplotlib/
 │   └── inter.json         # per-character widths for Inter
 ├── _colors/
 │   └── palettes.py        # DEFAULT_PALETTE (10 colors, colorblind-aware), hex parsing
+├── geoms/
+│   ├── __init__.py        # Geom ABC, ScaleHint, ResolvedScales, registry
+│   ├── primitives.py      # CompiledPoint/Line/Bar/Text/Path, CompiledPlot, Primitive union
+│   ├── scatter.py         # ScatterGeom
+│   ├── line.py            # LineGeom
+│   ├── bar.py             # BarGeom
+│   └── waterfall.py       # WaterfallGeom (proof-of-concept community geom)
 └── refactor/
     └── from_matplotlib.py # reads matplotlib script → outputs equivalent PlotSpec
 
@@ -134,6 +141,85 @@ examples/
 ├── demo.py                # generates showcase SVGs for all themes
 └── demo_*.svg             # pre-rendered showcase output
 ```
+
+## How to Add a New Geom (Copyable Recipe)
+
+Adding a new plot type to botplotlib requires **one file and three methods**. The compiler dispatches to a plugin registry, so new geoms don't require changes to the core.
+
+### Step 1: Create the geom file
+
+Create `botplotlib/geoms/yourgeom.py`. Copy an existing geom (start with `waterfall.py` for categorical x-axis or `scatter.py` for numeric axes) and modify the three methods:
+
+```python
+from botplotlib.geoms import Geom, ResolvedScales, ScaleHint
+from botplotlib.geoms.primitives import CompiledBar, Primitive  # use the primitives you need
+
+class YourGeom(Geom):
+    name = "yourgeom"
+
+    def validate(self, layer, data):
+        # Check required columns exist. Raise ValueError if not.
+        ...
+
+    def scale_hint(self, layer, data):
+        # Return ScaleHint declaring what scales you need.
+        # x_type: "numeric" or "categorical"
+        # Include data values so the compiler computes unified scales.
+        return ScaleHint(x_type="categorical", y_type="numeric", ...)
+
+    def compile(self, layer, data, scales, theme, plot_area):
+        # Use scales.x.map() / scales.y.map() to convert data to pixels.
+        # Return a list of primitives: CompiledPoint, CompiledLine,
+        # CompiledBar, CompiledText, CompiledPath.
+        return [CompiledBar(...), ...]
+```
+
+### Step 2: Register it
+
+Add your geom to `_register_builtins()` in `botplotlib/geoms/__init__.py`:
+
+```python
+from botplotlib.geoms.yourgeom import YourGeom
+register_geom(YourGeom())
+```
+
+### Step 3: Add a convenience API function
+
+Add a thin factory in `botplotlib/_api.py` (follow the pattern of `scatter()`, `bar()`, etc.):
+
+```python
+def yourgeom(data, x, y, *, title=None, theme="default", ...):
+    return _build_figure(data, x, y, "yourgeom", title=title, theme=theme, ...)
+```
+
+Then add the re-export in `botplotlib/__init__.py`.
+
+### Step 4: Write tests
+
+Create `tests/test_yourgeom.py`. Cover:
+- Basic rendering (SVG contains expected elements)
+- Compilation (correct number of primitives)
+- Validation (missing columns → clear error)
+- Edge cases (single data point, empty data, extreme values)
+
+### Step 5: Run the gate
+
+```bash
+uv run pytest && uv run ruff check . && uv run black --check .
+```
+
+All tests must pass. Commit as a single atomic PR.
+
+### Available primitives
+
+Geom `compile()` can return any combination of:
+- `CompiledPoint` — circle at (px, py) with color and radius
+- `CompiledLine` — polyline from a list of (x, y) points
+- `CompiledBar` — rectangle at (px, py) with width and height
+- `CompiledText` — text label at (x, y) with font_size and anchor
+- `CompiledPath` — arbitrary SVG path string (for curves, areas, etc.)
+
+The renderer draws these automatically. New geoms do **not** require renderer changes.
 
 ## Data Input Protocol
 
