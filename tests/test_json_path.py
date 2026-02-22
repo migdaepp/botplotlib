@@ -311,18 +311,21 @@ class TestExtraFieldsIgnored:
 class TestMalformedTypes:
     """Malformed types produce clear Pydantic ValidationErrors."""
 
-    def test_invalid_geom_from_json(self) -> None:
+    def test_unknown_geom_accepted_by_model_rejected_at_compile(self) -> None:
+        """LayerSpec.geom is an open string (plugin architecture).
+
+        Unknown geoms are accepted at model level but rejected at compile time.
+        """
         bad = json.dumps(
             {
                 "data": {"columns": {"x": [1], "y": [2]}},
                 "layers": [{"geom": "pie", "x": "x", "y": "y"}],
             }
         )
-        with pytest.raises(ValidationError) as exc_info:
-            Figure.from_json(bad)
-        err_str = str(exc_info.value)
-        # Pydantic should mention the invalid value or the valid options
-        assert "pie" in err_str or "geom" in err_str.lower()
+        fig = Figure.from_json(bad)
+        assert fig.spec.layers[0].geom == "pie"
+        with pytest.raises(ValueError, match="Unknown geom 'pie'"):
+            fig.to_svg()
 
     def test_invalid_legend_position_from_dict(self) -> None:
         d: dict = {
