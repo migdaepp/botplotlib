@@ -119,17 +119,29 @@ class TestDefaults:
 # ---------------------------------------------------------------------------
 
 class TestLayerSpecValidation:
-    """LayerSpec validates geom is one of scatter/line/bar."""
+    """LayerSpec.geom is an open string; validation happens at compile time."""
 
     @pytest.mark.parametrize("geom", ["scatter", "line", "bar"])
     def test_valid_geom(self, geom: str) -> None:
         layer = LayerSpec(geom=geom, x="x", y="y")
         assert layer.geom == geom
 
-    @pytest.mark.parametrize("bad_geom", ["pie", "histogram", "heatmap", ""])
-    def test_invalid_geom_raises(self, bad_geom: str) -> None:
-        with pytest.raises(ValidationError):
-            LayerSpec(geom=bad_geom, x="x", y="y")
+    @pytest.mark.parametrize("geom", ["pie", "histogram", "heatmap", "waterfall"])
+    def test_unknown_geom_accepted_at_model_level(self, geom: str) -> None:
+        """LayerSpec accepts any string for geom (plugin architecture)."""
+        layer = LayerSpec(geom=geom, x="x", y="y")
+        assert layer.geom == geom
+
+    def test_unknown_geom_rejected_at_compile_time(self) -> None:
+        """Unknown geom raises ValueError at compile_spec(), not at model creation."""
+        from botplotlib.compiler.compiler import compile_spec
+
+        spec = PlotSpec(
+            data=DataSpec(columns={"x": [1], "y": [2]}),
+            layers=[LayerSpec(geom="nonexistent_geom", x="x", y="y")],
+        )
+        with pytest.raises(ValueError, match="Unknown geom 'nonexistent_geom'"):
+            compile_spec(spec)
 
 
 # ---------------------------------------------------------------------------
