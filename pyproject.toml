@@ -1,0 +1,37 @@
+[project]
+name = "botplotlib"
+version = "0.1.0"
+description = "Beautiful plots, simple API, no matplotlib."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+dependencies = ["pydantic>=2.0"]
+
+[project.optional-dependencies]
+png = ["cairosvg>=2.7"]
+
+[dependency-groups]
+dev = ["pytest>=8.0", "ruff>=0.4", "black>=24.0", "mypy>=1.10", "pytest-cov>=5.0"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.ruff]
+target-version = "py310"
+line-length = 88
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]
+
+[tool.black]
+target-version = ["py310"]
+line-length = 88
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
