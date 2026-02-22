@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository. However this is meant to be an interoperable repo so the source of truth is [AGENTS.md](AGENTS.md) -- make sure you read it at the start of each session. Claude.md should be kept as simple as possible with agents.md as the main source of truth.
 
 ## Project Overview
 
@@ -20,19 +20,6 @@ uv run pytest --update-baselines        # regenerate golden SVGs
 uv run ruff check .                     # lint
 uv run black --check .                  # format check
 ```
-
-## Architecture
-
-Spec → Compile → Render pipeline with two paths in: Python convenience API (`bpl.scatter(...)`) and direct PlotSpec JSON generation by agents. Both converge at the PlotSpec boundary. See AGENTS.md for the full dual-path diagram, module map, and data input protocol.
-
-- **Public API** (`botplotlib/_api.py`, `__init__.py`): `scatter()`, `line()`, `bar()`, `plot()`, `render()` — all return `Figure`
-- **Figure** (`botplotlib/figure.py`): wraps PlotSpec, provides `to_svg()`, `save_svg()`, `save_png()`, `_repr_svg_()` for Jupyter
-- **Spec layer** (`botplotlib/spec/`): Pydantic models (PlotSpec, LayerSpec, ThemeSpec, scales)
-- **Compiler** (`botplotlib/compiler/`): resolves theme → accessibility gate → data normalization → scales/ticks → layout → positioned geometry
-- **Renderer** (`botplotlib/render/`): hand-rolled SVG builder (~230 lines), SVG renderer, optional PNG via CairoSVG
-- **Fonts** (`botplotlib/_fonts/`): per-character width tables (arial.json, inter.json) for text measurement without external deps
-- **Colors** (`botplotlib/_colors/`): WCAG-compliant 10-color palette, contrast ratio computation
-- **Refactor** (`botplotlib/refactor/`): AST-based matplotlib → PlotSpec converter
 
 ## AI-Native Design Principles
 

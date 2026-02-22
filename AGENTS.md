@@ -127,6 +127,12 @@ botplotlib/
 │   └── palettes.py        # DEFAULT_PALETTE (10 colors, colorblind-aware), hex parsing
 └── refactor/
     └── from_matplotlib.py # reads matplotlib script → outputs equivalent PlotSpec
+
+# Project-level files
+tutorial.py                # interactive marimo notebook (tutorial + demo)
+examples/
+├── demo.py                # generates showcase SVGs for all themes
+└── demo_*.svg             # pre-rendered showcase output
 ```
 
 ## Data Input Protocol
