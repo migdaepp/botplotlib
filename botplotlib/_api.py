@@ -205,6 +205,47 @@ def plot(data: Any, *, theme: str = "default", **kwargs: Any) -> Figure:
     return Figure(spec)
 
 
+def waterfall(
+    data: Any,
+    x: str,
+    y: str,
+    *,
+    title: str | None = None,
+    x_label: str | None = None,
+    y_label: str | None = None,
+    theme: str = "default",
+    width: float = 800,
+    height: float = 500,
+) -> Figure:
+    """Create a waterfall chart.
+
+    Parameters
+    ----------
+    data:
+        Input data (dict, list[dict], DataFrame, etc.).
+    x:
+        Column name for category labels (e.g., "Revenue", "COGS").
+    y:
+        Column name for step values (positive = increase, negative = decrease).
+    title:
+        Plot title (optional).
+    theme:
+        Theme name (default, bluesky, substack, print).
+    """
+    return _build_figure(
+        data,
+        x,
+        y,
+        "waterfall",
+        title=title,
+        x_label=x_label,
+        y_label=y_label,
+        theme=theme,
+        width=width,
+        height=height,
+    )
+
+
 def render(spec: PlotSpec) -> Figure:
     """Render a PlotSpec into a Figure.
 

@@ -135,14 +135,16 @@ def registered_geoms() -> dict[str, Geom]:
 
 
 def _register_builtins() -> None:
-    """Register the built-in geoms (scatter, line, bar)."""
+    """Register the built-in geoms (scatter, line, bar, waterfall)."""
     from botplotlib.geoms.bar import BarGeom
     from botplotlib.geoms.line import LineGeom
     from botplotlib.geoms.scatter import ScatterGeom
+    from botplotlib.geoms.waterfall import WaterfallGeom
 
     register_geom(ScatterGeom())
     register_geom(LineGeom())
     register_geom(BarGeom())
+    register_geom(WaterfallGeom())
 
 
 _register_builtins()
