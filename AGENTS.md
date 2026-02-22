@@ -101,10 +101,10 @@ The Python API functions (`scatter()`, `line()`, `bar()`) are thin factories —
 
 ```
 botplotlib/
-├── __init__.py            # re-exports: scatter(), line(), bar(), plot()
+├── __init__.py            # re-exports: scatter(), line(), bar(), waterfall(), Figure, PlotSpec
 ├── _api.py                # flat convenience functions
 ├── _types.py              # Rect, Point, TickMark dataclasses
-├── figure.py              # Figure class: save_svg(), save_png(), _repr_svg_()
+├── figure.py              # Figure class: from_json(), from_dict(), save_svg(), save_png()
 ├── spec/
 │   ├── models.py          # Pydantic: PlotSpec, LayerSpec, DataSpec, LabelsSpec, SizeSpec
 │   ├── scales.py          # LinearScale, CategoricalScale, ColorScale
@@ -117,7 +117,7 @@ botplotlib/
 │   └── accessibility.py   # WCAG contrast ratio computation, palette validation
 ├── render/
 │   ├── svg_builder.py     # ~200-line SVG element builder (no dependency)
-│   ├── svg_renderer.py    # CompiledPlot → SVG string
+│   ├── svg_renderer.py    # CompiledPlot → SVG string (unified primitives dispatch)
 │   └── png.py             # optional CairoSVG wrapper
 ├── _fonts/
 │   ├── metrics.py         # text_width(), text_height() from bundled char-width tables
@@ -133,13 +133,15 @@ botplotlib/
 │   ├── bar.py             # BarGeom
 │   └── waterfall.py       # WaterfallGeom (proof-of-concept community geom)
 └── refactor/
-    └── from_matplotlib.py # reads matplotlib script → outputs equivalent PlotSpec
+    ├── __init__.py        # re-exports: from_matplotlib(), to_botplotlib_code()
+    └── from_matplotlib.py # AST-based matplotlib → PlotSpec converter + code gen
 
 # Project-level files
 tutorial.py                # interactive marimo notebook (tutorial + demo)
 examples/
 ├── demo.py                # generates showcase SVGs for all themes
-└── demo_*.svg             # pre-rendered showcase output
+├── demo_*.svg             # pre-rendered showcase output
+└── refactor_examples/     # before/after matplotlib → botplotlib demos
 ```
 
 ## How to Add a New Geom (Copyable Recipe)
