@@ -9,15 +9,15 @@ from __future__ import annotations
 
 DEFAULT_PALETTE: list[str] = [
     "#4E79A7",  # steel blue
-    "#F28E2B",  # orange
+    "#C56A00",  # orange (WCAG AA compliant)
     "#E15759",  # red
-    "#76B7B2",  # teal
+    "#4A8B86",  # teal (WCAG AA compliant)
     "#59A14F",  # green
-    "#EDC948",  # yellow
+    "#A68B00",  # gold (WCAG AA compliant)
     "#B07AA1",  # purple
-    "#FF9DA7",  # pink
+    "#C4636E",  # rose (WCAG AA compliant)
     "#9C755F",  # brown
-    "#BAB0AC",  # gray
+    "#7B7573",  # gray (WCAG AA compliant)
 ]
 
 
