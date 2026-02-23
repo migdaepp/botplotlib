@@ -176,7 +176,6 @@ THEME_REGISTRY: dict[str, ThemeSpec] = {
     "arxiv": THEME_PDF,  # alias
     "magazine": THEME_MAGAZINE,
     "economist": THEME_MAGAZINE,  # alias
-    "editorial": THEME_MAGAZINE,  # alias
 }
 
 
