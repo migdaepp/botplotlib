@@ -137,7 +137,8 @@ botplotlib/
     └── from_matplotlib.py # AST-based matplotlib → PlotSpec converter + code gen
 
 # Project-level files
-tutorial.py                # interactive marimo notebook (tutorial + demo)
+docs/tutorial.py           # interactive marimo notebook (tutorial + demo)
+docs/                      # MkDocs documentation site (docs/mkdocs.yml)
 examples/
 ├── demo.py                # generates showcase SVGs for all themes
 ├── demo_*.svg             # pre-rendered showcase output

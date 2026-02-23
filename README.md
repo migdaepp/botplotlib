@@ -87,13 +87,17 @@ botplotlib ships with themes optimized for different output targets:
 
 These are the starting integrations — chosen to seed the project around open platforms and open science. X/Twitter is not included; we invest in platforms aligned with open access and open discourse. botplotlib is open-source, so contributors are welcome to add themes for other platforms.
 
+## Documentation
+
+Full documentation: [migdaepp.github.io/botplotlib](https://migdaepp.github.io/botplotlib/)
+
 ## Tutorial
 
 The interactive tutorial is a [marimo](https://marimo.io) notebook:
 
 ```bash
 pip install marimo
-marimo edit tutorial.py
+marimo edit docs/tutorial.py
 ```
 
 It walks through scatter/line/bar charts, data formats, all five themes, the PlotSpec data model, and the matplotlib refactor — with live, editable plots.

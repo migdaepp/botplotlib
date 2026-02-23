@@ -1,0 +1,80 @@
+site_name: botplotlib
+site_description: Beautiful plots, simple API, no matplotlib.
+site_url: https://migdaepp.github.io/botplotlib/
+repo_url: https://github.com/migdaepp/botplotlib
+repo_name: migdaepp/botplotlib
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - content.code.copy
+    - content.code.annotate
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - toc.follow
+  icon:
+    repo: fontawesome/brands/github
+
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - Guide:
+      - Plot Types: guide/plot-types.md
+      - Themes: guide/themes.md
+      - Data Formats: guide/data-formats.md
+      - JSON Path (Agent API): guide/json-path.md
+      - Refactoring from Matplotlib: guide/refactoring.md
+  - Tutorial: tutorial.md
+  - Gallery: gallery/index.md
+  - API Reference: api/index.md
+  - Contributing: contributing.md
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            show_source: false
+            show_root_heading: true
+            heading_level: 3
+            members_order: source
+            docstring_style: google
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.snippets
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/migdaepp/botplotlib
