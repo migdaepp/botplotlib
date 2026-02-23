@@ -37,6 +37,15 @@ from botplotlib.spec.scales import CategoricalScale, LinearScale
 from botplotlib.spec.theme import ThemeSpec, resolve_theme
 
 # ---------------------------------------------------------------------------
+# Constants
+# ---------------------------------------------------------------------------
+
+# Fraction of tick range to pad on each side of a numeric axis.
+# Prevents extremal data points (circles, line endpoints) from being
+# clipped at the plot-area boundary.  Analogous to ggplot2's `expand`.
+_SCALE_PAD = 0.03
+
+# ---------------------------------------------------------------------------
 # Compiler
 # ---------------------------------------------------------------------------
 
@@ -181,9 +190,10 @@ def compile_spec(spec: PlotSpec) -> CompiledPlot:
         ]
     elif all_x_numeric:
         x_tick_vals = nice_ticks(min(all_x_numeric), max(all_x_numeric))
+        x_pad = (x_tick_vals[-1] - x_tick_vals[0]) * _SCALE_PAD
         x_scale = LinearScale(
-            data_min=x_tick_vals[0],
-            data_max=x_tick_vals[-1],
+            data_min=x_tick_vals[0] - x_pad,
+            data_max=x_tick_vals[-1] + x_pad,
             pixel_min=plot_area.x,
             pixel_max=plot_area.right,
         )
@@ -200,9 +210,10 @@ def compile_spec(spec: PlotSpec) -> CompiledPlot:
     else:
         y_tick_vals = nice_ticks(0, 1)
 
+    y_pad = (y_tick_vals[-1] - y_tick_vals[0]) * _SCALE_PAD
     y_scale = LinearScale(
-        data_min=y_tick_vals[0],
-        data_max=y_tick_vals[-1],
+        data_min=y_tick_vals[0] - y_pad,
+        data_max=y_tick_vals[-1] + y_pad,
         pixel_min=plot_area.bottom,  # SVG y is inverted
         pixel_max=plot_area.y,
     )

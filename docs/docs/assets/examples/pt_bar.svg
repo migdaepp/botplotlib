@@ -6,20 +6,20 @@
     </clipPath>
   </defs>
   <rect x="0" y="0" width="800" height="500" fill="#FFFFFF"/>
-  <line x1="77" y1="433" x2="780" y2="433" stroke="#EEEEEE" stroke-width="1"/>
-  <line x1="77" y1="359.6" x2="780" y2="359.6" stroke="#EEEEEE" stroke-width="1"/>
-  <line x1="77" y1="286.2" x2="780" y2="286.2" stroke="#EEEEEE" stroke-width="1"/>
-  <line x1="77" y1="212.8" x2="780" y2="212.8" stroke="#EEEEEE" stroke-width="1"/>
-  <line x1="77" y1="139.4" x2="780" y2="139.4" stroke="#EEEEEE" stroke-width="1"/>
-  <line x1="77" y1="66" x2="780" y2="66" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="77" y1="422.613" x2="780" y2="422.613" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="77" y1="353.368" x2="780" y2="353.368" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="77" y1="284.123" x2="780" y2="284.123" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="77" y1="214.877" x2="780" y2="214.877" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="77" y1="145.632" x2="780" y2="145.632" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="77" y1="76.3868" x2="780" y2="76.3868" stroke="#EEEEEE" stroke-width="1"/>
   <line x1="77" y1="433" x2="780" y2="433" stroke="#333333" stroke-width="1"/>
   <g clip-path="url(#plot-clip)">
-    <rect x="88.7167" y="95.36" width="93.7333" height="337.64" fill="#4E79A7"/>
-    <rect x="205.883" y="146.74" width="93.7333" height="286.26" fill="#4E79A7"/>
-    <rect x="323.05" y="172.43" width="93.7333" height="260.57" fill="#4E79A7"/>
-    <rect x="440.217" y="234.82" width="93.7333" height="198.18" fill="#4E79A7"/>
-    <rect x="557.383" y="256.84" width="93.7333" height="176.16" fill="#4E79A7"/>
-    <rect x="674.55" y="267.85" width="93.7333" height="165.15" fill="#4E79A7"/>
+    <rect x="88.7167" y="104.085" width="93.7333" height="318.528" fill="#4E79A7"/>
+    <rect x="205.883" y="152.557" width="93.7333" height="270.057" fill="#4E79A7"/>
+    <rect x="323.05" y="176.792" width="93.7333" height="245.821" fill="#4E79A7"/>
+    <rect x="440.217" y="235.651" width="93.7333" height="186.962" fill="#4E79A7"/>
+    <rect x="557.383" y="256.425" width="93.7333" height="166.189" fill="#4E79A7"/>
+    <rect x="674.55" y="266.811" width="93.7333" height="155.802" fill="#4E79A7"/>
   </g>
   <line x1="135.583" y1="433" x2="135.583" y2="438" stroke="#333333" stroke-width="1"/>
   <text x="135.583" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">Python</text>
@@ -33,18 +33,18 @@
   <text x="604.25" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">Go</text>
   <line x1="721.417" y1="433" x2="721.417" y2="438" stroke="#333333" stroke-width="1"/>
   <text x="721.417" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">Java</text>
-  <line x1="72" y1="433" x2="77" y2="433" stroke="#333333" stroke-width="1"/>
-  <text x="69" y="437" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">0</text>
-  <line x1="72" y1="359.6" x2="77" y2="359.6" stroke="#333333" stroke-width="1"/>
-  <text x="69" y="363.6" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">20</text>
-  <line x1="72" y1="286.2" x2="77" y2="286.2" stroke="#333333" stroke-width="1"/>
-  <text x="69" y="290.2" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">40</text>
-  <line x1="72" y1="212.8" x2="77" y2="212.8" stroke="#333333" stroke-width="1"/>
-  <text x="69" y="216.8" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">60</text>
-  <line x1="72" y1="139.4" x2="77" y2="139.4" stroke="#333333" stroke-width="1"/>
-  <text x="69" y="143.4" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">80</text>
-  <line x1="72" y1="66" x2="77" y2="66" stroke="#333333" stroke-width="1"/>
-  <text x="69" y="70" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">100</text>
+  <line x1="72" y1="422.613" x2="77" y2="422.613" stroke="#333333" stroke-width="1"/>
+  <text x="69" y="426.613" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">0</text>
+  <line x1="72" y1="353.368" x2="77" y2="353.368" stroke="#333333" stroke-width="1"/>
+  <text x="69" y="357.368" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">20</text>
+  <line x1="72" y1="284.123" x2="77" y2="284.123" stroke="#333333" stroke-width="1"/>
+  <text x="69" y="288.123" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">40</text>
+  <line x1="72" y1="214.877" x2="77" y2="214.877" stroke="#333333" stroke-width="1"/>
+  <text x="69" y="218.877" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">60</text>
+  <line x1="72" y1="145.632" x2="77" y2="145.632" stroke="#333333" stroke-width="1"/>
+  <text x="69" y="149.632" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">80</text>
+  <line x1="72" y1="76.3868" x2="77" y2="76.3868" stroke="#333333" stroke-width="1"/>
+  <text x="69" y="80.3868" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">100</text>
   <text x="428.5" y="56" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="16" fill="#333333" text-anchor="middle">Programming Language Popularity</text>
   <text x="428.5" y="475" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="middle">Language</text>
   <text x="12" y="249.5" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="middle" transform="rotate(-90,12,249.5)">Popularity Score</text>

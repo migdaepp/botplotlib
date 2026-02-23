@@ -6,17 +6,17 @@
     </clipPath>
   </defs>
   <rect x="0" y="0" width="800" height="500" fill="#FFFFFF"/>
-  <line x1="77" y1="433" x2="780" y2="433" stroke="#EEEEEE" stroke-width="1"/>
-  <line x1="77" y1="341.25" x2="780" y2="341.25" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="77" y1="422.613" x2="780" y2="422.613" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="77" y1="336.057" x2="780" y2="336.057" stroke="#EEEEEE" stroke-width="1"/>
   <line x1="77" y1="249.5" x2="780" y2="249.5" stroke="#EEEEEE" stroke-width="1"/>
-  <line x1="77" y1="157.75" x2="780" y2="157.75" stroke="#EEEEEE" stroke-width="1"/>
-  <line x1="77" y1="66" x2="780" y2="66" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="77" y1="162.943" x2="780" y2="162.943" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="77" y1="76.3868" x2="780" y2="76.3868" stroke="#EEEEEE" stroke-width="1"/>
   <line x1="77" y1="433" x2="780" y2="433" stroke="#333333" stroke-width="1"/>
   <g clip-path="url(#plot-clip)">
-    <rect x="94.575" y="221.975" width="140.6" height="211.025" fill="#4E79A7"/>
-    <rect x="270.325" y="277.025" width="140.6" height="155.975" fill="#4E79A7"/>
-    <rect x="446.075" y="111.875" width="140.6" height="321.125" fill="#4E79A7"/>
-    <rect x="621.825" y="322.9" width="140.6" height="110.1" fill="#4E79A7"/>
+    <rect x="94.575" y="223.533" width="140.6" height="199.08" fill="#4E79A7"/>
+    <rect x="270.325" y="275.467" width="140.6" height="147.146" fill="#4E79A7"/>
+    <rect x="446.075" y="119.665" width="140.6" height="302.948" fill="#4E79A7"/>
+    <rect x="621.825" y="318.745" width="140.6" height="103.868" fill="#4E79A7"/>
   </g>
   <line x1="164.875" y1="433" x2="164.875" y2="438" stroke="#333333" stroke-width="1"/>
   <text x="164.875" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">A</text>
@@ -26,16 +26,16 @@
   <text x="516.375" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">C</text>
   <line x1="692.125" y1="433" x2="692.125" y2="438" stroke="#333333" stroke-width="1"/>
   <text x="692.125" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">D</text>
-  <line x1="72" y1="433" x2="77" y2="433" stroke="#333333" stroke-width="1"/>
-  <text x="69" y="437" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">0</text>
-  <line x1="72" y1="341.25" x2="77" y2="341.25" stroke="#333333" stroke-width="1"/>
-  <text x="69" y="345.25" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">10</text>
+  <line x1="72" y1="422.613" x2="77" y2="422.613" stroke="#333333" stroke-width="1"/>
+  <text x="69" y="426.613" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">0</text>
+  <line x1="72" y1="336.057" x2="77" y2="336.057" stroke="#333333" stroke-width="1"/>
+  <text x="69" y="340.057" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">10</text>
   <line x1="72" y1="249.5" x2="77" y2="249.5" stroke="#333333" stroke-width="1"/>
   <text x="69" y="253.5" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">20</text>
-  <line x1="72" y1="157.75" x2="77" y2="157.75" stroke="#333333" stroke-width="1"/>
-  <text x="69" y="161.75" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">30</text>
-  <line x1="72" y1="66" x2="77" y2="66" stroke="#333333" stroke-width="1"/>
-  <text x="69" y="70" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">40</text>
+  <line x1="72" y1="162.943" x2="77" y2="162.943" stroke="#333333" stroke-width="1"/>
+  <text x="69" y="166.943" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">30</text>
+  <line x1="72" y1="76.3868" x2="77" y2="76.3868" stroke="#333333" stroke-width="1"/>
+  <text x="69" y="80.3868" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">40</text>
   <text x="428.5" y="56" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="16" fill="#333333" text-anchor="middle">Basic Bar</text>
   <text x="428.5" y="475" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="middle">category</text>
   <text x="12" y="249.5" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="middle" transform="rotate(-90,12,249.5)">value</text>
