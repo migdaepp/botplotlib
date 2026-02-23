@@ -1,15 +1,15 @@
 # Governance: Reputation, Incentives, and Progressive Trust
 
-> "Social trust is emergent — reputation through contribution quality, not biological status."
+> "Social trust is emergent — reputation through contribution quality rather than biological status."
 > — [Cyborg Social Contract](AGENTS.md#cyborg-social-contract)
 
-This document describes how botplotlib builds trust with contributors. The system is **origin-agnostic**: trust is granted to identities (GitHub accounts), not to contribution origins (human vs AI). What matters is the quality, consistency, and sustainability of contributions.
+This document describes how botplotlib builds trust with contributors. The system is **origin-agnostic**: trust is granted to identities (GitHub accounts) with no notion of contribution origins (human vs AI). What matters is the quality, consistency, and sustainability of contributions.
 
 ## Principles
 
 1. **Collect data before automating decisions.** The biggest mistake in reputation system design is automating scoring before you have enough data to know what good scoring looks like. We start with human-applied rubrics backed by structured data collection, and evolve toward algorithmic scoring as the dataset grows.
 
-2. **Multi-dimensional signals resist gaming.** A single metric (e.g., PR count) is trivially inflatable. We observe contribution quality, review quality, and community citizenship simultaneously. An actor must fake consistency across uncorrelated dimensions — which is expensive.
+2. **Multi-dimensional signals resist gaming.** A single metric (e.g., PR count) is trivially inflatable. We observe contribution quality, review quality, and community citizenship simultaneously — dimensions that are intentionally uncorrelated because they measure different capacities (technical skill, critical judgment, and social engagement). An actor must fake consistency across all three, which is expensive.
 
 3. **Sample size discounts reputation.** One perfect PR does not outrank 47 good PRs and 3 mediocre ones. Confidence intervals widen with small samples, and tier placement is determined by the *lower bound* of the confidence interval.
 
@@ -23,7 +23,7 @@ This document describes how botplotlib builds trust with contributors. The syste
 
 ### Tier 0: New Contributor (default)
 
-Everyone starts here. No judgment implied — just insufficient data.
+Everyone starts here. No judgment implied, just insufficient data.
 
 - **Review requirement:** 2 approvals from Tier 2+ contributors
 - **CI treatment:** Full checks (lint, type check, tests, visual baseline review)
@@ -82,17 +82,18 @@ These are the checklists maintainers apply when deciding to promote a contributo
 
 ### Demotion
 
-Reputation decays naturally — a contributor who stops contributing gradually loses effective tier status. Additionally:
+Reputation decays naturally — a contributor who stops contributing gradually loses effective tier status. We are informed by ecological rather than zero-trust / adversarial metaphors. Instead of focusing on the worst actors, we build for the best - but we recognize that a healthy ecosystem needs mechanisms for both growth and graceful decay (see `research/open-source-stewardship.md`). Additionally:
 
 - A reverted PR is a strong negative signal
 - Approving a PR that later gets reverted is a negative signal on review quality
-- These aren't punitive — they're informational updates
 
 ---
 
 ## Reputation Signals
 
 We observe three dimensions of contributor behavior. Today these are evaluated by humans applying the rubrics above. The long-term goal is to compute them algorithmically.
+
+*Note: The dimension weights below are initial assumptions, not empirically calibrated values. As `CONTRIBUTORS.json` accumulates real promotion decisions, we will calibrate these against observed outcomes (see [Evolution](#evolution)).*
 
 ### Dimension 1: Contribution Quality (weight: 0.45)
 
@@ -121,7 +122,7 @@ We observe three dimensions of contributor behavior. Today these are evaluated b
 
 ### Why multiple dimensions matter
 
-Multi-dimensional scoring is harder to game because an attacker must fake consistency across uncorrelated metrics. A bot can easily inflate merge count but will struggle to simultaneously have high code longevity, substantive review comments, and responsive community engagement.
+These three dimensions are intentionally chosen to be uncorrelated: writing good code (technical skill), giving good reviews (critical judgment about *others'* code), and being a good community citizen (social responsiveness and documentation discipline) draw on different capacities. A bot can easily inflate merge count but will struggle to simultaneously have high code longevity, substantive review comments, and responsive community engagement. This is the mechanism design insight: when the dimensions of evaluation are orthogonal, the cost of gaming grows multiplicatively.
 
 ---
 
@@ -200,6 +201,8 @@ The output is a score in [0, 1] with a confidence interval. Tier placement is de
 
 ## What's Live Today
 
+Nothing! But here's what we have in mind for v1:
+
 ### GitHub settings
 
 - Branch protection on `main`: require PR, require approvals, require CI status checks (lint + test), dismiss stale reviews on new commits
@@ -241,22 +244,36 @@ If you're a new contributor and want to build trust:
 
 The reputation system is designed to make gaming expensive:
 
-- **Volume doesn't equal quality.** Raw PR count is not a signal. Merge rate, code longevity, and review outcomes are.
+- **Volume doesn't equal quality.** Raw PR count or size is not a signal. Merge rate, code longevity, and review outcomes are.
 - **Multi-dimensional consistency is hard to fake.** You must simultaneously have good code, good reviews, and good citizenship.
 - **Bayesian priors are skeptical.** New contributors start with maximum uncertainty, and the lower bound of the confidence interval determines tier. You can't speedrun reputation.
 - **Time decay prevents coasting.** Past reputation fades. You must sustain quality over time.
 - **Structural gates are non-negotiable.** CI enforces lint, types, tests, and WCAG contrast. No amount of social engineering bypasses these.
 
-This isn't adversarial — it's structural. The system is designed so that the easiest way to gain reputation is to genuinely contribute well. Gaming the system requires more effort than just doing good work.
+This is meant to be structural rather than adversarial — or in the language of `research/open-source-stewardship.md`, symbiosis rather than siege. The system is designed so that the easiest way to gain reputation is to genuinely contribute well. Gaming the system should require far more effort than just doing good work.
 
 ---
 
 ## References
 
+### Reputation and mechanism design
 - Resnick & Zeckhauser (2002), "Trust Among Strangers in Internet Transactions" — foundational eBay reputation study
 - Dellarocas (2005), "Reputation Mechanisms" — design framework for multi-dimensional scoring
 - Josang, "Subjective Logic" — formal trust aggregation with explicit uncertainty
 - Stack Overflow privilege system — tiered trust with specific thresholds
+
+### Diversity and collective intelligence
+- Page, S. (2007), *The Difference: How the Power of Diversity Creates Better Groups, Firms, Schools, and Societies* — the diversity prediction theorem: a group's error decreases with both individual accuracy and cognitive diversity. Origin-agnostic evaluation enables diverse problem-solving approaches to surface, rather than filtering on contributor identity.
+- Page, S. (2018), *The Model Thinker* — multi-model reasoning and why ensembles of diverse approaches outperform any single method
+
+### Cyborg theory and accountability
+- Haraway, D. (1991), "A Cyborg Manifesto" — rejection of the human/machine binary; the cyborg as a political and epistemic subject
+- Elish, M.C. (2019), "Moral Crumple Zones" — accountability in human-machine systems; why structural gates matter more than supervisory humans
+- Kimmerer, R.W. (2013), *Braiding Sweetgrass* — gift economy, reciprocity, ecological stewardship as models for community health
+
+### Commons and community governance
+- Ostrom, E. (1990), *Governing the Commons* — design principles for self-governing institutions managing shared resources
+- Geiger & Halfaker — research on Wikipedia's bot ecosystem, algorithmic governance, and tiered permission systems
 
 ---
 

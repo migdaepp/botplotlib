@@ -32,19 +32,12 @@
   <text x="546.824" y="461" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="middle">10</text>
   <line x1="642.736" y1="443" x2="642.736" y2="448" stroke="#CCCCCC" stroke-width="1"/>
   <text x="642.736" y="461" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="middle">12</text>
-  <line x1="45" y1="432.67" x2="50" y2="432.67" stroke="#CCCCCC" stroke-width="1"/>
   <text x="42" y="436.67" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="end">10</text>
-  <line x1="45" y1="375.28" x2="50" y2="375.28" stroke="#CCCCCC" stroke-width="1"/>
   <text x="42" y="379.28" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="end">15</text>
-  <line x1="45" y1="317.89" x2="50" y2="317.89" stroke="#CCCCCC" stroke-width="1"/>
   <text x="42" y="321.89" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="end">20</text>
-  <line x1="45" y1="260.5" x2="50" y2="260.5" stroke="#CCCCCC" stroke-width="1"/>
   <text x="42" y="264.5" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="end">25</text>
-  <line x1="45" y1="203.11" x2="50" y2="203.11" stroke="#CCCCCC" stroke-width="1"/>
   <text x="42" y="207.11" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="end">30</text>
-  <line x1="45" y1="145.72" x2="50" y2="145.72" stroke="#CCCCCC" stroke-width="1"/>
   <text x="42" y="149.72" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="end">35</text>
-  <line x1="45" y1="88.3302" x2="50" y2="88.3302" stroke="#CCCCCC" stroke-width="1"/>
   <text x="42" y="92.3302" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="end">40</text>
   <text x="50" y="52" font-family="Georgia, Times New Roman, serif" font-size="22" fill="#333333" text-anchor="start" font-weight="bold">Revenue by Segment</text>
   <text x="355" y="480" font-family="Georgia, Times New Roman, serif" font-size="12" fill="#333333" text-anchor="middle">Month</text>

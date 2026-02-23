@@ -2,54 +2,54 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800.0 500.0">
   <defs>
     <clipPath id="plot-clip">
-      <rect x="77" y="66" width="583" height="367"/>
+      <rect x="79.4" y="66" width="580.6" height="367"/>
     </clipPath>
   </defs>
   <rect x="0" y="0" width="800" height="500" fill="#FFFFFF"/>
-  <line x1="77" y1="422.613" x2="660" y2="422.613" stroke="#E0E0E0" stroke-width="1"/>
-  <line x1="77" y1="364.909" x2="660" y2="364.909" stroke="#E0E0E0" stroke-width="1"/>
-  <line x1="77" y1="307.204" x2="660" y2="307.204" stroke="#E0E0E0" stroke-width="1"/>
-  <line x1="77" y1="249.5" x2="660" y2="249.5" stroke="#E0E0E0" stroke-width="1"/>
-  <line x1="77" y1="191.796" x2="660" y2="191.796" stroke="#E0E0E0" stroke-width="1"/>
-  <line x1="77" y1="134.091" x2="660" y2="134.091" stroke="#E0E0E0" stroke-width="1"/>
-  <line x1="77" y1="76.3868" x2="660" y2="76.3868" stroke="#E0E0E0" stroke-width="1"/>
-  <line x1="77" y1="433" x2="660" y2="433" stroke="#2D2D2D" stroke-width="0.75"/>
-  <line x1="77" y1="66" x2="77" y2="433" stroke="#2D2D2D" stroke-width="0.75"/>
+  <line x1="79.4" y1="422.613" x2="660" y2="422.613" stroke="#E0E0E0" stroke-width="1"/>
+  <line x1="79.4" y1="364.909" x2="660" y2="364.909" stroke="#E0E0E0" stroke-width="1"/>
+  <line x1="79.4" y1="307.204" x2="660" y2="307.204" stroke="#E0E0E0" stroke-width="1"/>
+  <line x1="79.4" y1="249.5" x2="660" y2="249.5" stroke="#E0E0E0" stroke-width="1"/>
+  <line x1="79.4" y1="191.796" x2="660" y2="191.796" stroke="#E0E0E0" stroke-width="1"/>
+  <line x1="79.4" y1="134.091" x2="660" y2="134.091" stroke="#E0E0E0" stroke-width="1"/>
+  <line x1="79.4" y1="76.3868" x2="660" y2="76.3868" stroke="#E0E0E0" stroke-width="1"/>
+  <line x1="79.4" y1="433" x2="660" y2="433" stroke="#2D2D2D" stroke-width="0.75"/>
+  <line x1="79.4" y1="66" x2="79.4" y2="433" stroke="#2D2D2D" stroke-width="0.75"/>
   <g clip-path="url(#plot-clip)">
-    <polyline points="139.333,422.613 185.167,387.991 231,364.909 276.833,376.45 322.667,330.286 368.5,284.123 414.333,249.5 460.167,214.877 506,237.959 551.833,191.796 597.667,134.091 643.5,76.3868" fill="none" stroke="#2B5B8A" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
-    <polyline points="139.333,307.204 185.167,318.745 231,295.664 276.833,284.123 322.667,272.582 368.5,284.123 414.333,261.041 460.167,249.5 506,237.959 551.833,249.5 597.667,226.418 643.5,214.877" fill="none" stroke="#B5342E" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+    <polyline points="141.477,422.613 187.121,387.991 232.766,364.909 278.411,376.45 324.055,330.286 369.7,284.123 415.345,249.5 460.989,214.877 506.634,237.959 552.279,191.796 597.923,134.091 643.568,76.3868" fill="none" stroke="#2B5B8A" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+    <polyline points="141.477,307.204 187.121,318.745 232.766,295.664 278.411,284.123 324.055,272.582 369.7,284.123 415.345,261.041 460.989,249.5 506.634,237.959 552.279,249.5 597.923,226.418 643.568,214.877" fill="none" stroke="#B5342E" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
   </g>
-  <line x1="93.5" y1="433" x2="93.5" y2="438" stroke="#2D2D2D" stroke-width="0.75"/>
-  <text x="93.5" y="451" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="middle">0</text>
-  <line x1="185.167" y1="433" x2="185.167" y2="438" stroke="#2D2D2D" stroke-width="0.75"/>
-  <text x="185.167" y="451" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="middle">2</text>
-  <line x1="276.833" y1="433" x2="276.833" y2="438" stroke="#2D2D2D" stroke-width="0.75"/>
-  <text x="276.833" y="451" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="middle">4</text>
-  <line x1="368.5" y1="433" x2="368.5" y2="438" stroke="#2D2D2D" stroke-width="0.75"/>
-  <text x="368.5" y="451" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="middle">6</text>
-  <line x1="460.167" y1="433" x2="460.167" y2="438" stroke="#2D2D2D" stroke-width="0.75"/>
-  <text x="460.167" y="451" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="middle">8</text>
-  <line x1="551.833" y1="433" x2="551.833" y2="438" stroke="#2D2D2D" stroke-width="0.75"/>
-  <text x="551.833" y="451" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="middle">10</text>
-  <line x1="643.5" y1="433" x2="643.5" y2="438" stroke="#2D2D2D" stroke-width="0.75"/>
-  <text x="643.5" y="451" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="middle">12</text>
-  <line x1="72" y1="422.613" x2="77" y2="422.613" stroke="#2D2D2D" stroke-width="0.75"/>
-  <text x="69" y="426.613" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="end">10</text>
-  <line x1="72" y1="364.909" x2="77" y2="364.909" stroke="#2D2D2D" stroke-width="0.75"/>
-  <text x="69" y="368.909" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="end">15</text>
-  <line x1="72" y1="307.204" x2="77" y2="307.204" stroke="#2D2D2D" stroke-width="0.75"/>
-  <text x="69" y="311.204" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="end">20</text>
-  <line x1="72" y1="249.5" x2="77" y2="249.5" stroke="#2D2D2D" stroke-width="0.75"/>
-  <text x="69" y="253.5" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="end">25</text>
-  <line x1="72" y1="191.796" x2="77" y2="191.796" stroke="#2D2D2D" stroke-width="0.75"/>
-  <text x="69" y="195.796" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="end">30</text>
-  <line x1="72" y1="134.091" x2="77" y2="134.091" stroke="#2D2D2D" stroke-width="0.75"/>
-  <text x="69" y="138.091" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="end">35</text>
-  <line x1="72" y1="76.3868" x2="77" y2="76.3868" stroke="#2D2D2D" stroke-width="0.75"/>
-  <text x="69" y="80.3868" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="end">40</text>
-  <text x="368.5" y="56" font-family="Georgia, Times New Roman, serif" font-size="16" fill="#2D2D2D" text-anchor="middle">Revenue by Segment</text>
-  <text x="368.5" y="475" font-family="Georgia, Times New Roman, serif" font-size="12" fill="#2D2D2D" text-anchor="middle">Month</text>
-  <text x="12" y="249.5" font-family="Georgia, Times New Roman, serif" font-size="12" fill="#2D2D2D" text-anchor="middle" transform="rotate(-90,12,249.5)">Revenue ($M)</text>
+  <line x1="95.8321" y1="433" x2="95.8321" y2="438" stroke="#2D2D2D" stroke-width="0.75"/>
+  <text x="95.8321" y="451" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="middle">0</text>
+  <line x1="187.121" y1="433" x2="187.121" y2="438" stroke="#2D2D2D" stroke-width="0.75"/>
+  <text x="187.121" y="451" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="middle">2</text>
+  <line x1="278.411" y1="433" x2="278.411" y2="438" stroke="#2D2D2D" stroke-width="0.75"/>
+  <text x="278.411" y="451" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="middle">4</text>
+  <line x1="369.7" y1="433" x2="369.7" y2="438" stroke="#2D2D2D" stroke-width="0.75"/>
+  <text x="369.7" y="451" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="middle">6</text>
+  <line x1="460.989" y1="433" x2="460.989" y2="438" stroke="#2D2D2D" stroke-width="0.75"/>
+  <text x="460.989" y="451" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="middle">8</text>
+  <line x1="552.279" y1="433" x2="552.279" y2="438" stroke="#2D2D2D" stroke-width="0.75"/>
+  <text x="552.279" y="451" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="middle">10</text>
+  <line x1="643.568" y1="433" x2="643.568" y2="438" stroke="#2D2D2D" stroke-width="0.75"/>
+  <text x="643.568" y="451" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="middle">12</text>
+  <line x1="74.4" y1="422.613" x2="79.4" y2="422.613" stroke="#2D2D2D" stroke-width="0.75"/>
+  <text x="71.4" y="426.613" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="end">10</text>
+  <line x1="74.4" y1="364.909" x2="79.4" y2="364.909" stroke="#2D2D2D" stroke-width="0.75"/>
+  <text x="71.4" y="368.909" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="end">15</text>
+  <line x1="74.4" y1="307.204" x2="79.4" y2="307.204" stroke="#2D2D2D" stroke-width="0.75"/>
+  <text x="71.4" y="311.204" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="end">20</text>
+  <line x1="74.4" y1="249.5" x2="79.4" y2="249.5" stroke="#2D2D2D" stroke-width="0.75"/>
+  <text x="71.4" y="253.5" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="end">25</text>
+  <line x1="74.4" y1="191.796" x2="79.4" y2="191.796" stroke="#2D2D2D" stroke-width="0.75"/>
+  <text x="71.4" y="195.796" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="end">30</text>
+  <line x1="74.4" y1="134.091" x2="79.4" y2="134.091" stroke="#2D2D2D" stroke-width="0.75"/>
+  <text x="71.4" y="138.091" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="end">35</text>
+  <line x1="74.4" y1="76.3868" x2="79.4" y2="76.3868" stroke="#2D2D2D" stroke-width="0.75"/>
+  <text x="71.4" y="80.3868" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="end">40</text>
+  <text x="369.7" y="56" font-family="Georgia, Times New Roman, serif" font-size="16" fill="#2D2D2D" text-anchor="middle">Revenue by Segment</text>
+  <text x="369.7" y="475" font-family="Georgia, Times New Roman, serif" font-size="12" fill="#2D2D2D" text-anchor="middle">Month</text>
+  <text x="14.4" y="249.5" font-family="Georgia, Times New Roman, serif" font-size="12" fill="#2D2D2D" text-anchor="middle" transform="rotate(-90,14.399999999999999,249.5)">Revenue ($M)</text>
   <rect x="675" y="68" width="12" height="12" fill="#2B5B8A" rx="2"/>
   <text x="693" y="78" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="start">SaaS</text>
   <rect x="675" y="90" width="12" height="12" fill="#B5342E" rx="2"/>

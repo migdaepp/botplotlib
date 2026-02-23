@@ -118,11 +118,12 @@ botplotlib ships with themes optimized for different output targets:
 | Theme | Use case |
 |-------|----------|
 | `default` | Screen / notebook |
-| `bluesky` | Social media (larger type, bolder strokes) |
+| `bluesky` | Social media (bold titles, larger type, mobile-optimized) |
 | `pdf` | Digital academic papers — arxiv, SSRN (serif, muted colors) |
 | `print` | Physical print / B&W journals (grayscale, serif) |
+| `magazine` | Editorial / data journalism (serif, warm background, left-aligned titles) |
 
-These are the starting integrations — chosen to seed the project around open platforms and open science. X/Twitter is not included; we invest in platforms aligned with open access and open discourse. botplotlib is open-source, so contributors are welcome to add themes for other platforms.
+These themes are chosen to seed the project around open platforms and open science. X/Twitter is not included; we invest in platforms aligned with open access and open discourse. botplotlib is open-source, so contributors are welcome to add themes for other platforms.
 
 ## Documentation
 
@@ -137,7 +138,7 @@ pip install marimo
 marimo edit docs/tutorial.py
 ```
 
-It walks through scatter/line/bar charts, data formats, all five themes, the PlotSpec data model, and the matplotlib refactor — with live, editable plots.
+It walks through scatter/line/bar charts, data formats, all themes, the PlotSpec data model, and the matplotlib refactor — with live, editable plots.
 
 Additional examples live in [`examples/`](examples/).
 
