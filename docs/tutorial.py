@@ -299,7 +299,7 @@ def _(mo):
     |-------|----------|-------|
     | `default` | General purpose | Clean sans-serif, colorful palette |
     | `bluesky` | Social media posts | Larger text, bolder strokes |
-    | `substack` | Newsletter embeds | Refined, slightly larger text |
+    | `magazine` | Longform articles | Editorial serif, warm background |
     | `pdf` | Digital academic papers (arxiv, SSRN) | Serif, muted colors |
     | `print` | Physical print / B&W journals | Grayscale, serif fonts |
     """)
@@ -347,13 +347,13 @@ def _(bpl, mo, wave_data):
 
 @app.cell
 def _(bpl, mo, wave_data):
-    fig_substack = bpl.line(
+    fig_magazine = bpl.line(
         wave_data,
         x="x",
         y="y",
         color="series",
-        title="Substack",
-        theme="substack",
+        title="Magazine",
+        theme="magazine",
         width=400,
         height=280,
     )
@@ -367,7 +367,7 @@ def _(bpl, mo, wave_data):
         width=400,
         height=280,
     )
-    mo.hstack([mo.Html(fig_substack.to_svg()), mo.Html(fig_pdf.to_svg())])
+    mo.hstack([mo.Html(fig_magazine.to_svg()), mo.Html(fig_pdf.to_svg())])
     return
 
 

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800.0 500.0">
+  <defs>
+    <clipPath id="plot-clip">
+      <rect x="55" y="109" width="600" height="315"/>
+    </clipPath>
+  </defs>
+  <rect x="0" y="0" width="800" height="500" fill="#FFFFFF"/>
+  <line x1="55" y1="415.085" x2="655" y2="415.085" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="55" y1="365.557" x2="655" y2="365.557" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="55" y1="316.028" x2="655" y2="316.028" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="55" y1="266.5" x2="655" y2="266.5" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="55" y1="216.972" x2="655" y2="216.972" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="55" y1="167.443" x2="655" y2="167.443" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="55" y1="117.915" x2="655" y2="117.915" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="55" y1="424" x2="655" y2="424" stroke="#CCCCCC" stroke-width="1"/>
+  <g clip-path="url(#plot-clip)">
+    <polyline points="119.151,415.085 166.321,385.368 213.491,365.557 260.66,375.462 307.83,335.84 355,296.217 402.17,266.5 449.34,236.783 496.509,256.594 543.679,216.972 590.849,167.443 638.019,117.915" fill="none" stroke="#4E79A7" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+    <polyline points="119.151,316.028 166.321,325.934 213.491,306.123 260.66,296.217 307.83,286.311 355,296.217 402.17,276.406 449.34,266.5 496.509,256.594 543.679,266.5 590.849,246.689 638.019,236.783" fill="none" stroke="#C56A00" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  </g>
+  <line x1="71.9811" y1="424" x2="71.9811" y2="429" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="71.9811" y="442" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="13" fill="#222222" text-anchor="middle">0</text>
+  <line x1="166.321" y1="424" x2="166.321" y2="429" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="166.321" y="442" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="13" fill="#222222" text-anchor="middle">2</text>
+  <line x1="260.66" y1="424" x2="260.66" y2="429" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="260.66" y="442" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="13" fill="#222222" text-anchor="middle">4</text>
+  <line x1="355" y1="424" x2="355" y2="429" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="355" y="442" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="13" fill="#222222" text-anchor="middle">6</text>
+  <line x1="449.34" y1="424" x2="449.34" y2="429" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="449.34" y="442" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="13" fill="#222222" text-anchor="middle">8</text>
+  <line x1="543.679" y1="424" x2="543.679" y2="429" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="543.679" y="442" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="13" fill="#222222" text-anchor="middle">10</text>
+  <line x1="638.019" y1="424" x2="638.019" y2="429" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="638.019" y="442" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="13" fill="#222222" text-anchor="middle">12</text>
+  <line x1="50" y1="415.085" x2="55" y2="415.085" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="47" y="419.085" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="13" fill="#222222" text-anchor="end">10</text>
+  <line x1="50" y1="365.557" x2="55" y2="365.557" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="47" y="369.557" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="13" fill="#222222" text-anchor="end">15</text>
+  <line x1="50" y1="316.028" x2="55" y2="316.028" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="47" y="320.028" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="13" fill="#222222" text-anchor="end">20</text>
+  <line x1="50" y1="266.5" x2="55" y2="266.5" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="47" y="270.5" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="13" fill="#222222" text-anchor="end">25</text>
+  <line x1="50" y1="216.972" x2="55" y2="216.972" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="47" y="220.972" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="13" fill="#222222" text-anchor="end">30</text>
+  <line x1="50" y1="167.443" x2="55" y2="167.443" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="47" y="171.443" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="13" fill="#222222" text-anchor="end">35</text>
+  <line x1="50" y1="117.915" x2="55" y2="117.915" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="47" y="121.915" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="13" fill="#222222" text-anchor="end">40</text>
+  <text x="55" y="79" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="24" fill="#222222" text-anchor="start" font-weight="bold">Revenue by Segment</text>
+  <text x="355" y="472.5" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="16" fill="#222222" text-anchor="middle">Month</text>
+  <text x="55" y="105" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="16" fill="#222222" text-anchor="start">Revenue ($M)</text>
+  <rect x="670" y="111" width="12" height="12" fill="#4E79A7" rx="2"/>
+  <text x="688" y="121" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="13" fill="#222222" text-anchor="start">SaaS</text>
+  <rect x="670" y="133" width="12" height="12" fill="#C56A00" rx="2"/>
+  <text x="688" y="143" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="13" fill="#222222" text-anchor="start">Hardware</text>
+</svg>

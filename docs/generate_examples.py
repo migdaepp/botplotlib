@@ -146,7 +146,7 @@ wave_data = {
     "fn": ["sin(x)"] * 63 + ["cos(x)"] * 63,
 }
 
-for theme_name in ("default", "bluesky", "substack", "pdf", "print"):
+for theme_name in ("default", "bluesky", "pdf", "print", "magazine"):
     bpl.line(
         wave_data,
         x="x",
@@ -177,7 +177,7 @@ bpl.Figure.from_dict(
         },
         "layers": [{"geom": "line", "x": "year", "y": "revenue"}],
         "labels": {"title": "Revenue Growth"},
-        "theme": "substack",
+        "theme": "magazine",
     }
 ).save_svg(OUT / "json_from_dict_line.svg")
 
@@ -226,21 +226,67 @@ plt.savefig("old_plot.png")
 spec2 = from_matplotlib(mpl_code2)
 bpl.render(spec2).save_svg(OUT / "refactor_squared.svg")
 
-# ── Gallery extras ───────────────────────────────────────────────────────
+# ── Gallery: theme showcase ──────────────────────────────────────────────
 
-# Row-oriented data bar
-bpl.bar(
-    [
-        {"language": "Python", "popularity": 30},
-        {"language": "JavaScript", "popularity": 25},
-        {"language": "TypeScript", "popularity": 18},
-        {"language": "Rust", "popularity": 10},
+gallery_data = {
+    "month": list(range(1, 13)) * 2,
+    "revenue": [
+        10,
+        13,
+        15,
+        14,
+        18,
+        22,
+        25,
+        28,
+        26,
+        30,
+        35,
+        40,
+        20,
+        19,
+        21,
+        22,
+        23,
+        22,
+        24,
+        25,
+        26,
+        25,
+        27,
+        28,
     ],
-    x="language",
-    y="popularity",
-    title="Same Data, Row-Oriented Format",
-    x_label="Language",
-    y_label="Popularity (%)",
-).save_svg(OUT / "gallery_records_bar.svg")
+    "segment": ["SaaS"] * 12 + ["Hardware"] * 12,
+}
+
+for theme_name in ("default", "bluesky", "pdf", "print", "magazine"):
+    bpl.line(
+        gallery_data,
+        x="month",
+        y="revenue",
+        color="segment",
+        title="Revenue by Segment",
+        x_label="Month",
+        y_label="Revenue ($M)",
+        theme=theme_name,
+    ).save_svg(OUT / f"gallery_{theme_name}.svg")
+
+# Gallery: bar charts with labels
+bar_data = {
+    "quarter": ["Q1", "Q2", "Q3", "Q4"],
+    "revenue": [38000, 52000, 47000, 61000],
+}
+
+for theme_name in ("default", "magazine"):
+    bpl.bar(
+        bar_data,
+        x="quarter",
+        y="revenue",
+        title="Quarterly Revenue",
+        y_label="Revenue ($)",
+        labels=True,
+        label_format="${:,.0f}",
+        theme=theme_name,
+    ).save_svg(OUT / f"gallery_bar_{theme_name}.svg")
 
 print(f"Generated {len(list(OUT.glob('*.svg')))} SVGs in {OUT}")

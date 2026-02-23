@@ -24,7 +24,7 @@ That cyborg workflow needs an API that's more often correct on the first try. It
 
     ---
 
-    Platform-specific themes (Bluesky, Substack, PDF, print) produce publication-ready output with zero configuration.
+    Platform-specific themes (Bluesky, PDF, print, magazine) produce publication-ready output with zero configuration.
 
 -   :material-check-circle:{ .lg .middle } **Accessible by construction**
 

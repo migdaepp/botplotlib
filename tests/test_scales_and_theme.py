@@ -101,13 +101,13 @@ class TestThemeSpec:
 
     def test_preset_themes_in_registry(self):
         """All expected preset names are present in the registry."""
-        expected_names = {"default", "bluesky", "social", "substack", "print"}
+        expected_names = {"default", "bluesky", "social", "print", "magazine"}
         assert expected_names.issubset(THEME_REGISTRY.keys())
 
     def test_resolve_theme_returns_correct_theme(self):
         """resolve_theme returns the matching ThemeSpec instance."""
         assert resolve_theme("default") is DEFAULT_THEME
-        assert resolve_theme("bluesky").title_font_size == 20
+        assert resolve_theme("bluesky").title_font_size == 24
         assert resolve_theme("print").text_color == "#000000"
 
     def test_resolve_theme_unknown_raises(self):

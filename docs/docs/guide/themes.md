@@ -7,8 +7,7 @@ Every botplotlib theme produces publication-ready output with zero configuration
 | Theme | Alias | Use case | Font style |
 |-------|-------|----------|------------|
 | `default` | — | Screen, notebooks, general purpose | Sans-serif, colorful palette |
-| `bluesky` | `social` | Social media posts | Larger type, bolder strokes |
-| `substack` | — | Email newsletters, web articles | Refined, slightly larger text |
+| `bluesky` | `social` | Social media posts | Bold titles, larger fonts, stronger contrast |
 | `pdf` | `arxiv` | Digital academic papers (arxiv, SSRN) | Serif, muted colors |
 | `print` | — | Physical print, B&W journals | Grayscale, serif fonts |
 | `magazine` | `economist` | Magazine, editorial layouts | Serif, left-aligned titles, warm background |
@@ -48,23 +47,13 @@ fig = bpl.line(data, x="x", y="y", title="Default Theme")
 
 ### `bluesky`
 
-Optimized for social media sharing. Larger text and bolder strokes ensure readability at smaller display sizes and on mobile feeds.
+Optimized for social media sharing. Bold 24pt left-aligned titles, larger fonts for mobile readability, stronger contrast, top-positioned y-axis labels, and de-emphasized axes keep the focus on the data in social feeds.
 
 ```python
 fig = bpl.line(data, x="x", y="y", title="Bluesky Theme", theme="bluesky")
 ```
 
 ![Bluesky theme](../assets/examples/theme_bluesky.svg)
-
-### `substack`
-
-Designed for embedding in newsletters and web articles. Refined spacing and slightly larger text for comfortable reading in long-form content.
-
-```python
-fig = bpl.line(data, x="x", y="y", title="Substack Theme", theme="substack")
-```
-
-![Substack theme](../assets/examples/theme_substack.svg)
 
 ### `pdf`
 
@@ -98,7 +87,7 @@ fig = bpl.line(data, x="x", y="y", title="Magazine Theme", theme="magazine")
 
 ## Platform stance
 
-These starting integrations are chosen to seed the project around open platforms and open science: Bluesky, Substack, and academic publishing. X/Twitter is not included — we invest in platforms aligned with open access and open discourse.
+These starting integrations are chosen to seed the project around open platforms and open science: Bluesky and academic publishing. X/Twitter is not included — we invest in platforms aligned with open access and open discourse.
 
 botplotlib is open-source, so contributors are welcome to add themes for other platforms.
 

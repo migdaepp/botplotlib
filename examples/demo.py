@@ -92,7 +92,7 @@ data_wave = {
     "fn": ["sin(x)"] * len(sine_x) + ["cos(x)"] * len(sine_x),
 }
 
-for theme_name in ("default", "bluesky", "substack", "print", "pdf"):
+for theme_name in ("default", "bluesky", "print", "pdf", "magazine"):
     fig = bpl.line(
         data_wave,
         x="x",

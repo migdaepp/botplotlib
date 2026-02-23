@@ -170,7 +170,7 @@ def compile_spec(spec: PlotSpec) -> CompiledPlot:
                     y=layout.y_label_pos[1],
                     font_size=theme.label_font_size,
                     color=theme.text_color,
-                    anchor="end",
+                    anchor="start",
                 )
             )
         else:

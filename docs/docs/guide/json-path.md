@@ -55,7 +55,7 @@ spec_dict = {
     },
     "layers": [{"geom": "line", "x": "year", "y": "revenue"}],
     "labels": {"title": "Revenue Growth"},
-    "theme": "substack",
+    "theme": "bluesky",
 }
 
 fig = bpl.Figure.from_dict(spec_dict)
@@ -100,7 +100,7 @@ The full PlotSpec structure:
         "width": 800,
         "height": 500
     },
-    "theme": "default | bluesky | substack | pdf | print | magazine"
+    "theme": "default | bluesky | pdf | print | magazine"
 }
 ```
 

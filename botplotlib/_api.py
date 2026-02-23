@@ -98,7 +98,7 @@ def scatter(
     footnote:
         Footer text below the plot (optional).
     theme:
-        Theme name (default, bluesky, substack, print, magazine).
+        Theme name (default, bluesky, print, magazine).
     """
     return _build_figure(
         data,
@@ -151,7 +151,7 @@ def line(
     footnote:
         Footer text below the plot (optional).
     theme:
-        Theme name (default, bluesky, substack, print, magazine).
+        Theme name (default, bluesky, print, magazine).
     """
     return _build_figure(
         data,
@@ -206,7 +206,7 @@ def bar(
     footnote:
         Footer text below the plot (optional).
     theme:
-        Theme name (default, bluesky, substack, print, magazine).
+        Theme name (default, bluesky, print, magazine).
     labels:
         Show value labels on bars (default False).
     label_format:
@@ -285,7 +285,7 @@ def waterfall(
     footnote:
         Footer text below the plot (optional).
     theme:
-        Theme name (default, bluesky, substack, print, magazine).
+        Theme name (default, bluesky, print, magazine).
     labels:
         Show value labels on bars (default False).
     label_format:

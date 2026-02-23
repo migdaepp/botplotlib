@@ -64,7 +64,7 @@ def _llm_function_call_dict() -> dict:
         },
         "legend": {"show": True, "position": "right"},
         "size": {"width": 800, "height": 500},
-        "theme": "substack",
+        "theme": "magazine",
     }
 
 
@@ -190,7 +190,7 @@ class TestFromDict:
         d = _llm_function_call_dict()
         fig = Figure.from_dict(d)
         spec = fig.spec
-        assert spec.theme == "substack"
+        assert spec.theme == "magazine"
         assert spec.labels.title == "Quarterly Revenue by Region"
         assert spec.layers[0].geom == "bar"
         assert spec.layers[0].color == "region"

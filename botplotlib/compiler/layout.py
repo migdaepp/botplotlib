@@ -130,9 +130,9 @@ def compute_layout(
 
     if has_y_label:
         if y_label_position == "top":
-            # Align with y-tick labels (right-aligned at plot_area.x - 8)
+            # Left-aligned above the plot area
             y_label_pos = (
-                margin_left - 8,
+                plot_area.x,
                 plot_area.y - 4,
             )
         else:
