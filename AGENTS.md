@@ -73,6 +73,13 @@ uv run black .
 
 # Type check
 uv run mypy botplotlib/
+
+# Docs — serve locally
+cd docs && uv run --group docs mkdocs serve
+# → http://127.0.0.1:8000/botplotlib/
+
+# Docs — build (strict mode catches broken links)
+cd docs && uv run --group docs mkdocs build --strict
 ```
 
 ## Architecture: Spec → Compile → Render
@@ -137,8 +144,10 @@ botplotlib/
     └── from_matplotlib.py # AST-based matplotlib → PlotSpec converter + code gen
 
 # Project-level files
-docs/tutorial.py           # interactive marimo notebook (tutorial + demo)
-docs/                      # MkDocs documentation site (docs/mkdocs.yml)
+docs/
+├── mkdocs.yml             # MkDocs site config (Material theme, mkdocstrings)
+├── tutorial.py            # interactive marimo notebook (tutorial + demo)
+└── docs/                  # page sources (index, guide/, gallery/, api/, contributing)
 examples/
 ├── demo.py                # generates showcase SVGs for all themes
 ├── demo_*.svg             # pre-rendered showcase output

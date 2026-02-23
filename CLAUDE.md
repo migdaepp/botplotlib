@@ -19,6 +19,7 @@ uv run pytest tests/test_foo.py::test_name  # single test
 uv run pytest --update-baselines        # regenerate golden SVGs
 uv run ruff check .                     # lint
 uv run black --check .                  # format check
+cd docs && uv run --group docs mkdocs serve   # docs dev server
 ```
 
 ## AI-Native Design Principles

@@ -61,6 +61,36 @@ fig = bpl.scatter(data, x="weight", y="mpg", theme="bluesky",
 fig.save_svg("social_post.svg")
 ```
 
+## Waterfall Charts
+
+```python
+fig = bpl.waterfall(
+    {
+        "category": ["Revenue", "COGS", "Gross Profit", "OpEx", "Tax", "Net Income"],
+        "amount": [500, -200, 300, -150, -45, 105],
+    },
+    x="category", y="amount",
+    title="Income Statement Waterfall",
+)
+fig.save_svg("waterfall.svg")
+```
+
+## Agent JSON Path
+
+LLMs can generate plots directly from JSON — no Python code execution required:
+
+```python
+fig = bpl.Figure.from_dict({
+    "data": {"columns": {"x": [1, 2, 3, 4, 5], "y": [1, 4, 9, 16, 25]}},
+    "layers": [{"geom": "scatter", "x": "x", "y": "y"}],
+    "labels": {"title": "Perfect Squares"},
+    "theme": "bluesky",
+})
+fig.save_svg("from_agent.svg")
+```
+
+Also available: `Figure.from_json(json_string)` for raw JSON input.
+
 ## Auto-Refactor from Matplotlib
 
 Paste your matplotlib spaghetti, get a clean spec back:
@@ -71,6 +101,14 @@ from botplotlib.refactor import from_matplotlib
 spec = from_matplotlib("my_old_script.py")
 fig = bpl.render(spec)
 fig.save_svg("migrated.svg")
+```
+
+Or generate the equivalent botplotlib Python code:
+
+```python
+from botplotlib.refactor import to_botplotlib_code
+
+print(to_botplotlib_code("my_old_script.py"))
 ```
 
 ## Platform Presets
