@@ -49,6 +49,8 @@
         - spec
         - compiled
         - title
+        - subtitle
+        - footnote
         - add_scatter
         - add_line
         - add_bar
@@ -102,6 +104,8 @@ PlotSpec fields:
 | `x` | `str` | *required* | Column name for x-axis |
 | `y` | `str` | *required* | Column name for y-axis |
 | `color` | `str \| None` | `None` | Column name for color grouping |
+| `labels` | `bool` | `False` | Show value labels on bars |
+| `label_format` | `str \| None` | `None` | Python format string for labels |
 
 ### LabelsSpec
 
@@ -114,8 +118,10 @@ PlotSpec fields:
 | Field | Type | Default | Description |
 |-------|------|---------|-------------|
 | `title` | `str \| None` | `None` | Plot title |
+| `subtitle` | `str \| None` | `None` | Plot subtitle |
 | `x` | `str \| None` | `None` | X-axis label |
 | `y` | `str \| None` | `None` | Y-axis label |
+| `footnote` | `str \| None` | `None` | Footnote below the plot |
 
 ### SizeSpec
 

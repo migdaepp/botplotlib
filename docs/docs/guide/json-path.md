@@ -80,13 +80,17 @@ The full PlotSpec structure:
             "geom": "scatter | line | bar | waterfall",
             "x": "column_name",
             "y": "column_name",
-            "color": "column_name (optional)"
+            "color": "column_name (optional)",
+            "labels": "boolean, default false (optional)",
+            "label_format": "string (optional)"
         }
     ],
     "labels": {
         "title": "string (optional)",
+        "subtitle": "string (optional)",
         "x": "string (optional)",
-        "y": "string (optional)"
+        "y": "string (optional)",
+        "footnote": "string (optional)"
     },
     "legend": {
         "show": true,
@@ -96,7 +100,7 @@ The full PlotSpec structure:
         "width": 800,
         "height": 500
     },
-    "theme": "default | bluesky | substack | pdf | print"
+    "theme": "default | bluesky | substack | pdf | print | magazine"
 }
 ```
 
@@ -133,7 +137,9 @@ tool = {
                         "geom": {"type": "string"},
                         "x": {"type": "string"},
                         "y": {"type": "string"},
-                        "color": {"type": "string"}
+                        "color": {"type": "string"},
+                        "labels": {"type": "boolean"},
+                        "label_format": {"type": "string"}
                     }
                 }
             },
@@ -141,8 +147,10 @@ tool = {
                 "type": "object",
                 "properties": {
                     "title": {"type": "string"},
+                    "subtitle": {"type": "string"},
                     "x": {"type": "string"},
-                    "y": {"type": "string"}
+                    "y": {"type": "string"},
+                    "footnote": {"type": "string"}
                 }
             },
             "theme": {"type": "string"}

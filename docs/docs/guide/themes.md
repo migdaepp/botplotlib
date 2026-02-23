@@ -11,6 +11,7 @@ Every botplotlib theme produces publication-ready output with zero configuration
 | `substack` | — | Email newsletters, web articles | Refined, slightly larger text |
 | `pdf` | `arxiv` | Digital academic papers (arxiv, SSRN) | Serif, muted colors |
 | `print` | — | Physical print, B&W journals | Grayscale, serif fonts |
+| `magazine` | `economist` | Magazine, editorial layouts | Serif, left-aligned titles, warm background |
 
 ## Usage
 
@@ -28,8 +29,9 @@ fig.save_svg("bluesky_plot.svg")
 Theme aliases work too:
 
 ```python
-fig = bpl.scatter(data, x="x", y="y", theme="social")   # same as "bluesky"
-fig = bpl.scatter(data, x="x", y="y", theme="arxiv")     # same as "pdf"
+fig = bpl.scatter(data, x="x", y="y", theme="social")     # same as "bluesky"
+fig = bpl.scatter(data, x="x", y="y", theme="arxiv")      # same as "pdf"
+fig = bpl.scatter(data, x="x", y="y", theme="economist")  # same as "magazine"
 ```
 
 ## Theme details
@@ -84,6 +86,16 @@ fig = bpl.line(data, x="x", y="y", title="Print Theme", theme="print")
 
 ![Print theme](../assets/examples/theme_print.svg)
 
+### `magazine`
+
+Editorial-style theme inspired by data journalism. Left-aligned bold titles, warm parchment background, serif fonts, and a subdued palette designed for magazine and newsletter layouts.
+
+```python
+fig = bpl.line(data, x="x", y="y", title="Magazine Theme", theme="magazine")
+```
+
+![Magazine theme](../assets/examples/theme_magazine.svg)
+
 ## Platform stance
 
 These starting integrations are chosen to seed the project around open platforms and open science: Bluesky, Substack, and academic publishing. X/Twitter is not included — we invest in platforms aligned with open access and open discourse.
@@ -108,6 +120,13 @@ Under the hood, each theme is a `ThemeSpec` Pydantic model. Key properties:
 | `point_radius` | Scatter point radius (px) |
 | `line_width` | Line stroke width (px) |
 | `bar_padding` | Bar padding as fraction of band width |
+| `title_font_weight` | Title font weight (`normal` or `bold`) |
+| `title_align` | Title alignment (`left`, `center`, `right`) |
+| `subtitle_font_size` | Subtitle text size (px) |
+| `subtitle_color` | Subtitle color (`None` → text_color) |
+| `footnote_font_size` | Footnote text size (px) |
+| `footnote_color` | Footnote color (`None` → text_color) |
+| `y_label_position` | Y-axis label position (`side` or `top`) |
 | `palette` | List of hex colors (WCAG AA compliant) |
 | `margin_*` | Plot margins (top, right, bottom, left) |
 

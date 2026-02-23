@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800.0 500.0">
+  <defs>
+    <clipPath id="plot-clip">
+      <rect x="50" y="78" width="730" height="365"/>
+    </clipPath>
+  </defs>
+  <rect x="0" y="0" width="800" height="500" fill="#F2EDE4"/>
+  <line x1="50" y1="432.67" x2="780" y2="432.67" stroke="#D8D2C6" stroke-width="1"/>
+  <line x1="50" y1="363.802" x2="780" y2="363.802" stroke="#D8D2C6" stroke-width="1"/>
+  <line x1="50" y1="294.934" x2="780" y2="294.934" stroke="#D8D2C6" stroke-width="1"/>
+  <line x1="50" y1="226.066" x2="780" y2="226.066" stroke="#D8D2C6" stroke-width="1"/>
+  <line x1="50" y1="157.198" x2="780" y2="157.198" stroke="#D8D2C6" stroke-width="1"/>
+  <line x1="50" y1="88.3302" x2="780" y2="88.3302" stroke="#D8D2C6" stroke-width="1"/>
+  <line x1="50" y1="443" x2="780" y2="443" stroke="#CCCCCC" stroke-width="1"/>
+  <g clip-path="url(#plot-clip)">
+    <polyline points="70.6604,432.67 242.83,294.934 415,363.802 587.17,88.3302 759.34,226.066" fill="none" stroke="#388EC1" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+  </g>
+  <line x1="70.6604" y1="443" x2="70.6604" y2="448" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="70.6604" y="461" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="middle">1</text>
+  <line x1="242.83" y1="443" x2="242.83" y2="448" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="242.83" y="461" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="middle">2</text>
+  <line x1="415" y1="443" x2="415" y2="448" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="415" y="461" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="middle">3</text>
+  <line x1="587.17" y1="443" x2="587.17" y2="448" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="587.17" y="461" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="middle">4</text>
+  <line x1="759.34" y1="443" x2="759.34" y2="448" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="759.34" y="461" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="middle">5</text>
+  <line x1="45" y1="432.67" x2="50" y2="432.67" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="42" y="436.67" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="end">2</text>
+  <line x1="45" y1="363.802" x2="50" y2="363.802" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="42" y="367.802" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="end">3</text>
+  <line x1="45" y1="294.934" x2="50" y2="294.934" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="42" y="298.934" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="end">4</text>
+  <line x1="45" y1="226.066" x2="50" y2="226.066" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="42" y="230.066" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="end">5</text>
+  <line x1="45" y1="157.198" x2="50" y2="157.198" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="42" y="161.198" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="end">6</text>
+  <line x1="45" y1="88.3302" x2="50" y2="88.3302" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="42" y="92.3302" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="end">7</text>
+  <text x="50" y="52" font-family="Georgia, Times New Roman, serif" font-size="22" fill="#333333" text-anchor="start" font-weight="bold">Magazine Theme</text>
+  <text x="415" y="480" font-family="Georgia, Times New Roman, serif" font-size="12" fill="#333333" text-anchor="middle">x</text>
+  <text x="42" y="74" font-family="Georgia, Times New Roman, serif" font-size="12" fill="#333333" text-anchor="end">y</text>
+</svg>

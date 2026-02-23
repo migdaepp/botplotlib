@@ -19,7 +19,7 @@ The tutorial walks through:
 2. **Color grouping** — automatic legend and color assignment
 3. **Data format flexibility** — dict, list[dict], DataFrames
 4. **Layered plots** — combining scatter + line with `bpl.plot()`
-5. **Platform themes** — all five themes side by side
+5. **Platform themes** — all six themes side by side
 6. **PlotSpec under the hood** — inspecting the JSON-serializable spec
 7. **Matplotlib refactor** — converting matplotlib code live
 
@@ -60,7 +60,7 @@ fig = bpl.line(
 
 ### Theme showcase
 
-All five themes rendered side by side with the same data — `default`, `bluesky`, `substack`, `pdf`, and `print`.
+All six themes rendered side by side with the same data — `default`, `bluesky`, `substack`, `pdf`, `print`, and `magazine`.
 
 ### PlotSpec inspection
 
