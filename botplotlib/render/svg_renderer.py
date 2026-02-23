@@ -15,6 +15,7 @@ Rendering z-order (back to front):
 
 from __future__ import annotations
 
+from botplotlib._fonts.metrics import text_width
 from botplotlib.geoms.primitives import (
     CompiledBar,
     CompiledLine,
@@ -257,16 +258,17 @@ def _render_ticks(doc: SvgDocument, compiled: CompiledPlot) -> None:
 
     for tick in compiled.x_ticks:
         # Tick mark
-        doc.add(
-            line(
-                tick.pixel_pos,
-                pa.bottom,
-                tick.pixel_pos,
-                pa.bottom + 5,
-                stroke=theme.axis_color,
-                stroke_width=theme.axis_stroke_width,
+        if theme.show_x_ticks:
+            doc.add(
+                line(
+                    tick.pixel_pos,
+                    pa.bottom,
+                    tick.pixel_pos,
+                    pa.bottom + 5,
+                    stroke=theme.axis_color,
+                    stroke_width=theme.axis_stroke_width,
+                )
             )
-        )
         # Label
         doc.add(
             text(
@@ -283,16 +285,17 @@ def _render_ticks(doc: SvgDocument, compiled: CompiledPlot) -> None:
     for tick in compiled.y_ticks:
         if pa.y <= tick.pixel_pos <= pa.bottom:
             # Tick mark
-            doc.add(
-                line(
-                    pa.x - 5,
-                    tick.pixel_pos,
-                    pa.x,
-                    tick.pixel_pos,
-                    stroke=theme.axis_color,
-                    stroke_width=theme.axis_stroke_width,
+            if theme.show_y_ticks:
+                doc.add(
+                    line(
+                        pa.x - 5,
+                        tick.pixel_pos,
+                        pa.x,
+                        tick.pixel_pos,
+                        stroke=theme.axis_color,
+                        stroke_width=theme.axis_stroke_width,
+                    )
                 )
-            )
             # Label
             doc.add(
                 text(
@@ -309,6 +312,19 @@ def _render_ticks(doc: SvgDocument, compiled: CompiledPlot) -> None:
 
 def _render_legend(doc: SvgDocument, compiled: CompiledPlot) -> None:
     """Render the legend."""
+    la = compiled.legend_area
+    if la is None:
+        return
+
+    # Horizontal layout when the legend area is wider than tall (top/bottom)
+    if la.width > la.height:
+        _render_legend_horizontal(doc, compiled)
+    else:
+        _render_legend_vertical(doc, compiled)
+
+
+def _render_legend_vertical(doc: SvgDocument, compiled: CompiledPlot) -> None:
+    """Render legend entries vertically (right/left position)."""
     theme = compiled.theme
     la = compiled.legend_area
     if la is None:
@@ -331,3 +347,44 @@ def _render_legend(doc: SvgDocument, compiled: CompiledPlot) -> None:
             )
         )
         y_offset += 22
+
+
+def _render_legend_horizontal(doc: SvgDocument, compiled: CompiledPlot) -> None:
+    """Render legend entries horizontally (top/bottom position)."""
+    theme = compiled.theme
+    la = compiled.legend_area
+    if la is None:
+        return
+
+    swatch_size = 12
+    gap = 16
+    x_offset = la.x
+    y_center = la.y + la.height / 2
+
+    for entry in compiled.legend_entries:
+        # Color swatch
+        doc.add(
+            rect(
+                x_offset,
+                y_center - swatch_size / 2,
+                swatch_size,
+                swatch_size,
+                fill=entry.color,
+                rx=2,
+            )
+        )
+        # Label
+        label_x = x_offset + swatch_size + 4
+        doc.add(
+            text(
+                entry.label,
+                label_x,
+                y_center + 4,
+                font_family=theme.font_family,
+                font_size=theme.tick_font_size,
+                fill=theme.text_color,
+                text_anchor="start",
+            )
+        )
+        label_width = text_width(entry.label, theme.tick_font_size, theme.font_name)
+        x_offset = label_x + label_width + gap

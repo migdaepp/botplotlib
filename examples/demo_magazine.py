@@ -58,6 +58,7 @@ fig_scatter = bpl.scatter(
     theme="magazine",
     width=650,
     height=480,
+    legend_position="top",
 )
 fig_scatter.save_svg(OUT / "demo_magazine_scatter.svg")
 print("  wrote demo_magazine_scatter.svg")

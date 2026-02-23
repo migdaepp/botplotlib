@@ -5,7 +5,7 @@ Provides the top-level functions: scatter(), line(), bar(), plot(), render().
 
 from __future__ import annotations
 
-from typing import Any
+from typing import Any, Literal
 
 from botplotlib.compiler.data_prep import normalize_data
 from botplotlib.figure import Figure
@@ -35,6 +35,7 @@ def _build_figure(
     height: float = 500,
     labels: bool = False,
     label_format: str | None = None,
+    legend_position: Literal["top", "bottom", "left", "right"] = "right",
 ) -> Figure:
     """Internal helper to build a Figure from common arguments."""
     columns = normalize_data(data)
@@ -57,7 +58,7 @@ def _build_figure(
             y=y_label if y_label is not None else y,
             footnote=footnote,
         ),
-        legend=LegendSpec(show=color is not None),
+        legend=LegendSpec(show=color is not None, position=legend_position),
         size=SizeSpec(width=width, height=height),
         theme=theme,
     )
@@ -78,6 +79,7 @@ def scatter(
     theme: str = "default",
     width: float = 800,
     height: float = 500,
+    legend_position: Literal["top", "bottom", "left", "right"] = "right",
 ) -> Figure:
     """Create a scatter plot.
 
@@ -99,6 +101,8 @@ def scatter(
         Footer text below the plot (optional).
     theme:
         Theme name (default, bluesky, print, magazine).
+    legend_position:
+        Legend position ("top", "bottom", "left", "right").
     """
     return _build_figure(
         data,
@@ -114,6 +118,7 @@ def scatter(
         theme=theme,
         width=width,
         height=height,
+        legend_position=legend_position,
     )
 
 
@@ -131,6 +136,7 @@ def line(
     theme: str = "default",
     width: float = 800,
     height: float = 500,
+    legend_position: Literal["top", "bottom", "left", "right"] = "right",
 ) -> Figure:
     """Create a line plot.
 
@@ -152,6 +158,8 @@ def line(
         Footer text below the plot (optional).
     theme:
         Theme name (default, bluesky, print, magazine).
+    legend_position:
+        Legend position ("top", "bottom", "left", "right").
     """
     return _build_figure(
         data,
@@ -167,6 +175,7 @@ def line(
         theme=theme,
         width=width,
         height=height,
+        legend_position=legend_position,
     )
 
 
@@ -186,6 +195,7 @@ def bar(
     height: float = 500,
     labels: bool = False,
     label_format: str | None = None,
+    legend_position: Literal["top", "bottom", "left", "right"] = "right",
 ) -> Figure:
     """Create a bar chart.
 
@@ -211,6 +221,8 @@ def bar(
         Show value labels on bars (default False).
     label_format:
         Python format string for labels, e.g. "${:,.0f}".
+    legend_position:
+        Legend position ("top", "bottom", "left", "right").
     """
     return _build_figure(
         data,
@@ -228,6 +240,7 @@ def bar(
         height=height,
         labels=labels,
         label_format=label_format,
+        legend_position=legend_position,
     )
 
 
@@ -267,6 +280,7 @@ def waterfall(
     height: float = 500,
     labels: bool = False,
     label_format: str | None = None,
+    legend_position: Literal["top", "bottom", "left", "right"] = "right",
 ) -> Figure:
     """Create a waterfall chart.
 
@@ -290,6 +304,8 @@ def waterfall(
         Show value labels on bars (default False).
     label_format:
         Python format string for labels, e.g. "${:,.0f}".
+    legend_position:
+        Legend position ("top", "bottom", "left", "right").
     """
     return _build_figure(
         data,
@@ -306,6 +322,7 @@ def waterfall(
         height=height,
         labels=labels,
         label_format=label_format,
+        legend_position=legend_position,
     )
 
 

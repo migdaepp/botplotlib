@@ -36,6 +36,8 @@ class ThemeSpec(BaseModel):
     # Axes
     show_x_axis: bool = True
     show_y_axis: bool = False
+    show_x_ticks: bool = True
+    show_y_ticks: bool = True
     axis_stroke_width: float = 1.0
     y_label_position: str = "side"  # "side" (rotated, default) or "top" (horizontal)
 
@@ -155,6 +157,7 @@ THEME_MAGAZINE = ThemeSpec(
     show_y_grid=True,
     show_x_axis=True,
     show_y_axis=False,
+    show_y_ticks=False,
     axis_stroke_width=1.0,
     y_label_position="top",
     point_radius=4.0,

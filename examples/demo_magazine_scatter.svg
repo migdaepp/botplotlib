@@ -2,111 +2,106 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="650" height="480" viewBox="0 0 650.0 480.0">
   <defs>
     <clipPath id="plot-clip">
-      <rect x="50" y="102.2" width="460" height="302.8"/>
+      <rect x="50" y="132.2" width="580" height="260.8"/>
     </clipPath>
   </defs>
   <rect x="0" y="0" width="650" height="480" fill="#F2EDE4"/>
-  <line x1="50" y1="396.43" x2="510" y2="396.43" stroke="#D8D2C6" stroke-width="1"/>
-  <line x1="50" y1="325.015" x2="510" y2="325.015" stroke="#D8D2C6" stroke-width="1"/>
-  <line x1="50" y1="253.6" x2="510" y2="253.6" stroke="#D8D2C6" stroke-width="1"/>
-  <line x1="50" y1="182.185" x2="510" y2="182.185" stroke="#D8D2C6" stroke-width="1"/>
-  <line x1="50" y1="110.77" x2="510" y2="110.77" stroke="#D8D2C6" stroke-width="1"/>
-  <line x1="50" y1="405" x2="510" y2="405" stroke="#CCCCCC" stroke-width="1"/>
+  <line x1="50" y1="385.619" x2="630" y2="385.619" stroke="#D8D2C6" stroke-width="1"/>
+  <line x1="50" y1="324.109" x2="630" y2="324.109" stroke="#D8D2C6" stroke-width="1"/>
+  <line x1="50" y1="262.6" x2="630" y2="262.6" stroke="#D8D2C6" stroke-width="1"/>
+  <line x1="50" y1="201.091" x2="630" y2="201.091" stroke="#D8D2C6" stroke-width="1"/>
+  <line x1="50" y1="139.581" x2="630" y2="139.581" stroke="#D8D2C6" stroke-width="1"/>
+  <line x1="50" y1="393" x2="630" y2="393" stroke="#CCCCCC" stroke-width="1"/>
   <g clip-path="url(#plot-clip)">
-    <circle cx="269.578" cy="197.628" r="4" fill="#388EC1"/>
-    <circle cx="267.494" cy="263.803" r="4" fill="#8C1B2B"/>
-    <circle cx="271.949" cy="318.547" r="4" fill="#388EC1"/>
-    <circle cx="330.772" cy="251.333" r="4" fill="#8C1B2B"/>
-    <circle cx="270.772" cy="217.325" r="4" fill="#2D8B61"/>
-    <circle cx="171.701" cy="368.927" r="4" fill="#8C1B2B"/>
-    <circle cx="304.036" cy="240.297" r="4" fill="#2D8B61"/>
-    <circle cx="260.664" cy="252.295" r="4" fill="#388EC1"/>
-    <circle cx="264.308" cy="274.87" r="4" fill="#388EC1"/>
-    <circle cx="288.382" cy="218.455" r="4" fill="#388EC1"/>
-    <circle cx="296.801" cy="220.419" r="4" fill="#8C1B2B"/>
-    <circle cx="364.157" cy="112.582" r="4" fill="#2D8B61"/>
-    <circle cx="327.493" cy="203.588" r="4" fill="#388EC1"/>
-    <circle cx="287.993" cy="275.766" r="4" fill="#388EC1"/>
-    <circle cx="226.599" cy="304.036" r="4" fill="#2D8B61"/>
-    <circle cx="206.612" cy="325.464" r="4" fill="#8C1B2B"/>
-    <circle cx="297.817" cy="204" r="4" fill="#2D8B61"/>
-    <circle cx="374.827" cy="231.073" r="4" fill="#388EC1"/>
-    <circle cx="283.013" cy="255.123" r="4" fill="#388EC1"/>
-    <circle cx="272.31" cy="225.29" r="4" fill="#2D8B61"/>
-    <circle cx="318.462" cy="265.611" r="4" fill="#8C1B2B"/>
-    <circle cx="174.869" cy="318.086" r="4" fill="#8C1B2B"/>
-    <circle cx="257.414" cy="343.648" r="4" fill="#2D8B61"/>
-    <circle cx="315.466" cy="282.474" r="4" fill="#388EC1"/>
-    <circle cx="343.171" cy="246.74" r="4" fill="#8C1B2B"/>
-    <circle cx="262.596" cy="244.377" r="4" fill="#2D8B61"/>
-    <circle cx="307.238" cy="189.012" r="4" fill="#8C1B2B"/>
-    <circle cx="297.953" cy="245.528" r="4" fill="#388EC1"/>
-    <circle cx="336.583" cy="214.466" r="4" fill="#2D8B61"/>
-    <circle cx="199.484" cy="286.153" r="4" fill="#8C1B2B"/>
-    <circle cx="321.1" cy="186.829" r="4" fill="#388EC1"/>
-    <circle cx="170.459" cy="269.4" r="4" fill="#8C1B2B"/>
-    <circle cx="90.5071" cy="335.424" r="4" fill="#8C1B2B"/>
-    <circle cx="236.105" cy="318.589" r="4" fill="#8C1B2B"/>
-    <circle cx="213.762" cy="247.592" r="4" fill="#2D8B61"/>
-    <circle cx="343.359" cy="205.992" r="4" fill="#2D8B61"/>
-    <circle cx="328.044" cy="177.307" r="4" fill="#8C1B2B"/>
-    <circle cx="191.828" cy="298.412" r="4" fill="#8C1B2B"/>
-    <circle cx="341.287" cy="139.654" r="4" fill="#2D8B61"/>
-    <circle cx="207.514" cy="304.764" r="4" fill="#2D8B61"/>
-    <circle cx="273.762" cy="188.418" r="4" fill="#2D8B61"/>
-    <circle cx="258.743" cy="259.162" r="4" fill="#8C1B2B"/>
-    <circle cx="288.276" cy="271.636" r="4" fill="#2D8B61"/>
-    <circle cx="339.21" cy="272.721" r="4" fill="#388EC1"/>
-    <circle cx="326.175" cy="237.275" r="4" fill="#388EC1"/>
-    <circle cx="305.306" cy="180.118" r="4" fill="#2D8B61"/>
-    <circle cx="327.009" cy="195.411" r="4" fill="#2D8B61"/>
-    <circle cx="314.608" cy="206.996" r="4" fill="#8C1B2B"/>
-    <circle cx="234.652" cy="377.792" r="4" fill="#2D8B61"/>
-    <circle cx="228.115" cy="248.751" r="4" fill="#2D8B61"/>
-    <circle cx="246.009" cy="246.564" r="4" fill="#388EC1"/>
-    <circle cx="316.115" cy="259.334" r="4" fill="#8C1B2B"/>
-    <circle cx="261.91" cy="289.414" r="4" fill="#8C1B2B"/>
-    <circle cx="448.938" cy="170.295" r="4" fill="#388EC1"/>
-    <circle cx="220.743" cy="208.946" r="4" fill="#388EC1"/>
-    <circle cx="200.522" cy="338.048" r="4" fill="#2D8B61"/>
-    <circle cx="335.581" cy="244.491" r="4" fill="#2D8B61"/>
-    <circle cx="382.838" cy="144.478" r="4" fill="#8C1B2B"/>
-    <circle cx="316.575" cy="254.66" r="4" fill="#8C1B2B"/>
-    <circle cx="340.452" cy="239.363" r="4" fill="#8C1B2B"/>
+    <circle cx="326.86" cy="214.391" r="4" fill="#388EC1"/>
+    <circle cx="324.232" cy="271.388" r="4" fill="#8C1B2B"/>
+    <circle cx="329.849" cy="318.539" r="4" fill="#388EC1"/>
+    <circle cx="404.017" cy="260.647" r="4" fill="#8C1B2B"/>
+    <circle cx="328.365" cy="231.357" r="4" fill="#2D8B61"/>
+    <circle cx="203.449" cy="361.931" r="4" fill="#8C1B2B"/>
+    <circle cx="370.306" cy="251.142" r="4" fill="#2D8B61"/>
+    <circle cx="315.62" cy="261.476" r="4" fill="#388EC1"/>
+    <circle cx="320.214" cy="280.92" r="4" fill="#388EC1"/>
+    <circle cx="350.568" cy="232.33" r="4" fill="#388EC1"/>
+    <circle cx="361.184" cy="234.022" r="4" fill="#8C1B2B"/>
+    <circle cx="446.111" cy="141.142" r="4" fill="#2D8B61"/>
+    <circle cx="399.882" cy="219.525" r="4" fill="#388EC1"/>
+    <circle cx="350.078" cy="281.692" r="4" fill="#388EC1"/>
+    <circle cx="272.669" cy="306.04" r="4" fill="#2D8B61"/>
+    <circle cx="247.468" cy="324.496" r="4" fill="#8C1B2B"/>
+    <circle cx="362.465" cy="219.88" r="4" fill="#2D8B61"/>
+    <circle cx="459.564" cy="243.197" r="4" fill="#388EC1"/>
+    <circle cx="343.799" cy="263.912" r="4" fill="#388EC1"/>
+    <circle cx="330.304" cy="238.216" r="4" fill="#2D8B61"/>
+    <circle cx="388.495" cy="272.945" r="4" fill="#8C1B2B"/>
+    <circle cx="207.444" cy="318.141" r="4" fill="#8C1B2B"/>
+    <circle cx="311.522" cy="340.158" r="4" fill="#2D8B61"/>
+    <circle cx="384.719" cy="287.469" r="4" fill="#388EC1"/>
+    <circle cx="419.65" cy="256.691" r="4" fill="#8C1B2B"/>
+    <circle cx="318.056" cy="254.657" r="4" fill="#2D8B61"/>
+    <circle cx="374.344" cy="206.971" r="4" fill="#8C1B2B"/>
+    <circle cx="362.636" cy="255.648" r="4" fill="#388EC1"/>
+    <circle cx="411.344" cy="228.894" r="4" fill="#2D8B61"/>
+    <circle cx="238.48" cy="290.638" r="4" fill="#8C1B2B"/>
+    <circle cx="391.822" cy="205.091" r="4" fill="#388EC1"/>
+    <circle cx="201.883" cy="276.209" r="4" fill="#8C1B2B"/>
+    <circle cx="101.074" cy="333.075" r="4" fill="#8C1B2B"/>
+    <circle cx="284.655" cy="318.574" r="4" fill="#8C1B2B"/>
+    <circle cx="256.483" cy="257.425" r="4" fill="#2D8B61"/>
+    <circle cx="419.888" cy="221.596" r="4" fill="#2D8B61"/>
+    <circle cx="400.578" cy="196.89" r="4" fill="#8C1B2B"/>
+    <circle cx="228.827" cy="301.196" r="4" fill="#8C1B2B"/>
+    <circle cx="417.275" cy="164.459" r="4" fill="#2D8B61"/>
+    <circle cx="248.604" cy="306.667" r="4" fill="#2D8B61"/>
+    <circle cx="332.135" cy="206.459" r="4" fill="#2D8B61"/>
+    <circle cx="313.198" cy="267.39" r="4" fill="#8C1B2B"/>
+    <circle cx="350.435" cy="278.134" r="4" fill="#2D8B61"/>
+    <circle cx="414.656" cy="279.069" r="4" fill="#388EC1"/>
+    <circle cx="398.22" cy="248.54" r="4" fill="#388EC1"/>
+    <circle cx="371.908" cy="199.311" r="4" fill="#2D8B61"/>
+    <circle cx="399.272" cy="212.482" r="4" fill="#2D8B61"/>
+    <circle cx="383.636" cy="222.46" r="4" fill="#8C1B2B"/>
+    <circle cx="282.822" cy="369.566" r="4" fill="#2D8B61"/>
+    <circle cx="274.579" cy="258.424" r="4" fill="#2D8B61"/>
+    <circle cx="297.141" cy="256.54" r="4" fill="#388EC1"/>
+    <circle cx="385.536" cy="267.539" r="4" fill="#8C1B2B"/>
+    <circle cx="317.191" cy="293.446" r="4" fill="#8C1B2B"/>
+    <circle cx="553.009" cy="190.85" r="4" fill="#388EC1"/>
+    <circle cx="265.285" cy="224.139" r="4" fill="#388EC1"/>
+    <circle cx="239.788" cy="335.335" r="4" fill="#2D8B61"/>
+    <circle cx="410.081" cy="254.754" r="4" fill="#2D8B61"/>
+    <circle cx="469.666" cy="168.614" r="4" fill="#8C1B2B"/>
+    <circle cx="386.117" cy="263.513" r="4" fill="#8C1B2B"/>
+    <circle cx="416.222" cy="250.338" r="4" fill="#8C1B2B"/>
   </g>
-  <line x1="63.0189" y1="405" x2="63.0189" y2="410" stroke="#CCCCCC" stroke-width="1"/>
-  <text x="63.0189" y="423" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="middle">55</text>
-  <line x1="135.346" y1="405" x2="135.346" y2="410" stroke="#CCCCCC" stroke-width="1"/>
-  <text x="135.346" y="423" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="middle">60</text>
-  <line x1="207.673" y1="405" x2="207.673" y2="410" stroke="#CCCCCC" stroke-width="1"/>
-  <text x="207.673" y="423" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="middle">65</text>
-  <line x1="280" y1="405" x2="280" y2="410" stroke="#CCCCCC" stroke-width="1"/>
-  <text x="280" y="423" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="middle">70</text>
-  <line x1="352.327" y1="405" x2="352.327" y2="410" stroke="#CCCCCC" stroke-width="1"/>
-  <text x="352.327" y="423" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="middle">75</text>
-  <line x1="424.654" y1="405" x2="424.654" y2="410" stroke="#CCCCCC" stroke-width="1"/>
-  <text x="424.654" y="423" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="middle">80</text>
-  <line x1="496.981" y1="405" x2="496.981" y2="410" stroke="#CCCCCC" stroke-width="1"/>
-  <text x="496.981" y="423" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="middle">85</text>
-  <line x1="45" y1="396.43" x2="50" y2="396.43" stroke="#CCCCCC" stroke-width="1"/>
-  <text x="42" y="400.43" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="end">45</text>
-  <line x1="45" y1="325.015" x2="50" y2="325.015" stroke="#CCCCCC" stroke-width="1"/>
-  <text x="42" y="329.015" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="end">50</text>
-  <line x1="45" y1="253.6" x2="50" y2="253.6" stroke="#CCCCCC" stroke-width="1"/>
-  <text x="42" y="257.6" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="end">55</text>
-  <line x1="45" y1="182.185" x2="50" y2="182.185" stroke="#CCCCCC" stroke-width="1"/>
-  <text x="42" y="186.185" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="end">60</text>
-  <line x1="45" y1="110.77" x2="50" y2="110.77" stroke="#CCCCCC" stroke-width="1"/>
-  <text x="42" y="114.77" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="end">65</text>
+  <line x1="66.4151" y1="393" x2="66.4151" y2="398" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="66.4151" y="411" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="middle">55</text>
+  <line x1="157.61" y1="393" x2="157.61" y2="398" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="157.61" y="411" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="middle">60</text>
+  <line x1="248.805" y1="393" x2="248.805" y2="398" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="248.805" y="411" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="middle">65</text>
+  <line x1="340" y1="393" x2="340" y2="398" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="340" y="411" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="middle">70</text>
+  <line x1="431.195" y1="393" x2="431.195" y2="398" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="431.195" y="411" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="middle">75</text>
+  <line x1="522.39" y1="393" x2="522.39" y2="398" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="522.39" y="411" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="middle">80</text>
+  <line x1="613.585" y1="393" x2="613.585" y2="398" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="613.585" y="411" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="middle">85</text>
+  <text x="42" y="389.619" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="end">45</text>
+  <text x="42" y="328.109" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="end">50</text>
+  <text x="42" y="266.6" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="end">55</text>
+  <text x="42" y="205.091" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="end">60</text>
+  <text x="42" y="143.581" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="end">65</text>
   <text x="50" y="52" font-family="Georgia, Times New Roman, serif" font-size="22" fill="#333333" text-anchor="start" font-weight="bold">Health and wealth</text>
   <text x="50" y="76" font-family="Georgia, Times New Roman, serif" font-size="14" fill="#555555" text-anchor="start">Life expectancy vs GDP per capita, by region</text>
-  <text x="280" y="442" font-family="Georgia, Times New Roman, serif" font-size="12" fill="#333333" text-anchor="middle">Life expectancy (years)</text>
-  <text x="50" y="98.2" font-family="Georgia, Times New Roman, serif" font-size="12" fill="#333333" text-anchor="start">GDP per capita ($000s)</text>
-  <text x="50" y="450" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#666666" text-anchor="start">Source: World Development Indicators</text>
-  <rect x="525" y="104.2" width="12" height="12" fill="#388EC1" rx="2"/>
-  <text x="543" y="114.2" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="start">Americas</text>
-  <rect x="525" y="126.2" width="12" height="12" fill="#8C1B2B" rx="2"/>
-  <text x="543" y="136.2" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="start">Asia</text>
-  <rect x="525" y="148.2" width="12" height="12" fill="#2D8B61" rx="2"/>
-  <text x="543" y="158.2" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="start">Europe</text>
+  <text x="340" y="434" font-family="Georgia, Times New Roman, serif" font-size="12" fill="#333333" text-anchor="middle">Life expectancy (years)</text>
+  <text x="12" y="98.2" font-family="Georgia, Times New Roman, serif" font-size="12" fill="#333333" text-anchor="start">GDP per capita ($000s)</text>
+  <text x="50" y="470" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#666666" text-anchor="start">Source: World Development Indicators</text>
+  <rect x="50" y="111.2" width="12" height="12" fill="#388EC1" rx="2"/>
+  <text x="66" y="121.2" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="start">Americas</text>
+  <rect x="127.87" y="111.2" width="12" height="12" fill="#8C1B2B" rx="2"/>
+  <text x="143.87" y="121.2" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="start">Asia</text>
+  <rect x="181.32" y="111.2" width="12" height="12" fill="#2D8B61" rx="2"/>
+  <text x="197.32" y="121.2" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="start">Europe</text>
 </svg>

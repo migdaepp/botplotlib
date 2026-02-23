@@ -248,6 +248,12 @@ The renderer draws these automatically. New geoms do **not** require renderer ch
 6. **Generator/iterator** — materialize to list-of-dicts, then apply step 2
 7. **Raise `TypeError`** with supported types listed
 
+## Governance and Progressive Trust
+
+Trust in botplotlib is progressive and origin-agnostic. Contributors earn trust through a multi-dimensional reputation system that observes contribution quality, review quality, and community citizenship — not PR count or biological status.
+
+See **[GOVERNANCE.md](GOVERNANCE.md)** for the full system: tier definitions, promotion rubrics, reputation signals, incentive design, and anti-gaming mechanisms.
+
 ## Contribution Conventions
 
 ### Atomic, verifiable PRs required
