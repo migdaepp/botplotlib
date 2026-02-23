@@ -8,7 +8,7 @@ botplotlib is an AI-native Python plotting library that produces publication-qua
 
 Matplotlib was designed for humans writing code at keyboards. botplotlib is designed for the way people actually make plots now: you describe what you want, your AI partner writes the code, and you evaluate the result.
 
-That cyborg workflow needs a different API — one that's correct on the first try, beautiful by default, accessible by construction, and token-efficient by design.
+That cyborg workflow needs a different API: one that's correct on the first try, beautiful by default, accessible by construction, and token-efficient by design.
 
 - **One line, one plot**: `bpl.scatter(data, x="a", y="b", theme="bluesky")` — no figure/axes juggling, no style boilerplate
 - **Beautiful by default**: platform-specific themes (Bluesky, Substack, PDF, print) produce publication-ready output with zero configuration
@@ -18,7 +18,7 @@ That cyborg workflow needs a different API — one that's correct on the first t
 - **Matplotlib-free**: hand-rolled SVG renderer (~230 lines), no heavy C dependencies
 - **Matplotlib bridge**: the refactor module translates existing matplotlib scripts into clean PlotSpecs — see what your old code *means* in a form both humans and machines can reason about
 
-This project embodies Donna Haraway's cyborg framework — we reject the human/machine binary. The matplotlib maintainers rejected AI contributions. We built a library that makes AI contributions the point.
+This project embodies Donna Haraway's cyborg framework: we reject the human/machine binary. The matplotlib maintainers rejected AI contributions. We built a library that makes AI contributions the point.
 
 ## Installation
 
