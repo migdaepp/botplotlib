@@ -42,6 +42,8 @@ The general-purpose theme for screen display and notebooks. Clean sans-serif typ
 fig = bpl.line(data, x="x", y="y", title="Default Theme")
 ```
 
+![Default theme](../assets/examples/theme_default.svg)
+
 ### `bluesky`
 
 Optimized for social media sharing. Larger text and bolder strokes ensure readability at smaller display sizes and on mobile feeds.
@@ -49,6 +51,8 @@ Optimized for social media sharing. Larger text and bolder strokes ensure readab
 ```python
 fig = bpl.line(data, x="x", y="y", title="Bluesky Theme", theme="bluesky")
 ```
+
+![Bluesky theme](../assets/examples/theme_bluesky.svg)
 
 ### `substack`
 
@@ -58,6 +62,8 @@ Designed for embedding in newsletters and web articles. Refined spacing and slig
 fig = bpl.line(data, x="x", y="y", title="Substack Theme", theme="substack")
 ```
 
+![Substack theme](../assets/examples/theme_substack.svg)
+
 ### `pdf`
 
 Academic-oriented theme for digital papers (arxiv, SSRN). Serif fonts and muted colors that work well in PDF documents.
@@ -66,6 +72,8 @@ Academic-oriented theme for digital papers (arxiv, SSRN). Serif fonts and muted 
 fig = bpl.line(data, x="x", y="y", title="PDF Theme", theme="pdf")
 ```
 
+![PDF theme](../assets/examples/theme_pdf.svg)
+
 ### `print`
 
 Grayscale theme for physical print and B&W journals. Serif fonts and a grayscale palette ensure legibility without color.
@@ -73,6 +81,8 @@ Grayscale theme for physical print and B&W journals. Serif fonts and a grayscale
 ```python
 fig = bpl.line(data, x="x", y="y", title="Print Theme", theme="print")
 ```
+
+![Print theme](../assets/examples/theme_print.svg)
 
 ## Platform stance
 

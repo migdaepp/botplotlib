@@ -25,6 +25,8 @@ fig = bpl.scatter(
 fig.save_svg("scatter.svg")
 ```
 
+![Scatter plot with color groups](../assets/examples/pt_scatter.svg)
+
 ### Parameters
 
 | Parameter | Type | Default | Description |
@@ -65,6 +67,8 @@ fig = bpl.line(
 fig.save_svg("line.svg")
 ```
 
+![Multi-series line chart](../assets/examples/pt_line.svg)
+
 ### Parameters
 
 Same signature as `scatter()`. See the [scatter parameters table](#parameters) above.
@@ -89,6 +93,8 @@ fig = bpl.bar(
 )
 fig.save_svg("bar.svg")
 ```
+
+![Bar chart](../assets/examples/pt_bar.svg)
 
 ### Parameters
 
@@ -115,6 +121,8 @@ fig = bpl.waterfall(
 )
 fig.save_svg("waterfall.svg")
 ```
+
+![Waterfall chart](../assets/examples/pt_waterfall.svg)
 
 ### Parameters
 
@@ -154,5 +162,7 @@ fig = (
 fig.title = "Actual vs Forecast Revenue ($B)"
 fig.save_svg("layered.svg")
 ```
+
+![Layered line and scatter plot](../assets/examples/pt_layered.svg)
 
 Available layer methods: `.add_scatter()`, `.add_line()`, `.add_bar()`. Each accepts `x`, `y`, and optional `color` parameters.

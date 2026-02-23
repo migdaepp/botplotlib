@@ -19,6 +19,8 @@ fig = bpl.scatter(
 fig.save_svg("basic_scatter.svg")
 ```
 
+![Basic scatter](../assets/examples/gs_basic_scatter.svg)
+
 ### Grouped scatter with legend
 
 ```python
@@ -37,6 +39,8 @@ fig = bpl.scatter(
 )
 fig.save_svg("grouped_scatter.svg")
 ```
+
+![Grouped scatter](../assets/examples/pt_scatter.svg)
 
 ---
 
@@ -63,6 +67,8 @@ fig = bpl.line(
 fig.save_svg("multi_line.svg")
 ```
 
+![Multi-series line](../assets/examples/pt_line.svg)
+
 ---
 
 ## Bar charts
@@ -81,6 +87,8 @@ fig = bpl.bar(
 )
 fig.save_svg("bar.svg")
 ```
+
+![Bar chart](../assets/examples/pt_bar.svg)
 
 ---
 
@@ -101,6 +109,8 @@ fig = bpl.waterfall(
 fig.save_svg("waterfall.svg")
 ```
 
+![Waterfall chart](../assets/examples/pt_waterfall.svg)
+
 ---
 
 ## Layered plots
@@ -120,6 +130,8 @@ fig = (
 fig.title = "Actual vs Forecast Revenue ($B)"
 fig.save_svg("layered.svg")
 ```
+
+![Layered plot](../assets/examples/pt_layered.svg)
 
 ---
 
@@ -142,6 +154,8 @@ fig = bpl.line(data, x="x", y="y", color="fn", title="Default Theme")
 fig.save_svg("theme_default.svg")
 ```
 
+![Default theme](../assets/examples/theme_default.svg)
+
 ### Bluesky
 
 ```python
@@ -149,6 +163,8 @@ fig = bpl.line(data, x="x", y="y", color="fn",
                title="Bluesky Theme", theme="bluesky")
 fig.save_svg("theme_bluesky.svg")
 ```
+
+![Bluesky theme](../assets/examples/theme_bluesky.svg)
 
 ### Substack
 
@@ -158,6 +174,8 @@ fig = bpl.line(data, x="x", y="y", color="fn",
 fig.save_svg("theme_substack.svg")
 ```
 
+![Substack theme](../assets/examples/theme_substack.svg)
+
 ### PDF (arxiv / SSRN)
 
 ```python
@@ -166,6 +184,8 @@ fig = bpl.line(data, x="x", y="y", color="fn",
 fig.save_svg("theme_pdf.svg")
 ```
 
+![PDF theme](../assets/examples/theme_pdf.svg)
+
 ### Print (B&W)
 
 ```python
@@ -173,6 +193,8 @@ fig = bpl.line(data, x="x", y="y", color="fn",
                title="Print Theme", theme="print")
 fig.save_svg("theme_print.svg")
 ```
+
+![Print theme](../assets/examples/theme_print.svg)
 
 ---
 
@@ -204,6 +226,8 @@ spec = from_matplotlib(mpl_code)
 fig = bpl.render(spec)
 fig.save_svg("refactored.svg")
 ```
+
+![Refactored plot](../assets/examples/refactor_squared.svg)
 
 ---
 

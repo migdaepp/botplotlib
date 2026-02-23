@@ -42,6 +42,8 @@ fig = bpl.render(spec)
 fig.save_svg("converted.svg")
 ```
 
+![Refactored scatter plot](../assets/examples/refactor_scatter.svg)
+
 ## `to_botplotlib_code()`
 
 Generate the equivalent botplotlib Python code — useful for seeing the token efficiency difference:

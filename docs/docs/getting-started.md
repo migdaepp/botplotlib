@@ -26,6 +26,8 @@ fig = bpl.scatter(
 fig.save_svg("my_plot.svg")
 ```
 
+![Basic scatter plot](assets/examples/gs_basic_scatter.svg)
+
 That's it. One function call produces a complete, styled, WCAG-compliant scatter plot.
 
 ## Adding color groups
@@ -46,6 +48,8 @@ fig = bpl.scatter(
 )
 fig.save_svg("grouped.svg")
 ```
+
+![Grouped scatter plot with legend](assets/examples/gs_grouped_scatter.svg)
 
 ## Saving output
 

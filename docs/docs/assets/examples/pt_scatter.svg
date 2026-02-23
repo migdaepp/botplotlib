@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800.0 500.0">
+  <defs>
+    <clipPath id="plot-clip">
+      <rect x="77" y="66" width="583" height="367"/>
+    </clipPath>
+  </defs>
+  <rect x="0" y="0" width="800" height="500" fill="#FFFFFF"/>
+  <line x1="77" y1="433" x2="660" y2="433" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="77" y1="380.571" x2="660" y2="380.571" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="77" y1="328.143" x2="660" y2="328.143" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="77" y1="275.714" x2="660" y2="275.714" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="77" y1="223.286" x2="660" y2="223.286" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="77" y1="170.857" x2="660" y2="170.857" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="77" y1="118.429" x2="660" y2="118.429" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="77" y1="66" x2="660" y2="66" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="77" y1="433" x2="660" y2="433" stroke="#333333" stroke-width="1"/>
+  <g clip-path="url(#plot-clip)">
+    <circle cx="395.742" cy="245.484" r="4" fill="#4E79A7"/>
+    <circle cx="392.862" cy="232.767" r="4" fill="#C56A00"/>
+    <circle cx="399.018" cy="276.437" r="4" fill="#4E79A7"/>
+    <circle cx="480.301" cy="297.48" r="4" fill="#E15759"/>
+    <circle cx="397.391" cy="242.233" r="4" fill="#E15759"/>
+    <circle cx="260.493" cy="147.509" r="4" fill="#4E79A7"/>
+    <circle cx="443.356" cy="219.211" r="4" fill="#4E79A7"/>
+    <circle cx="383.424" cy="220.8" r="4" fill="#C56A00"/>
+    <circle cx="388.459" cy="216" r="4" fill="#4E79A7"/>
+    <circle cx="421.725" cy="235.201" r="4" fill="#4E79A7"/>
+    <circle cx="433.359" cy="217.028" r="4" fill="#E15759"/>
+    <circle cx="526.432" cy="268.916" r="4" fill="#C56A00"/>
+    <circle cx="475.769" cy="259.646" r="4" fill="#C56A00"/>
+    <circle cx="421.187" cy="265.835" r="4" fill="#E15759"/>
+    <circle cx="336.353" cy="172.929" r="4" fill="#E15759"/>
+    <circle cx="308.735" cy="172.713" r="4" fill="#4E79A7"/>
+    <circle cx="434.763" cy="214.007" r="4" fill="#4E79A7"/>
+    <circle cx="541.176" cy="300.544" r="4" fill="#C56A00"/>
+    <circle cx="414.306" cy="184.669" r="4" fill="#C56A00"/>
+    <circle cx="399.517" cy="237.828" r="4" fill="#C56A00"/>
+    <circle cx="463.29" cy="218.776" r="4" fill="#E15759"/>
+    <circle cx="264.871" cy="157.595" r="4" fill="#C56A00"/>
+    <circle cx="378.933" cy="231.588" r="4" fill="#E15759"/>
+    <circle cx="459.151" cy="288.034" r="4" fill="#4E79A7"/>
+    <circle cx="497.433" cy="281.69" r="4" fill="#C56A00"/>
+    <circle cx="386.094" cy="184.349" r="4" fill="#4E79A7"/>
+    <circle cx="447.781" cy="231.326" r="4" fill="#E15759"/>
+    <circle cx="434.95" cy="228.206" r="4" fill="#4E79A7"/>
+    <circle cx="488.331" cy="335.429" r="4" fill="#4E79A7"/>
+    <circle cx="298.884" cy="159.104" r="4" fill="#C56A00"/>
+    <circle cx="466.935" cy="247.801" r="4" fill="#C56A00"/>
+    <circle cx="258.777" cy="171.959" r="4" fill="#4E79A7"/>
+    <circle cx="148.298" cy="118.352" r="4" fill="#4E79A7"/>
+    <circle cx="349.488" cy="203.286" r="4" fill="#E15759"/>
+    <circle cx="318.614" cy="142.461" r="4" fill="#C56A00"/>
+    <circle cx="497.694" cy="305.521" r="4" fill="#E15759"/>
+    <circle cx="476.531" cy="278.419" r="4" fill="#C56A00"/>
+    <circle cx="288.305" cy="136.715" r="4" fill="#4E79A7"/>
+    <circle cx="494.831" cy="288.116" r="4" fill="#E15759"/>
+    <circle cx="309.98" cy="192.878" r="4" fill="#E15759"/>
+    <circle cx="401.523" cy="226.868" r="4" fill="#E15759"/>
+    <circle cx="380.77" cy="251.519" r="4" fill="#E15759"/>
+    <circle cx="421.578" cy="233.765" r="4" fill="#E15759"/>
+    <circle cx="491.96" cy="306.684" r="4" fill="#4E79A7"/>
+    <circle cx="473.948" cy="242.699" r="4" fill="#C56A00"/>
+    <circle cx="445.111" cy="251.298" r="4" fill="#4E79A7"/>
+    <circle cx="475.101" cy="206.626" r="4" fill="#C56A00"/>
+    <circle cx="457.965" cy="250.493" r="4" fill="#4E79A7"/>
+    <circle cx="347.48" cy="166.414" r="4" fill="#4E79A7"/>
+    <circle cx="338.447" cy="231.829" r="4" fill="#E15759"/>
+    <circle cx="363.173" cy="213.319" r="4" fill="#4E79A7"/>
+    <circle cx="460.047" cy="250.432" r="4" fill="#E15759"/>
+    <circle cx="385.146" cy="175.42" r="4" fill="#C56A00"/>
+    <circle cx="643.585" cy="395.397" r="4" fill="#C56A00"/>
+    <circle cx="328.26" cy="166.567" r="4" fill="#E15759"/>
+    <circle cx="300.318" cy="162.962" r="4" fill="#E15759"/>
+    <circle cx="486.946" cy="232.249" r="4" fill="#C56A00"/>
+    <circle cx="552.247" cy="286.66" r="4" fill="#E15759"/>
+    <circle cx="460.683" cy="257.859" r="4" fill="#4E79A7"/>
+    <circle cx="493.677" cy="289.514" r="4" fill="#4E79A7"/>
+    <circle cx="552.696" cy="338.282" r="4" fill="#E15759"/>
+    <circle cx="400.745" cy="223.916" r="4" fill="#C56A00"/>
+    <circle cx="267.928" cy="167.177" r="4" fill="#C56A00"/>
+    <circle cx="356.966" cy="154.031" r="4" fill="#E15759"/>
+    <circle cx="505.378" cy="297.75" r="4" fill="#4E79A7"/>
+    <circle cx="265.858" cy="152.71" r="4" fill="#C56A00"/>
+    <circle cx="413.494" cy="276.589" r="4" fill="#C56A00"/>
+    <circle cx="435.452" cy="256.884" r="4" fill="#E15759"/>
+    <circle cx="378.602" cy="211.041" r="4" fill="#4E79A7"/>
+    <circle cx="482.465" cy="248.593" r="4" fill="#E15759"/>
+    <circle cx="468.188" cy="225.042" r="4" fill="#4E79A7"/>
+    <circle cx="642.151" cy="351.769" r="4" fill="#4E79A7"/>
+    <circle cx="472.104" cy="294.263" r="4" fill="#C56A00"/>
+    <circle cx="349.237" cy="191.097" r="4" fill="#C56A00"/>
+    <circle cx="353.995" cy="191.943" r="4" fill="#4E79A7"/>
+    <circle cx="327.032" cy="179.028" r="4" fill="#4E79A7"/>
+    <circle cx="505.316" cy="300.058" r="4" fill="#E15759"/>
+    <circle cx="353.492" cy="175.531" r="4" fill="#4E79A7"/>
+    <circle cx="403.121" cy="227.931" r="4" fill="#C56A00"/>
+    <circle cx="485.03" cy="253.139" r="4" fill="#C56A00"/>
+  </g>
+  <line x1="77" y1="433" x2="77" y2="438" stroke="#333333" stroke-width="1"/>
+  <text x="77" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">0</text>
+  <line x1="160.286" y1="433" x2="160.286" y2="438" stroke="#333333" stroke-width="1"/>
+  <text x="160.286" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">0.5</text>
+  <line x1="243.571" y1="433" x2="243.571" y2="438" stroke="#333333" stroke-width="1"/>
+  <text x="243.571" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">1</text>
+  <line x1="326.857" y1="433" x2="326.857" y2="438" stroke="#333333" stroke-width="1"/>
+  <text x="326.857" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">1.5</text>
+  <line x1="410.143" y1="433" x2="410.143" y2="438" stroke="#333333" stroke-width="1"/>
+  <text x="410.143" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">2</text>
+  <line x1="493.429" y1="433" x2="493.429" y2="438" stroke="#333333" stroke-width="1"/>
+  <text x="493.429" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">2.5</text>
+  <line x1="576.714" y1="433" x2="576.714" y2="438" stroke="#333333" stroke-width="1"/>
+  <text x="576.714" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">3</text>
+  <line x1="660" y1="433" x2="660" y2="438" stroke="#333333" stroke-width="1"/>
+  <text x="660" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">3.5</text>
+  <line x1="72" y1="433" x2="77" y2="433" stroke="#333333" stroke-width="1"/>
+  <text x="69" y="437" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">10</text>
+  <line x1="72" y1="380.571" x2="77" y2="380.571" stroke="#333333" stroke-width="1"/>
+  <text x="69" y="384.571" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">15</text>
+  <line x1="72" y1="328.143" x2="77" y2="328.143" stroke="#333333" stroke-width="1"/>
+  <text x="69" y="332.143" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">20</text>
+  <line x1="72" y1="275.714" x2="77" y2="275.714" stroke="#333333" stroke-width="1"/>
+  <text x="69" y="279.714" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">25</text>
+  <line x1="72" y1="223.286" x2="77" y2="223.286" stroke="#333333" stroke-width="1"/>
+  <text x="69" y="227.286" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">30</text>
+  <line x1="72" y1="170.857" x2="77" y2="170.857" stroke="#333333" stroke-width="1"/>
+  <text x="69" y="174.857" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">35</text>
+  <line x1="72" y1="118.429" x2="77" y2="118.429" stroke="#333333" stroke-width="1"/>
+  <text x="69" y="122.429" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">40</text>
+  <line x1="72" y1="66" x2="77" y2="66" stroke="#333333" stroke-width="1"/>
+  <text x="69" y="70" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">45</text>
+  <text x="368.5" y="56" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="16" fill="#333333" text-anchor="middle">Fuel Efficiency by Vehicle Weight</text>
+  <text x="368.5" y="475" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="middle">Weight (1000 lbs)</text>
+  <text x="12" y="249.5" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="middle" transform="rotate(-90,12,249.5)">Miles per Gallon</text>
+  <rect x="675" y="68" width="12" height="12" fill="#4E79A7" rx="2"/>
+  <text x="693" y="78" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="start">USA</text>
+  <rect x="675" y="90" width="12" height="12" fill="#C56A00" rx="2"/>
+  <text x="693" y="100" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="start">Europe</text>
+  <rect x="675" y="112" width="12" height="12" fill="#E15759" rx="2"/>
+  <text x="693" y="122" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="start">Japan</text>
+</svg>

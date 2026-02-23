@@ -39,6 +39,8 @@ fig = bpl.Figure.from_json(json_string)
 fig.save_svg("from_json.svg")
 ```
 
+![Plot from JSON](../assets/examples/json_from_dict.svg)
+
 ## `Figure.from_dict()`
 
 Construct from a plain dict — the typical output of an LLM function/tool call:
@@ -59,6 +61,8 @@ spec_dict = {
 fig = bpl.Figure.from_dict(spec_dict)
 fig.save_svg("from_dict.svg")
 ```
+
+![Plot from dict](../assets/examples/json_from_dict_line.svg)
 
 ## PlotSpec JSON schema
 
@@ -191,3 +195,5 @@ spec = bpl.PlotSpec.model_validate({
 fig = bpl.render(spec)
 fig.save_svg("rendered.svg")
 ```
+
+![Rendered from PlotSpec](../assets/examples/json_render.svg)
