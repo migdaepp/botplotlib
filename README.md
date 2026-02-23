@@ -22,14 +22,16 @@ This project embodies Donna Haraway's cyborg framework: we reject the human/mach
 
 ## Installation
 
+botplotlib is not yet on PyPI — install directly from GitHub:
+
 ```bash
-pip install botplotlib
+pip install git+https://github.com/migdaepp/botplotlib.git
 ```
 
 For PNG export support:
 
 ```bash
-pip install botplotlib[png]
+pip install "botplotlib[png] @ git+https://github.com/migdaepp/botplotlib.git"
 ```
 
 ## Quick Start
@@ -141,6 +143,10 @@ marimo edit docs/tutorial.py
 It walks through scatter/line/bar charts, data formats, all themes, the PlotSpec data model, and the matplotlib refactor — with live, editable plots.
 
 Additional examples live in [`examples/`](examples/).
+
+## Governance
+
+Trust in botplotlib is progressive and origin-agnostic. See [GOVERNANCE.md](GOVERNANCE.md) for the full system: contributor tiers, promotion rubrics, reputation signals, and anti-gaming mechanisms.
 
 ## Contributing
 

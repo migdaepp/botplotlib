@@ -10,6 +10,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 - GitHub: https://github.com/migdaepp/botplotlib
 - License: MIT
+- Governance: [GOVERNANCE.md](GOVERNANCE.md) — progressive trust, contributor tiers, reputation system
 
 ## Build / Test / Lint
 
