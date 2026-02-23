@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
+from botplotlib._colors.palettes import relative_luminance
 from botplotlib._types import Rect
 from botplotlib.geoms import Geom, ResolvedScales, ScaleHint
-from botplotlib.geoms.primitives import CompiledBar, Primitive
+from botplotlib.geoms.labels import format_label, label_fits_inside
+from botplotlib.geoms.primitives import CompiledBar, CompiledText, Primitive
 from botplotlib.spec.models import LayerSpec
 from botplotlib.spec.scales import CategoricalScale
 from botplotlib.spec.theme import ThemeSpec
@@ -74,14 +76,49 @@ class BarGeom(Geom):
                 if color_col
                 else scales.default_color
             )
+            bar_h = abs(baseline - y_px)
             primitives.append(
                 CompiledBar(
                     px=cx - bar_width / 2,
                     py=min(y_px, baseline),
                     bar_width=bar_width,
-                    bar_height=abs(baseline - y_px),
+                    bar_height=bar_h,
                     color=color,
                     group=color_col[i] if color_col else None,
                 )
             )
+
+            if layer.labels:
+                label_text = format_label(y_vals[i], layer.label_format)
+                font_size = theme.tick_font_size
+                inside = label_fits_inside(
+                    label_text,
+                    font_size,
+                    bar_width,
+                    bar_h,
+                    font_name=theme.font_name,
+                )
+                if inside:
+                    label_x = cx
+                    label_y = (
+                        min(y_px, baseline) + max(y_px, baseline)
+                    ) / 2 + font_size / 3
+                    lum = relative_luminance(color)
+                    label_color = "#FFFFFF" if lum < 0.4 else theme.text_color
+                else:
+                    label_x = cx
+                    label_y = min(y_px, baseline) - 5
+                    label_color = theme.text_color
+
+                primitives.append(
+                    CompiledText(
+                        text=label_text,
+                        x=label_x,
+                        y=label_y,
+                        font_size=font_size,
+                        color=label_color,
+                        anchor="middle",
+                    )
+                )
+
         return primitives

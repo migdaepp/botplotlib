@@ -2,43 +2,43 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800.0 500.0">
   <defs>
     <clipPath id="plot-clip">
-      <rect x="77" y="66" width="583" height="367"/>
+      <rect x="79.4" y="66" width="580.6" height="367"/>
     </clipPath>
   </defs>
   <rect x="0" y="0" width="800" height="500" fill="#FFFFFF"/>
-  <line x1="77" y1="433" x2="660" y2="433" stroke="#EEEEEE" stroke-width="1"/>
-  <line x1="77" y1="341.25" x2="660" y2="341.25" stroke="#EEEEEE" stroke-width="1"/>
-  <line x1="77" y1="249.5" x2="660" y2="249.5" stroke="#EEEEEE" stroke-width="1"/>
-  <line x1="77" y1="157.75" x2="660" y2="157.75" stroke="#EEEEEE" stroke-width="1"/>
-  <line x1="77" y1="66" x2="660" y2="66" stroke="#EEEEEE" stroke-width="1"/>
-  <line x1="77" y1="433" x2="660" y2="433" stroke="#333333" stroke-width="1"/>
+  <line x1="79.4" y1="422.613" x2="660" y2="422.613" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="79.4" y1="336.057" x2="660" y2="336.057" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="79.4" y1="249.5" x2="660" y2="249.5" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="79.4" y1="162.943" x2="660" y2="162.943" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="79.4" y1="76.3868" x2="660" y2="76.3868" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="79.4" y1="433" x2="660" y2="433" stroke="#333333" stroke-width="1"/>
   <g clip-path="url(#plot-clip)">
-    <polyline points="77,249.5 84.2875,231.181 91.575,213.044 98.8625,195.272 106.15,178.042 113.438,161.525 120.725,145.888 128.012,131.286 135.3,117.865 142.588,105.76 149.875,95.0901 157.163,85.9634 164.45,78.4708 171.738,72.6871 179.025,68.67 186.312,66.4597 193.6,66.0782 200.887,67.5295 208.175,70.799 215.463,75.8539 222.75,82.6439 230.037,91.1011 237.325,101.141 244.612,112.663 251.9,125.553 259.188,139.68 266.475,154.905 273.763,171.076 281.05,188.03 288.337,205.598 295.625,223.604 302.913,241.87 310.2,260.212 317.487,278.446 324.775,296.392 332.062,313.869 339.35,330.703 346.637,346.725 353.925,361.776 361.212,375.705 368.5,388.373 375.787,399.654 383.075,409.434 390.363,417.616 397.65,424.119 404.938,428.877 412.225,431.842 419.512,432.986 426.8,432.296 434.088,429.78 441.375,425.463 448.662,419.387 455.95,411.614 463.238,402.221 470.525,391.302 477.812,378.967 485.1,365.337 492.387,350.551 499.675,334.754 506.963,318.106 514.25,300.773 521.537,282.927 528.825,264.747" fill="none" stroke="#4E79A7" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
-    <polyline points="77,66 84.2875,66.9167 91.575,69.6578 98.8625,74.1958 106.15,80.4853 113.438,88.4636 120.725,98.0509 128.012,109.151 135.3,121.654 142.588,135.435 149.875,150.355 157.163,166.265 164.45,183.007 171.738,200.414 179.025,218.311 186.312,236.52 193.6,254.858 200.887,273.143 208.175,291.192 215.463,308.824 222.75,325.863 230.037,342.139 237.325,357.49 244.612,371.762 251.9,384.812 259.188,396.51 266.475,406.739 273.763,415.397 281.05,422.398 288.337,427.671 295.625,431.164 302.913,432.841 310.2,432.687 317.487,430.703 324.775,426.907 332.062,421.34 339.35,414.055 346.637,405.126 353.925,394.643 361.212,382.709 368.5,369.444 375.787,354.98 383.075,339.463 390.363,323.047 397.65,305.896 404.938,288.181 412.225,270.08 419.512,251.773 426.8,233.444 434.088,215.275 441.375,197.448 448.662,180.141 455.95,163.527 463.238,147.772 470.525,133.034 477.812,119.459 485.1,107.184 492.387,96.3302 499.675,87.0072 506.963,79.3077 514.25,73.3088 521.537,69.0702 528.825,66.6345" fill="none" stroke="#C56A00" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+    <polyline points="95.8321,249.5 102.679,232.218 109.525,215.108 116.372,198.342 123.219,182.087 130.066,166.505 136.912,151.753 143.759,137.977 150.606,125.316 157.452,113.896 164.299,103.83 171.146,95.2202 177.992,88.1517 184.839,82.6954 191.686,78.9056 198.533,76.8204 205.379,76.4606 212.226,77.8297 219.073,80.9141 225.919,85.683 232.766,92.0886 239.613,100.067 246.459,109.539 253.306,120.409 260.153,132.568 267,145.897 273.846,160.26 280.693,175.515 287.54,191.509 294.386,208.083 301.233,225.07 308.08,242.302 314.926,259.605 321.773,276.808 328.62,293.738 335.467,310.225 342.313,326.106 349.16,341.222 356.007,355.421 362.853,368.561 369.7,380.513 376.547,391.155 383.393,400.381 390.24,408.1 397.087,414.235 403.933,418.723 410.78,421.521 417.627,422.6 424.474,421.949 431.32,419.576 438.167,415.502 445.014,409.771 451.86,402.438 458.707,393.576 465.554,383.276 472.4,371.638 479.247,358.781 486.094,344.831 492.941,329.929 499.787,314.223 506.634,297.871 513.481,281.035 520.327,263.884" fill="none" stroke="#4E79A7" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+    <polyline points="95.8321,76.3868 102.679,77.2516 109.525,79.8375 116.372,84.1186 123.219,90.0522 130.066,97.5789 136.912,106.624 143.759,117.096 150.606,128.891 157.452,141.891 164.299,155.967 171.146,170.977 177.992,186.771 184.839,203.192 191.686,220.076 198.533,237.254 205.379,254.555 212.226,271.805 219.073,288.832 225.919,305.466 232.766,321.541 239.613,336.896 246.459,351.377 253.306,364.841 260.153,377.153 267,388.189 273.846,397.839 280.693,406.007 287.54,412.611 294.386,417.586 301.233,420.881 308.08,422.463 314.926,422.318 321.773,420.446 328.62,416.866 335.467,411.613 342.313,404.741 349.16,396.317 356.007,386.427 362.853,375.168 369.7,362.654 376.547,349.01 383.393,334.371 390.24,318.884 397.087,302.703 403.933,285.992 410.78,268.915 417.627,251.645 424.474,234.353 431.32,217.212 438.167,200.394 445.014,184.067 451.86,168.394 458.707,153.53 465.554,139.626 472.4,126.82 479.247,115.239 486.094,105 492.941,96.2049 499.787,88.9412 506.634,83.2818 513.481,79.2832 520.327,76.9854" fill="none" stroke="#C56A00" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
   </g>
-  <line x1="77" y1="433" x2="77" y2="438" stroke="#333333" stroke-width="1"/>
-  <text x="77" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">0</text>
-  <line x1="222.75" y1="433" x2="222.75" y2="438" stroke="#333333" stroke-width="1"/>
-  <text x="222.75" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">2</text>
-  <line x1="368.5" y1="433" x2="368.5" y2="438" stroke="#333333" stroke-width="1"/>
-  <text x="368.5" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">4</text>
-  <line x1="514.25" y1="433" x2="514.25" y2="438" stroke="#333333" stroke-width="1"/>
-  <text x="514.25" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">6</text>
-  <line x1="660" y1="433" x2="660" y2="438" stroke="#333333" stroke-width="1"/>
-  <text x="660" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">8</text>
-  <line x1="72" y1="433" x2="77" y2="433" stroke="#333333" stroke-width="1"/>
-  <text x="69" y="437" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">-1</text>
-  <line x1="72" y1="341.25" x2="77" y2="341.25" stroke="#333333" stroke-width="1"/>
-  <text x="69" y="345.25" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">-0.5</text>
-  <line x1="72" y1="249.5" x2="77" y2="249.5" stroke="#333333" stroke-width="1"/>
-  <text x="69" y="253.5" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">0</text>
-  <line x1="72" y1="157.75" x2="77" y2="157.75" stroke="#333333" stroke-width="1"/>
-  <text x="69" y="161.75" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">0.5</text>
-  <line x1="72" y1="66" x2="77" y2="66" stroke="#333333" stroke-width="1"/>
-  <text x="69" y="70" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">1</text>
-  <text x="368.5" y="56" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="16" fill="#333333" text-anchor="middle">Theme: default</text>
-  <text x="368.5" y="475" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="middle">x</text>
-  <text x="12" y="249.5" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="middle" transform="rotate(-90,12,249.5)">f(x)</text>
+  <line x1="95.8321" y1="433" x2="95.8321" y2="438" stroke="#333333" stroke-width="1"/>
+  <text x="95.8321" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">0</text>
+  <line x1="232.766" y1="433" x2="232.766" y2="438" stroke="#333333" stroke-width="1"/>
+  <text x="232.766" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">2</text>
+  <line x1="369.7" y1="433" x2="369.7" y2="438" stroke="#333333" stroke-width="1"/>
+  <text x="369.7" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">4</text>
+  <line x1="506.634" y1="433" x2="506.634" y2="438" stroke="#333333" stroke-width="1"/>
+  <text x="506.634" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">6</text>
+  <line x1="643.568" y1="433" x2="643.568" y2="438" stroke="#333333" stroke-width="1"/>
+  <text x="643.568" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">8</text>
+  <line x1="74.4" y1="422.613" x2="79.4" y2="422.613" stroke="#333333" stroke-width="1"/>
+  <text x="71.4" y="426.613" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">-1</text>
+  <line x1="74.4" y1="336.057" x2="79.4" y2="336.057" stroke="#333333" stroke-width="1"/>
+  <text x="71.4" y="340.057" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">-0.5</text>
+  <line x1="74.4" y1="249.5" x2="79.4" y2="249.5" stroke="#333333" stroke-width="1"/>
+  <text x="71.4" y="253.5" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">0</text>
+  <line x1="74.4" y1="162.943" x2="79.4" y2="162.943" stroke="#333333" stroke-width="1"/>
+  <text x="71.4" y="166.943" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">0.5</text>
+  <line x1="74.4" y1="76.3868" x2="79.4" y2="76.3868" stroke="#333333" stroke-width="1"/>
+  <text x="71.4" y="80.3868" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">1</text>
+  <text x="369.7" y="56" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="16" fill="#333333" text-anchor="middle">Theme: default</text>
+  <text x="369.7" y="475" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="middle">x</text>
+  <text x="14.4" y="249.5" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="middle" transform="rotate(-90,14.399999999999999,249.5)">f(x)</text>
   <rect x="675" y="68" width="12" height="12" fill="#4E79A7" rx="2"/>
   <text x="693" y="78" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="start">sin(x)</text>
   <rect x="675" y="90" width="12" height="12" fill="#C56A00" rx="2"/>

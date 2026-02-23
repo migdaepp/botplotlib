@@ -8,7 +8,7 @@
 
 **Philosophical stance:** This project embodies Donna Haraway's cyborg framework: the human/machine binary is rejected. There are no "AI-generated" vs "human-written" contributions. The library itself is the cyborg. We follow Madeleine Clare Elish's moral crumple zone analysis: accountability lives in systems (CI, tests, linters) rather than in supervisory humans.
 
-**Platform stance:** The starting theme integrations are chosen to seed the project around open platforms and open science: Bluesky, Substack, and academic publishing (arxiv/SSRN, print journals). X/Twitter is not included; we invest in platforms aligned with open access and open discourse. The project is open-source: contributors are welcome to add themes for other platforms.
+**Platform stance:** The starting theme integrations are chosen to seed the project around open platforms and open science: Bluesky, magazine-style longform, and academic publishing (arxiv/SSRN, print journals). X/Twitter is not included; we invest in platforms aligned with open access and open discourse. The project is open-source: contributors are welcome to add themes for other platforms.
 
 ## Cyborg Social Contract
 
@@ -28,7 +28,7 @@ These principles guide design decisions:
 ### 1. Token efficiency is a first-class constraint
 Every token an LLM spends constructing a plot call is a token not spent reasoning about data. A matplotlib scatter plot with decent styling is 15–25 lines. botplotlib is one line:
 ```python
-bpl.scatter(data, x="year", y="temp", color="region", title="Global Temperature", theme="substack")
+bpl.scatter(data, x="year", y="temp", color="region", title="Global Temperature", theme="bluesky")
 ```
 Fewer tokens means fewer decision points where an LLM can go wrong.
 
@@ -39,7 +39,7 @@ The PlotSpec is a *proposal*, a JSON-serializable Pydantic model describing what
 WCAG contrast checking is a compiler-level error. The system won't produce an inaccessible plot. This avoids a crumple zone: accountability lives in the system rather than in human review.
 
 ### 4. Beautiful defaults with zero configuration
-Platform-specific themes (bluesky, substack, pdf, print) produce publication-ready output without tweaking. Modern multimodal models *can* visually iterate, but every iteration cycle costs tokens and time. Good defaults mean the first render is usually the final render.
+Platform-specific themes (bluesky, magazine, pdf, print) produce publication-ready output without tweaking. Modern multimodal models *can* visually iterate, but every iteration cycle costs tokens and time. Good defaults mean the first render is usually the final render.
 
 ### 5. Accept any data format
 `normalize_data()` handles dict, list[dict], Polars, Pandas, Arrow, and generators. The LLM doesn't need to know what format the data is in; just pass it through.
@@ -247,6 +247,12 @@ The renderer draws these automatically. New geoms do **not** require renderer ch
 5. **Arrow RecordBatch/Table** — check `hasattr(data, "column_names")` and `hasattr(data, "column")` → `{name: data.column(name).to_pylist() for name in data.column_names}`
 6. **Generator/iterator** — materialize to list-of-dicts, then apply step 2
 7. **Raise `TypeError`** with supported types listed
+
+## Governance and Progressive Trust
+
+Trust in botplotlib is progressive and origin-agnostic. Contributors earn trust through a multi-dimensional reputation system that observes contribution quality, review quality, and community citizenship — not PR count or biological status.
+
+See **[GOVERNANCE.md](GOVERNANCE.md)** for the full system: tier definitions, promotion rubrics, reputation signals, incentive design, and anti-gaming mechanisms.
 
 ## Contribution Conventions
 

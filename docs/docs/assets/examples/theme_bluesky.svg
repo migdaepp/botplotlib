@@ -2,45 +2,43 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800.0 500.0">
   <defs>
     <clipPath id="plot-clip">
-      <rect x="79" y="80" width="581" height="341"/>
+      <rect x="55" y="109" width="720" height="315"/>
     </clipPath>
   </defs>
   <rect x="0" y="0" width="800" height="500" fill="#FFFFFF"/>
-  <line x1="79" y1="411.349" x2="660" y2="411.349" stroke="#EEEEEE" stroke-width="1"/>
-  <line x1="79" y1="330.925" x2="660" y2="330.925" stroke="#EEEEEE" stroke-width="1"/>
-  <line x1="79" y1="250.5" x2="660" y2="250.5" stroke="#EEEEEE" stroke-width="1"/>
-  <line x1="79" y1="170.075" x2="660" y2="170.075" stroke="#EEEEEE" stroke-width="1"/>
-  <line x1="79" y1="89.6509" x2="660" y2="89.6509" stroke="#EEEEEE" stroke-width="1"/>
-  <line x1="79" y1="421" x2="660" y2="421" stroke="#333333" stroke-width="1"/>
+  <line x1="55" y1="415.085" x2="775" y2="415.085" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="55" y1="355.651" x2="775" y2="355.651" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="55" y1="296.217" x2="775" y2="296.217" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="55" y1="236.783" x2="775" y2="236.783" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="55" y1="177.349" x2="775" y2="177.349" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="55" y1="117.915" x2="775" y2="117.915" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="55" y1="424" x2="775" y2="424" stroke="#CCCCCC" stroke-width="1"/>
   <g clip-path="url(#plot-clip)">
-    <polyline points="95.4434,250.5 102.295,234.442 109.146,218.544 115.998,202.966 122.849,187.862 129.7,173.385 136.552,159.678 143.403,146.878 150.255,135.114 157.106,124.503 163.958,115.15 170.809,107.15 177.66,100.582 184.512,95.5126 191.363,91.9913 198.215,90.0539 205.066,89.7195 211.917,90.9917 218.769,93.8575 225.62,98.2885 232.472,104.24 239.323,111.654 246.175,120.454 253.026,130.554 259.877,141.852 266.729,154.236 273.58,167.582 280.432,181.756 287.283,196.617 294.134,212.017 300.986,227.801 307.837,243.812 314.689,259.889 321.54,275.873 328.392,291.604 335.243,306.923 342.094,321.679 348.946,335.724 355.797,348.917 362.649,361.127 369.5,372.231 376.351,382.119 383.203,390.692 390.054,397.864 396.906,403.564 403.757,407.735 410.608,410.334 417.46,411.337 424.311,410.732 431.163,408.527 438.014,404.742 444.866,399.416 451.717,392.603 458.568,384.369 465.42,374.798 472.271,363.985 479.123,352.039 485.974,339.077 492.825,325.231 499.677,310.638 506.528,295.444 513.38,279.801 520.231,263.865" fill="none" stroke="#4E79A7" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-    <polyline points="95.4434,89.6509 102.295,90.4545 109.146,92.8572 115.998,96.835 122.849,102.348 129.7,109.342 136.552,117.746 143.403,127.476 150.255,138.435 157.106,150.515 163.958,163.593 170.809,177.539 177.66,192.215 184.512,207.473 191.363,223.161 198.215,239.122 205.066,255.197 211.917,271.225 218.769,287.045 225.62,302.501 232.472,317.437 239.323,331.704 246.175,345.16 253.026,357.67 259.877,369.109 266.729,379.363 273.58,388.33 280.432,395.919 287.283,402.056 294.134,406.678 300.986,409.739 307.837,411.21 314.689,411.075 321.54,409.335 328.392,406.009 335.243,401.128 342.094,394.743 348.946,386.916 355.797,377.726 362.649,367.266 369.5,355.638 376.351,342.96 383.203,329.358 390.054,314.968 396.906,299.934 403.757,284.406 410.608,268.54 417.46,252.493 424.311,236.426 431.163,220.5 438.014,204.873 444.866,189.703 451.717,175.14 458.568,161.329 465.42,148.41 472.271,136.511 479.123,125.751 485.974,116.237 492.825,108.065 499.677,101.316 506.528,96.0575 513.38,92.3422 520.231,90.2071" fill="none" stroke="#C56A00" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+    <polyline points="75.3774,415.085 245.189,296.217 415,355.651 584.811,117.915 754.623,236.783" fill="none" stroke="#4E79A7" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
   </g>
-  <line x1="95.4434" y1="421" x2="95.4434" y2="426" stroke="#333333" stroke-width="1"/>
-  <text x="95.4434" y="439" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="middle">0</text>
-  <line x1="232.472" y1="421" x2="232.472" y2="426" stroke="#333333" stroke-width="1"/>
-  <text x="232.472" y="439" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="middle">2</text>
-  <line x1="369.5" y1="421" x2="369.5" y2="426" stroke="#333333" stroke-width="1"/>
-  <text x="369.5" y="439" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="middle">4</text>
-  <line x1="506.528" y1="421" x2="506.528" y2="426" stroke="#333333" stroke-width="1"/>
-  <text x="506.528" y="439" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="middle">6</text>
-  <line x1="643.557" y1="421" x2="643.557" y2="426" stroke="#333333" stroke-width="1"/>
-  <text x="643.557" y="439" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="middle">8</text>
-  <line x1="74" y1="411.349" x2="79" y2="411.349" stroke="#333333" stroke-width="1"/>
-  <text x="71" y="415.349" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="end">-1</text>
-  <line x1="74" y1="330.925" x2="79" y2="330.925" stroke="#333333" stroke-width="1"/>
-  <text x="71" y="334.925" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="end">-0.5</text>
-  <line x1="74" y1="250.5" x2="79" y2="250.5" stroke="#333333" stroke-width="1"/>
-  <text x="71" y="254.5" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="end">0</text>
-  <line x1="74" y1="170.075" x2="79" y2="170.075" stroke="#333333" stroke-width="1"/>
-  <text x="71" y="174.075" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="end">0.5</text>
-  <line x1="74" y1="89.6509" x2="79" y2="89.6509" stroke="#333333" stroke-width="1"/>
-  <text x="71" y="93.6509" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="end">1</text>
-  <text x="369.5" y="70" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="20" fill="#333333" text-anchor="middle">Bluesky Theme</text>
-  <text x="369.5" y="470" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="middle">x</text>
-  <text x="14" y="250.5" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="14" fill="#333333" text-anchor="middle" transform="rotate(-90,14.0,250.5)">y</text>
-  <rect x="675" y="82" width="12" height="12" fill="#4E79A7" rx="2"/>
-  <text x="693" y="92" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="start">sin(x)</text>
-  <rect x="675" y="104" width="12" height="12" fill="#C56A00" rx="2"/>
-  <text x="693" y="114" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="start">cos(x)</text>
+  <line x1="75.3774" y1="424" x2="75.3774" y2="429" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="75.3774" y="442" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="13" fill="#222222" text-anchor="middle">1</text>
+  <line x1="245.189" y1="424" x2="245.189" y2="429" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="245.189" y="442" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="13" fill="#222222" text-anchor="middle">2</text>
+  <line x1="415" y1="424" x2="415" y2="429" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="415" y="442" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="13" fill="#222222" text-anchor="middle">3</text>
+  <line x1="584.811" y1="424" x2="584.811" y2="429" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="584.811" y="442" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="13" fill="#222222" text-anchor="middle">4</text>
+  <line x1="754.623" y1="424" x2="754.623" y2="429" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="754.623" y="442" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="13" fill="#222222" text-anchor="middle">5</text>
+  <line x1="50" y1="415.085" x2="55" y2="415.085" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="47" y="419.085" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="13" fill="#222222" text-anchor="end">2</text>
+  <line x1="50" y1="355.651" x2="55" y2="355.651" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="47" y="359.651" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="13" fill="#222222" text-anchor="end">3</text>
+  <line x1="50" y1="296.217" x2="55" y2="296.217" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="47" y="300.217" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="13" fill="#222222" text-anchor="end">4</text>
+  <line x1="50" y1="236.783" x2="55" y2="236.783" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="47" y="240.783" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="13" fill="#222222" text-anchor="end">5</text>
+  <line x1="50" y1="177.349" x2="55" y2="177.349" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="47" y="181.349" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="13" fill="#222222" text-anchor="end">6</text>
+  <line x1="50" y1="117.915" x2="55" y2="117.915" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="47" y="121.915" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="13" fill="#222222" text-anchor="end">7</text>
+  <text x="55" y="79" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="24" fill="#222222" text-anchor="start" font-weight="bold">Bluesky Theme</text>
+  <text x="415" y="472.5" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="16" fill="#222222" text-anchor="middle">x</text>
+  <text x="55" y="105" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="16" fill="#222222" text-anchor="start">y</text>
 </svg>

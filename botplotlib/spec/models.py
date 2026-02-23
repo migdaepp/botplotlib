@@ -22,8 +22,10 @@ class LabelsSpec(BaseModel):
     """Plot labels."""
 
     title: str | None = None
+    subtitle: str | None = None
     x: str | None = None
     y: str | None = None
+    footnote: str | None = None
 
 
 class LegendSpec(BaseModel):
@@ -40,6 +42,8 @@ class LayerSpec(BaseModel):
     x: str  # column name for x axis
     y: str  # column name for y axis
     color: str | None = None  # column name for color grouping
+    labels: bool = False  # show value labels on bars
+    label_format: str | None = None  # Python format string, e.g. "${:,.0f}"
 
 
 class DataSpec(BaseModel):

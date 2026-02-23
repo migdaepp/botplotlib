@@ -145,7 +145,7 @@ Tasks:
 
 **Track 5: Second wave of geoms.** After the human reviews Track 1 and the protocol is solid, spin up parallel subagents (Sonnet) for area, histogram, heatmap, ridgeline, etc. Each geom is one file, one test file — perfect parallelism.
 
-**Human check.** Charlie tries the waterfall chart. Madeleine makes a plot for Bluesky or Substack. Note every friction point.
+**Human check.** Charlie tries the waterfall chart. Madeleine makes a plot for Bluesky. Note every friction point.
 
 ## Task dependencies
 

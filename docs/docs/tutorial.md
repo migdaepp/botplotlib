@@ -60,7 +60,7 @@ fig = bpl.line(
 
 ### Theme showcase
 
-All five themes rendered side by side with the same data — `default`, `bluesky`, `substack`, `pdf`, and `print`.
+All five themes rendered side by side with the same data — `default`, `bluesky`, `pdf`, `print`, and `magazine`.
 
 ### PlotSpec inspection
 

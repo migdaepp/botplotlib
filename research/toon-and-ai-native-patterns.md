@@ -66,7 +66,7 @@ botplotlib's LLM interactions fall into three distinct modes, and TOON's fit dif
 An LLM generates a Python call like:
 
 ```python
-bpl.scatter(df, x="year", y="temp", color="region", title="Temperature Trend", theme="substack")
+bpl.scatter(df, x="year", y="temp", color="region", title="Temperature Trend", theme="bluesky")
 ```
 
 This is approximately 35–45 tokens. Data is already in a Python variable (`df`) — it never enters the token stream. TOON is not relevant here. This mode is where botplotlib's token efficiency advantage is greatest: a matplotlib-equivalent is 100–150 tokens; botplotlib is 35–45 tokens.

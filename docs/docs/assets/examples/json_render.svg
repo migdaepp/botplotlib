@@ -2,41 +2,41 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
   <defs>
     <clipPath id="plot-clip">
-      <rect x="60" y="80" width="720" height="360"/>
+      <rect x="55" y="89" width="720" height="356"/>
     </clipPath>
   </defs>
   <rect x="0" y="0" width="800" height="500" fill="#FFFFFF"/>
-  <line x1="60" y1="429.811" x2="780" y2="429.811" stroke="#EEEEEE" stroke-width="1"/>
-  <line x1="60" y1="361.887" x2="780" y2="361.887" stroke="#EEEEEE" stroke-width="1"/>
-  <line x1="60" y1="293.962" x2="780" y2="293.962" stroke="#EEEEEE" stroke-width="1"/>
-  <line x1="60" y1="226.038" x2="780" y2="226.038" stroke="#EEEEEE" stroke-width="1"/>
-  <line x1="60" y1="158.113" x2="780" y2="158.113" stroke="#EEEEEE" stroke-width="1"/>
-  <line x1="60" y1="90.1887" x2="780" y2="90.1887" stroke="#EEEEEE" stroke-width="1"/>
-  <line x1="60" y1="440" x2="780" y2="440" stroke="#333333" stroke-width="1"/>
+  <line x1="55" y1="434.925" x2="775" y2="434.925" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="55" y1="367.755" x2="775" y2="367.755" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="55" y1="300.585" x2="775" y2="300.585" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="55" y1="233.415" x2="775" y2="233.415" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="55" y1="166.245" x2="775" y2="166.245" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="55" y1="99.0755" x2="775" y2="99.0755" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="55" y1="445" x2="775" y2="445" stroke="#CCCCCC" stroke-width="1"/>
   <g clip-path="url(#plot-clip)">
-    <polyline points="80.3774,395.849 420,293.962 759.623,124.151" fill="none" stroke="#4E79A7" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+    <polyline points="75.3774,401.34 415,300.585 754.623,132.66" fill="none" stroke="#4E79A7" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
   </g>
-  <line x1="80.3774" y1="440" x2="80.3774" y2="445" stroke="#333333" stroke-width="1"/>
-  <text x="80.3774" y="458" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="middle">1</text>
-  <line x1="250.189" y1="440" x2="250.189" y2="445" stroke="#333333" stroke-width="1"/>
-  <text x="250.189" y="458" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="middle">1.5</text>
-  <line x1="420" y1="440" x2="420" y2="445" stroke="#333333" stroke-width="1"/>
-  <text x="420" y="458" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="middle">2</text>
-  <line x1="589.811" y1="440" x2="589.811" y2="445" stroke="#333333" stroke-width="1"/>
-  <text x="589.811" y="458" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="middle">2.5</text>
-  <line x1="759.623" y1="440" x2="759.623" y2="445" stroke="#333333" stroke-width="1"/>
-  <text x="759.623" y="458" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="middle">3</text>
-  <line x1="55" y1="429.811" x2="60" y2="429.811" stroke="#333333" stroke-width="1"/>
-  <text x="52" y="433.811" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="end">0</text>
-  <line x1="55" y1="361.887" x2="60" y2="361.887" stroke="#333333" stroke-width="1"/>
-  <text x="52" y="365.887" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="end">2</text>
-  <line x1="55" y1="293.962" x2="60" y2="293.962" stroke="#333333" stroke-width="1"/>
-  <text x="52" y="297.962" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="end">4</text>
-  <line x1="55" y1="226.038" x2="60" y2="226.038" stroke="#333333" stroke-width="1"/>
-  <text x="52" y="230.038" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="end">6</text>
-  <line x1="55" y1="158.113" x2="60" y2="158.113" stroke="#333333" stroke-width="1"/>
-  <text x="52" y="162.113" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="end">8</text>
-  <line x1="55" y1="90.1887" x2="60" y2="90.1887" stroke="#333333" stroke-width="1"/>
-  <text x="52" y="94.1887" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="end">10</text>
-  <text x="420" y="70" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="20" fill="#333333" text-anchor="middle">Squares</text>
+  <line x1="75.3774" y1="445" x2="75.3774" y2="450" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="75.3774" y="463" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="13" fill="#222222" text-anchor="middle">1</text>
+  <line x1="245.189" y1="445" x2="245.189" y2="450" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="245.189" y="463" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="13" fill="#222222" text-anchor="middle">1.5</text>
+  <line x1="415" y1="445" x2="415" y2="450" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="415" y="463" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="13" fill="#222222" text-anchor="middle">2</text>
+  <line x1="584.811" y1="445" x2="584.811" y2="450" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="584.811" y="463" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="13" fill="#222222" text-anchor="middle">2.5</text>
+  <line x1="754.623" y1="445" x2="754.623" y2="450" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="754.623" y="463" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="13" fill="#222222" text-anchor="middle">3</text>
+  <line x1="50" y1="434.925" x2="55" y2="434.925" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="47" y="438.925" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="13" fill="#222222" text-anchor="end">0</text>
+  <line x1="50" y1="367.755" x2="55" y2="367.755" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="47" y="371.755" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="13" fill="#222222" text-anchor="end">2</text>
+  <line x1="50" y1="300.585" x2="55" y2="300.585" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="47" y="304.585" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="13" fill="#222222" text-anchor="end">4</text>
+  <line x1="50" y1="233.415" x2="55" y2="233.415" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="47" y="237.415" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="13" fill="#222222" text-anchor="end">6</text>
+  <line x1="50" y1="166.245" x2="55" y2="166.245" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="47" y="170.245" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="13" fill="#222222" text-anchor="end">8</text>
+  <line x1="50" y1="99.0755" x2="55" y2="99.0755" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="47" y="103.075" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="13" fill="#222222" text-anchor="end">10</text>
+  <text x="55" y="79" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="24" fill="#222222" text-anchor="start" font-weight="bold">Squares</text>
 </svg>

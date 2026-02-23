@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="650" height="480" viewBox="0 0 650.0 480.0">
+  <defs>
+    <clipPath id="plot-clip">
+      <rect x="50" y="132.2" width="580" height="260.8"/>
+    </clipPath>
+  </defs>
+  <rect x="0" y="0" width="650" height="480" fill="#F2EDE4"/>
+  <line x1="50" y1="385.619" x2="630" y2="385.619" stroke="#D8D2C6" stroke-width="1"/>
+  <line x1="50" y1="324.109" x2="630" y2="324.109" stroke="#D8D2C6" stroke-width="1"/>
+  <line x1="50" y1="262.6" x2="630" y2="262.6" stroke="#D8D2C6" stroke-width="1"/>
+  <line x1="50" y1="201.091" x2="630" y2="201.091" stroke="#D8D2C6" stroke-width="1"/>
+  <line x1="50" y1="139.581" x2="630" y2="139.581" stroke="#D8D2C6" stroke-width="1"/>
+  <line x1="50" y1="393" x2="630" y2="393" stroke="#CCCCCC" stroke-width="1"/>
+  <g clip-path="url(#plot-clip)">
+    <circle cx="326.86" cy="214.391" r="4" fill="#388EC1"/>
+    <circle cx="324.232" cy="271.388" r="4" fill="#8C1B2B"/>
+    <circle cx="329.849" cy="318.539" r="4" fill="#388EC1"/>
+    <circle cx="404.017" cy="260.647" r="4" fill="#8C1B2B"/>
+    <circle cx="328.365" cy="231.357" r="4" fill="#2D8B61"/>
+    <circle cx="203.449" cy="361.931" r="4" fill="#8C1B2B"/>
+    <circle cx="370.306" cy="251.142" r="4" fill="#2D8B61"/>
+    <circle cx="315.62" cy="261.476" r="4" fill="#388EC1"/>
+    <circle cx="320.214" cy="280.92" r="4" fill="#388EC1"/>
+    <circle cx="350.568" cy="232.33" r="4" fill="#388EC1"/>
+    <circle cx="361.184" cy="234.022" r="4" fill="#8C1B2B"/>
+    <circle cx="446.111" cy="141.142" r="4" fill="#2D8B61"/>
+    <circle cx="399.882" cy="219.525" r="4" fill="#388EC1"/>
+    <circle cx="350.078" cy="281.692" r="4" fill="#388EC1"/>
+    <circle cx="272.669" cy="306.04" r="4" fill="#2D8B61"/>
+    <circle cx="247.468" cy="324.496" r="4" fill="#8C1B2B"/>
+    <circle cx="362.465" cy="219.88" r="4" fill="#2D8B61"/>
+    <circle cx="459.564" cy="243.197" r="4" fill="#388EC1"/>
+    <circle cx="343.799" cy="263.912" r="4" fill="#388EC1"/>
+    <circle cx="330.304" cy="238.216" r="4" fill="#2D8B61"/>
+    <circle cx="388.495" cy="272.945" r="4" fill="#8C1B2B"/>
+    <circle cx="207.444" cy="318.141" r="4" fill="#8C1B2B"/>
+    <circle cx="311.522" cy="340.158" r="4" fill="#2D8B61"/>
+    <circle cx="384.719" cy="287.469" r="4" fill="#388EC1"/>
+    <circle cx="419.65" cy="256.691" r="4" fill="#8C1B2B"/>
+    <circle cx="318.056" cy="254.657" r="4" fill="#2D8B61"/>
+    <circle cx="374.344" cy="206.971" r="4" fill="#8C1B2B"/>
+    <circle cx="362.636" cy="255.648" r="4" fill="#388EC1"/>
+    <circle cx="411.344" cy="228.894" r="4" fill="#2D8B61"/>
+    <circle cx="238.48" cy="290.638" r="4" fill="#8C1B2B"/>
+    <circle cx="391.822" cy="205.091" r="4" fill="#388EC1"/>
+    <circle cx="201.883" cy="276.209" r="4" fill="#8C1B2B"/>
+    <circle cx="101.074" cy="333.075" r="4" fill="#8C1B2B"/>
+    <circle cx="284.655" cy="318.574" r="4" fill="#8C1B2B"/>
+    <circle cx="256.483" cy="257.425" r="4" fill="#2D8B61"/>
+    <circle cx="419.888" cy="221.596" r="4" fill="#2D8B61"/>
+    <circle cx="400.578" cy="196.89" r="4" fill="#8C1B2B"/>
+    <circle cx="228.827" cy="301.196" r="4" fill="#8C1B2B"/>
+    <circle cx="417.275" cy="164.459" r="4" fill="#2D8B61"/>
+    <circle cx="248.604" cy="306.667" r="4" fill="#2D8B61"/>
+    <circle cx="332.135" cy="206.459" r="4" fill="#2D8B61"/>
+    <circle cx="313.198" cy="267.39" r="4" fill="#8C1B2B"/>
+    <circle cx="350.435" cy="278.134" r="4" fill="#2D8B61"/>
+    <circle cx="414.656" cy="279.069" r="4" fill="#388EC1"/>
+    <circle cx="398.22" cy="248.54" r="4" fill="#388EC1"/>
+    <circle cx="371.908" cy="199.311" r="4" fill="#2D8B61"/>
+    <circle cx="399.272" cy="212.482" r="4" fill="#2D8B61"/>
+    <circle cx="383.636" cy="222.46" r="4" fill="#8C1B2B"/>
+    <circle cx="282.822" cy="369.566" r="4" fill="#2D8B61"/>
+    <circle cx="274.579" cy="258.424" r="4" fill="#2D8B61"/>
+    <circle cx="297.141" cy="256.54" r="4" fill="#388EC1"/>
+    <circle cx="385.536" cy="267.539" r="4" fill="#8C1B2B"/>
+    <circle cx="317.191" cy="293.446" r="4" fill="#8C1B2B"/>
+    <circle cx="553.009" cy="190.85" r="4" fill="#388EC1"/>
+    <circle cx="265.285" cy="224.139" r="4" fill="#388EC1"/>
+    <circle cx="239.788" cy="335.335" r="4" fill="#2D8B61"/>
+    <circle cx="410.081" cy="254.754" r="4" fill="#2D8B61"/>
+    <circle cx="469.666" cy="168.614" r="4" fill="#8C1B2B"/>
+    <circle cx="386.117" cy="263.513" r="4" fill="#8C1B2B"/>
+    <circle cx="416.222" cy="250.338" r="4" fill="#8C1B2B"/>
+  </g>
+  <line x1="66.4151" y1="393" x2="66.4151" y2="398" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="66.4151" y="411" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="middle">55</text>
+  <line x1="157.61" y1="393" x2="157.61" y2="398" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="157.61" y="411" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="middle">60</text>
+  <line x1="248.805" y1="393" x2="248.805" y2="398" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="248.805" y="411" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="middle">65</text>
+  <line x1="340" y1="393" x2="340" y2="398" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="340" y="411" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="middle">70</text>
+  <line x1="431.195" y1="393" x2="431.195" y2="398" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="431.195" y="411" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="middle">75</text>
+  <line x1="522.39" y1="393" x2="522.39" y2="398" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="522.39" y="411" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="middle">80</text>
+  <line x1="613.585" y1="393" x2="613.585" y2="398" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="613.585" y="411" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="middle">85</text>
+  <text x="42" y="389.619" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="end">45</text>
+  <text x="42" y="328.109" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="end">50</text>
+  <text x="42" y="266.6" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="end">55</text>
+  <text x="42" y="205.091" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="end">60</text>
+  <text x="42" y="143.581" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="end">65</text>
+  <text x="50" y="52" font-family="Georgia, Times New Roman, serif" font-size="22" fill="#333333" text-anchor="start" font-weight="bold">Health and wealth</text>
+  <text x="50" y="76" font-family="Georgia, Times New Roman, serif" font-size="14" fill="#555555" text-anchor="start">Life expectancy vs GDP per capita, by region</text>
+  <text x="340" y="434" font-family="Georgia, Times New Roman, serif" font-size="12" fill="#333333" text-anchor="middle">Life expectancy (years)</text>
+  <text x="12" y="98.2" font-family="Georgia, Times New Roman, serif" font-size="12" fill="#333333" text-anchor="start">GDP per capita ($000s)</text>
+  <text x="50" y="470" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#666666" text-anchor="start">Source: World Development Indicators</text>
+  <rect x="50" y="111.2" width="12" height="12" fill="#388EC1" rx="2"/>
+  <text x="66" y="121.2" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="start">Americas</text>
+  <rect x="127.87" y="111.2" width="12" height="12" fill="#8C1B2B" rx="2"/>
+  <text x="143.87" y="121.2" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="start">Asia</text>
+  <rect x="181.32" y="111.2" width="12" height="12" fill="#2D8B61" rx="2"/>
+  <text x="197.32" y="121.2" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="start">Europe</text>
+</svg>

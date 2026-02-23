@@ -83,7 +83,7 @@ Every theme produces publication-ready output. Pass the `theme` parameter:
 fig = bpl.scatter(data, x="x", y="y", theme="bluesky")
 ```
 
-Available themes: `default`, `bluesky`, `substack`, `pdf`, `print`. See the [Themes guide](guide/themes.md) for details and visual examples.
+Available themes: `default`, `bluesky`, `pdf`, `print`, `magazine`. See the [Themes guide](guide/themes.md) for details and visual examples.
 
 ## Next steps
 

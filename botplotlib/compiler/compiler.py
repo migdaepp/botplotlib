@@ -86,6 +86,8 @@ def compile_spec(spec: PlotSpec) -> CompiledPlot:
             has_legend = spec.legend.show
 
     # 5. Compute layout
+    _subtitle = spec.labels.subtitle or ""
+    _subtitle_lines = _subtitle.count("\n") + 1 if _subtitle else 0
     layout = compute_layout(
         canvas_width=spec.size.width,
         canvas_height=spec.size.height,
@@ -93,13 +95,20 @@ def compile_spec(spec: PlotSpec) -> CompiledPlot:
         margin_right=theme.margin_right,
         margin_bottom=theme.margin_bottom,
         margin_left=theme.margin_left,
-        has_title=spec.labels.title is not None,
-        has_x_label=spec.labels.x is not None,
-        has_y_label=spec.labels.y is not None,
+        has_title=bool(spec.labels.title),
+        has_subtitle=bool(spec.labels.subtitle),
+        has_x_label=bool(spec.labels.x),
+        has_y_label=bool(spec.labels.y),
+        has_footnote=bool(spec.labels.footnote),
         has_legend=has_legend,
         legend_position=spec.legend.position,
         title_font_size=theme.title_font_size,
+        title_align=theme.title_align,
+        subtitle_font_size=theme.subtitle_font_size,
+        subtitle_lines=_subtitle_lines,
         label_font_size=theme.label_font_size,
+        footnote_font_size=theme.footnote_font_size,
+        y_label_position=theme.y_label_position,
     )
     plot_area = layout.plot_area
 
@@ -112,7 +121,9 @@ def compile_spec(spec: PlotSpec) -> CompiledPlot:
         legend_area=layout.legend_area,
     )
 
-    # Add title, axis labels
+    # Add title, subtitle, axis labels, footnote
+    _title_anchor = {"left": "start", "right": "end"}.get(theme.title_align, "middle")
+
     if layout.title_pos:
         compiled.texts.append(
             CompiledText(
@@ -121,7 +132,20 @@ def compile_spec(spec: PlotSpec) -> CompiledPlot:
                 y=layout.title_pos[1],
                 font_size=theme.title_font_size,
                 color=theme.text_color,
-                anchor="middle",
+                anchor=_title_anchor,
+                font_weight=theme.title_font_weight,
+            )
+        )
+
+    if layout.subtitle_pos:
+        compiled.texts.append(
+            CompiledText(
+                text=spec.labels.subtitle or "",
+                x=layout.subtitle_pos[0],
+                y=layout.subtitle_pos[1],
+                font_size=theme.subtitle_font_size,
+                color=theme.subtitle_color or theme.text_color,
+                anchor=_title_anchor,
             )
         )
 
@@ -138,15 +162,39 @@ def compile_spec(spec: PlotSpec) -> CompiledPlot:
         )
 
     if layout.y_label_pos:
+        if theme.y_label_position == "top":
+            compiled.texts.append(
+                CompiledText(
+                    text=spec.labels.y or "",
+                    x=layout.y_label_pos[0],
+                    y=layout.y_label_pos[1],
+                    font_size=theme.label_font_size,
+                    color=theme.text_color,
+                    anchor="start",
+                )
+            )
+        else:
+            compiled.texts.append(
+                CompiledText(
+                    text=spec.labels.y or "",
+                    x=layout.y_label_pos[0],
+                    y=layout.y_label_pos[1],
+                    font_size=theme.label_font_size,
+                    color=theme.text_color,
+                    anchor="middle",
+                    rotation=-90,
+                )
+            )
+
+    if layout.footnote_pos:
         compiled.texts.append(
             CompiledText(
-                text=spec.labels.y or "",
-                x=layout.y_label_pos[0],
-                y=layout.y_label_pos[1],
-                font_size=theme.label_font_size,
-                color=theme.text_color,
-                anchor="middle",
-                rotation=-90,
+                text=spec.labels.footnote or "",
+                x=layout.footnote_pos[0],
+                y=layout.footnote_pos[1],
+                font_size=theme.footnote_font_size,
+                color=theme.footnote_color or theme.text_color,
+                anchor="start",
             )
         )
 

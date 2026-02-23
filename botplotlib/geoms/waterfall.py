@@ -15,9 +15,16 @@ the next.
 
 from __future__ import annotations
 
+from botplotlib._colors.palettes import relative_luminance
 from botplotlib._types import Rect
 from botplotlib.geoms import Geom, ResolvedScales, ScaleHint
-from botplotlib.geoms.primitives import CompiledBar, CompiledLine, Primitive
+from botplotlib.geoms.labels import format_label, label_fits_inside
+from botplotlib.geoms.primitives import (
+    CompiledBar,
+    CompiledLine,
+    CompiledText,
+    Primitive,
+)
 from botplotlib.spec.models import LayerSpec
 from botplotlib.spec.scales import CategoricalScale
 from botplotlib.spec.theme import ThemeSpec
@@ -112,6 +119,41 @@ class WaterfallGeom(Geom):
                     group="positive" if step >= 0 else "negative",
                 )
             )
+
+            if layer.labels:
+                label_text = format_label(step, layer.label_format)
+                font_size = theme.tick_font_size
+                inside = label_fits_inside(
+                    label_text,
+                    font_size,
+                    bar_width,
+                    bar_h,
+                    font_name=theme.font_name,
+                )
+                if inside:
+                    label_x = cx
+                    label_y = bar_y + bar_h / 2 + font_size / 3
+                    lum = relative_luminance(color)
+                    label_color = "#FFFFFF" if lum < 0.4 else theme.text_color
+                elif step >= 0:
+                    label_x = cx
+                    label_y = bar_y - 5
+                    label_color = theme.text_color
+                else:
+                    label_x = cx
+                    label_y = bar_y + bar_h + font_size + 2
+                    label_color = theme.text_color
+
+                primitives.append(
+                    CompiledText(
+                        text=label_text,
+                        x=label_x,
+                        y=label_y,
+                        font_size=font_size,
+                        color=label_color,
+                        anchor="middle",
+                    )
+                )
 
             # Connector line from this bar's top to the next bar's base
             if i < min(len(categories), len(y_vals)) - 1:

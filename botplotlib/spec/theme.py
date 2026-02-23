@@ -15,8 +15,14 @@ class ThemeSpec(BaseModel):
     font_family: str = "Inter, Helvetica Neue, Arial, sans-serif"
     font_name: str = "arial"  # which font metrics to use for layout
     title_font_size: float = 16
+    title_font_weight: str = "normal"  # "normal" or "bold"
+    title_align: str = "center"  # "left", "center", or "right"
+    subtitle_font_size: float = 13
+    subtitle_color: str | None = None  # None → use text_color
     label_font_size: float = 12
     tick_font_size: float = 10
+    footnote_font_size: float = 10
+    footnote_color: str | None = None  # None → use text_color
 
     # Colors
     text_color: str = "#333333"
@@ -30,7 +36,10 @@ class ThemeSpec(BaseModel):
     # Axes
     show_x_axis: bool = True
     show_y_axis: bool = False
+    show_x_ticks: bool = True
+    show_y_ticks: bool = True
     axis_stroke_width: float = 1.0
+    y_label_position: str = "side"  # "side" (rotated, default) or "top" (horizontal)
 
     # Plot elements
     point_radius: float = 4.0
@@ -52,20 +61,32 @@ DEFAULT_THEME = ThemeSpec()
 
 # Platform presets
 THEME_BLUESKY = ThemeSpec(
-    title_font_size=20,
-    label_font_size=14,
-    tick_font_size=12,
-    point_radius=5.0,
-    line_width=2.5,
-    margin_top=50,
-    margin_bottom=60,
-)
-
-THEME_SUBSTACK = ThemeSpec(
-    title_font_size=18,
-    label_font_size=13,
-    tick_font_size=11,
-    line_width=2.5,
+    background_color="#FFFFFF",  # clean white, works in dark mode feeds
+    title_font_size=24,  # bold, mobile-legible
+    title_font_weight="bold",  # scroll-stopping
+    title_align="left",  # reads faster on mobile, editorial feel
+    subtitle_font_size=16,
+    subtitle_color="#555555",
+    label_font_size=16,
+    tick_font_size=13,
+    footnote_font_size=11,
+    footnote_color="#666666",
+    text_color="#222222",  # stronger contrast than default #333
+    axis_color="#CCCCCC",  # de-emphasized
+    grid_color="#EEEEEE",
+    show_x_grid=False,
+    show_y_grid=True,
+    show_x_axis=True,
+    show_y_axis=False,
+    axis_stroke_width=1.0,
+    y_label_position="top",  # horizontal, avoids rotated text on mobile
+    point_radius=6.0,  # larger for mobile
+    line_width=3.0,  # bolder for mobile
+    bar_padding=0.2,
+    margin_top=55,  # room for bold title + subtitle
+    margin_right=25,
+    margin_bottom=55,  # room for labels + footnote
+    margin_left=55,
 )
 
 THEME_PRINT = ThemeSpec(
@@ -116,14 +137,59 @@ THEME_PDF = ThemeSpec(
     ],
 )
 
+THEME_MAGAZINE = ThemeSpec(
+    background_color="#F2EDE4",
+    font_family="Georgia, Times New Roman, serif",
+    font_name="arial",
+    title_font_size=22,
+    title_font_weight="bold",
+    title_align="left",
+    subtitle_font_size=14,
+    subtitle_color="#555555",
+    label_font_size=12,
+    tick_font_size=11,
+    footnote_font_size=10,
+    footnote_color="#666666",
+    text_color="#333333",
+    axis_color="#CCCCCC",
+    grid_color="#D8D2C6",
+    show_x_grid=False,
+    show_y_grid=True,
+    show_x_axis=True,
+    show_y_axis=False,
+    show_y_ticks=False,
+    axis_stroke_width=1.0,
+    y_label_position="top",
+    point_radius=4.0,
+    line_width=2.5,
+    bar_padding=0.2,
+    palette=[
+        "#388EC1",  # blue
+        "#8C1B2B",  # dark red
+        "#2D8B61",  # green
+        "#7B4EA3",  # purple
+        "#A86800",  # dark amber
+        "#1A6B6B",  # dark teal
+        "#C44E52",  # salmon red
+        "#5A5A8A",  # slate blue
+        "#8B5A2B",  # brown
+        "#555555",  # gray
+    ],
+    margin_top=30,
+    margin_right=20,
+    margin_bottom=40,
+    margin_left=50,
+)
+
 THEME_REGISTRY: dict[str, ThemeSpec] = {
     "default": DEFAULT_THEME,
     "bluesky": THEME_BLUESKY,
     "social": THEME_BLUESKY,  # alias
-    "substack": THEME_SUBSTACK,
     "print": THEME_PRINT,
     "pdf": THEME_PDF,
     "arxiv": THEME_PDF,  # alias
+    "magazine": THEME_MAGAZINE,
+    "economist": THEME_MAGAZINE,  # alias
 }
 
 
