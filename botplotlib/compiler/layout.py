@@ -11,7 +11,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from botplotlib._fonts.metrics import text_bbox
+from botplotlib._fonts.metrics import text_bbox, text_height
 from botplotlib._types import Rect
 
 
@@ -52,6 +52,7 @@ def compute_layout(
     footnote_font_size: float = 10.0,
     y_label_position: str = "side",
     legend_width: float = 120.0,
+    legend_height: float = 30.0,
 ) -> LayoutResult:
     """Compute box-model layout for a plot.
 
@@ -81,7 +82,8 @@ def compute_layout(
         effective_bottom += label_font_size + 5
 
     if has_y_label and y_label_position == "side":
-        effective_left += label_font_size + 5
+        # Rotated -90°: text height becomes horizontal width
+        effective_left += text_height(label_font_size) + 5
     elif has_y_label and y_label_position == "top":
         effective_top += label_font_size + 4
 
@@ -90,6 +92,8 @@ def compute_layout(
 
     if has_legend and legend_position == "right":
         effective_right += legend_width
+    elif has_legend and legend_position == "top":
+        effective_top += legend_height
 
     plot_area = Rect(
         x=effective_left,
@@ -136,8 +140,10 @@ def compute_layout(
                 plot_area.y - 4,
             )
         else:
+            # Rotated -90°: text height becomes horizontal width.
+            # Place x so the left edge of the rotated bbox stays >= 0.
             y_label_pos = (
-                label_font_size,
+                text_height(label_font_size),
                 plot_area.y + plot_area.height / 2,
             )
 
@@ -153,6 +159,13 @@ def compute_layout(
             y=plot_area.y,
             width=legend_width - 15,
             height=plot_area.height,
+        )
+    elif has_legend and legend_position == "top":
+        legend_area = Rect(
+            x=plot_area.x,
+            y=plot_area.y - legend_height,
+            width=plot_area.width,
+            height=legend_height,
         )
 
     return LayoutResult(
