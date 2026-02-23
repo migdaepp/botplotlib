@@ -63,10 +63,10 @@ uv run pytest tests/test_foo.py::test_name
 # with current renderer output; run after intentional visual changes)
 uv run pytest --update-baselines
 
-# Lint
+# Lint (always lint the full repo — includes docs/, scripts/, examples/)
 uv run ruff check .
 
-# Format check
+# Format check (always check the full repo — includes docs/, scripts/, examples/)
 uv run black --check .
 
 # Format fix
@@ -149,6 +149,8 @@ docs/
 ├── mkdocs.yml             # MkDocs site config (Material theme, mkdocstrings)
 ├── tutorial.py            # interactive marimo notebook (tutorial + demo)
 └── docs/                  # page sources (index, guide/, gallery/, api/, contributing)
+scripts/
+└── update_baselines.py    # regenerate golden SVGs in tests/baselines/
 examples/
 ├── demo.py                # generates showcase SVGs for all themes
 ├── demo_*.svg             # pre-rendered showcase output
@@ -262,9 +264,11 @@ Do not shift the cognitive burden of massive state changes onto human reviewers.
 
 ### Visual baseline check required
 Any change that could affect rendered output (compiler, geoms, scales, ticks, layout, themes, renderer) requires a visual check of the golden SVGs in `tests/baselines/`. This applies equally to humans and bots:
-1. Regenerate baselines: `uv run pytest --update-baselines` (or `uv run python scripts/update_baselines.py`)
+1. Regenerate baselines: `uv run python scripts/update_baselines.py`
 2. Open the SVGs in `tests/baselines/` and visually confirm the output looks correct — points not clipped, labels readable, axes properly scaled
 3. Include the updated baselines in your commit
+
+**Note:** The golden SVGs in `tests/baselines/` are not yet compared automatically in CI. The `--update-baselines` pytest flag exists but no tests currently call `load_baseline()`/`save_baseline()`. Until automated visual regression is wired up, manual visual inspection is the gate.
 
 ## Tool Classification
 
