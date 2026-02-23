@@ -36,8 +36,10 @@ fig.save_svg("scatter.svg")
 | `y` | `str` | *required* | Column name for y-axis |
 | `color` | `str` | `None` | Column name for color grouping |
 | `title` | `str` | `None` | Plot title |
+| `subtitle` | `str` | `None` | Plot subtitle |
 | `x_label` | `str` | `None` | X-axis label |
 | `y_label` | `str` | `None` | Y-axis label |
+| `footnote` | `str` | `None` | Footnote below the plot |
 | `theme` | `str` | `"default"` | [Theme](themes.md) name |
 | `width` | `float` | `800` | Canvas width in pixels |
 | `height` | `float` | `500` | Canvas height in pixels |
@@ -127,8 +129,10 @@ fig.save_svg("bar_labels.svg")
 | `y` | `str` | *required* | Column name for y-axis |
 | `color` | `str` | `None` | Column name for color grouping |
 | `title` | `str` | `None` | Plot title |
+| `subtitle` | `str` | `None` | Plot subtitle |
 | `x_label` | `str` | `None` | X-axis label |
 | `y_label` | `str` | `None` | Y-axis label |
+| `footnote` | `str` | `None` | Footnote below the plot |
 | `theme` | `str` | `"default"` | [Theme](themes.md) name |
 | `labels` | `bool` | `False` | Show value labels on bars |
 | `label_format` | `str` | `None` | Python format string, e.g. `"${:,.0f}"` |
@@ -167,8 +171,10 @@ fig.save_svg("waterfall.svg")
 | `x` | `str` | *required* | Column name for categories |
 | `y` | `str` | *required* | Column name for values |
 | `title` | `str` | `None` | Plot title |
+| `subtitle` | `str` | `None` | Plot subtitle |
 | `x_label` | `str` | `None` | X-axis label |
 | `y_label` | `str` | `None` | Y-axis label |
+| `footnote` | `str` | `None` | Footnote below the plot |
 | `theme` | `str` | `"default"` | [Theme](themes.md) name |
 | `labels` | `bool` | `False` | Show value labels on bars |
 | `label_format` | `str` | `None` | Python format string, e.g. `"${:,.0f}"` |
