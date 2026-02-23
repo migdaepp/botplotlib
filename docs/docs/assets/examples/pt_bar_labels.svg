@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800.0 500.0">
+  <defs>
+    <clipPath id="plot-clip">
+      <rect x="77" y="66" width="703" height="384"/>
+    </clipPath>
+  </defs>
+  <rect x="0" y="0" width="800" height="500" fill="#FFFFFF"/>
+  <line x1="77" y1="439.132" x2="780" y2="439.132" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="77" y1="348.566" x2="780" y2="348.566" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="77" y1="258" x2="780" y2="258" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="77" y1="167.434" x2="780" y2="167.434" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="77" y1="76.8679" x2="780" y2="76.8679" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="77" y1="450" x2="780" y2="450" stroke="#333333" stroke-width="1"/>
+  <g clip-path="url(#plot-clip)">
+    <rect x="94.575" y="267.057" width="140.6" height="172.075" fill="#4E79A7"/>
+    <rect x="270.325" y="203.66" width="140.6" height="235.472" fill="#4E79A7"/>
+    <rect x="446.075" y="226.302" width="140.6" height="212.83" fill="#4E79A7"/>
+    <rect x="621.825" y="162.906" width="140.6" height="276.226" fill="#4E79A7"/>
+  </g>
+  <line x1="164.875" y1="450" x2="164.875" y2="455" stroke="#333333" stroke-width="1"/>
+  <text x="164.875" y="468" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">Q1</text>
+  <line x1="340.625" y1="450" x2="340.625" y2="455" stroke="#333333" stroke-width="1"/>
+  <text x="340.625" y="468" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">Q2</text>
+  <line x1="516.375" y1="450" x2="516.375" y2="455" stroke="#333333" stroke-width="1"/>
+  <text x="516.375" y="468" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">Q3</text>
+  <line x1="692.125" y1="450" x2="692.125" y2="455" stroke="#333333" stroke-width="1"/>
+  <text x="692.125" y="468" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">Q4</text>
+  <line x1="72" y1="439.132" x2="77" y2="439.132" stroke="#333333" stroke-width="1"/>
+  <text x="69" y="443.132" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">0</text>
+  <line x1="72" y1="348.566" x2="77" y2="348.566" stroke="#333333" stroke-width="1"/>
+  <text x="69" y="352.566" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">20000</text>
+  <line x1="72" y1="258" x2="77" y2="258" stroke="#333333" stroke-width="1"/>
+  <text x="69" y="262" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">40000</text>
+  <line x1="72" y1="167.434" x2="77" y2="167.434" stroke="#333333" stroke-width="1"/>
+  <text x="69" y="171.434" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">60000</text>
+  <line x1="72" y1="76.8679" x2="77" y2="76.8679" stroke="#333333" stroke-width="1"/>
+  <text x="69" y="80.8679" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">80000</text>
+  <text x="428.5" y="56" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="16" fill="#333333" text-anchor="middle">Quarterly Revenue</text>
+  <text x="12" y="258" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="middle" transform="rotate(-90,12,258.0)">Revenue ($)</text>
+  <text x="164.875" y="356.428" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">$38,000</text>
+  <text x="340.625" y="324.73" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">$52,000</text>
+  <text x="516.375" y="336.05" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">$47,000</text>
+  <text x="692.125" y="304.352" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">$61,000</text>
+</svg>

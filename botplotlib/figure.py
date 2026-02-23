@@ -132,6 +132,24 @@ class Figure:
         self._spec.labels.title = value
         self._invalidate()
 
+    @property
+    def subtitle(self) -> str | None:
+        return self._spec.labels.subtitle
+
+    @subtitle.setter
+    def subtitle(self, value: str | None) -> None:
+        self._spec.labels.subtitle = value
+        self._invalidate()
+
+    @property
+    def footnote(self) -> str | None:
+        return self._spec.labels.footnote
+
+    @footnote.setter
+    def footnote(self, value: str | None) -> None:
+        self._spec.labels.footnote = value
+        self._invalidate()
+
     def add_scatter(self, x: str, y: str, color: str | None = None) -> Figure:
         """Add a scatter layer."""
         self._spec.layers.append(LayerSpec(geom="scatter", x=x, y=y, color=color))
@@ -144,8 +162,24 @@ class Figure:
         self._invalidate()
         return self
 
-    def add_bar(self, x: str, y: str, color: str | None = None) -> Figure:
+    def add_bar(
+        self,
+        x: str,
+        y: str,
+        color: str | None = None,
+        labels: bool = False,
+        label_format: str | None = None,
+    ) -> Figure:
         """Add a bar layer."""
-        self._spec.layers.append(LayerSpec(geom="bar", x=x, y=y, color=color))
+        self._spec.layers.append(
+            LayerSpec(
+                geom="bar",
+                x=x,
+                y=y,
+                color=color,
+                labels=labels,
+                label_format=label_format,
+            )
+        )
         self._invalidate()
         return self

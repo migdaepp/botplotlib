@@ -147,7 +147,7 @@ def render_svg(compiled: CompiledPlot) -> str:
     # Tick labels
     _render_ticks(doc, compiled)
 
-    # Text labels (title, axis labels)
+    # Text labels (title, subtitle, axis labels, footnote)
     for txt in compiled.texts:
         attrs: dict[str, object] = {
             "font_family": theme.font_family,
@@ -155,9 +155,24 @@ def render_svg(compiled: CompiledPlot) -> str:
             "fill": txt.color,
             "text_anchor": txt.anchor,
         }
+        if txt.font_weight != "normal":
+            attrs["font_weight"] = txt.font_weight
         if txt.rotation != 0:
             attrs["transform"] = f"rotate({txt.rotation},{txt.x},{txt.y})"
-        doc.add(text(txt.text, txt.x, txt.y, **attrs))
+
+        if "\n" in txt.text:
+            # Multi-line text: render as <text> with <tspan> children
+            el = SvgElement("text", x=txt.x, y=txt.y, **attrs)
+            for i, line_text in enumerate(txt.text.split("\n")):
+                tspan_attrs: dict[str, object] = {"x": txt.x}
+                if i > 0:
+                    tspan_attrs["dy"] = f"{txt.font_size * 1.3:g}"
+                tspan = SvgElement("tspan", **tspan_attrs)
+                tspan.text = line_text
+                el.add(tspan)
+            doc.add(el)
+        else:
+            doc.add(text(txt.text, txt.x, txt.y, **attrs))
 
     # Legend
     if compiled.legend_entries and compiled.legend_area:

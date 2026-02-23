@@ -26,21 +26,36 @@ def _build_figure(
     geom: str,
     color: str | None = None,
     title: str | None = None,
+    subtitle: str | None = None,
     x_label: str | None = None,
     y_label: str | None = None,
+    footnote: str | None = None,
     theme: str = "default",
     width: float = 800,
     height: float = 500,
+    labels: bool = False,
+    label_format: str | None = None,
 ) -> Figure:
     """Internal helper to build a Figure from common arguments."""
     columns = normalize_data(data)
     spec = PlotSpec(
         data=DataSpec(columns=columns),
-        layers=[LayerSpec(geom=geom, x=x, y=y, color=color)],
+        layers=[
+            LayerSpec(
+                geom=geom,
+                x=x,
+                y=y,
+                color=color,
+                labels=labels,
+                label_format=label_format,
+            )
+        ],
         labels=LabelsSpec(
             title=title,
+            subtitle=subtitle,
             x=x_label if x_label is not None else x,
             y=y_label if y_label is not None else y,
+            footnote=footnote,
         ),
         legend=LegendSpec(show=color is not None),
         size=SizeSpec(width=width, height=height),
@@ -56,8 +71,10 @@ def scatter(
     *,
     color: str | None = None,
     title: str | None = None,
+    subtitle: str | None = None,
     x_label: str | None = None,
     y_label: str | None = None,
+    footnote: str | None = None,
     theme: str = "default",
     width: float = 800,
     height: float = 500,
@@ -76,8 +93,12 @@ def scatter(
         Column name for color grouping (optional).
     title:
         Plot title (optional).
+    subtitle:
+        Subtitle below the title (optional).
+    footnote:
+        Footer text below the plot (optional).
     theme:
-        Theme name (default, bluesky, substack, print).
+        Theme name (default, bluesky, substack, print, magazine).
     """
     return _build_figure(
         data,
@@ -86,8 +107,10 @@ def scatter(
         "scatter",
         color=color,
         title=title,
+        subtitle=subtitle,
         x_label=x_label,
         y_label=y_label,
+        footnote=footnote,
         theme=theme,
         width=width,
         height=height,
@@ -101,8 +124,10 @@ def line(
     *,
     color: str | None = None,
     title: str | None = None,
+    subtitle: str | None = None,
     x_label: str | None = None,
     y_label: str | None = None,
+    footnote: str | None = None,
     theme: str = "default",
     width: float = 800,
     height: float = 500,
@@ -121,8 +146,12 @@ def line(
         Column name for color grouping (optional).
     title:
         Plot title (optional).
+    subtitle:
+        Subtitle below the title (optional).
+    footnote:
+        Footer text below the plot (optional).
     theme:
-        Theme name (default, bluesky, substack, print).
+        Theme name (default, bluesky, substack, print, magazine).
     """
     return _build_figure(
         data,
@@ -131,8 +160,10 @@ def line(
         "line",
         color=color,
         title=title,
+        subtitle=subtitle,
         x_label=x_label,
         y_label=y_label,
+        footnote=footnote,
         theme=theme,
         width=width,
         height=height,
@@ -146,11 +177,15 @@ def bar(
     *,
     color: str | None = None,
     title: str | None = None,
+    subtitle: str | None = None,
     x_label: str | None = None,
     y_label: str | None = None,
+    footnote: str | None = None,
     theme: str = "default",
     width: float = 800,
     height: float = 500,
+    labels: bool = False,
+    label_format: str | None = None,
 ) -> Figure:
     """Create a bar chart.
 
@@ -166,8 +201,16 @@ def bar(
         Column name for color grouping (optional).
     title:
         Plot title (optional).
+    subtitle:
+        Subtitle below the title (optional).
+    footnote:
+        Footer text below the plot (optional).
     theme:
-        Theme name (default, bluesky, substack, print).
+        Theme name (default, bluesky, substack, print, magazine).
+    labels:
+        Show value labels on bars (default False).
+    label_format:
+        Python format string for labels, e.g. "${:,.0f}".
     """
     return _build_figure(
         data,
@@ -176,11 +219,15 @@ def bar(
         "bar",
         color=color,
         title=title,
+        subtitle=subtitle,
         x_label=x_label,
         y_label=y_label,
+        footnote=footnote,
         theme=theme,
         width=width,
         height=height,
+        labels=labels,
+        label_format=label_format,
     )
 
 
@@ -211,11 +258,15 @@ def waterfall(
     y: str,
     *,
     title: str | None = None,
+    subtitle: str | None = None,
     x_label: str | None = None,
     y_label: str | None = None,
+    footnote: str | None = None,
     theme: str = "default",
     width: float = 800,
     height: float = 500,
+    labels: bool = False,
+    label_format: str | None = None,
 ) -> Figure:
     """Create a waterfall chart.
 
@@ -229,8 +280,16 @@ def waterfall(
         Column name for step values (positive = increase, negative = decrease).
     title:
         Plot title (optional).
+    subtitle:
+        Subtitle below the title (optional).
+    footnote:
+        Footer text below the plot (optional).
     theme:
-        Theme name (default, bluesky, substack, print).
+        Theme name (default, bluesky, substack, print, magazine).
+    labels:
+        Show value labels on bars (default False).
+    label_format:
+        Python format string for labels, e.g. "${:,.0f}".
     """
     return _build_figure(
         data,
@@ -238,11 +297,15 @@ def waterfall(
         y,
         "waterfall",
         title=title,
+        subtitle=subtitle,
         x_label=x_label,
         y_label=y_label,
+        footnote=footnote,
         theme=theme,
         width=width,
         height=height,
+        labels=labels,
+        label_format=label_format,
     )
 
 

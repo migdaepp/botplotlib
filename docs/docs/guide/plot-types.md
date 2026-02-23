@@ -96,9 +96,44 @@ fig.save_svg("bar.svg")
 
 ![Bar chart](../assets/examples/pt_bar.svg)
 
+### Value labels
+
+Add `labels=True` to display values on each bar. Labels intelligently position themselves inside the bar (with adaptive text color) when they fit, or above the bar when they don't. Use `label_format` for custom number formatting.
+
+```python
+fig = bpl.bar(
+    {
+        "quarter": ["Q1", "Q2", "Q3", "Q4"],
+        "revenue": [38000, 52000, 47000, 61000],
+    },
+    x="quarter",
+    y="revenue",
+    title="Quarterly Revenue",
+    y_label="Revenue ($)",
+    labels=True,
+    label_format="${:,.0f}",
+)
+fig.save_svg("bar_labels.svg")
+```
+
+![Bar chart with labels](../assets/examples/pt_bar_labels.svg)
+
 ### Parameters
 
-Same signature as `scatter()`. See the [scatter parameters table](#parameters) above.
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `data` | any | *required* | Data in any [supported format](data-formats.md) |
+| `x` | `str` | *required* | Column name for x-axis |
+| `y` | `str` | *required* | Column name for y-axis |
+| `color` | `str` | `None` | Column name for color grouping |
+| `title` | `str` | `None` | Plot title |
+| `x_label` | `str` | `None` | X-axis label |
+| `y_label` | `str` | `None` | Y-axis label |
+| `theme` | `str` | `"default"` | [Theme](themes.md) name |
+| `labels` | `bool` | `False` | Show value labels on bars |
+| `label_format` | `str` | `None` | Python format string, e.g. `"${:,.0f}"` |
+| `width` | `float` | `800` | Canvas width in pixels |
+| `height` | `float` | `500` | Canvas height in pixels |
 
 ---
 
@@ -135,6 +170,8 @@ fig.save_svg("waterfall.svg")
 | `x_label` | `str` | `None` | X-axis label |
 | `y_label` | `str` | `None` | Y-axis label |
 | `theme` | `str` | `"default"` | [Theme](themes.md) name |
+| `labels` | `bool` | `False` | Show value labels on bars |
+| `label_format` | `str` | `None` | Python format string, e.g. `"${:,.0f}"` |
 | `width` | `float` | `800` | Canvas width in pixels |
 | `height` | `float` | `500` | Canvas height in pixels |
 

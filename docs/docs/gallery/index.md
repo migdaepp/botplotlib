@@ -90,6 +90,27 @@ fig.save_svg("bar.svg")
 
 ![Bar chart](../assets/examples/pt_bar.svg)
 
+### Bar with value labels
+
+Use `labels=True` to add think-cell style numeric labels. Labels automatically appear inside bars when they fit, or above when they don't. Use `label_format` for custom formatting.
+
+```python
+fig = bpl.bar(
+    {
+        "quarter": ["Q1", "Q2", "Q3", "Q4"],
+        "revenue": [38000, 52000, 47000, 61000],
+    },
+    x="quarter", y="revenue",
+    title="Quarterly Revenue",
+    y_label="Revenue ($)",
+    labels=True,
+    label_format="${:,.0f}",
+)
+fig.save_svg("bar_labels.svg")
+```
+
+![Bar chart with labels](../assets/examples/pt_bar_labels.svg)
+
 ---
 
 ## Waterfall charts
@@ -110,6 +131,24 @@ fig.save_svg("waterfall.svg")
 ```
 
 ![Waterfall chart](../assets/examples/pt_waterfall.svg)
+
+### Waterfall with value labels
+
+```python
+fig = bpl.waterfall(
+    {
+        "category": ["Revenue", "COGS", "Gross Profit", "OpEx", "Tax", "Net Income"],
+        "amount": [500, -200, 300, -150, -45, 105],
+    },
+    x="category", y="amount",
+    title="Income Statement Waterfall",
+    y_label="Amount ($K)",
+    labels=True,
+)
+fig.save_svg("waterfall_labels.svg")
+```
+
+![Waterfall chart with labels](../assets/examples/pt_waterfall_labels.svg)
 
 ---
 

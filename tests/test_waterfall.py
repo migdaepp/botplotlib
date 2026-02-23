@@ -7,6 +7,7 @@ import pytest
 import botplotlib as bpl
 from botplotlib.compiler.compiler import CompiledPlot, compile_spec
 from botplotlib.geoms import get_geom, registered_geoms
+from botplotlib.geoms.primitives import CompiledBar, CompiledText
 from botplotlib.spec.models import DataSpec, LayerSpec, PlotSpec
 
 # ---------------------------------------------------------------------------
@@ -194,3 +195,73 @@ class TestWaterfallEdgeCases:
         assert len(compiled.bars) == 2
         # Zero-height bar should still render (height = 0)
         assert compiled.bars[1].bar_height == pytest.approx(0.0)
+
+
+# ---------------------------------------------------------------------------
+# Label tests
+# ---------------------------------------------------------------------------
+
+
+class TestWaterfallLabels:
+    """Waterfall labels appear and are positioned correctly."""
+
+    def test_waterfall_labels_appear(self) -> None:
+        fig = bpl.waterfall(WATERFALL_DATA, x="category", y="amount", labels=True)
+        svg = fig.to_svg()
+        assert "100" in svg
+        assert "-40" in svg
+
+    def test_waterfall_label_count(self) -> None:
+        spec = PlotSpec(
+            data=DataSpec(columns=WATERFALL_DATA),
+            layers=[LayerSpec(geom="waterfall", x="category", y="amount", labels=True)],
+        )
+        compiled = compile_spec(spec)
+        bars = [p for p in compiled.primitives if isinstance(p, CompiledBar)]
+        step_values = {"100", "-40", "-30", "-10", "20"}
+        labels = [
+            p
+            for p in compiled.primitives
+            if isinstance(p, CompiledText) and p.text in step_values
+        ]
+        assert len(labels) == len(bars)
+
+    def test_waterfall_positive_label_above(self) -> None:
+        # Large positive step on a narrow chart → label outside, above bar
+        data = {"step": list("ABCDEFGH"), "val": [1] * 8}
+        spec = PlotSpec(
+            data=DataSpec(columns=data),
+            layers=[LayerSpec(geom="waterfall", x="step", y="val", labels=True)],
+            size={"width": 200, "height": 100},
+        )
+        compiled = compile_spec(spec)
+        bars = [p for p in compiled.primitives if isinstance(p, CompiledBar)]
+        labels = [
+            p
+            for p in compiled.primitives
+            if isinstance(p, CompiledText) and p.text == "1"
+        ]
+        assert len(labels) > 0
+        # Positive step → label above bar (label.y <= bar.py)
+        for bar, label in zip(bars, labels):
+            assert label.y <= bar.py
+
+    def test_waterfall_negative_label_below(self) -> None:
+        # Negative step on a narrow chart → label outside, below bar
+        data = {"step": list("ABCDEFGH"), "val": [-1] * 8}
+        spec = PlotSpec(
+            data=DataSpec(columns=data),
+            layers=[LayerSpec(geom="waterfall", x="step", y="val", labels=True)],
+            size={"width": 200, "height": 100},
+        )
+        compiled = compile_spec(spec)
+        bars = [p for p in compiled.primitives if isinstance(p, CompiledBar)]
+        labels = [
+            p
+            for p in compiled.primitives
+            if isinstance(p, CompiledText) and p.text == "-1"
+        ]
+        assert len(labels) > 0
+        # Negative step → label below bar (label.y >= bar.py + bar.bar_height)
+        for bar, label in zip(bars, labels):
+            assert label.y >= bar.py + bar.bar_height

@@ -64,6 +64,7 @@ class CompiledText:
     color: str
     anchor: str = "middle"
     rotation: float = 0.0
+    font_weight: str = "normal"
 
 
 @dataclass
