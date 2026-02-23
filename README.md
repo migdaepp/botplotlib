@@ -8,7 +8,7 @@ botplotlib is an AI-native Python plotting library that produces publication-qua
 
 Matplotlib was designed for humans writing code at keyboards. botplotlib is designed for the way people actually make plots now: you describe what you want, your AI partner writes the code, and you evaluate the result.
 
-That cyborg workflow needs a different API — one that's correct on the first try, beautiful by default, accessible by construction, and token-efficient by design.
+That cyborg workflow needs a different API: one that's correct on the first try, beautiful by default, accessible by construction, and token-efficient by design.
 
 - **One line, one plot**: `bpl.scatter(data, x="a", y="b", theme="bluesky")` — no figure/axes juggling, no style boilerplate
 - **Beautiful by default**: platform-specific themes (Bluesky, Substack, PDF, print) produce publication-ready output with zero configuration
@@ -18,7 +18,7 @@ That cyborg workflow needs a different API — one that's correct on the first t
 - **Matplotlib-free**: hand-rolled SVG renderer (~230 lines), no heavy C dependencies
 - **Matplotlib bridge**: the refactor module translates existing matplotlib scripts into clean PlotSpecs — see what your old code *means* in a form both humans and machines can reason about
 
-This project embodies Donna Haraway's cyborg framework — we reject the human/machine binary. The matplotlib maintainers rejected AI contributions. We built a library that makes AI contributions the point.
+This project embodies Donna Haraway's cyborg framework: we reject the human/machine binary. The matplotlib maintainers rejected AI contributions. We built a library that makes AI contributions the point.
 
 ## Installation
 
@@ -61,6 +61,36 @@ fig = bpl.scatter(data, x="weight", y="mpg", theme="bluesky",
 fig.save_svg("social_post.svg")
 ```
 
+## Waterfall Charts
+
+```python
+fig = bpl.waterfall(
+    {
+        "category": ["Revenue", "COGS", "Gross Profit", "OpEx", "Tax", "Net Income"],
+        "amount": [500, -200, 300, -150, -45, 105],
+    },
+    x="category", y="amount",
+    title="Income Statement Waterfall",
+)
+fig.save_svg("waterfall.svg")
+```
+
+## Agent JSON Path
+
+LLMs can generate plots directly from JSON — no Python code execution required:
+
+```python
+fig = bpl.Figure.from_dict({
+    "data": {"columns": {"x": [1, 2, 3, 4, 5], "y": [1, 4, 9, 16, 25]}},
+    "layers": [{"geom": "scatter", "x": "x", "y": "y"}],
+    "labels": {"title": "Perfect Squares"},
+    "theme": "bluesky",
+})
+fig.save_svg("from_agent.svg")
+```
+
+Also available: `Figure.from_json(json_string)` for raw JSON input.
+
 ## Auto-Refactor from Matplotlib
 
 Paste your matplotlib spaghetti, get a clean spec back:
@@ -71,6 +101,14 @@ from botplotlib.refactor import from_matplotlib
 spec = from_matplotlib("my_old_script.py")
 fig = bpl.render(spec)
 fig.save_svg("migrated.svg")
+```
+
+Or generate the equivalent botplotlib Python code:
+
+```python
+from botplotlib.refactor import to_botplotlib_code
+
+print(to_botplotlib_code("my_old_script.py"))
 ```
 
 ## Platform Presets
@@ -87,13 +125,17 @@ botplotlib ships with themes optimized for different output targets:
 
 These are the starting integrations — chosen to seed the project around open platforms and open science. X/Twitter is not included; we invest in platforms aligned with open access and open discourse. botplotlib is open-source, so contributors are welcome to add themes for other platforms.
 
+## Documentation
+
+Full documentation: [migdaepp.github.io/botplotlib](https://migdaepp.github.io/botplotlib/)
+
 ## Tutorial
 
 The interactive tutorial is a [marimo](https://marimo.io) notebook:
 
 ```bash
 pip install marimo
-marimo edit tutorial.py
+marimo edit docs/tutorial.py
 ```
 
 It walks through scatter/line/bar charts, data formats, all five themes, the PlotSpec data model, and the matplotlib refactor — with live, editable plots.

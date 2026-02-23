@@ -6,7 +6,6 @@ import pytest
 
 from botplotlib.compiler.ticks import format_tick, nice_num, nice_ticks
 
-
 # ---------------------------------------------------------------------------
 # nice_num
 # ---------------------------------------------------------------------------

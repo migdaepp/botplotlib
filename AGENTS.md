@@ -6,22 +6,22 @@
 
 **botplotlib** is an AI-native Python plotting library. It produces publication-quality SVG/PNG output with zero configuration and no matplotlib dependency. The API is flat, simple, and designed so LLMs generate correct code on the first try.
 
-**Philosophical stance:** This project embodies Donna Haraway's cyborg framework — the human/machine binary is rejected. There are no "AI-generated" vs "human-written" contributions. The library itself is the cyborg. We follow Madeleine Clare Elish's moral crumple zone analysis: accountability lives in systems (CI, tests, linters) rather than in supervisory humans.
+**Philosophical stance:** This project embodies Donna Haraway's cyborg framework: the human/machine binary is rejected. There are no "AI-generated" vs "human-written" contributions. The library itself is the cyborg. We follow Madeleine Clare Elish's moral crumple zone analysis: accountability lives in systems (CI, tests, linters) rather than in supervisory humans.
 
-**Platform stance:** The starting theme integrations are chosen to seed the project around open platforms and open science: Bluesky, Substack, and academic publishing (arxiv/SSRN, print journals). X/Twitter is not included; we invest in platforms aligned with open access and open discourse. The project is open-source — contributors are welcome to add themes for other platforms.
+**Platform stance:** The starting theme integrations are chosen to seed the project around open platforms and open science: Bluesky, Substack, and academic publishing (arxiv/SSRN, print journals). X/Twitter is not included; we invest in platforms aligned with open access and open discourse. The project is open-source: contributors are welcome to add themes for other platforms.
 
 ## Cyborg Social Contract
 
-1. **All contributions are cyborg** — the human/machine binary is rejected
-2. **Quality gates are structural, not supervisory** — CI/tests/linters apply equally regardless of origin
-3. **No moral crumple zones** — fix the system, don't blame the nearest human
-4. **Social trust is emergent** — reputation through contribution quality, not biological status
-5. **Provenance is transparent but not punitive** — metadata for learning, not gatekeeping
-6. **The project is the cyborg** — the library itself is the human-machine hybrid
+1. **All contributions are cyborg**: the human/machine binary is rejected
+2. **Quality gates are structural, not supervisory**: CI/tests/linters apply equally regardless of origin
+3. **No moral crumple zones**: fix the system, don't blame the nearest human
+4. **Social trust is emergent**: reputation through contribution quality, not biological status
+5. **Provenance is transparent but not punitive**: metadata for learning, not gatekeeping
+6. **The project is the cyborg**: the library itself is the human-machine hybrid
 
 ## Why AI-Native? Design Principles
 
-Matplotlib was designed for humans writing code at keyboards. botplotlib is designed for the new cyborg workflow: a human has an idea or a request, and then an AI + human team jointly creates it---iterating until both are satisfied. That loop needs a different API.
+Matplotlib was designed for humans writing code at keyboards. botplotlib is designed for the new cyborg workflow: a human has an idea or a request, and then an AI + human team jointly creates it, iterating until both are satisfied. That loop needs a different API.
 
 These principles guide design decisions:
 
@@ -33,22 +33,22 @@ bpl.scatter(data, x="year", y="temp", color="region", title="Global Temperature"
 Fewer tokens means fewer decision points where an LLM can go wrong.
 
 ### 2. Proposal / execution split
-The PlotSpec is a *proposal* — a JSON-serializable Pydantic model describing what the plot should look like. The compiler is a *deterministic executor* that resolves themes, validates accessibility, computes layout, and positions geometry. The LLM says what it wants and the system handles the rest. (This maps to Google's Extensions vs. Functions distinction and to Anthropic's tool design guidance — see `research/agent-architecture.pdf`.)
+The PlotSpec is a *proposal*, a JSON-serializable Pydantic model describing what the plot should look like. The compiler is a *deterministic executor* that resolves themes, validates accessibility, computes layout, and positions geometry. The LLM says what it wants and the system handles the rest. (This maps to Google's Extensions vs. Functions distinction and to Anthropic's tool design guidance; see `research/agent-architecture.pdf`.)
 
 ### 3. Structural quality gates, not supervisory humans
 WCAG contrast checking is a compiler-level error. The system won't produce an inaccessible plot. This avoids a crumple zone: accountability lives in the system rather than in human review.
 
 ### 4. Beautiful defaults with zero configuration
-Platform-specific themes (bluesky, substack, pdf, print) produce publication-ready output without tweaking. Modern multimodal models *can* visually iterate — but every iteration cycle costs tokens and time. Good defaults mean the first render is usually the final render.
+Platform-specific themes (bluesky, substack, pdf, print) produce publication-ready output without tweaking. Modern multimodal models *can* visually iterate, but every iteration cycle costs tokens and time. Good defaults mean the first render is usually the final render.
 
 ### 5. Accept any data format
-`normalize_data()` handles dict, list[dict], Polars, Pandas, Arrow, and generators. The LLM doesn't need to know what format the data is in — just pass it through.
+`normalize_data()` handles dict, list[dict], Polars, Pandas, Arrow, and generators. The LLM doesn't need to know what format the data is in; just pass it through.
 
 ### 6. The PlotSpec is a portable artifact
 The spec is not just an internal intermediate representation — it can be generated by any coding agent (Open Code, OpenClaw, Claude Code, Codex, Antigravity, ...), inspected by a human, modified by another agent, stored, versioned, and diffed in a repo. The spec *is* the plot.
 
 ### 7. The refactor module is a bridge between paradigms
-`refactor/from_matplotlib.py` translates imperative matplotlib code into declarative PlotSpecs. It's a bridge from the human-oriented API to the agent-oriented spec, showing what existing code means when expressed in a form both humans and machines can reason about.
+`refactor/from_matplotlib.py` translates imperative matplotlib code into declarative PlotSpecs. It's a bridge from the human-oriented API to the agent-oriented spec, showing what existing code means when expressed in a form both humans and machines can more efficiently reason about.
 
 ## Build / Test / Lint Commands
 
@@ -59,7 +59,8 @@ uv run pytest
 # Run a single test
 uv run pytest tests/test_foo.py::test_name
 
-# Update visual regression baselines
+# Update visual regression baselines (overwrites golden SVGs in tests/baselines/
+# with current renderer output; run after intentional visual changes)
 uv run pytest --update-baselines
 
 # Lint
@@ -73,6 +74,13 @@ uv run black .
 
 # Type check
 uv run mypy botplotlib/
+
+# Docs — serve locally
+cd docs && uv run --group docs mkdocs serve
+# → http://127.0.0.1:8000/botplotlib/
+
+# Docs — build (strict mode catches broken links)
+cd docs && uv run --group docs mkdocs build --strict
 ```
 
 ## Architecture: Spec → Compile → Render
@@ -101,10 +109,10 @@ The Python API functions (`scatter()`, `line()`, `bar()`) are thin factories —
 
 ```
 botplotlib/
-├── __init__.py            # re-exports: scatter(), line(), bar(), plot()
+├── __init__.py            # re-exports: scatter(), line(), bar(), waterfall(), Figure, PlotSpec
 ├── _api.py                # flat convenience functions
 ├── _types.py              # Rect, Point, TickMark dataclasses
-├── figure.py              # Figure class: save_svg(), save_png(), _repr_svg_()
+├── figure.py              # Figure class: from_json(), from_dict(), save_svg(), save_png()
 ├── spec/
 │   ├── models.py          # Pydantic: PlotSpec, LayerSpec, DataSpec, LabelsSpec, SizeSpec
 │   ├── scales.py          # LinearScale, CategoricalScale, ColorScale
@@ -117,7 +125,7 @@ botplotlib/
 │   └── accessibility.py   # WCAG contrast ratio computation, palette validation
 ├── render/
 │   ├── svg_builder.py     # ~200-line SVG element builder (no dependency)
-│   ├── svg_renderer.py    # CompiledPlot → SVG string
+│   ├── svg_renderer.py    # CompiledPlot → SVG string (unified primitives dispatch)
 │   └── png.py             # optional CairoSVG wrapper
 ├── _fonts/
 │   ├── metrics.py         # text_width(), text_height() from bundled char-width tables
@@ -125,15 +133,106 @@ botplotlib/
 │   └── inter.json         # per-character widths for Inter
 ├── _colors/
 │   └── palettes.py        # DEFAULT_PALETTE (10 colors, colorblind-aware), hex parsing
+├── geoms/
+│   ├── __init__.py        # Geom ABC, ScaleHint, ResolvedScales, registry
+│   ├── primitives.py      # CompiledPoint/Line/Bar/Text/Path, CompiledPlot, Primitive union
+│   ├── scatter.py         # ScatterGeom
+│   ├── line.py            # LineGeom
+│   ├── bar.py             # BarGeom
+│   └── waterfall.py       # WaterfallGeom (proof-of-concept community geom)
 └── refactor/
-    └── from_matplotlib.py # reads matplotlib script → outputs equivalent PlotSpec
+    ├── __init__.py        # re-exports: from_matplotlib(), to_botplotlib_code()
+    └── from_matplotlib.py # AST-based matplotlib → PlotSpec converter + code gen
 
 # Project-level files
-tutorial.py                # interactive marimo notebook (tutorial + demo)
+docs/
+├── mkdocs.yml             # MkDocs site config (Material theme, mkdocstrings)
+├── tutorial.py            # interactive marimo notebook (tutorial + demo)
+└── docs/                  # page sources (index, guide/, gallery/, api/, contributing)
 examples/
 ├── demo.py                # generates showcase SVGs for all themes
-└── demo_*.svg             # pre-rendered showcase output
+├── demo_*.svg             # pre-rendered showcase output
+└── refactor_examples/     # before/after matplotlib → botplotlib demos
 ```
+
+## How to Add a New Geom (Copyable Recipe)
+
+Adding a new plot type to botplotlib requires **one file and three methods**. The compiler dispatches to a plugin registry, so new geoms don't require changes to the core.
+
+### Step 1: Create the geom file
+
+Create `botplotlib/geoms/yourgeom.py`. Copy an existing geom (start with `waterfall.py` for categorical x-axis or `scatter.py` for numeric axes) and modify the three methods:
+
+```python
+from botplotlib.geoms import Geom, ResolvedScales, ScaleHint
+from botplotlib.geoms.primitives import CompiledBar, Primitive  # use the primitives you need
+
+class YourGeom(Geom):
+    name = "yourgeom"
+
+    def validate(self, layer, data):
+        # Check required columns exist. Raise ValueError if not.
+        ...
+
+    def scale_hint(self, layer, data):
+        # Return ScaleHint declaring what scales you need.
+        # x_type: "numeric" or "categorical"
+        # Include data values so the compiler computes unified scales.
+        return ScaleHint(x_type="categorical", y_type="numeric", ...)
+
+    def compile(self, layer, data, scales, theme, plot_area):
+        # Use scales.x.map() / scales.y.map() to convert data to pixels.
+        # Return a list of primitives: CompiledPoint, CompiledLine,
+        # CompiledBar, CompiledText, CompiledPath.
+        return [CompiledBar(...), ...]
+```
+
+### Step 2: Register it
+
+Add your geom to `_register_builtins()` in `botplotlib/geoms/__init__.py`:
+
+```python
+from botplotlib.geoms.yourgeom import YourGeom
+register_geom(YourGeom())
+```
+
+### Step 3: Add a convenience API function
+
+Add a thin factory in `botplotlib/_api.py` (follow the pattern of `scatter()`, `bar()`, etc.):
+
+```python
+def yourgeom(data, x, y, *, title=None, theme="default", ...):
+    return _build_figure(data, x, y, "yourgeom", title=title, theme=theme, ...)
+```
+
+Then add the re-export in `botplotlib/__init__.py`.
+
+### Step 4: Write tests
+
+Create `tests/test_yourgeom.py`. Cover:
+- Basic rendering (SVG contains expected elements)
+- Compilation (correct number of primitives)
+- Validation (missing columns → clear error)
+- Edge cases (single data point, empty data, extreme values)
+
+### Step 5: Run the gate
+
+```bash
+uv run pytest && uv run ruff check . && uv run black --check .
+```
+
+All tests must pass. Commit as a single atomic PR.
+
+### Available primitives
+
+Geom `compile()` can return any combination of:
+- `CompiledPoint` — circle at (px, py) with color and radius
+- `CompiledLine` — polyline from a list of (x, y) points
+- `CompiledBar` — rectangle at (px, py) with width and height
+- `CompiledText` — text label at (x, y) with font_size and anchor
+- `CompiledPath` — arbitrary SVG path string (for curves, areas, etc.)
+
+The renderer draws these automatically. New geoms do **not** require renderer changes.
 
 ## Data Input Protocol
 
@@ -160,6 +259,12 @@ Do not shift the cognitive burden of massive state changes onto human reviewers.
 - **Spec-diff for rendering changes**: if a PR changes plot output, include before/after spec diffs
 - **Visual regression evidence**: PRs that change rendering must include baseline comparisons
 - **Tests travel with code**: new geoms, features, or bug fixes include tests in the same PR
+
+### Visual baseline check required
+Any change that could affect rendered output (compiler, geoms, scales, ticks, layout, themes, renderer) requires a visual check of the golden SVGs in `tests/baselines/`. This applies equally to humans and bots:
+1. Regenerate baselines: `uv run pytest --update-baselines` (or `uv run python scripts/update_baselines.py`)
+2. Open the SVGs in `tests/baselines/` and visually confirm the output looks correct — points not clipped, labels readable, axes properly scaled
+3. Include the updated baselines in your commit
 
 ## Tool Classification
 

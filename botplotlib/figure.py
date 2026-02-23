@@ -6,6 +6,7 @@ Wraps a CompiledPlot and provides save/show/repr methods.
 from __future__ import annotations
 
 from pathlib import Path
+from typing import Any
 
 from botplotlib.compiler.compiler import CompiledPlot, compile_spec
 from botplotlib.render.svg_renderer import render_svg
@@ -17,12 +18,64 @@ class Figure:
 
     Typically created via the convenience functions in ``botplotlib._api``
     (e.g., ``bpl.scatter()``, ``bpl.line()``, ``bpl.bar()``).
+
+    Agent / JSON path:
+        ``Figure.from_json(json_string)`` — parse a PlotSpec JSON string.
+        ``Figure.from_dict(d)`` — construct from a plain dict (typical LLM
+        function-call output format).
     """
 
     def __init__(self, spec: PlotSpec) -> None:
         self._spec = spec
         self._compiled: CompiledPlot | None = None
         self._svg: str | None = None
+
+    # -- Agent / JSON path ---------------------------------------------------
+
+    @classmethod
+    def from_json(cls, json_string: str) -> "Figure":
+        """Construct a Figure from a PlotSpec JSON string.
+
+        Validates the JSON with Pydantic and raises ``ValidationError`` on
+        invalid input.  This is the primary entry point for the agent / JSON
+        path — LLMs can generate a PlotSpec JSON string directly and hand it
+        off to this method.
+
+        Parameters
+        ----------
+        json_string:
+            A JSON string that conforms to the PlotSpec schema.
+
+        Raises
+        ------
+        pydantic.ValidationError
+            If the JSON does not match the PlotSpec schema.
+        json.JSONDecodeError
+            If ``json_string`` is not valid JSON.
+        """
+        spec = PlotSpec.model_validate_json(json_string)
+        return cls(spec)
+
+    @classmethod
+    def from_dict(cls, d: dict[str, Any]) -> "Figure":
+        """Construct a Figure from a plain dict.
+
+        Validates the dict with Pydantic and raises ``ValidationError`` on
+        invalid input.  This is the typical entry point when an LLM returns a
+        PlotSpec as structured output (e.g., a function-call response dict).
+
+        Parameters
+        ----------
+        d:
+            A dict that conforms to the PlotSpec schema.
+
+        Raises
+        ------
+        pydantic.ValidationError
+            If the dict does not match the PlotSpec schema.
+        """
+        spec = PlotSpec.model_validate(d)
+        return cls(spec)
 
     # -- Lazy compilation/rendering ------------------------------------------
 

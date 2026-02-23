@@ -14,10 +14,10 @@ from botplotlib.spec.models import (
     SizeSpec,
 )
 
-
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
+
 
 def _full_plot_spec() -> PlotSpec:
     """Return a PlotSpec with every field explicitly set."""
@@ -44,6 +44,7 @@ def _full_plot_spec() -> PlotSpec:
 # ---------------------------------------------------------------------------
 # Round-trip tests
 # ---------------------------------------------------------------------------
+
 
 class TestRoundTrip:
     """PlotSpec survives JSON round-trip via model_dump_json / model_validate_json."""
@@ -82,6 +83,7 @@ class TestRoundTrip:
 # Default values
 # ---------------------------------------------------------------------------
 
+
 class TestDefaults:
     """Empty PlotSpec has correct defaults."""
 
@@ -118,23 +120,37 @@ class TestDefaults:
 # Literal validation: LayerSpec.geom
 # ---------------------------------------------------------------------------
 
+
 class TestLayerSpecValidation:
-    """LayerSpec validates geom is one of scatter/line/bar."""
+    """LayerSpec.geom is an open string; validation happens at compile time."""
 
     @pytest.mark.parametrize("geom", ["scatter", "line", "bar"])
     def test_valid_geom(self, geom: str) -> None:
         layer = LayerSpec(geom=geom, x="x", y="y")
         assert layer.geom == geom
 
-    @pytest.mark.parametrize("bad_geom", ["pie", "histogram", "heatmap", ""])
-    def test_invalid_geom_raises(self, bad_geom: str) -> None:
-        with pytest.raises(ValidationError):
-            LayerSpec(geom=bad_geom, x="x", y="y")
+    @pytest.mark.parametrize("geom", ["pie", "histogram", "heatmap", "waterfall"])
+    def test_unknown_geom_accepted_at_model_level(self, geom: str) -> None:
+        """LayerSpec accepts any string for geom (plugin architecture)."""
+        layer = LayerSpec(geom=geom, x="x", y="y")
+        assert layer.geom == geom
+
+    def test_unknown_geom_rejected_at_compile_time(self) -> None:
+        """Unknown geom raises ValueError at compile_spec(), not at model creation."""
+        from botplotlib.compiler.compiler import compile_spec
+
+        spec = PlotSpec(
+            data=DataSpec(columns={"x": [1], "y": [2]}),
+            layers=[LayerSpec(geom="nonexistent_geom", x="x", y="y")],
+        )
+        with pytest.raises(ValueError, match="Unknown geom 'nonexistent_geom'"):
+            compile_spec(spec)
 
 
 # ---------------------------------------------------------------------------
 # Literal validation: LegendSpec.position
 # ---------------------------------------------------------------------------
+
 
 class TestLegendSpecValidation:
     """LegendSpec validates position is one of top/bottom/left/right."""
@@ -153,6 +169,7 @@ class TestLegendSpecValidation:
 # ---------------------------------------------------------------------------
 # DataSpec: mixed types in columns
 # ---------------------------------------------------------------------------
+
 
 class TestDataSpecMixedTypes:
     """DataSpec columns can hold mixed types (str, int, float)."""
@@ -185,6 +202,7 @@ class TestDataSpecMixedTypes:
 # ---------------------------------------------------------------------------
 # Spec diff: comparing two PlotSpecs via model_dump()
 # ---------------------------------------------------------------------------
+
 
 class TestSpecDiff:
     """Two PlotSpecs can be compared by their model_dump() dicts."""

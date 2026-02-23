@@ -7,102 +7,43 @@ Orchestrates the full compilation pipeline:
 4. Run WCAG accessibility checks (structural gate)
 5. Compute layout
 6. Position all geometry
+
+Geom dispatch uses the plugin registry (botplotlib.geoms).
 """
 
 from __future__ import annotations
 
-from dataclasses import dataclass, field
-
 from botplotlib._colors.palettes import assign_colors
-from botplotlib._types import Rect, TickMark
+from botplotlib._types import TickMark
 from botplotlib.compiler.accessibility import validate_theme_accessibility
-from botplotlib.compiler.layout import (
-    TextLabel,
-    avoid_collisions,
-    compute_layout,
-)
+from botplotlib.compiler.layout import TextLabel, avoid_collisions, compute_layout
 from botplotlib.compiler.ticks import format_tick, nice_ticks
+from botplotlib.geoms import ResolvedScales, get_geom
+
+# Re-export compiled types for backward compatibility.
+# External code (renderer, tests) imports from botplotlib.compiler.compiler.
+from botplotlib.geoms.primitives import (  # noqa: F401
+    CompiledBar,
+    CompiledLegendEntry,
+    CompiledLine,
+    CompiledPath,
+    CompiledPlot,
+    CompiledPoint,
+    CompiledText,
+    Primitive,
+)
 from botplotlib.spec.models import PlotSpec
 from botplotlib.spec.scales import CategoricalScale, LinearScale
 from botplotlib.spec.theme import ThemeSpec, resolve_theme
 
 # ---------------------------------------------------------------------------
-# Compiled geometry types
+# Constants
 # ---------------------------------------------------------------------------
 
-
-@dataclass
-class CompiledPoint:
-    """A positioned scatter point."""
-
-    px: float
-    py: float
-    color: str
-    radius: float
-    group: str | None = None
-
-
-@dataclass
-class CompiledLine:
-    """A positioned polyline."""
-
-    points: list[tuple[float, float]]
-    color: str
-    width: float
-    group: str | None = None
-
-
-@dataclass
-class CompiledBar:
-    """A positioned bar."""
-
-    px: float
-    py: float
-    bar_width: float
-    bar_height: float
-    color: str
-    group: str | None = None
-
-
-@dataclass
-class CompiledText:
-    """A positioned text element."""
-
-    text: str
-    x: float
-    y: float
-    font_size: float
-    color: str
-    anchor: str = "middle"
-    rotation: float = 0.0
-
-
-@dataclass
-class CompiledLegendEntry:
-    """A legend entry."""
-
-    label: str
-    color: str
-
-
-@dataclass
-class CompiledPlot:
-    """Fully positioned geometry ready for rendering."""
-
-    width: float
-    height: float
-    theme: ThemeSpec
-    plot_area: Rect
-    points: list[CompiledPoint] = field(default_factory=list)
-    lines: list[CompiledLine] = field(default_factory=list)
-    bars: list[CompiledBar] = field(default_factory=list)
-    x_ticks: list[TickMark] = field(default_factory=list)
-    y_ticks: list[TickMark] = field(default_factory=list)
-    texts: list[CompiledText] = field(default_factory=list)
-    legend_entries: list[CompiledLegendEntry] = field(default_factory=list)
-    legend_area: Rect | None = None
-    clip_id: str = "plot-clip"
-
+# Fraction of tick range to pad on each side of a numeric axis.
+# Prevents extremal data points (circles, line endpoints) from being
+# clipped at the plot-area boundary.  Analogous to ggplot2's `expand`.
+_SCALE_PAD = 0.03
 
 # ---------------------------------------------------------------------------
 # Compiler
@@ -209,72 +150,91 @@ def compile_spec(spec: PlotSpec) -> CompiledPlot:
             )
         )
 
-    # Pre-pass: collect combined numeric ranges across all layers so that
-    # multi-layer plots share a unified scale.
-    all_x_numeric: list[float] = []
-    all_y_numeric: list[float] = []
-    for layer in spec.layers:
-        if not data or layer.geom == "bar":
-            continue
-        for v in data.get(layer.x, []):
-            try:
-                all_x_numeric.append(float(v))
-            except (ValueError, TypeError):
-                pass
-        for v in data.get(layer.y, []):
-            try:
-                all_y_numeric.append(float(v))
-            except (ValueError, TypeError):
-                pass
-
-    # Pre-compute unified ticks for numeric layers
-    unified_x_ticks = (
-        nice_ticks(min(all_x_numeric), max(all_x_numeric))
-        if all_x_numeric
-        else None
-    )
-    unified_y_ticks = (
-        nice_ticks(min(all_y_numeric), max(all_y_numeric))
-        if all_y_numeric
-        else None
-    )
-
+    # --- Geom-driven scale computation ---
+    # Collect ScaleHints from all layers via the geom registry.
+    layer_geoms = []
     for layer in spec.layers:
         if not data:
             continue
+        geom = get_geom(layer.geom)
+        geom.validate(layer, data)
+        hint = geom.scale_hint(layer, data)
+        layer_geoms.append((layer, geom, hint))
 
-        x_col = data.get(layer.x, [])
-        y_col = data.get(layer.y, [])
-        color_col = (
-            [str(v) for v in data[layer.color]]
-            if layer.color and layer.color in data
-            else None
-        )
+    # Merge hints into unified scales
+    all_x_numeric: list[float] = []
+    all_y_numeric: list[float] = []
+    x_is_categorical = False
+    all_categories: list[str] = []
 
-        if layer.geom == "bar":
-            _compile_bar_layer(
-                compiled,
-                x_col,
-                y_col,
-                color_col,
-                color_map,
-                theme,
-                plot_area,
-            )
+    for _layer, _geom, hint in layer_geoms:
+        if hint.x_type == "categorical":
+            x_is_categorical = True
+            all_categories.extend(hint.x_categories)
         else:
-            # Scatter or line: numeric scales
-            _compile_numeric_layer(
-                compiled,
-                layer.geom,
-                x_col,
-                y_col,
-                color_col,
-                color_map,
-                theme,
-                plot_area,
-                unified_x_ticks=unified_x_ticks,
-                unified_y_ticks=unified_y_ticks,
-            )
+            all_x_numeric.extend(hint.x_numeric)
+        all_y_numeric.extend(hint.y_numeric)
+
+    # Compute scales and ticks
+    if x_is_categorical:
+        # Deduplicate categories preserving order
+        unique_cats: list[str] = list(dict.fromkeys(all_categories))
+        x_scale: LinearScale | CategoricalScale = CategoricalScale(
+            categories=unique_cats,
+            pixel_min=plot_area.x,
+            pixel_max=plot_area.right,
+        )
+        compiled.x_ticks = [
+            TickMark(value=i, label=cat, pixel_pos=x_scale.map(cat))
+            for i, cat in enumerate(unique_cats)
+        ]
+    elif all_x_numeric:
+        x_tick_vals = nice_ticks(min(all_x_numeric), max(all_x_numeric))
+        x_pad = (x_tick_vals[-1] - x_tick_vals[0]) * _SCALE_PAD
+        x_scale = LinearScale(
+            data_min=x_tick_vals[0] - x_pad,
+            data_max=x_tick_vals[-1] + x_pad,
+            pixel_min=plot_area.x,
+            pixel_max=plot_area.right,
+        )
+        compiled.x_ticks = [
+            TickMark(value=v, label=format_tick(v), pixel_pos=x_scale.map(v))
+            for v in x_tick_vals
+        ]
+    else:
+        # No data — use a dummy scale
+        x_scale = LinearScale(0, 1, plot_area.x, plot_area.right)
+
+    if all_y_numeric:
+        y_tick_vals = nice_ticks(min(all_y_numeric), max(all_y_numeric))
+    else:
+        y_tick_vals = nice_ticks(0, 1)
+
+    y_pad = (y_tick_vals[-1] - y_tick_vals[0]) * _SCALE_PAD
+    y_scale = LinearScale(
+        data_min=y_tick_vals[0] - y_pad,
+        data_max=y_tick_vals[-1] + y_pad,
+        pixel_min=plot_area.bottom,  # SVG y is inverted
+        pixel_max=plot_area.y,
+    )
+    compiled.y_ticks = [
+        TickMark(value=v, label=format_tick(v), pixel_pos=y_scale.map(v))
+        for v in y_tick_vals
+    ]
+
+    # Build resolved scales and dispatch to each geom
+    default_color = theme.palette[0]
+    resolved = ResolvedScales(
+        x=x_scale,
+        y=y_scale,
+        color_map=color_map,
+        default_color=default_color,
+    )
+
+    for layer, geom, _hint in layer_geoms:
+        primitives = geom.compile(layer, data, resolved, theme, plot_area)
+        for prim in primitives:
+            compiled.add_primitive(prim)
 
     # Add legend entries
     if has_legend and color_map:
@@ -287,188 +247,6 @@ def compile_spec(spec: PlotSpec) -> CompiledPlot:
     _avoid_tick_collisions(compiled, theme)
 
     return compiled
-
-
-def _compile_numeric_layer(
-    compiled: CompiledPlot,
-    geom: str,
-    x_col: list,
-    y_col: list,
-    color_col: list[str] | None,
-    color_map: dict[str, str],
-    theme: ThemeSpec,
-    plot_area: Rect,
-    unified_x_ticks: list[float] | None = None,
-    unified_y_ticks: list[float] | None = None,
-) -> None:
-    """Compile a scatter or line layer with numeric axes."""
-    x_vals = [float(v) for v in x_col]
-    y_vals = [float(v) for v in y_col]
-
-    if not x_vals or not y_vals:
-        return
-
-    # Use unified ticks (from multi-layer pre-pass) or per-layer ticks
-    x_ticks_vals = unified_x_ticks or nice_ticks(min(x_vals), max(x_vals))
-    y_ticks_vals = unified_y_ticks or nice_ticks(min(y_vals), max(y_vals))
-
-    x_scale = LinearScale(
-        data_min=x_ticks_vals[0],
-        data_max=x_ticks_vals[-1],
-        pixel_min=plot_area.x,
-        pixel_max=plot_area.right,
-    )
-    y_scale = LinearScale(
-        data_min=y_ticks_vals[0],
-        data_max=y_ticks_vals[-1],
-        pixel_min=plot_area.bottom,  # SVG y is inverted
-        pixel_max=plot_area.y,
-    )
-
-    # Set ticks if not already set
-    if not compiled.x_ticks:
-        compiled.x_ticks = [
-            TickMark(value=v, label=format_tick(v), pixel_pos=x_scale.map(v))
-            for v in x_ticks_vals
-        ]
-    if not compiled.y_ticks:
-        compiled.y_ticks = [
-            TickMark(value=v, label=format_tick(v), pixel_pos=y_scale.map(v))
-            for v in y_ticks_vals
-        ]
-
-    default_color = theme.palette[0]
-
-    if geom == "scatter":
-        for i in range(min(len(x_vals), len(y_vals))):
-            color = (
-                color_map.get(color_col[i], default_color)
-                if color_col
-                else default_color
-            )
-            compiled.points.append(
-                CompiledPoint(
-                    px=x_scale.map(x_vals[i]),
-                    py=y_scale.map(y_vals[i]),
-                    color=color,
-                    radius=theme.point_radius,
-                    group=color_col[i] if color_col else None,
-                )
-            )
-
-    elif geom == "line":
-        if color_col:
-            # Group by color
-            groups: dict[str, list[tuple[float, float]]] = {}
-            for i in range(min(len(x_vals), len(y_vals))):
-                g = color_col[i]
-                if g not in groups:
-                    groups[g] = []
-                groups[g].append(
-                    (
-                        x_scale.map(x_vals[i]),
-                        y_scale.map(y_vals[i]),
-                    )
-                )
-            for g, pts in groups.items():
-                compiled.lines.append(
-                    CompiledLine(
-                        points=pts,
-                        color=color_map.get(g, default_color),
-                        width=theme.line_width,
-                        group=g,
-                    )
-                )
-        else:
-            pts = [
-                (x_scale.map(x_vals[i]), y_scale.map(y_vals[i]))
-                for i in range(min(len(x_vals), len(y_vals)))
-            ]
-            compiled.lines.append(
-                CompiledLine(
-                    points=pts,
-                    color=default_color,
-                    width=theme.line_width,
-                )
-            )
-
-
-def _compile_bar_layer(
-    compiled: CompiledPlot,
-    x_col: list,
-    y_col: list,
-    color_col: list[str] | None,
-    color_map: dict[str, str],
-    theme: ThemeSpec,
-    plot_area: Rect,
-) -> None:
-    """Compile a bar layer with categorical x-axis."""
-    categories = [str(v) for v in x_col]
-    y_vals = [float(v) for v in y_col]
-
-    if not categories or not y_vals:
-        return
-
-    # Unique categories in order
-    unique_cats: list[str] = []
-    seen: set[str] = set()
-    for c in categories:
-        if c not in seen:
-            unique_cats.append(c)
-            seen.add(c)
-
-    cat_scale = CategoricalScale(
-        categories=unique_cats,
-        pixel_min=plot_area.x,
-        pixel_max=plot_area.right,
-    )
-
-    y_max = max(y_vals) if y_vals else 1.0
-    y_tick_vals = nice_ticks(0, y_max)
-    y_scale = LinearScale(
-        data_min=y_tick_vals[0],
-        data_max=y_tick_vals[-1],
-        pixel_min=plot_area.bottom,
-        pixel_max=plot_area.y,
-    )
-
-    # Set ticks
-    if not compiled.x_ticks:
-        compiled.x_ticks = [
-            TickMark(
-                value=i,
-                label=cat,
-                pixel_pos=cat_scale.map(cat),
-            )
-            for i, cat in enumerate(unique_cats)
-        ]
-    if not compiled.y_ticks:
-        compiled.y_ticks = [
-            TickMark(value=v, label=format_tick(v), pixel_pos=y_scale.map(v))
-            for v in y_tick_vals
-        ]
-
-    band = cat_scale.band_width
-    bar_width = band * (1 - theme.bar_padding)
-    default_color = theme.palette[0]
-
-    for i in range(min(len(categories), len(y_vals))):
-        cx = cat_scale.map(categories[i])
-        y_px = y_scale.map(y_vals[i])
-        baseline = y_scale.map(0)
-        color = (
-            color_map.get(color_col[i], default_color) if color_col else default_color
-        )
-        compiled.bars.append(
-            CompiledBar(
-                px=cx - bar_width / 2,
-                py=min(y_px, baseline),
-                bar_width=bar_width,
-                bar_height=abs(baseline - y_px),
-                color=color,
-                group=color_col[i] if color_col else None,
-            )
-        )
 
 
 def _avoid_tick_collisions(

@@ -36,7 +36,7 @@ class LegendSpec(BaseModel):
 class LayerSpec(BaseModel):
     """A single plot layer (scatter, line, or bar)."""
 
-    geom: Literal["scatter", "line", "bar"]
+    geom: str  # validated against geom registry at compile time
     x: str  # column name for x axis
     y: str  # column name for y axis
     color: str | None = None  # column name for color grouping
