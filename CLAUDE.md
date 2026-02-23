@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository. However this is meant to be an interoperable repo so the source of truth is [AGENTS.md](AGENTS.md) -- make sure you read it at the start of each session. Claude.md should be kept as simple as possible with agents.md as the main source of truth.
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository. However this is meant to be an interoperable repo so the source of truth is [AGENTS.md](AGENTS.md) -- make sure you re-read it from the current branch at the start of each session (it may have changed since your last session). Claude.md should be kept as simple as possible with agents.md as the main source of truth.
 
 ## Project Overview
 
@@ -17,8 +17,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 uv run pytest                           # all tests
 uv run pytest tests/test_foo.py::test_name  # single test
 uv run pytest --update-baselines        # regenerate golden SVGs
-uv run ruff check .                     # lint
-uv run black --check .                  # format check
+uv run ruff check .                     # lint (full repo, incl. docs/)
+uv run black --check .                  # format check (full repo, incl. docs/)
 cd docs && uv run --group docs mkdocs serve   # docs dev server
 ```
 
@@ -36,7 +36,7 @@ All development decisions should be evaluated against these principles (detailed
 
 ## Claude-Specific Guidance
 
-- When modifying plot output, always run visual regression tests
+- When modifying plot output, regenerate baselines (`uv run python scripts/update_baselines.py`) and visually inspect the SVGs in `tests/baselines/` (automated comparison is not yet wired into CI)
 - Use `uv run` for all commands (the project uses uv for dependency management)
 - The data input protocol in AGENTS.md is authoritative — follow the exact dispatch order
 - Error messages should be specific and actionable (e.g., "field 'legend.position' must be one of [top, bottom, left, right], got 'outside'")

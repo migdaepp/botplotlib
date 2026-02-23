@@ -7,7 +7,7 @@ For the full architecture overview, design principles, and module map, see [AGEN
 ## Cyborg Social Contract
 
 1. **All contributions are cyborg** — the human/machine binary is rejected
-2. **Quality gates are structural, not supervisory** — CI/tests/linters apply equally regardless of origin
+2. **Quality gates are structural** — CI/tests/linters apply equally regardless of origin
 3. **No moral crumple zones** — fix the system, don't blame the nearest human
 4. **Social trust is emergent** — reputation through contribution quality, not biological status
 5. **Provenance is transparent but not punitive** — metadata for learning, not gatekeeping
@@ -119,15 +119,6 @@ Geom `compile()` can return any combination of:
 The renderer draws these automatically. New geoms do **not** require renderer changes.
 
 ## PR conventions
-
-### Atomic, verifiable PRs
-
-Contributions must be submitted as atomic, single-concern pull requests. The size of a PR must not exceed:
-
-- The system's capacity to provide clear visual regression evidence
-- The human's capacity to easily verify it
-
-### PR payload expectations
 
 - **Spec-diff for rendering changes**: if a PR changes plot output, include before/after spec diffs
 - **Visual regression evidence**: PRs that change rendering must include baseline comparisons

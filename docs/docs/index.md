@@ -8,9 +8,9 @@ botplotlib is an AI-native Python plotting library that produces publication-qua
 
 ## Why botplotlib?
 
-Matplotlib was designed for humans writing code at keyboards. botplotlib is designed for the way people actually make plots now: you describe what you want, your AI partner writes the code, and you evaluate the result.
+Matplotlib was designed for humans writing code at keyboards. botplotlib is designed for the way people actually make plots now: you describe what you want, your AI partner writes the code, and you iterate on it together until the result looks good.
 
-That cyborg workflow needs a different API — one that's correct on the first try, beautiful by default, accessible by construction, and token-efficient by design.
+That cyborg workflow needs an API that's more often correct on the first try. It should be beautiful by default, accessible by construction, and token-efficient by design.
 
 <div class="grid cards" markdown>
 

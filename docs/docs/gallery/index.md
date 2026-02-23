@@ -14,7 +14,7 @@ import botplotlib as bpl
 fig = bpl.scatter(
     {"x": [1, 2, 3, 4, 5], "y": [2, 4, 3, 7, 5]},
     x="x", y="y",
-    title="Basic Scatter",
+    title="Five Points",
 )
 fig.save_svg("basic_scatter.svg")
 ```
