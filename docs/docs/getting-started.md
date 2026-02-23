@@ -2,14 +2,16 @@
 
 ## Installation
 
+botplotlib is not yet on PyPI — install directly from GitHub:
+
 ```bash
-pip install botplotlib
+pip install git+https://github.com/migdaepp/botplotlib.git
 ```
 
 For PNG export support (requires Cairo):
 
 ```bash
-pip install botplotlib[png]
+pip install "botplotlib[png] @ git+https://github.com/migdaepp/botplotlib.git"
 ```
 
 ## Your first plot
