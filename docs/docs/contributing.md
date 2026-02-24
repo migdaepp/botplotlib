@@ -42,7 +42,107 @@ uv run mypy botplotlib/
 
 Adding a new plot type requires **one file and three methods**. The compiler dispatches to a plugin registry, so new geoms don't require changes to the core.
 
-### Step 1: Create the geom file
+This recipe follows red/green TDD: tests first, then implementation.
+
+### Step 1: Write the test file (RED)
+
+Create `tests/test_yourgeom.py` **before writing any implementation**. Copy this template and replace `yourgeom` / `YourGeom` with your geom name:
+
+```python
+"""Tests for the yourgeom geom."""
+
+from __future__ import annotations
+
+import pytest
+
+import botplotlib as bpl
+from botplotlib.compiler.compiler import compile_spec
+from botplotlib.geoms import get_geom, registered_geoms
+from botplotlib.spec.models import DataSpec, LayerSpec, PlotSpec
+
+# Test data — adjust columns and values for your geom
+SAMPLE_DATA = {
+    "x_col": ["A", "B", "C"],
+    "y_col": [10, 20, 30],
+}
+
+
+class TestYourGeomRegistry:
+    """Geom is registered and discoverable."""
+
+    def test_in_registry(self) -> None:
+        assert "yourgeom" in registered_geoms()
+
+    def test_get_geom(self) -> None:
+        assert get_geom("yourgeom").name == "yourgeom"
+
+
+class TestYourGeomAPI:
+    """bpl.yourgeom() convenience function works."""
+
+    def test_basic_render(self) -> None:
+        fig = bpl.yourgeom(SAMPLE_DATA, x="x_col", y="y_col")
+        svg = fig.to_svg()
+        assert "<svg" in svg and "</svg>" in svg
+
+    def test_with_title(self) -> None:
+        fig = bpl.yourgeom(SAMPLE_DATA, x="x_col", y="y_col", title="Test")
+        assert "Test" in fig.to_svg()
+
+
+class TestYourGeomCompilation:
+    """Compiles to correct geometry."""
+
+    def _compile(self):
+        spec = PlotSpec(
+            data=DataSpec(columns=SAMPLE_DATA),
+            layers=[LayerSpec(geom="yourgeom", x="x_col", y="y_col")],
+        )
+        return compile_spec(spec)
+
+    def test_produces_primitives(self) -> None:
+        compiled = self._compile()
+        assert len(compiled.primitives) > 0
+
+
+class TestYourGeomValidation:
+    """Validates data correctly."""
+
+    def test_missing_x_column(self) -> None:
+        spec = PlotSpec(
+            data=DataSpec(columns={"y_col": [1]}),
+            layers=[LayerSpec(geom="yourgeom", x="x_col", y="y_col")],
+        )
+        with pytest.raises(ValueError, match="x_col"):
+            compile_spec(spec)
+
+    def test_missing_y_column(self) -> None:
+        spec = PlotSpec(
+            data=DataSpec(columns={"x_col": ["A"]}),
+            layers=[LayerSpec(geom="yourgeom", x="x_col", y="y_col")],
+        )
+        with pytest.raises(ValueError, match="y_col"):
+            compile_spec(spec)
+
+
+class TestYourGeomEdgeCases:
+    """Handles edge cases."""
+
+    def test_single_data_point(self) -> None:
+        data = {"x_col": ["A"], "y_col": [42]}
+        fig = bpl.yourgeom(data, x="x_col", y="y_col")
+        assert "<svg" in fig.to_svg()
+```
+
+### Step 2: Confirm tests fail (RED confirmed)
+
+```bash
+uv run pytest tests/test_yourgeom.py
+```
+
+Tests should fail (import errors, missing registry entries, etc.). This confirms the tests are real — they exercise code that doesn't exist yet.
+
+### Step 3: Create the geom file (GREEN begins)
 
 Create `botplotlib/geoms/yourgeom.py`. Copy an existing geom (start with `waterfall.py` for categorical x-axis or `scatter.py` for numeric axes):
 
@@ -67,7 +167,7 @@ class YourGeom(Geom):
         return [CompiledBar(...), ...]
 ```
 
-### Step 2: Register it
+### Step 4: Register it
 
 Add your geom to `_register_builtins()` in `botplotlib/geoms/__init__.py`:
 
@@ -76,7 +176,7 @@ from botplotlib.geoms.yourgeom import YourGeom
 register_geom(YourGeom())
 ```
 
-### Step 3: Add a convenience API function
+### Step 5: Add a convenience API function
 
 Add a thin factory in `botplotlib/_api.py`:
 
@@ -87,16 +187,15 @@ def yourgeom(data, x, y, *, title=None, theme="default", ...):
 
 Then add the re-export in `botplotlib/__init__.py`.
 
-### Step 4: Write tests
+### Step 6: Confirm tests pass (GREEN confirmed)
 
-Create `tests/test_yourgeom.py`. Cover:
+```bash
+uv run pytest tests/test_yourgeom.py
+```
 
-- Basic rendering (SVG contains expected elements)
-- Compilation (correct number of primitives)
-- Validation (missing columns produce clear errors)
-- Edge cases (single data point, empty data, extreme values)
+All tests should now pass. If any fail, fix the implementation — not the tests.
 
-### Step 5: Run the gate
+### Step 7: Run the full gate
 
 ```bash
 uv run pytest && uv run ruff check . && uv run black --check .

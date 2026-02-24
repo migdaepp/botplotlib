@@ -42,3 +42,5 @@ All development decisions should be evaluated against these principles (detailed
 - The data input protocol in AGENTS.md is authoritative — follow the exact dispatch order
 - Error messages should be specific and actionable (e.g., "field 'legend.position' must be one of [top, bottom, left, right], got 'outside'")
 - WCAG contrast checks are structural gates (errors, not warnings)
+- Follow red/green TDD for all features and fixes — write tests first, confirm they fail, then implement. See "Agentic Development Workflow" in AGENTS.md.
+- Treat recipes in AGENTS.md (geom recipe, contribution patterns) as agent-executable skills — follow them as step-by-step instructions, not just reference docs. The codebase is small enough (~4000 lines) to read and understand in full.
