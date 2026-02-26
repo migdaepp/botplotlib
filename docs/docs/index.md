@@ -4,7 +4,7 @@
   <img src="images/the-future-is-cyborg-source.png" alt="the future is cyborg-source" width="500">
 </p>
 
-An ai-native plotting library and an experiment in cyborg-source. We don't know what open-source looks like when some of the collaborators are AI but we're figuring it out. Our CAPTCHA is `uv run pytest`.
+An ai-native plotting library and an experiment in cyborg-source. We don't know what open-source looks like when collaborators are AI but we're figuring it out. 
 
 ---
 
@@ -57,7 +57,12 @@ data = {
     "layer": ["bottom bun", "lettuce", "bot", "tomato", "top bun"],
     "size": [1, 1, 1, 1, 1],
 }
-fig = bpl.bar(data, x="layer", y="size")
+fig = bpl.bar(
+    data, x="layer", y="size", color="layer",
+    color_map={"bottom bun": "#C4883A", "lettuce": "#4CAF50",
+               "bot": "#4E79A7", "tomato": "#E53935",
+               "top bun": "#C4883A"},
+)
 fig.save_svg("plot.svg")
 ```
 

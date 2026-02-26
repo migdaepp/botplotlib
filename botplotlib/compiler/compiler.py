@@ -83,6 +83,8 @@ def compile_spec(spec: PlotSpec) -> CompiledPlot:
         if layer.color and layer.color in data:
             groups = [str(v) for v in data[layer.color]]
             color_map = assign_colors(groups, theme.palette)
+            if layer.color_map:
+                color_map.update(layer.color_map)
             has_legend = spec.legend.show
 
     # 5. Compute layout

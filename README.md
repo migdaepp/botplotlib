@@ -6,8 +6,6 @@ Matplotlib has fed the scientific Python community for two decades. botplotlib i
   <img src="docs/docs/images/the-future-is-cyborg-source.png" alt="the future is cyborg" width="500">
 </p>
 
-The core principles:
-
 - **Beautiful by default** — themes designed so the first render is more often the final render
 - **Lightweight** — `bpl.scatter(data, x="a", y="b")` and you're done
 - **Token-efficient** — 1 line instead of 15. Fewer tokens, fewer places to go wrong
@@ -36,7 +34,12 @@ data = {
     "layer": ["bottom bun", "lettuce", "bot", "tomato", "top bun"],
     "size": [1, 1, 1, 1, 1],
 }
-fig = bpl.bar(data, x="layer", y="size")
+fig = bpl.bar(
+    data, x="layer", y="size", color="layer",
+    color_map={"bottom bun": "#C4883A", "lettuce": "#4CAF50",
+               "bot": "#4E79A7", "tomato": "#E53935",
+               "top bun": "#C4883A"},
+)
 fig.save_svg("plot.svg")
 ```
 
@@ -56,7 +59,7 @@ Colors are WCAG-compliant out of the box because accountability lives in systems
 | `print` | — | sometimes you weirdly still need grayscale |
 | `magazine` | — | we all know which magazine it is we're just not gonna say it |
 
-These themes were intentionally chosen to seed the project for use in open platforms and open science. Open-source fed AI and now AI should needs to figure out how to feed open-source.
+These themes were intentionally chosen to seed the project for use in open platforms and open science. Open-source fed AI and now AI needs to figure out how to feed open-source.
 
 ## Installation
 
@@ -91,6 +94,10 @@ marimo edit docs/tutorial.py
 ```
 
 Additional examples live in [`examples/`](examples/).
+
+## Other Stuff
+
+Our approach to agentic engineering is heavily influenced by [Simon Willison's patterns](https://simonwillison.net/guides/agentic-engineering-patterns/).
 
 ## License
 
