@@ -65,7 +65,7 @@ The PlotSpec is the universal boundary layer. Everything must become a PlotSpec 
 
 ```
 [Human / Python path]                    [Agent / JSON path]
-bpl.scatter(data, x="a", y="b")         LLM generates PlotSpec JSON directly
+blt.scatter(data, x="a", y="b")         LLM generates PlotSpec JSON directly
         │                                        │
         └──────────> PlotSpec <──────────────────┘
               (Pydantic model, JSON-serializable)
@@ -150,7 +150,7 @@ from __future__ import annotations
 
 import pytest
 
-import botplotlib as bpl
+import botplotlib as blt
 from botplotlib.compiler.compiler import compile_spec
 from botplotlib.geoms import get_geom, registered_geoms
 from botplotlib.spec.models import DataSpec, LayerSpec, PlotSpec
@@ -173,15 +173,15 @@ class TestYourGeomRegistry:
 
 
 class TestYourGeomAPI:
-    """bpl.yourgeom() convenience function works."""
+    """blt.yourgeom() convenience function works."""
 
     def test_basic_render(self) -> None:
-        fig = bpl.yourgeom(SAMPLE_DATA, x="x_col", y="y_col")
+        fig = blt.yourgeom(SAMPLE_DATA, x="x_col", y="y_col")
         svg = fig.to_svg()
         assert "<svg" in svg and "</svg>" in svg
 
     def test_with_title(self) -> None:
-        fig = bpl.yourgeom(SAMPLE_DATA, x="x_col", y="y_col", title="Test")
+        fig = blt.yourgeom(SAMPLE_DATA, x="x_col", y="y_col", title="Test")
         assert "Test" in fig.to_svg()
 
 
@@ -225,7 +225,7 @@ class TestYourGeomEdgeCases:
 
     def test_single_data_point(self) -> None:
         data = {"x_col": ["A"], "y_col": [42]}
-        fig = bpl.yourgeom(data, x="x_col", y="y_col")
+        fig = blt.yourgeom(data, x="x_col", y="y_col")
         assert "<svg" in fig.to_svg()
 ```
 

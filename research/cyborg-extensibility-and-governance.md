@@ -56,7 +56,7 @@ This is the step-by-step that any Claude Code / Codex / Gemini session can follo
 1. Create `botplotlib/geoms/waterfall.py` (or whatever the geom is)
 2. Implement `validate()`, `compile()`, and `default_scales()`
 3. Register the geom name in the geom registry
-4. Add `bpl.waterfall()` convenience function in `_api.py` (thin factory, ~10 lines)
+4. Add `blt.waterfall()` convenience function in `_api.py` (thin factory, ~10 lines)
 5. Write tests with golden SVG baselines
 6. Submit as a single atomic PR
 

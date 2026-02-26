@@ -3,13 +3,13 @@
 ## Quick example
 
 ```python
-import botplotlib as bpl
+import botplotlib as blt
 
 data = {
     "layer": ["bottom bun", "lettuce", "bot", "tomato", "top bun"],
     "size": [1, 1, 1, 1, 1],
 }
-fig = bpl.bar(
+fig = blt.bar(
     data, x="layer", y="size", color="layer",
     color_map={"bottom bun": "#B07830", "lettuce": "#388E3C",
                "bot": "#4E79A7", "tomato": "#E53935",
@@ -33,7 +33,7 @@ fig.save_svg("plot.svg")
 All theme palettes enforce WCAG AA contrast ratios (>= 3:1 against white). This is a compiler error, not a warning. You literally cannot ship inaccessible colors because [accountability lives in systems](https://estsjournal.org/index.php/ests/article/view/260).   
 
 ```python
-import botplotlib as bpl
+import botplotlib as blt
 
 years = list(range(2011, 2026))
 data = {
@@ -49,7 +49,7 @@ These Data are from [Nathan's Famous Hot Dog Eating Contest](https://en.wikipedi
 ### Default
 
 ```python
-fig = bpl.line(data, x="year", y="hot_dogs", color="division",
+fig = blt.line(data, x="year", y="hot_dogs", color="division",
                title="Nathan's Hot Dog Eating Contest",
                x_label="Year", y_label="Hot Dogs Eaten")
 ```
@@ -59,7 +59,7 @@ fig = bpl.line(data, x="year", y="hot_dogs", color="division",
 ### Bluesky
 
 ```python
-fig = bpl.line(data, x="year", y="hot_dogs", color="division",
+fig = blt.line(data, x="year", y="hot_dogs", color="division",
                title="Nathan's Hot Dog Eating Contest",
                x_label="Year", y_label="Hot Dogs Eaten",
                theme="bluesky")
@@ -70,7 +70,7 @@ fig = bpl.line(data, x="year", y="hot_dogs", color="division",
 ### PDF
 
 ```python
-fig = bpl.line(data, x="year", y="hot_dogs", color="division",
+fig = blt.line(data, x="year", y="hot_dogs", color="division",
                title="Nathan's Hot Dog Eating Contest",
                x_label="Year", y_label="Hot Dogs Eaten",
                theme="pdf")
@@ -81,7 +81,7 @@ fig = bpl.line(data, x="year", y="hot_dogs", color="division",
 ### Print
 
 ```python
-fig = bpl.line(data, x="year", y="hot_dogs", color="division",
+fig = blt.line(data, x="year", y="hot_dogs", color="division",
                title="Nathan's Hot Dog Eating Contest",
                x_label="Year", y_label="Hot Dogs Eaten",
                theme="print")
@@ -92,7 +92,7 @@ fig = bpl.line(data, x="year", y="hot_dogs", color="division",
 ### Magazine
 
 ```python
-fig = bpl.line(data, x="year", y="hot_dogs", color="division",
+fig = blt.line(data, x="year", y="hot_dogs", color="division",
                title="Nathan's Hot Dog Eating Contest",
                x_label="Year", y_label="Hot Dogs Eaten",
                theme="magazine")
@@ -191,9 +191,9 @@ print(bpl_code)
 Output:
 
 ```python
-import botplotlib as bpl
+import botplotlib as blt
 
-fig = bpl.scatter(
+fig = blt.scatter(
     {"x": [0, 1, 2, 3, 4, 5], "y": [0, 1, 4, 9, 16, 25]},
     x="x",
     y="y",
@@ -208,9 +208,9 @@ You can also extract a `PlotSpec` directly:
 
 ```python
 from botplotlib.refactor import from_matplotlib
-import botplotlib as bpl
+import botplotlib as blt
 
 spec = from_matplotlib("my_old_script.py")
-fig = bpl.render(spec)
+fig = blt.render(spec)
 fig.save_svg("migrated.svg")
 ```
