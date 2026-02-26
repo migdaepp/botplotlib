@@ -56,7 +56,7 @@ from __future__ import annotations
 import pytest
 
 import botplotlib as bpl
-from botplotlib.compiler.compiler import compile_spec
+from botplotlib.compiler.compiler import CompiledPlot, compile_spec
 from botplotlib.geoms import get_geom, registered_geoms
 from botplotlib.spec.models import DataSpec, LayerSpec, PlotSpec
 
@@ -93,7 +93,7 @@ class TestYourGeomAPI:
 class TestYourGeomCompilation:
     """Compiles to correct geometry."""
 
-    def _compile(self):
+    def _compile(self) -> CompiledPlot:
         spec = PlotSpec(
             data=DataSpec(columns=SAMPLE_DATA),
             layers=[LayerSpec(geom="yourgeom", x="x_col", y="y_col")],
