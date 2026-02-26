@@ -19,7 +19,7 @@ Humans and AIs contribute under the same rules.
 1. **All contributions are cyborg** — the human/machine binary is rejected
 2. **Quality gates are structural** — CI/tests/linters apply equally regardless of origin
 3. **No moral crumple zones** — fix the system, don't blame the nearest human
-4. **Social trust is emergent** — reputation through contribution quality, not biological status
+4. **Trust is active capital** — earned through contribution quality, staked through vouching, lost through defection — never granted by biological status
 5. **Provenance is transparent but not punitive** — metadata for learning, not gatekeeping
 6. **The project is the cyborg** — the library itself is the human-machine hybrid
 

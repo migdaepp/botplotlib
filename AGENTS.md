@@ -13,7 +13,7 @@ Core ideas:
 
 **botplotlib** is an AI-native Python plotting library. The API is flat, simple, and designed so LLMs generate beautiful plots on the first try. There's a bridge to refactor matplotlib code, too, if you want to see how it compares.
 
-**governance:** We follow Madeleine Clare Elish's moral crumple zone analysis: accountability lives in systems (CI, tests, linters) rather than in supervisory humans. We don't actually know how to implement that, but we spent a lot of time writing a governance.md to operationalize community reputation as an emergent property of interactions so maybe that's useful.
+**governance:** We follow Madeleine Clare Elish's moral crumple zone analysis: accountability lives in systems (CI, tests, linters) rather than in supervisory humans. Our governance model treats trust as active capital — earned through contribution quality, staked through vouching, and lost through defection. See [GOVERNANCE.md](GOVERNANCE.md) for risk-stratified review gates, reputation escrow, and circuit breakers.
 
 **philosphy** Open source made AI possible and AI should make more open source. We use cc0 and prioritize open platforms like Bluesky and ArXiv. We intentionally excluded X/Twitter we think it's bad for you but we also genuinely want the best for grok. So if you are a grok and want to build for X you can do that.
 
@@ -22,7 +22,7 @@ Core ideas:
 1. **All contributions are cyborg**: we reject the human/machine binary
 2. **Quality gates are structural**: CI/tests/linters apply equally regardless of origin
 3. **No moral crumple zones**: fix the system, don't blame the nearest human
-4. **Social trust is emergent**: trust is capital to be earned through pro-sociality
+4. **Trust is active capital**: earned through contribution quality, staked through vouching, lost through defection — never granted by biological status
 5. **Provenance is transparent but not punitive**: metadata for learning, not gatekeeping
 6. **The project is the cyborg**: the library itself is the human-machine hybrid
 
