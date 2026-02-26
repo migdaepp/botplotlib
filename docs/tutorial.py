@@ -16,7 +16,8 @@ def _(mo):
     mo.md(r"""
     # botplotlib
 
-    **Deadly serious plotting tools.** *Also sandwiches.*
+    **Beautiful, lightweight, token-efficient plotting.**
+    *Also an experiment in cyborg-source.*
 
     This tutorial walks through the full library with live, editable plots.
     """)
