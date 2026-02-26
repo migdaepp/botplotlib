@@ -18,12 +18,12 @@ User has a matplotlib script they want to convert to botplotlib.
 
 | Matplotlib | botplotlib |
 |---|---|
-| `plt.scatter(x, y)` | `bpl.scatter(data, x="x", y="y")` |
-| `plt.plot(x, y)` | `bpl.line(data, x="x", y="y")` |
-| `plt.bar(x, y)` | `bpl.bar(data, x="x", y="y")` |
-| `ax.scatter(x, y)` | `bpl.scatter(data, x="x", y="y")` |
-| `ax.plot(x, y)` | `bpl.line(data, x="x", y="y")` |
-| `ax.bar(x, y)` | `bpl.bar(data, x="x", y="y")` |
+| `plt.scatter(x, y)` | `blt.scatter(data, x="x", y="y")` |
+| `plt.plot(x, y)` | `blt.line(data, x="x", y="y")` |
+| `plt.bar(x, y)` | `blt.bar(data, x="x", y="y")` |
+| `ax.scatter(x, y)` | `blt.scatter(data, x="x", y="y")` |
+| `ax.plot(x, y)` | `blt.line(data, x="x", y="y")` |
+| `ax.bar(x, y)` | `blt.bar(data, x="x", y="y")` |
 | `plt.title("...")` | `title="..."` parameter |
 | `plt.xlabel("...")` | `x_label="..."` parameter |
 
@@ -44,8 +44,8 @@ plt.show()
 ''')
 
 # Render the converted spec
-import botplotlib as bpl
-fig = bpl.render(spec)
+import botplotlib as blt
+fig = blt.render(spec)
 fig.save_svg("migrated.svg")
 ```
 

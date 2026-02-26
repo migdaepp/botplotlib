@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-import botplotlib as bpl
+import botplotlib as blt
 from botplotlib.compiler.compiler import CompiledPlot, compile_spec
 from botplotlib.geoms.primitives import CompiledBar, CompiledText
 from botplotlib.spec.models import DataSpec, LayerSpec, PlotSpec
@@ -55,7 +55,7 @@ class TestLabelsOffByDefault:
 
 class TestLabelsAppear:
     def test_labels_in_svg(self) -> None:
-        fig = bpl.bar(BAR_DATA, x="category", y="value", labels=True)
+        fig = blt.bar(BAR_DATA, x="category", y="value", labels=True)
         svg = fig.to_svg()
         for val in [10, 50, 200, 5]:
             assert str(val) in svg
@@ -185,7 +185,7 @@ class TestLabelsJsonRoundTrip:
 
 class TestApiConvenience:
     def test_bar_with_labels(self) -> None:
-        fig = bpl.bar(BAR_DATA, x="category", y="value", labels=True)
+        fig = blt.bar(BAR_DATA, x="category", y="value", labels=True)
         svg = fig.to_svg()
         assert "<svg" in svg
         assert "10" in svg

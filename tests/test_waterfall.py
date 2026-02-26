@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import pytest
 
-import botplotlib as bpl
+import botplotlib as blt
 from botplotlib.compiler.compiler import CompiledPlot, compile_spec
 from botplotlib.geoms import get_geom, registered_geoms
 from botplotlib.geoms.primitives import CompiledBar, CompiledText
@@ -43,16 +43,16 @@ class TestWaterfallRegistry:
 
 
 class TestWaterfallAPI:
-    """bpl.waterfall() convenience function works."""
+    """blt.waterfall() convenience function works."""
 
     def test_basic_waterfall(self) -> None:
-        fig = bpl.waterfall(WATERFALL_DATA, x="category", y="amount")
+        fig = blt.waterfall(WATERFALL_DATA, x="category", y="amount")
         svg = fig.to_svg()
         assert "<svg" in svg
         assert "</svg>" in svg
 
     def test_waterfall_with_title(self) -> None:
-        fig = bpl.waterfall(
+        fig = blt.waterfall(
             WATERFALL_DATA,
             x="category",
             y="amount",
@@ -62,7 +62,7 @@ class TestWaterfallAPI:
         assert "Profit Breakdown" in svg
 
     def test_waterfall_with_theme(self) -> None:
-        fig = bpl.waterfall(
+        fig = blt.waterfall(
             WATERFALL_DATA,
             x="category",
             y="amount",
@@ -169,28 +169,28 @@ class TestWaterfallEdgeCases:
 
     def test_all_positive(self) -> None:
         data = {"step": ["A", "B", "C"], "val": [10, 20, 30]}
-        fig = bpl.waterfall(data, x="step", y="val")
+        fig = blt.waterfall(data, x="step", y="val")
         compiled = fig.compiled
         colors = {b.color for b in compiled.bars}
         assert len(colors) == 1  # all same color (positive)
 
     def test_all_negative(self) -> None:
         data = {"step": ["A", "B", "C"], "val": [-10, -20, -30]}
-        fig = bpl.waterfall(data, x="step", y="val")
+        fig = blt.waterfall(data, x="step", y="val")
         compiled = fig.compiled
         colors = {b.color for b in compiled.bars}
         assert len(colors) == 1  # all same color (negative)
 
     def test_single_bar(self) -> None:
         data = {"step": ["Only"], "val": [42]}
-        fig = bpl.waterfall(data, x="step", y="val")
+        fig = blt.waterfall(data, x="step", y="val")
         compiled = fig.compiled
         assert len(compiled.bars) == 1
         assert len(compiled.lines) == 0  # no connectors
 
     def test_zero_value(self) -> None:
         data = {"step": ["A", "B"], "val": [100, 0]}
-        fig = bpl.waterfall(data, x="step", y="val")
+        fig = blt.waterfall(data, x="step", y="val")
         compiled = fig.compiled
         assert len(compiled.bars) == 2
         # Zero-height bar should still render (height = 0)
@@ -206,7 +206,7 @@ class TestWaterfallLabels:
     """Waterfall labels appear and are positioned correctly."""
 
     def test_waterfall_labels_appear(self) -> None:
-        fig = bpl.waterfall(WATERFALL_DATA, x="category", y="amount", labels=True)
+        fig = blt.waterfall(WATERFALL_DATA, x="category", y="amount", labels=True)
         svg = fig.to_svg()
         assert "100" in svg
         assert "-40" in svg

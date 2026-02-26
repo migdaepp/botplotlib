@@ -1,6 +1,6 @@
 """botplotlib version: theme='pdf' handles all publication styling."""
 
-import botplotlib as bpl
+import botplotlib as blt
 
 data = {
     "year": [
@@ -31,7 +31,7 @@ data = {
     ],
 }
 
-fig = bpl.line(
+fig = blt.line(
     data,
     x="year",
     y="anomaly",

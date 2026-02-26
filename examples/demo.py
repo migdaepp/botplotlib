@@ -8,7 +8,7 @@ import math
 import random
 from pathlib import Path
 
-import botplotlib as bpl
+import botplotlib as blt
 from botplotlib.refactor.from_matplotlib import from_matplotlib
 
 OUT = Path(__file__).parent
@@ -23,7 +23,7 @@ weights = [2.0 + random.gauss(0, 0.6) for _ in range(n)]
 mpg = [45 - 8 * w + random.gauss(0, 2.5) for w in weights]
 origins = random.choices(["USA", "Europe", "Japan"], weights=[4, 3, 3], k=n)
 
-fig_scatter = bpl.scatter(
+fig_scatter = blt.scatter(
     {"weight": weights, "mpg": mpg, "origin": origins},
     x="weight",
     y="mpg",
@@ -46,7 +46,7 @@ for p, m in zip(products, months):
     trend = base[p] + m * (8 if p == "SaaS" else 3 if p == "Hardware" else 5)
     revenue.append(round(trend + random.gauss(0, 6), 1))
 
-fig_line = bpl.line(
+fig_line = blt.line(
     {"month": months, "revenue": revenue, "product": products},
     x="month",
     y="revenue",
@@ -61,7 +61,7 @@ print("  wrote demo_line.svg")
 # ---------------------------------------------------------------------------
 # 3. Bar: "Programming Language Popularity"
 # ---------------------------------------------------------------------------
-fig_bar = bpl.bar(
+fig_bar = blt.bar(
     {
         "language": [
             "Python",
@@ -93,7 +93,7 @@ data_wave = {
 }
 
 for theme_name in ("default", "bluesky", "print", "pdf", "magazine"):
-    fig = bpl.line(
+    fig = blt.line(
         data_wave,
         x="x",
         y="y",
@@ -126,7 +126,7 @@ plt.savefig("old_plot.png")
 """
 
 spec = from_matplotlib(MPL_SCRIPT)
-fig_refactor = bpl.render(spec)
+fig_refactor = blt.render(spec)
 fig_refactor.save_svg(OUT / "demo_refactored.svg")
 print("  wrote demo_refactored.svg  (auto-converted from matplotlib!)")
 

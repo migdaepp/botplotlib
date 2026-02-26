@@ -17,7 +17,7 @@ class Figure:
     """A rendered plot that can be saved, displayed, or inspected.
 
     Typically created via the convenience functions in ``botplotlib._api``
-    (e.g., ``bpl.scatter()``, ``bpl.line()``, ``bpl.bar()``).
+    (e.g., ``blt.scatter()``, ``blt.line()``, ``blt.bar()``).
 
     Agent / JSON path:
         ``Figure.from_json(json_string)`` — parse a PlotSpec JSON string.
