@@ -33,8 +33,8 @@ For the full architecture overview, design principles, and module map, see [AGEN
 import botplotlib as bpl
 
 data = {
-    "layer": ["bottom bun", "lettuce", "tomato", "top bun"],
-    "size": [1, 1, 1, 1],
+    "layer": ["bottom bun", "lettuce", "bot", "tomato", "top bun"],
+    "size": [1, 1, 1, 1, 1],
 }
 fig = bpl.bar(data, x="layer", y="size")
 fig.save_svg("plot.svg")

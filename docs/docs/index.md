@@ -54,8 +54,8 @@ An ai-native plotting library and an experiment in cyborg-source. We don't know 
 import botplotlib as bpl
 
 data = {
-    "layer": ["bottom bun", "lettuce", "tomato", "top bun"],
-    "size": [1, 1, 1, 1],
+    "layer": ["bottom bun", "lettuce", "bot", "tomato", "top bun"],
+    "size": [1, 1, 1, 1, 1],
 }
 fig = bpl.bar(data, x="layer", y="size")
 fig.save_svg("plot.svg")
