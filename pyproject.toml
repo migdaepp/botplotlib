@@ -6,12 +6,29 @@ readme = "README.md"
 license = "CC0-1.0"
 requires-python = ">=3.10"
 dependencies = ["pydantic>=2.0"]
+keywords = ["plotting", "visualization", "svg", "ai-native", "cyborg", "sandwich"]
 classifiers = [
     "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
     "Topic :: Scientific/Engineering :: Visualization",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
     "Typing :: Typed",
 ]
-keywords = ["plotting", "visualization", "svg", "ai-native", "cyborg", "sandwich"]
+
+authors = [
+    {name = "Madeleine Daepp"},
+]
+
+[project.urls]
+Homepage = "https://botplotlib.ai"
+Documentation = "https://botplotlib.ai"
+Repository = "https://github.com/migdaepp/botplotlib"
+Issues = "https://github.com/migdaepp/botplotlib/issues"
 
 [project.optional-dependencies]
 png = ["cairosvg>=2.7"]
