@@ -1,6 +1,11 @@
 # botplotlib
 
-Matplotlib has fed the scientific Python community for two decades. botplotlib is designed for a workflow that didn't exist when matplotlib was born: a human has an idea or a request, and then an AI + human team jointly creates it, iterating until both are satisfied. 
+[![CI](https://github.com/migdaepp/botplotlib/actions/workflows/ci.yml/badge.svg)](https://github.com/migdaepp/botplotlib/actions/workflows/ci.yml)
+[![PyPI](https://img.shields.io/pypi/v/botplotlib)](https://pypi.org/project/botplotlib/)
+[![License: CC0-1.0](https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
+[![Python 3.10+](https://img.shields.io/pypi/pyversions/botplotlib)](https://pypi.org/project/botplotlib/)
+
+Matplotlib has fed the scientific Python community for two decades. botplotlib is designed for a workflow that didn't exist when matplotlib was born: a human has an idea or a request, and then an AI + human team jointly creates it, iterating until both are satisfied.
 
 <p align="center">
   <img src="docs/docs/images/the-future-is-cyborg-source.png" alt="the future is cyborg" width="500">
@@ -10,7 +15,7 @@ Matplotlib has fed the scientific Python community for two decades. botplotlib i
 - **Lightweight** — `blt.scatter(data, x="a", y="b")` and you're done
 - **Token-efficient** — 1 line instead of 15. Fewer tokens, fewer places to go wrong
 
-Botplotlib is also an experiment in cyborg-source. What does open-source collaboration look like when some of the collaborators are AI? We don't know but we put a bunch of ideas in [GOVERNANCE.md](GOVERNANCE.md). It is wildly over-engineered for our current contributor count. 
+Botplotlib is also an experiment in cyborg-source. What does open-source collaboration look like when some of the collaborators are AI? We don't know but we put a bunch of ideas in [GOVERNANCE.md](GOVERNANCE.md). It is wildly over-engineered for our current contributor count.
 
 ## Cyborg Social Contract
 
@@ -63,26 +68,19 @@ These themes were intentionally chosen to seed the project for use in open platf
 
 ## Installation
 
-botplotlib is not yet on PyPI — install directly from GitHub:
-
 ```bash
-pip install git+https://github.com/migdaepp/botplotlib.git
+pip install botplotlib
 ```
 
 For PNG export support:
 
 ```bash
-pip install "botplotlib[png] @ git+https://github.com/migdaepp/botplotlib.git"
+pip install "botplotlib[png]"
 ```
 
 ## Documentation
 
-Documentation is not yet hosted — to browse it locally:
-
-```bash
-cd docs && uv run --group docs mkdocs serve
-# → http://127.0.0.1:8000/botplotlib/
-```
+Full docs at [botplotlib.ai](https://botplotlib.ai).
 
 ## Tutorial
 
