@@ -95,7 +95,7 @@ Review requirements are a function of `f(contributor_tier, action_risk)`. The ta
 | | Low | Moderate | High | Critical |
 |---|---|---|---|---|
 | **Tier 0** (new) | 1 approval (Tier 1+) | 2 approvals (Tier 2+) | 2 approvals (Tier 3) | 2 approvals (Tier 3) |
-| **Tier 1** (contributor) | 1 approval (Tier 1+) | 1 approval (Tier 2+) | 2 approvals (Tier 2+, 1 Tier 3) | 2 approvals (Tier 3) |
+| **Tier 1** (contributor) | 1 approval (Tier 1+) | 1 approval (Tier 2+) | 2 approvals (Tier 2+) | 2 approvals (Tier 3) |
 | **Tier 2** (trusted) | 0 approvals* | 1 approval (Tier 2+) | 1 approval (Tier 3) | 2 approvals (Tier 3) |
 | **Tier 3** (maintainer) | 0 approvals* | 0 approvals* | 1 approval (Tier 3) | 1 approval (another Tier 3) |
 
@@ -171,8 +171,9 @@ Domain categories map to path groups:
 | `compiler` | `botplotlib/compiler/**` |
 | `render` | `botplotlib/render/**` |
 | `spec` | `botplotlib/spec/**` |
+| `api` | `botplotlib/_api.py`, `botplotlib/figure.py`, `botplotlib/__init__.py` |
 | `tests` | `tests/**` |
-| `ci` | `.github/**`, `scripts/**` |
+| `ci` | `.github/**`, `scripts/**`, `pyproject.toml` |
 | `governance` | `GOVERNANCE.md`, `AGENTS.md`, `CODEOWNERS`, `CONTRIBUTORS.json`, `reputation_ledger.json` |
 
 ---

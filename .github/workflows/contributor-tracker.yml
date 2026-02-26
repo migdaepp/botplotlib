@@ -48,8 +48,10 @@ jobs:
               { pattern: /^botplotlib\/render\//, area: 'render' },
               { pattern: /^botplotlib\/spec\//, area: 'spec' },
               { pattern: /^botplotlib\/geoms\//, area: 'geoms' },
+              { pattern: /^botplotlib\/(_api|figure|__init__)\.py$/, area: 'api' },
               { pattern: /^botplotlib\//, area: 'api' },
               { pattern: /^tests\//, area: 'tests' },
+              { pattern: /^scripts\//, area: 'ci' },
               { pattern: /^(docs|examples|research)\//, area: 'docs' },
               { pattern: /\.md$/, area: 'docs' },
             ];
@@ -116,6 +118,7 @@ jobs:
                   compiler: 0,
                   render: 0,
                   spec: 0,
+                  api: 0,
                   tests: 0,
                   ci: 0,
                   governance: 0,

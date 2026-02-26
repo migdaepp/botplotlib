@@ -32,7 +32,7 @@ jobs:
 
               // High risk: core pipeline
               { pattern: /^botplotlib\/compiler\//, risk: 'high', area: 'compiler' },
-              { pattern: /^botplotlib\/render\//, risk: 'high', area: 'renderer' },
+              { pattern: /^botplotlib\/render\//, risk: 'high', area: 'render' },
               { pattern: /^botplotlib\/spec\//, risk: 'high', area: 'spec' },
               { pattern: /^botplotlib\/_api\.py$/, risk: 'high', area: 'api' },
               { pattern: /^botplotlib\/figure\.py$/, risk: 'high', area: 'api' },
@@ -41,11 +41,11 @@ jobs:
               // Moderate risk: geoms, tests, scripts
               { pattern: /^botplotlib\/geoms\//, risk: 'moderate', area: 'geoms' },
               { pattern: /^tests\//, risk: 'moderate', area: 'tests' },
-              { pattern: /^scripts\//, risk: 'moderate', area: 'scripts' },
+              { pattern: /^scripts\//, risk: 'moderate', area: 'ci' },
 
               // Low risk: docs, examples, research, other markdown
               { pattern: /^docs\//, risk: 'low', area: 'docs' },
-              { pattern: /^examples\//, risk: 'low', area: 'examples' },
+              { pattern: /^examples\//, risk: 'low', area: 'docs' },
               { pattern: /^research\//, risk: 'low', area: 'docs' },
               { pattern: /\.md$/, risk: 'low', area: 'docs' },
             ];

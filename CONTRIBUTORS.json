@@ -9,6 +9,7 @@
         "compiler": 3,
         "render": 3,
         "spec": 3,
+        "api": 3,
         "tests": 3,
         "ci": 3,
         "governance": 3
