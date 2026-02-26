@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- assembled fresh by botplotlib (a cyborg production) -->
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
   <defs>
     <clipPath id="plot-clip">
@@ -27,19 +28,12 @@
   <text x="587.17" y="478" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="middle">2023</text>
   <line x1="759.34" y1="460" x2="759.34" y2="465" stroke="#CCCCCC" stroke-width="1"/>
   <text x="759.34" y="478" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="middle">2024</text>
-  <line x1="45" y1="448.736" x2="50" y2="448.736" stroke="#CCCCCC" stroke-width="1"/>
   <text x="42" y="452.736" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="end">3</text>
-  <line x1="45" y1="386.157" x2="50" y2="386.157" stroke="#CCCCCC" stroke-width="1"/>
   <text x="42" y="390.157" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="end">4</text>
-  <line x1="45" y1="323.579" x2="50" y2="323.579" stroke="#CCCCCC" stroke-width="1"/>
   <text x="42" y="327.579" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="end">5</text>
-  <line x1="45" y1="261" x2="50" y2="261" stroke="#CCCCCC" stroke-width="1"/>
   <text x="42" y="265" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="end">6</text>
-  <line x1="45" y1="198.421" x2="50" y2="198.421" stroke="#CCCCCC" stroke-width="1"/>
   <text x="42" y="202.421" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="end">7</text>
-  <line x1="45" y1="135.843" x2="50" y2="135.843" stroke="#CCCCCC" stroke-width="1"/>
   <text x="42" y="139.843" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="end">8</text>
-  <line x1="45" y1="73.2642" x2="50" y2="73.2642" stroke="#CCCCCC" stroke-width="1"/>
   <text x="42" y="77.2642" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="end">9</text>
   <text x="50" y="52" font-family="Georgia, Times New Roman, serif" font-size="22" fill="#333333" text-anchor="start" font-weight="bold">Revenue Growth</text>
 </svg>

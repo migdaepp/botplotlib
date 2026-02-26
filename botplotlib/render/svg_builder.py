@@ -150,8 +150,9 @@ class SvgDocument(SvgElement):
     def to_string(self, indent: int = 0) -> str:
         """Render complete SVG including the XML declaration."""
         declaration = '<?xml version="1.0" encoding="UTF-8"?>'
+        comment = "<!-- assembled fresh by botplotlib (a cyborg production) -->"
         body = super().to_string(indent)
-        return f"{declaration}\n{body}"
+        return f"{declaration}\n{comment}\n{body}"
 
 
 # ---------------------------------------------------------------------------

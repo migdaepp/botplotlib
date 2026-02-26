@@ -86,13 +86,13 @@ class TestUnsupported:
     """Test dispatch path 7: unsupported types."""
 
     def test_string_raises(self) -> None:
-        with pytest.raises(TypeError, match="Unsupported data type"):
+        with pytest.raises(TypeError, match="Can't make a plot from"):
             normalize_data("hello")
 
     def test_int_raises(self) -> None:
-        with pytest.raises(TypeError, match="Unsupported data type"):
+        with pytest.raises(TypeError, match="Can't make a plot from"):
             normalize_data(42)
 
     def test_none_raises(self) -> None:
-        with pytest.raises(TypeError, match="Unsupported data type"):
+        with pytest.raises(TypeError, match="Can't make a plot from"):
             normalize_data(None)

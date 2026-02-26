@@ -31,7 +31,10 @@ def nice_num(x: float, round_down: bool = False) -> float:
         A nice number (1, 2, or 5 times a power of 10).
     """
     if x <= 0:
-        raise ValueError(f"x must be positive, got {x}")
+        raise ValueError(
+            f"x must be positive, got {x}. "
+            f"This usually means data_min == data_max (all values are identical)."
+        )
 
     exp = math.floor(math.log10(x))
     frac = x / (10**exp)  # fraction in [1, 10)

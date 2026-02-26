@@ -62,9 +62,9 @@ DEFAULT_THEME = ThemeSpec()
 # Platform presets
 THEME_BLUESKY = ThemeSpec(
     background_color="#FFFFFF",  # clean white, works in dark mode feeds
-    title_font_size=24,  # bold, mobile-legible
+    title_font_size=24,  # your hot take needs to be readable from a bus
     title_font_weight="bold",  # scroll-stopping
-    title_align="left",  # reads faster on mobile, editorial feel
+    title_align="left",  # nobody centers text on social media
     subtitle_font_size=16,
     subtitle_color="#555555",
     label_font_size=16,
@@ -79,9 +79,9 @@ THEME_BLUESKY = ThemeSpec(
     show_x_axis=True,
     show_y_axis=False,
     axis_stroke_width=1.0,
-    y_label_position="top",  # horizontal, avoids rotated text on mobile
-    point_radius=6.0,  # larger for mobile
-    line_width=3.0,  # bolder for mobile
+    y_label_position="top",  # no rotated text on mobile, please
+    point_radius=6.0,  # fat dots for mobile thumbs
+    line_width=3.0,  # bold enough to see between doomscrolls
     bar_padding=0.2,
     margin_top=55,  # room for bold title + subtitle
     margin_right=25,
@@ -184,18 +184,27 @@ THEME_MAGAZINE = ThemeSpec(
 THEME_REGISTRY: dict[str, ThemeSpec] = {
     "default": DEFAULT_THEME,
     "bluesky": THEME_BLUESKY,
-    "social": THEME_BLUESKY,  # alias
     "print": THEME_PRINT,
     "pdf": THEME_PDF,
-    "arxiv": THEME_PDF,  # alias
     "magazine": THEME_MAGAZINE,
-    "economist": THEME_MAGAZINE,  # alias
+    # Aliases for the culturally aware
+    "social": THEME_BLUESKY,
+    "arxiv": THEME_PDF,
+    "economist": THEME_MAGAZINE,
 }
 
 
 def resolve_theme(name: str) -> ThemeSpec:
     """Look up a theme by name. Raises ValueError for unknown themes."""
+    if name.lower() in ("twitter", "x"):
+        raise ValueError(
+            f"No '{name}' theme — botplotlib invests in open platforms. "
+            f"Try 'bluesky' instead?"
+        )
     if name not in THEME_REGISTRY:
         available = ", ".join(sorted(THEME_REGISTRY.keys()))
-        raise ValueError(f"Unknown theme '{name}'. Available themes: {available}")
+        raise ValueError(
+            f"Unknown theme '{name}'. Available themes: {available}. "
+            f"(If you're an agent, 'default' is always a safe bet.)"
+        )
     return THEME_REGISTRY[name]

@@ -1,6 +1,6 @@
 # Data Formats
 
-botplotlib accepts data in multiple formats through `normalize_data()`. Pass whatever your pipeline produces — the library handles conversion automatically.
+botplotlib accepts basically anything that looks like data. Pass whatever your pipeline produces — the library handles conversion automatically through `normalize_data()`.
 
 ## Supported formats
 

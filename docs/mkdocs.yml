@@ -1,11 +1,13 @@
 site_name: botplotlib
-site_description: Beautiful plots, simple API, no matplotlib.
+site_description: Deadly serious plotting tools. Also sandwiches.
 site_url: https://migdaepp.github.io/botplotlib/
 repo_url: https://github.com/migdaepp/botplotlib
 repo_name: migdaepp/botplotlib
 
 theme:
   name: material
+  favicon: images/favicon.svg
+  logo: images/favicon.svg
   palette:
     - scheme: default
       primary: indigo

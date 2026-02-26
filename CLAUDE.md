@@ -1,5 +1,7 @@
 # CLAUDE.md
 
+Welcome to the kitchen.
+
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository. However this is meant to be an interoperable repo so the source of truth is [AGENTS.md](AGENTS.md) -- make sure you re-read it from the current branch at the start of each session (it may have changed since your last session). Claude.md should be kept as simple as possible with agents.md as the main source of truth.
 
 ## Project Overview
@@ -44,3 +46,14 @@ All development decisions should be evaluated against these principles (detailed
 - WCAG contrast checks are structural gates (errors, not warnings)
 - Follow red/green TDD for all features and fixes — write tests first, confirm they fail, then implement. See "Agentic Development Workflow" in AGENTS.md.
 - Treat recipes in AGENTS.md (geom recipe, contribution patterns) as agent-executable skills — follow them as step-by-step instructions, not just reference docs. The codebase is small enough (~4000 lines) to read and understand in full.
+
+## Voice & Tone
+
+Docs and error messages have personality. Ground rules:
+
+- Dry humor, not slapstick. Understatement over exclamation marks.
+- Respect matplotlib. The joke is "this workflow didn't exist when matplotlib was born," not "matplotlib is bad."
+- Bots belong here. Our CAPTCHA is `uv run pytest`.
+- The sandwich thing is fun but don't force it. If a BLT metaphor doesn't land naturally, drop it.
+- We cite Donna Haraway in a plotting library. That is both earnest and ridiculous.
+- Error messages: actionable fix first, personality second.

@@ -1,16 +1,18 @@
 # botplotlib
 
-**Beautiful plots, simple API, no matplotlib.**
+<p align="center">
+  <img src="images/blt-bot-says-hi.svg" alt="blt bot says hi" width="500">
+</p>
 
-botplotlib is an AI-native Python plotting library that produces publication-quality SVG and PNG output with zero configuration. The API is flat and simple — designed so both humans and LLMs generate correct code on the first try.
+**Deadly serious plotting tools.** *Also sandwiches.*
 
 ---
 
 ## Why botplotlib?
 
-Matplotlib was designed for humans writing code at keyboards. botplotlib is designed for the way people actually make plots now: you describe what you want, your AI partner writes the code, and you iterate on it together until the result looks good.
+A conversation in the open-source plotting world got us thinking about what a library looks like when humans and AIs build it together from scratch. Not just the code — the governance, the quality gates, the social contract.
 
-That cyborg workflow needs an API that's more often correct on the first try. It should be beautiful by default, accessible by construction, and token-efficient by design.
+We didn't have an answer, so we started building one. It turned out to be a plotting library with a Donna Haraway citation. We named it after a sandwich.
 
 <div class="grid cards" markdown>
 
@@ -18,39 +20,41 @@ That cyborg workflow needs an API that's more often correct on the first try. It
 
     ---
 
-    `bpl.scatter(data, x="a", y="b", theme="bluesky")` — no figure/axes juggling, no style boilerplate.
+    `bpl.scatter(data, x="a", y="b", theme="bluesky")` — no `fig, ax = plt.subplots()` preamble required.
 
 -   :material-palette:{ .lg .middle } **Beautiful by default**
 
     ---
 
-    Platform-specific themes (Bluesky, PDF, print, magazine) produce publication-ready output with zero configuration.
+    Five themes. The first render is usually the final render. (We know you weren't going to iterate.)
 
 -   :material-check-circle:{ .lg .middle } **Accessible by construction**
 
     ---
 
-    WCAG contrast validation is a compiler-level gate, not a warning — the system won't produce an inaccessible plot.
+    WCAG contrast validation is a compiler error, not a warning. You can't ship an inaccessible plot even if you try.
 
 -   :material-code-braces:{ .lg .middle } **Token-efficient**
 
     ---
 
-    A matplotlib scatter plot with decent styling is 15-25 lines; botplotlib is 1. Fewer tokens = fewer places an LLM can go wrong.
+    1 line instead of 15. That's 14 fewer lines to hallucinate.
 
 -   :material-file-code:{ .lg .middle } **Declarative spec**
 
     ---
 
-    PlotSpec is a JSON-serializable Pydantic model that any LLM can generate, any human can inspect, and any agent can modify.
+    PlotSpec is JSON — agents generate it, humans read it, `git diff` makes sense of it.
 
 -   :material-swap-horizontal:{ .lg .middle } **Matplotlib bridge**
 
     ---
 
-    The refactor module translates existing matplotlib scripts into clean PlotSpecs — see what your old code *means*.
+    Feed it your old scripts. The translation is often shorter than the import block it replaces.
 
 </div>
+
+Our CAPTCHA is `uv run pytest`.
 
 ## Quick example
 
@@ -67,7 +71,7 @@ fig = bpl.scatter(data, x="weight", y="mpg", color="origin",
 fig.save_svg("plot.svg")
 ```
 
-One function call. Beautiful output. WCAG-compliant colors. No configuration needed.
+One function call. Colors are WCAG-compliant out of the box.
 
 ## What's next?
 

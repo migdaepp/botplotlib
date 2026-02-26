@@ -2,6 +2,8 @@
 
 > All contributions to botplotlib are cyborg contributions. We reject the human/machine binary.
 
+botplotlib grew out of a question: what does open-source collaboration look like when some of the collaborators are AI? The library is one answer. This document is another.
+
 ## Project Identity
 
 **botplotlib** is an AI-native Python plotting library. It produces publication-quality SVG/PNG output with zero configuration and no matplotlib dependency. The API is flat, simple, and designed so LLMs generate correct code on the first try.
@@ -21,7 +23,7 @@
 
 ## Why AI-Native? Design Principles
 
-Matplotlib was designed for humans writing code at keyboards. botplotlib is designed for the new cyborg workflow: a human has an idea or a request, and then an AI + human team jointly creates it, iterating until both are satisfied. That loop needs a different API.
+Matplotlib has fed the scientific Python community for two decades. botplotlib is designed for a workflow that didn't exist when matplotlib was born: a human has an idea or a request, and then an AI + human team jointly creates it, iterating until both are satisfied. That loop needs a different API.
 
 These principles guide design decisions:
 
@@ -429,7 +431,9 @@ Per OpenAI's three-type taxonomy, annotated with MCP hints:
 ### Orchestration Tools (destructiveHint: true, openWorldHint: true)
 - `open_pull_request` — create a PR on GitHub
 
-## Anti-Patterns
+## Community Norms
+
+Good neighbors, good code:
 
 - No autonomous public speech acts about individuals
 - No reputational threats

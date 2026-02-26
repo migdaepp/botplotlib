@@ -32,7 +32,7 @@ fig.save_svg("gallery_default.svg")
 
 ### Bluesky
 
-Optimized for social media sharing. Bold 24pt left-aligned titles, larger fonts, stronger contrast, and de-emphasized axes for mobile legibility.
+Bold titles that stop the scroll. 24pt left-aligned, fat dots for mobile thumbs, stronger contrast, de-emphasized axes for social feeds.
 
 ```python
 fig = bpl.line(data, x="month", y="revenue", color="segment",
@@ -45,7 +45,7 @@ fig.save_svg("gallery_bluesky.svg")
 
 ### PDF
 
-For digital academic papers (arxiv, SSRN). Serif fonts, muted palette, visible y-axis, and lighter line weights suited to PDF readers.
+Academic restraint. Serif fonts, muted palette, visible y-axis, lighter line weights — the kind of plot that footnotes itself.
 
 ```python
 fig = bpl.line(data, x="month", y="revenue", color="segment",
@@ -58,7 +58,7 @@ fig.save_svg("gallery_pdf.svg")
 
 ### Print
 
-For black-and-white physical print. Grayscale palette and serif fonts ensure readability without color.
+For the journal that believes in grayscale. Serif fonts and a grayscale palette ensure readability without color.
 
 ```python
 fig = bpl.line(data, x="month", y="revenue", color="segment",
@@ -71,7 +71,7 @@ fig.save_svg("gallery_print.svg")
 
 ### Magazine
 
-For editorial and data journalism. Warm parchment background, serif fonts, bold left-aligned titles, and a custom palette inspired by print magazines.
+Warm parchment, serif authority. Bold left-aligned titles and a custom palette inspired by editorial data journalism.
 
 ```python
 fig = bpl.line(data, x="month", y="revenue", color="segment",

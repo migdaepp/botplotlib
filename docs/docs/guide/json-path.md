@@ -187,7 +187,7 @@ json_str = fig.spec.model_dump_json(indent=2)
 fig2 = bpl.Figure.from_json(json_str)
 ```
 
-The spec is fully serializable, diffable, versionable, and agent-exchangeable.
+The spec is fully serializable, diffable, and versionable. Same structural gates apply regardless of whether a human or an agent built it.
 
 ## `bpl.render()`
 

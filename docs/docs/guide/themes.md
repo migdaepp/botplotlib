@@ -1,6 +1,6 @@
 # Themes
 
-Every botplotlib theme produces publication-ready output with zero configuration. All palettes enforce WCAG AA contrast ratios (>= 3:1 against white) — this is a compiler-level gate, not a warning.
+All theme palettes enforce WCAG AA contrast ratios (>= 3:1 against white) — this is a compiler-level gate, not a warning.
 
 ## Available themes
 
@@ -47,7 +47,7 @@ fig = bpl.line(data, x="x", y="y", title="Default Theme")
 
 ### `bluesky`
 
-Optimized for social media sharing. Bold 24pt left-aligned titles, larger fonts for mobile readability, stronger contrast, top-positioned y-axis labels, and de-emphasized axes keep the focus on the data in social feeds.
+Bold titles that stop the scroll, fat dots for mobile thumbs. 24pt left-aligned titles, larger fonts for mobile readability, stronger contrast, top-positioned y-axis labels, and de-emphasized axes keep the focus on the data in social feeds.
 
 ```python
 fig = bpl.line(data, x="x", y="y", title="Bluesky Theme", theme="bluesky")
@@ -57,7 +57,7 @@ fig = bpl.line(data, x="x", y="y", title="Bluesky Theme", theme="bluesky")
 
 ### `pdf`
 
-Academic-oriented theme for digital papers (arxiv, SSRN). Serif fonts and muted colors that work well in PDF documents.
+Academic restraint. The kind of plot that footnotes itself. Serif fonts and muted colors that work well in PDF documents.
 
 ```python
 fig = bpl.line(data, x="x", y="y", title="PDF Theme", theme="pdf")
@@ -67,7 +67,7 @@ fig = bpl.line(data, x="x", y="y", title="PDF Theme", theme="pdf")
 
 ### `print`
 
-Grayscale theme for physical print and B&W journals. Serif fonts and a grayscale palette ensure legibility without color.
+For the journal that believes in grayscale. Serif fonts, thin lines, unapologetic grays. A grayscale palette ensures legibility without color.
 
 ```python
 fig = bpl.line(data, x="x", y="y", title="Print Theme", theme="print")
@@ -77,7 +77,7 @@ fig = bpl.line(data, x="x", y="y", title="Print Theme", theme="print")
 
 ### `magazine`
 
-Editorial-style theme inspired by data journalism. Left-aligned bold titles, warm parchment background, serif fonts, and a subdued palette designed for magazine and newsletter layouts.
+Warm parchment, serif authority. Left-aligned bold titles, warm background, and a subdued palette designed for magazine and newsletter layouts.
 
 ```python
 fig = bpl.line(data, x="x", y="y", title="Magazine Theme", theme="magazine")

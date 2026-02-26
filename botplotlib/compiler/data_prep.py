@@ -80,6 +80,7 @@ def normalize_data(data: Any) -> dict[str, list]:
             return _transpose_records(data)
         raise TypeError(
             f"Expected list of dicts, got list of {type(data[0]).__name__}. "
+            "Each record should look like {{'x': 1, 'y': 2}}. "
             "Supported formats: dict, list[dict], Polars DataFrame, "
             "Pandas DataFrame, Arrow Table/RecordBatch, generator."
         )
@@ -107,13 +108,15 @@ def normalize_data(data: Any) -> dict[str, list]:
             return _transpose_records(records)
         raise TypeError(
             f"Generator yielded {type(records[0]).__name__}, expected dicts. "
+            "Each yielded item should look like {{'x': 1, 'y': 2}}. "
             "Supported formats: dict, list[dict], Polars DataFrame, "
             "Pandas DataFrame, Arrow Table/RecordBatch, generator of dicts."
         )
 
     # 7. Raise TypeError
     raise TypeError(
-        f"Unsupported data type: {type(data).__name__}. "
+        f"Can't make a plot from {type(data).__name__}. "
+        "Simplest option: pass a dict like {{'x': [1, 2, 3], 'y': [4, 5, 6]}}. "
         "Supported formats: dict, list[dict], Polars DataFrame, "
         "Pandas DataFrame, Arrow Table/RecordBatch, generator of dicts."
     )

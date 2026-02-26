@@ -16,11 +16,9 @@ def _(mo):
     mo.md(r"""
     # botplotlib
 
-    **Beautiful plots. Simple API. No matplotlib.**
+    **Deadly serious plotting tools.** *Also sandwiches.*
 
-    A Python library that produces publication-ready plots with a simple,
-    declarative API. Designed for humans *and* coding agents
-    (Claude Code, Codex, Antigravity) alike.
+    This tutorial walks through the full library with live, editable plots.
     """)
     return
 
@@ -121,7 +119,8 @@ def _(mo):
     ## Your First Plot in One Line
 
     botplotlib takes a dict of columns and produces a beautiful plot.
-    No figure setup, no axis configuration, no style tweaking.
+    No figure setup, no axes configuration, no googling
+    "how to increase matplotlib font size" for the 400th time.
     """)
     return
 
@@ -292,16 +291,16 @@ def _(mo):
     mo.md(r"""
     ## Platform Themes
 
-    Every theme produces publication-ready output with zero configuration.
+    Every theme is designed so the first render is the final render.
     All palettes are WCAG AA compliant ($\geq$ 3 : 1 contrast ratio).
 
     | Theme | Use case | Style |
     |-------|----------|-------|
     | `default` | General purpose | Clean sans-serif, colorful palette |
-    | `bluesky` | Social media posts | Larger text, bolder strokes |
-    | `magazine` | Longform articles | Editorial serif, warm background |
-    | `pdf` | Digital academic papers (arxiv, SSRN) | Serif, muted colors |
-    | `print` | Physical print / B&W journals | Grayscale, serif fonts |
+    | `bluesky` | Social media posts | Scroll-stopping titles, fat dots for mobile |
+    | `magazine` | Longform articles | Warm parchment, serif authority |
+    | `pdf` | Academic papers (arxiv, SSRN) | Footnotes itself |
+    | `print` | Physical print / B&W journals | Unapologetic grayscale |
     """)
     return
 
@@ -514,18 +513,16 @@ def _(mo):
     mo.md(r"""
     ## Why botplotlib?
 
-    matplotlib is 20 years old and 200,000 lines of code. It was built
-    for humans tweaking knobs in a GUI. Today, most plots are generated
-    by code — increasingly by AI agents that can't see what they produce.
-
-    botplotlib is built for this world:
+    matplotlib has fed the scientific Python community for two decades.
+    botplotlib is designed for a workflow that didn't exist when
+    matplotlib was born — humans and AIs building plots together:
 
     - **Token-efficient**: fewer tokens = fewer failure points for LLMs
     - **Declarative**: propose a spec, let the compiler handle the pixels
     - **Accessible by default**: WCAG compliance is a structural gate,
       not a review step
-    - **Beautiful out of the box**: publication-ready with zero
-      configuration
+    - **Beautiful out of the box**: themes handle typography, colors,
+      and layout so the first render is usually the last
 
     [GitHub](https://github.com/migdaepp/botplotlib) &middot;
     [Architecture Guide](AGENTS.md)

@@ -1,38 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- assembled fresh by botplotlib (a cyborg production) -->
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800.0 500.0">
   <defs>
     <clipPath id="plot-clip">
-      <rect x="50" y="78" width="730" height="365"/>
+      <rect x="50" y="78" width="610" height="365"/>
     </clipPath>
   </defs>
   <rect x="0" y="0" width="800" height="500" fill="#F2EDE4"/>
-  <line x1="50" y1="432.67" x2="780" y2="432.67" stroke="#D8D2C6" stroke-width="1"/>
-  <line x1="50" y1="363.802" x2="780" y2="363.802" stroke="#D8D2C6" stroke-width="1"/>
-  <line x1="50" y1="294.934" x2="780" y2="294.934" stroke="#D8D2C6" stroke-width="1"/>
-  <line x1="50" y1="226.066" x2="780" y2="226.066" stroke="#D8D2C6" stroke-width="1"/>
-  <line x1="50" y1="157.198" x2="780" y2="157.198" stroke="#D8D2C6" stroke-width="1"/>
-  <line x1="50" y1="88.3302" x2="780" y2="88.3302" stroke="#D8D2C6" stroke-width="1"/>
-  <line x1="50" y1="443" x2="780" y2="443" stroke="#CCCCCC" stroke-width="1"/>
+  <line x1="50" y1="432.67" x2="660" y2="432.67" stroke="#D8D2C6" stroke-width="1"/>
+  <line x1="50" y1="346.585" x2="660" y2="346.585" stroke="#D8D2C6" stroke-width="1"/>
+  <line x1="50" y1="260.5" x2="660" y2="260.5" stroke="#D8D2C6" stroke-width="1"/>
+  <line x1="50" y1="174.415" x2="660" y2="174.415" stroke="#D8D2C6" stroke-width="1"/>
+  <line x1="50" y1="88.3302" x2="660" y2="88.3302" stroke="#D8D2C6" stroke-width="1"/>
+  <line x1="50" y1="443" x2="660" y2="443" stroke="#CCCCCC" stroke-width="1"/>
   <g clip-path="url(#plot-clip)">
-    <polyline points="70.6604,432.67 242.83,294.934 415,363.802 587.17,88.3302 759.34,226.066" fill="none" stroke="#388EC1" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+    <polyline points="67.2642,260.5 74.4575,243.312 81.6509,226.295 88.8443,209.62 96.0377,193.454 103.231,177.957 110.425,163.286 117.618,149.585 124.811,136.993 132.005,125.635 139.198,115.624 146.392,107.061 153.585,100.031 160.778,94.6044 167.972,90.8353 175.165,88.7615 182.358,88.4036 189.552,89.7653 196.745,92.8328 203.939,97.5757 211.132,103.946 218.325,111.881 225.519,121.301 232.712,132.112 239.906,144.206 247.099,157.461 254.292,171.746 261.486,186.918 268.679,202.825 275.873,219.308 283.066,236.203 290.259,253.341 297.453,270.55 304.646,287.659 311.84,304.496 319.033,320.894 326.226,336.689 333.42,351.722 340.613,365.843 347.807,378.913 355,390.799 362.193,401.383 369.387,410.559 376.58,418.236 383.774,424.337 390.967,428.801 398.16,431.584 405.354,432.657 412.547,432.009 419.741,429.649 426.934,425.598 434.127,419.897 441.321,412.604 448.514,403.791 455.708,393.547 462.901,381.973 470.094,369.185 477.288,355.311 484.481,340.49 491.675,324.87 498.868,308.607 506.061,291.863 513.255,274.805" fill="none" stroke="#388EC1" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+    <polyline points="67.2642,88.3302 74.4575,89.1903 81.6509,91.7621 88.8443,96.0199 96.0377,101.921 103.231,109.407 110.425,118.402 117.618,128.817 124.811,140.548 132.005,153.478 139.198,167.476 146.392,182.404 153.585,198.113 160.778,214.445 167.972,231.237 175.165,248.321 182.358,265.527 189.552,282.683 196.745,299.617 203.939,316.161 211.132,332.148 218.325,347.419 225.519,361.822 232.712,375.213 239.906,387.457 247.099,398.433 254.292,408.03 261.486,416.154 268.679,422.722 275.873,427.67 283.066,430.947 290.259,432.521 297.453,432.376 304.646,430.514 311.84,426.953 319.033,421.73 326.226,414.895 333.42,406.517 340.613,396.681 347.807,385.484 355,373.038 362.193,359.467 369.387,344.908 376.58,329.506 383.774,313.413 390.967,296.793 398.16,279.809 405.354,262.633 412.547,245.435 419.741,228.388 426.934,211.662 434.127,195.424 441.321,179.836 448.514,165.053 455.708,151.225 462.901,138.488 470.094,126.971 477.288,116.788 484.481,108.04 491.675,100.816 498.868,95.1877 506.061,91.2109 513.255,88.9255" fill="none" stroke="#8C1B2B" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
   </g>
-  <line x1="70.6604" y1="443" x2="70.6604" y2="448" stroke="#CCCCCC" stroke-width="1"/>
-  <text x="70.6604" y="461" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="middle">1</text>
-  <line x1="242.83" y1="443" x2="242.83" y2="448" stroke="#CCCCCC" stroke-width="1"/>
-  <text x="242.83" y="461" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="middle">2</text>
-  <line x1="415" y1="443" x2="415" y2="448" stroke="#CCCCCC" stroke-width="1"/>
-  <text x="415" y="461" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="middle">3</text>
-  <line x1="587.17" y1="443" x2="587.17" y2="448" stroke="#CCCCCC" stroke-width="1"/>
-  <text x="587.17" y="461" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="middle">4</text>
-  <line x1="759.34" y1="443" x2="759.34" y2="448" stroke="#CCCCCC" stroke-width="1"/>
-  <text x="759.34" y="461" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="middle">5</text>
-  <text x="42" y="436.67" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="end">2</text>
-  <text x="42" y="367.802" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="end">3</text>
-  <text x="42" y="298.934" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="end">4</text>
-  <text x="42" y="230.066" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="end">5</text>
-  <text x="42" y="161.198" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="end">6</text>
-  <text x="42" y="92.3302" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="end">7</text>
+  <line x1="67.2642" y1="443" x2="67.2642" y2="448" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="67.2642" y="461" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="middle">0</text>
+  <line x1="211.132" y1="443" x2="211.132" y2="448" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="211.132" y="461" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="middle">2</text>
+  <line x1="355" y1="443" x2="355" y2="448" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="355" y="461" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="middle">4</text>
+  <line x1="498.868" y1="443" x2="498.868" y2="448" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="498.868" y="461" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="middle">6</text>
+  <line x1="642.736" y1="443" x2="642.736" y2="448" stroke="#CCCCCC" stroke-width="1"/>
+  <text x="642.736" y="461" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="middle">8</text>
+  <text x="42" y="436.67" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="end">-1</text>
+  <text x="42" y="350.585" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="end">-0.5</text>
+  <text x="42" y="264.5" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="end">0</text>
+  <text x="42" y="178.415" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="end">0.5</text>
+  <text x="42" y="92.3302" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="end">1</text>
   <text x="50" y="52" font-family="Georgia, Times New Roman, serif" font-size="22" fill="#333333" text-anchor="start" font-weight="bold">Magazine Theme</text>
-  <text x="415" y="480" font-family="Georgia, Times New Roman, serif" font-size="12" fill="#333333" text-anchor="middle">x</text>
+  <text x="355" y="480" font-family="Georgia, Times New Roman, serif" font-size="12" fill="#333333" text-anchor="middle">x</text>
   <text x="50" y="74" font-family="Georgia, Times New Roman, serif" font-size="12" fill="#333333" text-anchor="start">y</text>
+  <rect x="675" y="80" width="12" height="12" fill="#388EC1" rx="2"/>
+  <text x="693" y="90" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="start">sin(x)</text>
+  <rect x="675" y="102" width="12" height="12" fill="#8C1B2B" rx="2"/>
+  <text x="693" y="112" font-family="Georgia, Times New Roman, serif" font-size="11" fill="#333333" text-anchor="start">cos(x)</text>
 </svg>

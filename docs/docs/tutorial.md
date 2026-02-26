@@ -1,5 +1,9 @@
 # Interactive Tutorial
 
+![deadly serious plotting tools](images/deadly-serious-plotting-tools.png){ width="400" }
+
+Walk through the full library with live, editable plots. Bring snacks.
+
 The botplotlib tutorial is an interactive [marimo](https://marimo.io) notebook that walks through the full library with live, editable plots.
 
 ## Running the tutorial

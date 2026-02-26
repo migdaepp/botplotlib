@@ -4,6 +4,8 @@ botplotlib ships with four built-in plot types. Each is a single function call t
 
 ## Scatter
 
+*Shows what's actually there.*
+
 Best for showing relationships between two numeric variables. Optionally group by a categorical column.
 
 ```python
@@ -48,6 +50,8 @@ fig.save_svg("scatter.svg")
 
 ## Line
 
+*Connects the dots so you don't have to.*
+
 Best for trends and time series. Multiple series are created automatically when `color` is specified.
 
 ```python
@@ -78,6 +82,8 @@ Same signature as `scatter()`. See the [scatter parameters table](#parameters) a
 ---
 
 ## Bar
+
+*The workhorse. Always starts from zero (as it should).*
 
 Best for comparing values across categories.
 
@@ -142,6 +148,8 @@ fig.save_svg("bar_labels.svg")
 ---
 
 ## Waterfall
+
+*The auditor's best friend.*
 
 Shows how an initial value is increased or decreased by a series of intermediate values, reaching a final total. Positive changes are colored differently from negative changes.
 

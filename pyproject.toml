@@ -1,11 +1,17 @@
 [project]
 name = "botplotlib"
 version = "0.1.0"
-description = "Beautiful plots, simple API, no matplotlib."
+description = "Deadly serious plotting tools. Also sandwiches."
 readme = "README.md"
 license = "CC0-1.0"
 requires-python = ">=3.10"
 dependencies = ["pydantic>=2.0"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Topic :: Scientific/Engineering :: Visualization",
+    "Typing :: Typed",
+]
+keywords = ["plotting", "visualization", "svg", "ai-native", "cyborg", "sandwich"]
 
 [project.optional-dependencies]
 png = ["cairosvg>=2.7"]
