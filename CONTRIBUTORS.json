@@ -1,0 +1,23 @@
+{
+  "$schema": "CONTRIBUTORS.json schema — see GOVERNANCE.md for field definitions",
+  "contributors": {
+    "migdaepp": {
+      "tier": 3,
+      "domains": {
+        "docs": 3,
+        "geoms": 3,
+        "compiler": 3,
+        "render": 3,
+        "spec": 3,
+        "tests": 3,
+        "ci": 3,
+        "governance": 3
+      },
+      "joined": "2025-05-01",
+      "probation_until": null,
+      "vouched_by": null,
+      "active_vouches": [],
+      "events": []
+    }
+  }
+}
