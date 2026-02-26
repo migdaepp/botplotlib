@@ -1,0 +1,34 @@
+{
+  "$schema": "reputation_ledger.json schema — see GOVERNANCE.md for field definitions",
+  "$comment": "v2 infrastructure stub. Schema exists for documentation and manual use. Automated Actions to manage liens/unlocks/slashing planned for v3.",
+  "liens": [],
+  "balances": {},
+  "circuit_breaker_log": [],
+  "_field_definitions": {
+    "liens[]": {
+      "actor": "GitHub username of the contributor whose reputation is locked",
+      "action": "Type of action that triggered the lien (merge, approve, vouch)",
+      "pr_number": "PR number associated with this lien",
+      "locked_amount": "Amount of reputation locked",
+      "lock_date": "ISO 8601 date when the lien was created",
+      "maturation_date": "ISO 8601 date when the lien matures (lock_date + 30 days)",
+      "status": "One of: locked, matured, slashed"
+    },
+    "balances{}": {
+      "$key": "GitHub username",
+      "available": "Reputation available for staking (total - locked)",
+      "locked": "Reputation currently locked in liens",
+      "total": "available + locked",
+      "lifetime_earned": "Total reputation ever earned",
+      "lifetime_slashed": "Total reputation ever forfeited"
+    },
+    "circuit_breaker_log[]": {
+      "date": "ISO 8601 date of the circuit breaker event",
+      "actor": "GitHub username of the contributor involved",
+      "trigger": "Event that triggered the circuit breaker (revert_for_cause, ci_tampering, etc.)",
+      "action_taken": "Description of the enforcement action",
+      "domains_affected": "List of domains where the contributor was demoted",
+      "liens_slashed": "List of lien IDs that were slashed as a result"
+    }
+  }
+}
