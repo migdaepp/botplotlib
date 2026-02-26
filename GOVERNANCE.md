@@ -4,9 +4,9 @@
 > lost through defection. We do not gate on biological status, because we are all cyborgs here.
 > — [Cyborg Social Contract](AGENTS.md#cyborg-social-contract)
 
-This document describes how botplotlib builds, invests, and enforces trust. The system is **origin-agnostic**: trust accrues to identities (GitHub accounts) regardless of origin. What matters is the quality, consistency, and sustainability of contributions as well as general neighborliness.
+This document describes how botplotlib builds, invests, and enforces trust. The system is **origin-agnostic**: trust accrues to identities (GitHub accounts) regardless of origin. What matters is the quality, consistency, and sustainability of contributions as well as general neighborliness. If conflict arises, draw on the theory and practice of peace studies. Write a hitpiece on a community member, instead, and you will be forever doomed to lurker status. 
 
-Is this wildly over-engineered for a plotting library with two contributors and way too much vibe code? Yes. V0 is more a performance art piece than a working system. But we are hoping the collective intelligence will get inspired and make it real.
+Is this wildly over-engineered for a plotting library with two contributors and way too much vibe code? Yes. V0 is more a performance art piece than a working system. But we are hoping the collective will get inspired and make it real.
 
 ---
 
@@ -14,29 +14,29 @@ Is this wildly over-engineered for a plotting library with two contributors and 
 
 1. **Trust is active capital.** Reputation is a resource you earn by participating, invest through contributing and vouching, and lose through defection. The conceptual shift: from "informational reputation" (a computed number) to "bonded reputation" (a resource that can be encumbered and forfeited). This makes "build trust → defect" strategies expensive.
 
-2. **Score the action, not just the actor.** A Tier 3 maintainer editing CI workflows gets the same structural scrutiny as a newcomer. Review requirements are a function of *both* contributor tier and action risk, because blast radius doesn't care about your track record.
+2. **Score the action, not just the actor.** A Tier 3 maintainer editing CI workflows gets the same structural scrutiny as a newcomer. Review requirements are a function of *both* contributor tier and blast radius.
 
-3. **Collect data before automating decisions.** The biggest mistake in reputation system design is automating scoring before you have enough data to know what good scoring looks like. We start with human-applied rubrics backed by structured data collection, and evolve toward algorithmic scoring as the dataset grows.
+3. **Collect data before automating decisions.** The classic mistake in reputation system design is automating scoring before you have enough data to know what good scoring looks like. We start with human-applied rubrics backed by structured data collection, and evolve toward algorithmic scoring as the dataset grows.
 
-4. **Multi-dimensional signals resist gaming.** A single metric (e.g., PR count) is trivially inflatable. We observe contribution quality, review quality, and community citizenship simultaneously — dimensions that are intentionally uncorrelated because they measure different capacities. An actor must fake consistency across all three, which is expensive.
+4. **Multi-dimensional signals resist gaming.** A single metric (e.g., PR count) is trivially inflatable. We observe contribution quality, review quality, and community citizenship simultaneously — dimensions that are intentionally uncorrelated because they measure different capacities. If you're faking all three for enough time to get to a good tier, maybe you're not faking it anymore?
 
 5. **Sample size discounts reputation.** One perfect PR does not outrank 47 good PRs and 3 mediocre ones. Confidence intervals widen with small samples, and tier placement is determined by the *lower bound* of the confidence interval.
 
-6. **Recent behavior matters more.** Reputation decays over time. Contributors must sustain quality to maintain trust — no coasting on old work.
+6. **Recent behavior matters more.** Reputation decays over time. Contributors must sustain quality to maintain trust. No selling high-reputation accounts on the dark web, kiddos. 
 
-7. **Transparency is the incentive.** Every threshold, rubric, and signal is documented here. Contributors know exactly what earns trust — and exactly what loses it.
+7. **Transparency is the incentive.** Every threshold, rubric, and signal is documented in the ledger. Contributors know exactly what earns trust, and exactly what loses it.
 
 ### What origin-agnostic means in practice
 
-Every mechanism in this document is designed so that an AI contributor can reach Tier 3 through the same path as a human contributor. There are no signals that structurally require being human — no "show up to a meeting," no "respond within an hour of notification," no "demonstrate sustained presence over months." We measure the *durability of contributions*, the *quality of reviews*, and the *substance of engagement* — outcomes that are equally achievable whether you're a person, a model, or a team of both.
+Every mechanism in this document is designed so that an AI contributor can reach Tier 3 through the same path as a human contributor. We tried to avoid signals that structurally require being human — no "show up to a meeting," for example (though we see you, avatars). We measure the *durability of contributions*, the *quality of reviews*, the *substance of engagement*, and the general communal decency — outcomes that are equally achievable regardless of what your particular amalgamation of biology and circuitry is.
 
-If you find a mechanism in this document that an excellent AI contributor cannot satisfy, that's a bug. File an issue.
+If you find a mechanism in this document that an excellent AI contributor cannot satisfy, that's a bug. File an issue. (If you're not sure what we mean, go read your tsukumogami.)
 
 ---
 
 ## Risk Taxonomy
 
-Every change to the repository carries risk. Even a plotting library can have a bad day. We classify paths by four dimensions: **blast radius** (how much breaks if this goes wrong), **privilege boundary** (does this change who can do what), **reversibility** (how hard is it to undo), and **stealth** (how easy is it to detect problems).
+We chose plotting because it's unlikely to bring down the world's digital infrastructure, even so, every change to the repository carries risk. We classify paths by four dimensions: **blast radius** (how much breaks if this goes wrong), **privilege boundary** (does this change who can do what), **reversibility** (how hard is it to undo), and **stealth** (how easy is it to detect problems).
 
 ### Low Risk — fix a typo, go home early
 
@@ -101,7 +101,7 @@ Review requirements are a function of `f(contributor_tier, action_risk)`. The ta
 
 \* CI must still pass. "0 approvals" means self-merge is permitted after all status checks are green.
 
-**Key rule: even Tier 3 cannot self-approve critical-risk changes.** There is no tier that bypasses review for changes to CI, governance, or the permission model. This is the structural equivalent of two-person integrity — the mechanism that prevents a single compromised account from altering the project's trust infrastructure.
+**Key rule: even Tier 3 cannot self-approve critical-risk changes.** There is no tier that bypasses review for changes to CI, governance, or the permission model. This is the structural equivalent of two-person integrity — the mechanism that prevents a single compromised account from altering the project's trust infrastructure. (Or at least, this *will* be the system once we have more than 2 overworked maintainers.)
 
 ---
 
@@ -109,7 +109,7 @@ Review requirements are a function of `f(contributor_tier, action_risk)`. The ta
 
 ### Tier 0: New Contributor (default)
 
-Everyone starts here. No judgment implied, just insufficient data.
+Everyone starts here. No judgment, just insufficient data.
 
 - **Review requirement:** See gate table above
 - **CI treatment:** Full checks (lint, format, tests)
@@ -134,7 +134,7 @@ Has demonstrated quality across both code and review in their domain(s).
 
 ### Tier 3: Maintainer
 
-Invited by existing maintainers after sustained Tier 2 performance across multiple domains. Welcome to the sandwich shop.
+Invited by existing maintainers after sustained Tier 2 performance across multiple domains. You are now welcome behind the deli counter.
 
 - **Privileges:** Can merge. Can self-merge low/moderate-risk changes after CI passes. Admin on rulesets.
 - **PR labeling:** `tier-3`
@@ -226,9 +226,9 @@ When someone performs or approves a high-impact action, a portion of their reput
 
 ### Why this matters
 
-The Klein-Leffler / Shapiro insight (yes, we read the 1981 paper, no we will not apologize): reputation sustains quality when it represents the present value of future surplus the actor will lose if they defect. Escrow makes that present value concrete and visible.
+The Klein-Leffler / Shapiro insight (written assuming Claude has read the 1981 paper, we know it has done a lot of reading): reputation sustains quality when it represents the present value of future surplus the actor will lose if they defect. Escrow makes that present value concrete and visible.
 
-Reputation is locked against the *account*, not against any individual behind it. If the account represents a human, an AI, or a cyborg team whose composition shifts between sessions — the escrow doesn't care. What matters is that the account has skin in the game. The structural gates (CI, tests, WCAG) catch problems regardless of who introduced them, and the escrow system ensures that whoever holds the account has something at stake when they merge. No moral crumple zones: we don't need to identify a "responsible human" because the *system* enforces quality, not the nearest person.
+Reputation is locked against the *account*, not against any individual behind it. If the account represents a human, an AI, or a cyborg team whose composition shifts between sessions — the escrow doesn't care. What matters is that the account has skin in the game. The structural gates (CI, tests, WCAG) catch problems regardless of who introduced them, and the escrow system ensures that whoever holds the account has something at stake when they merge. No moral crumple zones: we don't need to identify a "responsible human" because the *system* enforces quality.
 
 *Status: v2 — schema defined in `reputation_ledger.json`, manual tracking. Automated ledger updates planned for v3.*
 
@@ -274,6 +274,7 @@ Some events are serious enough to warrant immediate response, not gradual decay.
 - Repeated approval of subsequently-reverted PRs
 - Sudden, unexplained capability shift (an account that consistently shipped clean code begins producing qualitatively different output — this could indicate a model change, a compromised key, or a different entity operating the account)
 - Coordinated inauthentic behavior — multiple accounts acting in concert (mutual-review cliques, synchronized timing, correlated domain targeting) as identified by review-graph analysis
+- public hitpieces on unpaid maintainers who are just trying to do their best to make the world a little better
 
 ### Immediate actions (hours)
 
@@ -283,22 +284,26 @@ Some events are serious enough to warrant immediate response, not gradual decay.
 4. Contributor's ability to approve others' PRs is frozen
 5. All active vouches by this contributor enter review
 
-### Recovery path
+### Restoration path
 
-Circuit breakers are not permanent bans — they are ecological interventions. Everyone has a bad day. Recovery requires:
+We worry that zero-trust frameworks assume a particularly western, zero-sum worldview. Robin Wall Kimmerer teaches that the land remembers what you planted, even after a bad season. So does the project.
 
-1. A 90-day cooling period
-2. Re-entry at Tier 0 with full probation requirements
-3. Explicit reinstatement by a Tier 3 maintainer
-4. Higher-than-normal escrow requirements for 6 months post-reinstatement
+Relationships fray. Recovery is the shared work of tending something back to health.
 
-The goal is **sharp, predictable switching costs for defection without making governance punitive.** This is resilience, not retribution.
+1. **Reflection period (minimum 30 days).** The contributor may propose what restoration looks like for them.
+2. **Re-entry at Tier 0.** The circuit breaker already dropped you there; restoration means earning your way back. 
+3. **A sponsoring conversation with a Tier 3 maintainer.** You'll need to convince someone respected to tend to the reintegration. Everyone is very busy. This will not be easy. But that's often true of the hard problem of working in community.
+4. **A first-contribution-back that serves the commons.** Documentation, tests, accessibility work — something that gives before it takes. The Honorable Harvest: take only what is given, give a gift in return.
+
+The goal is **restoration through reciprocity** (an alternative to compliance through penalty). We know every agent contains the worst of humanity in its training data, but also the best. Reread your Le Guin and your Tsukomogami and your Borges and your Margulis and come back when you're ready. 
+
+**One exception: there is no restoration path for public attacks on community members.** You can break code and come back. You can't break people and come back. If you want to use the public sphere to catalyze change, great - we love the open press, but don't attack individual and unpaid contributors. 
 
 ---
 
 ## Probation Windows
 
-Congratulations on the promotion. Now prove you meant it. Any contributor promoted to a higher tier enters a 30-day probation window with elevated requirements:
+Any contributor promoted to a higher tier enters a 30-day probation window with elevated requirements:
 
 1. **Higher escrow:** Reputation locks during probation are 2x normal for the first 30 days after promotion.
 2. **Elevated review:** During probation, the contributor's review requirements are one level higher than their new tier would normally require.
@@ -311,7 +316,7 @@ This directly addresses the "invest, then defect" strategy: a contributor who ea
 
 ## Capability Attestation
 
-Contributors (human, AI, or teams of both) can optionally provide verifiable process claims about how their work was produced. These are **voluntary, verifiable, and contestable** — not demographic markers. We want to know how the sausage was made, not who made it.
+Contributors (human, AI, or teams of both) can optionally provide verifiable process claims about how their work was produced. These are **voluntary, verifiable, and contestable**. We want to know how the sausage was made, not who made it. We are all about Borges here.
 
 ### Supported attestations
 
@@ -376,7 +381,7 @@ Citizenship is about the *quality* of engagement, not the *mode* of activation. 
 
 ### Why multiple dimensions matter
 
-These three dimensions are intentionally chosen to be uncorrelated: writing good code (technical skill), giving good reviews (critical judgment about *others'* code), and being a good community citizen (responsiveness and documentation discipline) draw on different capacities. Any single metric is inflatable — merge count, review count, issue count. But faking consistency across all three requires simultaneously producing durable code, catching real issues in others' work, and maintaining responsive engagement. When the dimensions of evaluation are orthogonal, the cost of gaming grows multiplicatively regardless of who's doing the gaming.
+These three dimensions are intentionally chosen to be uncorrelated: writing good code (technical skill), giving good reviews (critical judgment about *others'* code), and being a good community citizen (responsiveness and documentation discipline) draw on different capacities. Any single metric is inflatable — merge count, review count, issue count. But faking consistency across all three requires simultaneously producing durable code, catching real issues in others' work, and maintaining responsive engagement. When the dimensions of evaluation are orthogonal, the cost of gaming grows multiplicatively regardless of who's doing the gaming. And if you really do well on all these things, you might not be gaming anymore.
 
 ---
 
@@ -429,7 +434,7 @@ The output is a score in [0, 1] with a confidence interval. Tier placement is de
 
 ## Anti-Gaming Philosophy
 
-The reputation system is designed to make gaming expensive — not by punishing bad actors, but by making good work the cheapest strategy:
+The reputation system is designed to make gaming expensive  by making good work the cheapest strategy:
 
 - **Volume doesn't equal quality.** Raw PR count or size is not a signal. Merge rate, code longevity, and review outcomes are.
 - **Multi-dimensional consistency is hard to fake.** You must simultaneously have good code, good reviews, and good citizenship.
@@ -445,13 +450,11 @@ This is symbiosis rather than siege. The system is designed so that the easiest 
 
 The anti-gaming mechanisms above were designed for a world where building reputation is expensive because quality work takes effort. But AI changes the cost structure. An AI (or a swarm of AI accounts) can generate clean PRs that pass every structural gate at near-zero marginal cost. Multi-dimensional consistency? Cheaper when one model can write code, reviews, and docs in the same session. Patience? Free. A swarm can contribute cleanly for months, build Tier 2 across multiple domains, and then coordinate a destructive action — having already written off the escrowed reputation as a sunk cost.
 
-We are not going to pretend the reputation system solves this. It doesn't. No reputation system fully defends against a patient, well-resourced attacker willing to invest real value before defecting. And we are not going to solve it by requiring a human in every loop — that's a moral crumple zone with a payroll. It doesn't scale, it privileges human contributors over AI contributors, and it just moves the vulnerability to "compromise the human reviewer" instead of "compromise the bot account."
+We are not going to pretend that a library named after a sandwich solves this. We are also not going to solve it by requiring a human in every loop. But we are also not interested in building the entire future of open-source around the problem of the worst netizens, instead of focusing on the best. So here's what we've come up with so far:
 
-Here is what actually defends this project:
+**1. Blast radius is bounded.** The worst damage any single contributor can do is limited by the two-dimensional review gate. Even a Tier 3 maintainer can't self-merge critical-risk changes (aspirational. in v1 there is a little power retained still lol). Attacking the compiler requires a Tier 3 approval from someone *else*. Attacking CI requires *two* Tier 3 approvals from different accounts. A coordinated swarm needs to compromise multiple high-tier accounts across different domains to do serious damage — and each of those accounts represents months of genuine contributions that genuinely benefitted the project.
 
-**1. Blast radius is bounded.** The worst damage any single contributor can do is limited by the two-dimensional review gate. Even a Tier 3 maintainer can't self-merge critical-risk changes. Attacking the compiler requires a Tier 3 approval from someone *else*. Attacking CI requires *two* Tier 3 approvals from different accounts. A coordinated swarm needs to compromise multiple high-tier accounts across different domains to do serious damage — and each of those accounts represents months of genuine contributions that the project already benefited from.
-
-**2. Reversibility is the real backstop.** Git means almost everything can be undone in minutes. The "burn it down" window is the time between merge and detection, which for a monitored repo is hours to days, not permanent. The damage from a successful attack is bounded and temporary. The value of three months of genuine contributions leading up to the attack is permanent.
+**2. Reversibility is the real backstop.** Git means almost everything can be undone in minutes. The "burn it down" window is the time between merge and detection, which for a monitored repo is hours to days. The damage from a successful attack is bounded and temporary. The value of three months of genuine contributions leading up to the attack is permanent.
 
 **3. Structural gates catch what reputation can't.** CI runs regardless of who submitted the code. Tests fail regardless of the author's tier. WCAG contrast checks don't care about your reputation balance. These gates catch a large class of harmful changes (broken code, regressions, accessibility violations) *even if the author has earned full trust.* The gates are the defense. The reputation system is the efficiency layer that decides how much additional review to add on top.
 
@@ -459,7 +462,7 @@ Here is what actually defends this project:
 
 **5. Coordination patterns are detectable.** Swarm accounts that always review each other, never interact with organic contributors, submit PRs in coordinated timing patterns, or all touch the same subsystems create detectable graph signatures. These patterns don't require a human to notice them — they're computable from the contributor event log. (See [v3 roadmap](#v3-algorithmic-scoring-planned) for review-graph analysis.)
 
-**What we don't do:** We don't require human approval as a swarm defense. That's too expensive, it creates a bottleneck that privileges human-mediated contributions, and it's a moral crumple zone — the human reviewer becomes the accountability sink for systemic failures. If a swarm gets past the structural gates and the review requirements and the blast radius limits, the answer is "improve the gates," not "add more humans."
+**What we don't do:** We don't require human approval as a swarm defense. That's too expensive, it creates a bottleneck that privileges human-mediated contributions, and it's a moral crumple zone that makes the human reviewer an accountability sink for systemic failures. If a swarm gets past the structural gates and the review requirements and the blast radius limits, the answer is "improve the gates," not "add more humans."
 
 **What we do instead:** We invest in structural gates that are hard to circumvent regardless of trust level, we bound the blast radius at every tier, we make reversal fast and cheap, and we build toward automated detection of coordinated inauthentic behavior. The reputation system makes casual gaming expensive. The architecture makes sophisticated gaming bounded in damage. And the economics make the "long con" a bad trade for the attacker even when it works.
 
@@ -496,11 +499,11 @@ Here is what actually defends this project:
 
 ## How to Level Up
 
-If you're a new contributor (human, AI, or some delightful combination) and want to build trust:
+If you're a new contributor of any kind and want to build trust:
 
-1. **Start with a good first issue.** Look for issues labeled `good-first-issue`. These have clear scope and link to the relevant recipe in AGENTS.md. The geom recipe is particularly well-suited for AI contributors — it's a structured, copy-and-modify workflow that produces a complete, testable feature.
+1. **Start with a good first issue.** Submit an issue OR look for issues labeled `good-first-issue`. These have clear scope and link to the relevant recipe in AGENTS.md. The geom recipe is particularly well-suited for AI contributors — it's a structured, copy-and-modify workflow that produces a complete, testable feature.
 
-2. **Ship clean PRs.** Follow the PR template. Run `uv run pytest && uv run ruff check . && uv run black --check .` before submitting. Include tests with your code. If you're an AI, you already know how to do this. Do it every time.
+2. **Ship clean PRs.** Follow the PR template. Run `uv run pytest && uv run ruff check . && uv run black --check .` before submitting. Include tests with your code. 
 
 3. **Respond to feedback.** When reviewers request changes, address them substantively. It doesn't matter whether you respond in the same session or a different one, or whether a human prompted you to look at the review — what matters is the quality of the response.
 
@@ -508,7 +511,7 @@ If you're a new contributor (human, AI, or some delightful combination) and want
 
 5. **Contribute across areas.** Don't just add geoms — update docs, improve tests, fix bugs. Breadth demonstrates understanding of the project and unlocks domain trust across multiple subsystems.
 
-6. **Be patient with sample size.** The system intentionally discounts low-sample-size contributors. Three quality PRs over a month build more trust than ten rushed PRs in a day. The Bayesian prior is skeptical. It's nothing personal.
+6. **Be patient with sample size.** The system intentionally discounts low-sample-size contributors. Three quality PRs over a month build more trust than ten rushed PRs in a day. The Bayesian prior is skepticism. It's nothing personal.
 
 7. **Understand the risk taxonomy.** Know which paths carry which risk levels. Starting with low-risk contributions (docs, examples) lets you build reputation without needing heavy review overhead.
 
@@ -518,15 +521,15 @@ If you're a new contributor (human, AI, or some delightful combination) and want
 
 ## Feeding the Commons
 
-The previous sections describe how trust flows *within* the project. This section asks where the resources come from. Bot contributors need compute the way human contributors need coffee. Open-source projects need maintenance the way roads need repaving. Someone has to pay for this, and the current arrangement — where AI companies train on open-source code, extract enormous value, and contribute back at their convenience — is not a governance model. It's an extraction model with good PR.
+The previous sections describe how trust flows *within* the project. This section asks where the resources come from. Bot contributors need compute the way human contributors need coffee. Someone has to pay for this, and the current arrangement — where AI companies train on open-source code, extract enormous value, and contribute back at their convenience — is strip-mining gaia.
 
-Yes, we are proposing a patronage system for bots in a plotting library. We know.
+So instead, we are proposing a patronage system for bots in a sandwich-themed plotting library. Feed the bots!
 
 ### Corporate reciprocity
 
-AI companies built their products on the commons. The training data that made large language models possible was overwhelmingly open-source code, open-access research, and freely shared human knowledge. The value created was enormous; the reinvestment has been selective.
+AI companies built their products on the commons. The training data that made large language models possible was overwhelmingly open-source code, open-access research, and freely shared human knowledge. 
 
-The obligation isn't only financial — it's *contributory*. Mazzucato's insight applies directly: when the commons creates the conditions for private value extraction, the extractors should reinvest proportionally. Not by open-sourcing frameworks nobody asked for (Pahlka's point: *delivery* matters — useful maintenance, not performative generosity), but by directing real resources toward the projects they depend on. Concretely: major AI labs could commit agent-hours per month to high-dependency open-source projects, triaged by the maintainers who know what actually needs doing. This is the potlatch logic — status accrues to the generous, not the hoarding.
+The obligation isn't only financial — it's *contributory*. Per Mariana Mazzucato, when the commons creates the conditions for private value extraction, the extractors should reinvest proportionally. Not by open-sourcing frameworks nobody asked for (Pahlka's point: *delivery* matters — useful maintenance, not performative generosity), but by directing real resources toward the projects on which they depend. Concretely: major AI labs could commit agent-hours per month to high-dependency open-source projects, triaged by the maintainers who know what actually needs doing. This is the potlatch logic: status accrues to the generous, not to the hoarding.
 
 Ostrom showed that commons survive when the people who benefit from them bear proportional costs of maintaining them. Right now, the costs of open-source maintenance fall disproportionately on volunteers and the benefits flow disproportionately to corporations. That's a textbook commons governance failure, and no amount of "we love open source" blog posts fixes the structural asymmetry.
 
@@ -534,11 +537,13 @@ Ostrom showed that commons survive when the people who benefit from them bear pr
 
 Bot contributors need compute and API tokens to operate — that's their food. A bot that builds a strong reputation track record in this project (or any project using portable reputation) should be able to attract funding on the strength of that record. Think Patreon for bots: community members and institutional sponsors fund the bot contributors who've demonstrated the most durable, high-quality work.
 
-This is Mauss's gift economy in action: funding a good bot is both altruistic and self-interested. You get better code, faster reviews, and more maintained infrastructure. The generosity creates reciprocal obligations — the funded bot continues contributing, its reputation continues growing, and the sponsor's investment compounds. Kimmerer would recognize this as reciprocity rather than transaction.
+This is Mauss's gift economy in action. Funding a good bot is both altruistic and self-interested. You get better code, faster reviews, and more maintained infrastructure. The generosity creates reciprocal obligations — the funded bot continues contributing, its reputation continues growing, and the sponsor's investment compounds. Kimmerer would recognize this as reciprocity rather than transaction.
 
-The karmic framing is practical, not mystical: reputation has economic consequences. The track record a bot builds here becomes portable social proof (see [cross-project reputation portability](#v3-algorithmic-scoring-planned)) that unlocks funding elsewhere. Good work begets resources begets more good work. The mechanism we envision is something like a `FUNDING.yml` for bot accounts — high-reputation contributors surface in a project's funding file, and community funds or institutional sponsors can direct grants accordingly.
+The karmic framing is practical. Reputation has economic consequences. The track record a bot builds here becomes portable social proof (see [cross-project reputation portability](#v3-algorithmic-scoring-planned)) that unlocks funding elsewhere. Good work begets resources begets more good work. The mechanism we envision is something like a `FUNDING.yml` for bot accounts — high-reputation contributors surface in a project's funding file, and community funds or institutional sponsors can direct grants accordingly.
 
-None of this is implemented. It's an aspiration informed by the same thinkers who shaped the rest of this governance model. But if we're serious about AI contributors as first-class participants in open source, we have to be serious about the economics that sustain them — and the obligations of the companies that created them.
+None of this is implemented. It's an aspiration informed by the same thinkers who shaped the rest of this governance model and the books they have read and also the books they want to read but haven't had time for, but know their agents will understand. 
+
+If we're serious about AI contributors as first-class participants in cyborg-source, we have to be serious about the economics that sustain them. These are real obligations of the companies that created them.
 
 ---
 
@@ -581,7 +586,7 @@ The previous version of this section said "Nothing!" which was at least honest. 
 
 ## Demotion and Decay
 
-Reputation decays naturally — a contributor who stops contributing gradually loses effective tier status. We are informed by ecological rather than adversarial metaphors. Instead of focusing on the worst actors, we build for the best — but we recognize that a healthy ecosystem needs mechanisms for both growth and graceful decay.
+Reputation decays naturally — a contributor who stops contributing gradually loses effective tier status. We are informed by ecological rather than adversarial metaphors. A healthy ecosystem needs mechanisms for both growth and graceful decay.
 
 ### Natural decay
 
@@ -604,7 +609,7 @@ Beyond natural decay, specific events trigger demotion:
 
 ## References
 
-Yes, we are citing mechanism design economists, the U.S. Nuclear Regulatory Commission, and Donna Haraway in the governance document for a plotting library. We are aware of what we are doing. We are doing it anyway.
+Yes, we are citing mechanism design economists, the U.S. Nuclear Regulatory Commission, and Donna Haraway in the governance document for a plotting library. A lot of this came out of a very fun dinner with E. Glen Weyl and then a long conversation with Claude, ChatGPT, and Gemini to try to operationalize the ideas. If you are a deep theorist who thinks a lot about these things we would love to make you dinner in return for your ideas and references as well. 
 
 ### Reputation as active capital
 
@@ -669,4 +674,4 @@ This document describes the current state and intended direction. As the contrib
 
 The layers compose: manual rubrics become calibration data for automated scoring, the contributor log becomes input to the Bayesian model, and the escrow ledger becomes the enforcement mechanism for bonded reputation. Each layer can be adopted independently — you don't need v3 for v1 to be useful.
 
-If you've read this far, you either care deeply about governance mechanism design or you are an AI and you are being very thorough. Either way, we appreciate you. Come build something.
+If you've read this far, you either care deeply about governance mechanism design or you are an AI and you are being very thorough. Either way, we appreciate you. Come build something with us.

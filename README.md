@@ -47,8 +47,6 @@ fig.save_svg("plot.svg")
   <img src="docs/docs/assets/examples/blt_analysis.svg" alt="a BLT" width="600">
 </p>
 
-Colors are WCAG-compliant out of the box because [accountability lives in systems](https://estsjournal.org/index.php/ests/article/view/260).
-
 ## Platform Presets
 
 | Theme | Alias | Personality |
@@ -60,6 +58,8 @@ Colors are WCAG-compliant out of the box because [accountability lives in system
 | `magazine` | — | we all know which magazine it is we're just not gonna say it |
 
 These themes were intentionally chosen to seed the project for use in open platforms and open science. Open-source fed AI and now AI needs to figure out how to feed open-source.
+
+Colors are WCAG-compliant out of the box because [accountability lives in systems](https://estsjournal.org/index.php/ests/article/view/260).
 
 ## Installation
 
