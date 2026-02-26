@@ -1,45 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- assembled fresh by botplotlib (a cyborg production) -->
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800.0 500.0">
   <defs>
     <clipPath id="plot-clip">
-      <rect x="79.4" y="66" width="700.6" height="367"/>
+      <rect x="79.4" y="66" width="580.6" height="367"/>
     </clipPath>
   </defs>
   <rect x="0" y="0" width="800" height="500" fill="#FFFFFF"/>
-  <line x1="79.4" y1="422.613" x2="780" y2="422.613" stroke="#E0E0E0" stroke-width="1"/>
-  <line x1="79.4" y1="353.368" x2="780" y2="353.368" stroke="#E0E0E0" stroke-width="1"/>
-  <line x1="79.4" y1="284.123" x2="780" y2="284.123" stroke="#E0E0E0" stroke-width="1"/>
-  <line x1="79.4" y1="214.877" x2="780" y2="214.877" stroke="#E0E0E0" stroke-width="1"/>
-  <line x1="79.4" y1="145.632" x2="780" y2="145.632" stroke="#E0E0E0" stroke-width="1"/>
-  <line x1="79.4" y1="76.3868" x2="780" y2="76.3868" stroke="#E0E0E0" stroke-width="1"/>
-  <line x1="79.4" y1="433" x2="780" y2="433" stroke="#2D2D2D" stroke-width="0.75"/>
+  <line x1="79.4" y1="422.613" x2="660" y2="422.613" stroke="#E0E0E0" stroke-width="1"/>
+  <line x1="79.4" y1="336.057" x2="660" y2="336.057" stroke="#E0E0E0" stroke-width="1"/>
+  <line x1="79.4" y1="249.5" x2="660" y2="249.5" stroke="#E0E0E0" stroke-width="1"/>
+  <line x1="79.4" y1="162.943" x2="660" y2="162.943" stroke="#E0E0E0" stroke-width="1"/>
+  <line x1="79.4" y1="76.3868" x2="660" y2="76.3868" stroke="#E0E0E0" stroke-width="1"/>
+  <line x1="79.4" y1="433" x2="660" y2="433" stroke="#2D2D2D" stroke-width="0.75"/>
   <line x1="79.4" y1="66" x2="79.4" y2="433" stroke="#2D2D2D" stroke-width="0.75"/>
   <g clip-path="url(#plot-clip)">
-    <polyline points="99.2283,422.613 264.464,284.123 429.7,353.368 594.936,76.3868 760.172,214.877" fill="none" stroke="#2B5B8A" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+    <polyline points="95.8321,249.5 102.679,232.218 109.525,215.108 116.372,198.342 123.219,182.087 130.066,166.505 136.912,151.753 143.759,137.977 150.606,125.316 157.452,113.896 164.299,103.83 171.146,95.2202 177.992,88.1517 184.839,82.6954 191.686,78.9056 198.533,76.8204 205.379,76.4606 212.226,77.8297 219.073,80.9141 225.919,85.683 232.766,92.0886 239.613,100.067 246.459,109.539 253.306,120.409 260.153,132.568 267,145.897 273.846,160.26 280.693,175.515 287.54,191.509 294.386,208.083 301.233,225.07 308.08,242.302 314.926,259.605 321.773,276.808 328.62,293.738 335.467,310.225 342.313,326.106 349.16,341.222 356.007,355.421 362.853,368.561 369.7,380.513 376.547,391.155 383.393,400.381 390.24,408.1 397.087,414.235 403.933,418.723 410.78,421.521 417.627,422.6 424.474,421.949 431.32,419.576 438.167,415.502 445.014,409.771 451.86,402.438 458.707,393.576 465.554,383.276 472.4,371.638 479.247,358.781 486.094,344.831 492.941,329.929 499.787,314.223 506.634,297.871 513.481,281.035 520.327,263.884" fill="none" stroke="#2B5B8A" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+    <polyline points="95.8321,76.3868 102.679,77.2516 109.525,79.8375 116.372,84.1186 123.219,90.0522 130.066,97.5789 136.912,106.624 143.759,117.096 150.606,128.891 157.452,141.891 164.299,155.967 171.146,170.977 177.992,186.771 184.839,203.192 191.686,220.076 198.533,237.254 205.379,254.555 212.226,271.805 219.073,288.832 225.919,305.466 232.766,321.541 239.613,336.896 246.459,351.377 253.306,364.841 260.153,377.153 267,388.189 273.846,397.839 280.693,406.007 287.54,412.611 294.386,417.586 301.233,420.881 308.08,422.463 314.926,422.318 321.773,420.446 328.62,416.866 335.467,411.613 342.313,404.741 349.16,396.317 356.007,386.427 362.853,375.168 369.7,362.654 376.547,349.01 383.393,334.371 390.24,318.884 397.087,302.703 403.933,285.992 410.78,268.915 417.627,251.645 424.474,234.353 431.32,217.212 438.167,200.394 445.014,184.067 451.86,168.394 458.707,153.53 465.554,139.626 472.4,126.82 479.247,115.239 486.094,105 492.941,96.2049 499.787,88.9412 506.634,83.2818 513.481,79.2832 520.327,76.9854" fill="none" stroke="#B5342E" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
   </g>
-  <line x1="99.2283" y1="433" x2="99.2283" y2="438" stroke="#2D2D2D" stroke-width="0.75"/>
-  <text x="99.2283" y="451" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="middle">1</text>
-  <line x1="264.464" y1="433" x2="264.464" y2="438" stroke="#2D2D2D" stroke-width="0.75"/>
-  <text x="264.464" y="451" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="middle">2</text>
-  <line x1="429.7" y1="433" x2="429.7" y2="438" stroke="#2D2D2D" stroke-width="0.75"/>
-  <text x="429.7" y="451" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="middle">3</text>
-  <line x1="594.936" y1="433" x2="594.936" y2="438" stroke="#2D2D2D" stroke-width="0.75"/>
-  <text x="594.936" y="451" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="middle">4</text>
-  <line x1="760.172" y1="433" x2="760.172" y2="438" stroke="#2D2D2D" stroke-width="0.75"/>
-  <text x="760.172" y="451" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="middle">5</text>
+  <line x1="95.8321" y1="433" x2="95.8321" y2="438" stroke="#2D2D2D" stroke-width="0.75"/>
+  <text x="95.8321" y="451" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="middle">0</text>
+  <line x1="232.766" y1="433" x2="232.766" y2="438" stroke="#2D2D2D" stroke-width="0.75"/>
+  <text x="232.766" y="451" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="middle">2</text>
+  <line x1="369.7" y1="433" x2="369.7" y2="438" stroke="#2D2D2D" stroke-width="0.75"/>
+  <text x="369.7" y="451" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="middle">4</text>
+  <line x1="506.634" y1="433" x2="506.634" y2="438" stroke="#2D2D2D" stroke-width="0.75"/>
+  <text x="506.634" y="451" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="middle">6</text>
+  <line x1="643.568" y1="433" x2="643.568" y2="438" stroke="#2D2D2D" stroke-width="0.75"/>
+  <text x="643.568" y="451" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="middle">8</text>
   <line x1="74.4" y1="422.613" x2="79.4" y2="422.613" stroke="#2D2D2D" stroke-width="0.75"/>
-  <text x="71.4" y="426.613" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="end">2</text>
-  <line x1="74.4" y1="353.368" x2="79.4" y2="353.368" stroke="#2D2D2D" stroke-width="0.75"/>
-  <text x="71.4" y="357.368" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="end">3</text>
-  <line x1="74.4" y1="284.123" x2="79.4" y2="284.123" stroke="#2D2D2D" stroke-width="0.75"/>
-  <text x="71.4" y="288.123" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="end">4</text>
-  <line x1="74.4" y1="214.877" x2="79.4" y2="214.877" stroke="#2D2D2D" stroke-width="0.75"/>
-  <text x="71.4" y="218.877" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="end">5</text>
-  <line x1="74.4" y1="145.632" x2="79.4" y2="145.632" stroke="#2D2D2D" stroke-width="0.75"/>
-  <text x="71.4" y="149.632" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="end">6</text>
+  <text x="71.4" y="426.613" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="end">-1</text>
+  <line x1="74.4" y1="336.057" x2="79.4" y2="336.057" stroke="#2D2D2D" stroke-width="0.75"/>
+  <text x="71.4" y="340.057" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="end">-0.5</text>
+  <line x1="74.4" y1="249.5" x2="79.4" y2="249.5" stroke="#2D2D2D" stroke-width="0.75"/>
+  <text x="71.4" y="253.5" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="end">0</text>
+  <line x1="74.4" y1="162.943" x2="79.4" y2="162.943" stroke="#2D2D2D" stroke-width="0.75"/>
+  <text x="71.4" y="166.943" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="end">0.5</text>
   <line x1="74.4" y1="76.3868" x2="79.4" y2="76.3868" stroke="#2D2D2D" stroke-width="0.75"/>
-  <text x="71.4" y="80.3868" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="end">7</text>
-  <text x="429.7" y="56" font-family="Georgia, Times New Roman, serif" font-size="16" fill="#2D2D2D" text-anchor="middle">Pdf Theme</text>
-  <text x="429.7" y="475" font-family="Georgia, Times New Roman, serif" font-size="12" fill="#2D2D2D" text-anchor="middle">x</text>
+  <text x="71.4" y="80.3868" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="end">1</text>
+  <text x="369.7" y="56" font-family="Georgia, Times New Roman, serif" font-size="16" fill="#2D2D2D" text-anchor="middle">Pdf Theme</text>
+  <text x="369.7" y="475" font-family="Georgia, Times New Roman, serif" font-size="12" fill="#2D2D2D" text-anchor="middle">x</text>
   <text x="14.4" y="249.5" font-family="Georgia, Times New Roman, serif" font-size="12" fill="#2D2D2D" text-anchor="middle" transform="rotate(-90,14.399999999999999,249.5)">y</text>
+  <rect x="675" y="68" width="12" height="12" fill="#2B5B8A" rx="2"/>
+  <text x="693" y="78" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="start">sin(x)</text>
+  <rect x="675" y="90" width="12" height="12" fill="#B5342E" rx="2"/>
+  <text x="693" y="100" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#2D2D2D" text-anchor="start">cos(x)</text>
 </svg>

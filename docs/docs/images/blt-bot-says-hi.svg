@@ -1,0 +1,232 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 420" width="520" height="420">
+  <defs>
+    <pattern id="breadTexture" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="3" r="1.1" fill="#D4A056" opacity="0.25"/>
+      <circle cx="7" cy="2" r="0.8" fill="#B07828" opacity="0.2"/>
+      <circle cx="5" cy="7" r="1.3" fill="#C4903E" opacity="0.2"/>
+      <circle cx="1" cy="9" r="0.6" fill="#B8862E" opacity="0.18"/>
+      <circle cx="9" cy="8" r="0.9" fill="#C49035" opacity="0.15"/>
+    </pattern>
+    <filter id="shadow" x="-5%" y="-5%" width="115%" height="120%">
+      <feDropShadow dx="1" dy="3" stdDeviation="3" flood-color="#00000022"/>
+    </filter>
+    <filter id="softGlow" x="-15%" y="-15%" width="130%" height="130%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="breadGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F0C97A"/>
+      <stop offset="100%" stop-color="#D4A040"/>
+    </linearGradient>
+    <linearGradient id="breadTopGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#DCA550"/>
+      <stop offset="100%" stop-color="#F0C97A"/>
+    </linearGradient>
+    <linearGradient id="lettuceGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7EC850"/>
+      <stop offset="100%" stop-color="#4AA832"/>
+    </linearGradient>
+    <linearGradient id="tomatoGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FF4D4D"/>
+      <stop offset="100%" stop-color="#CC2222"/>
+    </linearGradient>
+    <linearGradient id="botBodyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7B8FF0"/>
+      <stop offset="100%" stop-color="#5C6DD4"/>
+    </linearGradient>
+    <linearGradient id="facePlateGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F0F3FF"/>
+      <stop offset="100%" stop-color="#E0E6FA"/>
+    </linearGradient>
+    <radialGradient id="cheekGlow">
+      <stop offset="0%" stop-color="#FF8888" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#FF8888" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="antennaGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFE566"/>
+      <stop offset="50%" stop-color="#FFD700"/>
+      <stop offset="100%" stop-color="#FFD700" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="520" height="420" fill="none"/>
+
+  <!-- ========== BOTTOM BREAD (sandwich slice) ========== -->
+  <g filter="url(#shadow)">
+    <!-- Crust border -->
+    <rect x="112" y="275" width="296" height="42" rx="6" fill="#B07828" stroke="#906018" stroke-width="1"/>
+    <!-- Inner bread -->
+    <rect x="118" y="278" width="284" height="34" rx="4" fill="url(#breadGrad)"/>
+    <rect x="118" y="278" width="284" height="34" rx="4" fill="url(#breadTexture)"/>
+    <!-- Crust bottom edge -->
+    <line x1="114" y1="312" x2="406" y2="312" stroke="#8C6018" stroke-width="1.5"/>
+  </g>
+
+  <!-- ========== LETTUCE ========== -->
+  <g filter="url(#shadow)">
+    <path d="M95,262 Q112,248 135,258 Q152,244 175,254 Q195,240 220,252 Q242,238 265,250 Q288,236 312,248 Q332,234 355,246 Q375,234 395,250 Q412,240 422,255 Q428,264 424,272 Q412,264 395,268 Q375,256 355,264 Q332,252 312,262 Q288,250 265,260 Q242,248 220,258 Q195,246 175,256 Q152,244 135,256 Q112,246 100,260 Q92,268 95,262 Z"
+          fill="url(#lettuceGrad)" stroke="#3D8C25" stroke-width="0.8"/>
+    <path d="M175,254 L180,265" stroke="#5DBB3A" stroke-width="0.6" opacity="0.5"/>
+    <path d="M265,250 L268,262" stroke="#5DBB3A" stroke-width="0.6" opacity="0.5"/>
+    <path d="M355,246 L358,260" stroke="#5DBB3A" stroke-width="0.6" opacity="0.5"/>
+  </g>
+
+  <!-- ========== TOMATO ========== -->
+  <g filter="url(#shadow)">
+    <ellipse cx="260" cy="245" rx="72" ry="18" fill="url(#tomatoGrad)" stroke="#AA1111" stroke-width="1.2"/>
+    <ellipse cx="260" cy="245" rx="52" ry="12" fill="none" stroke="#FF6666" stroke-width="0.6" opacity="0.45"/>
+    <ellipse cx="260" cy="245" rx="32" ry="7" fill="none" stroke="#FF6666" stroke-width="0.4" opacity="0.35"/>
+    <ellipse cx="240" cy="241" rx="3.5" ry="1.8" fill="#FFAA77" opacity="0.5" transform="rotate(-18, 240, 241)"/>
+    <ellipse cx="280" cy="248" rx="3.5" ry="1.8" fill="#FFAA77" opacity="0.5" transform="rotate(12, 280, 248)"/>
+  </g>
+
+  <!-- ========== THE BOT ========== -->
+  <g filter="url(#shadow)">
+    <!-- Body — slightly tilted for personality -->
+    <g transform="rotate(-2, 260, 210)">
+      <rect x="185" y="185" width="150" height="55" rx="12" fill="url(#botBodyGrad)" stroke="#4A5BC0" stroke-width="1.5"/>
+
+      <!-- Subtle panel lines -->
+      <line x1="205" y1="192" x2="205" y2="233" stroke="#8B9AF0" stroke-width="0.8" opacity="0.3"/>
+      <line x1="315" y1="192" x2="315" y2="233" stroke="#8B9AF0" stroke-width="0.8" opacity="0.3"/>
+
+      <!-- Small screws -->
+      <circle cx="197" cy="197" r="2.5" fill="#4A5BC0" opacity="0.35"/>
+      <line x1="195.5" y1="197" x2="198.5" y2="197" stroke="#3A4BA0" stroke-width="1"/>
+      <circle cx="323" cy="233" r="2.5" fill="#4A5BC0" opacity="0.35"/>
+      <line x1="321.5" y1="233" x2="324.5" y2="233" stroke="#3A4BA0" stroke-width="1"/>
+
+      <!-- Status LEDs — small, tasteful -->
+      <circle cx="200" cy="230" r="2" fill="#44DD66">
+        <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="208" cy="230" r="2" fill="#FFAA22">
+        <animate attributeName="opacity" values="0.3;1;0.3" dur="2.5s" repeatCount="indefinite"/>
+      </circle>
+
+      <!-- Face plate -->
+      <rect x="215" y="190" width="90" height="44" rx="9" fill="url(#facePlateGrad)" stroke="#4A5BC0" stroke-width="1.2" transform="rotate(1, 260, 212)"/>
+
+      <!-- LEFT EYE — bigger, confident, slightly mischievous -->
+      <ellipse cx="243" cy="206" rx="12" ry="13" fill="white" stroke="#333" stroke-width="1.5"/>
+      <!-- Pupil looking to the side — scheming -->
+      <circle cx="247" cy="204" r="5.5" fill="#2A2A4A"/>
+      <circle cx="249" cy="202" r="1.8" fill="white"/>
+      <!-- Raised eyebrow — the "I know something you don't" look -->
+      <path d="M229,191 Q238,184 255,190" fill="none" stroke="#444" stroke-width="2.2" stroke-linecap="round"/>
+
+      <!-- RIGHT EYE — slightly smaller, winking -->
+      <ellipse cx="280" cy="205" rx="10" ry="11" fill="white" stroke="#333" stroke-width="1.5"/>
+      <!-- This eye has a playful squint -->
+      <circle cx="283" cy="203" r="4.5" fill="#2A2A4A"/>
+      <circle cx="285" cy="201" r="1.5" fill="white"/>
+      <!-- Flatter eyebrow — asymmetric with the other one -->
+      <path d="M269,192 Q278,189 292,193" fill="none" stroke="#444" stroke-width="2" stroke-linecap="round"/>
+
+      <!-- Smug confident grin — lopsided, charming -->
+      <path d="M238,222 Q250,234 265,233 Q278,231 288,222" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round"/>
+      <!-- One side curls up more — the smirk -->
+      <path d="M288,222 Q292,219 294,215" fill="none" stroke="#333" stroke-width="1.8" stroke-linecap="round"/>
+      <!-- Little tooth peeking out -->
+      <rect x="258" y="224" width="6" height="5" rx="1" fill="white" stroke="#CCC" stroke-width="0.5"/>
+
+      <!-- Subtle cheek blush -->
+      <circle cx="232" cy="220" r="7" fill="url(#cheekGlow)"/>
+      <circle cx="293" cy="218" r="7" fill="url(#cheekGlow)"/>
+    </g>
+
+    <!-- ANTENNA — gentle spring wobble -->
+    <g>
+      <animateTransform attributeName="transform" type="rotate" values="-3,260,185;3,260,185;-3,260,185" dur="2s" repeatCount="indefinite"/>
+      <!-- Clean spring -->
+      <path d="M260,185 Q270,180 255,174 Q248,169 260,164 Q272,159 252,154 Q246,150 260,145" fill="none" stroke="#5C6DD4" stroke-width="2" stroke-linecap="round"/>
+      <!-- Antenna orb -->
+      <circle cx="260" cy="140" r="8" fill="url(#antennaGlow)" filter="url(#softGlow)">
+        <animate attributeName="r" values="8;10;8" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <!-- Single subtle spark -->
+      <g>
+        <animate attributeName="opacity" values="0;0.8;0" dur="3s" repeatCount="indefinite"/>
+        <line x1="269" y1="137" x2="275" y2="131" stroke="#FFD700" stroke-width="1.2" stroke-linecap="round"/>
+        <line x1="272" y1="134" x2="270" y2="129" stroke="#FFD700" stroke-width="1" stroke-linecap="round"/>
+      </g>
+    </g>
+
+    <!-- LEFT ARM — confident wave, clean noodle arm -->
+    <g>
+      <animateTransform attributeName="transform" type="rotate" values="-4,185,210;6,185,210;-4,185,210" dur="1.8s" repeatCount="indefinite"/>
+      <path d="M185,210 Q168,198 155,210 Q145,220 130,208" fill="none" stroke="#5C6DD4" stroke-width="4" stroke-linecap="round"/>
+      <!-- Hand doing a little peace sign / wave -->
+      <circle cx="126" cy="205" r="6" fill="#7B8FF0" stroke="#4A5BC0" stroke-width="1.2"/>
+      <!-- Peace sign fingers -->
+      <line x1="122" y1="200" x2="118" y2="192" stroke="#4A5BC0" stroke-width="2" stroke-linecap="round"/>
+      <line x1="127" y1="199" x2="127" y2="190" stroke="#4A5BC0" stroke-width="2" stroke-linecap="round"/>
+      <!-- Thumb -->
+      <line x1="131" y1="203" x2="136" y2="200" stroke="#4A5BC0" stroke-width="1.8" stroke-linecap="round"/>
+    </g>
+
+    <!-- RIGHT ARM — holding a tiny chart/plot -->
+    <g>
+      <animateTransform attributeName="transform" type="rotate" values="2,335,210;-2,335,210;2,335,210" dur="2.5s" repeatCount="indefinite"/>
+      <path d="M335,210 Q352,200 365,212 Q373,200 385,205" fill="none" stroke="#5C6DD4" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="388" cy="203" r="5.5" fill="#7B8FF0" stroke="#4A5BC0" stroke-width="1.2"/>
+      <!-- Tiny chart being held up proudly -->
+      <g transform="translate(392, 178)">
+        <rect x="0" y="0" width="28" height="22" rx="2" fill="white" stroke="#4A5BC0" stroke-width="1"/>
+        <!-- Mini bar chart -->
+        <rect x="4" y="14" width="4" height="5" fill="#FF4D4D" rx="0.5"/>
+        <rect x="10" y="8" width="4" height="11" fill="#FFD700" rx="0.5"/>
+        <rect x="16" y="4" width="4" height="15" fill="#44DD66" rx="0.5"/>
+        <!-- Axis lines -->
+        <line x1="3" y1="19.5" x2="22" y2="19.5" stroke="#999" stroke-width="0.5"/>
+        <line x1="3" y1="3" x2="3" y2="19.5" stroke="#999" stroke-width="0.5"/>
+      </g>
+    </g>
+
+    <!-- Little feet dangling — gentle kick -->
+    <g>
+      <animateTransform attributeName="transform" type="rotate" values="-3,240,240;5,240,240;-3,240,240" dur="1.5s" repeatCount="indefinite"/>
+      <rect x="228" y="238" width="14" height="8" rx="4" fill="#5C6DD4" stroke="#4A5BC0" stroke-width="1"/>
+      <ellipse cx="232" cy="246" rx="9" ry="4" fill="#4A5BC0"/>
+    </g>
+    <g>
+      <animateTransform attributeName="transform" type="rotate" values="5,280,240;-3,280,240;5,280,240" dur="1.5s" repeatCount="indefinite"/>
+      <rect x="275" y="238" width="14" height="8" rx="4" fill="#5C6DD4" stroke="#4A5BC0" stroke-width="1"/>
+      <ellipse cx="285" cy="246" rx="9" ry="4" fill="#4A5BC0"/>
+    </g>
+  </g>
+
+  <!-- ========== TOP BREAD (sandwich slice) ========== -->
+  <g filter="url(#shadow)">
+    <!-- Crust border -->
+    <rect x="118" y="150" width="284" height="46" rx="6" fill="#B07828" stroke="#906018" stroke-width="1"/>
+    <!-- Inner bread -->
+    <rect x="124" y="153" width="272" height="38" rx="4" fill="url(#breadTopGrad)"/>
+    <rect x="124" y="153" width="272" height="38" rx="4" fill="url(#breadTexture)"/>
+    <!-- Crust bottom edge -->
+    <line x1="120" y1="192" x2="400" y2="192" stroke="#8C6018" stroke-width="1.5"/>
+    <!-- Bread shine -->
+    <rect x="135" y="156" width="120" height="3" rx="1.5" fill="white" opacity="0.12"/>
+    <!-- Sesame seeds -->
+    <ellipse cx="175" cy="166" rx="6" ry="3" fill="#F5E6C8" stroke="#D4B87A" stroke-width="0.4" transform="rotate(-20, 175, 166)"/>
+    <ellipse cx="240" cy="162" rx="6" ry="3" fill="#F5E6C8" stroke="#D4B87A" stroke-width="0.4" transform="rotate(10, 240, 162)"/>
+    <ellipse cx="310" cy="168" rx="6" ry="3" fill="#F5E6C8" stroke="#D4B87A" stroke-width="0.4" transform="rotate(-8, 310, 168)"/>
+    <ellipse cx="200" cy="175" rx="5.5" ry="2.8" fill="#F5E6C8" stroke="#D4B87A" stroke-width="0.4" transform="rotate(22, 200, 175)"/>
+    <ellipse cx="350" cy="172" rx="5.5" ry="2.8" fill="#F5E6C8" stroke="#D4B87A" stroke-width="0.4" transform="rotate(-15, 350, 172)"/>
+    <ellipse cx="270" cy="160" rx="5.5" ry="2.8" fill="#F5E6C8" stroke="#D4B87A" stroke-width="0.4" transform="rotate(5, 270, 160)"/>
+    <ellipse cx="155" cy="180" rx="5" ry="2.5" fill="#F5E6C8" stroke="#D4B87A" stroke-width="0.4" transform="rotate(30, 155, 180)"/>
+    <ellipse cx="370" cy="178" rx="5" ry="2.5" fill="#F5E6C8" stroke="#D4B87A" stroke-width="0.4" transform="rotate(-12, 370, 178)"/>
+  </g>
+
+  <!-- ========== TEXT ========== -->
+  <text x="260" y="370" text-anchor="middle" font-family="'Courier New', 'Consolas', monospace" font-size="21" font-weight="bold" fill="#333" letter-spacing="0.5">
+    <tspan fill="#5C6DD4">import</tspan> botplotlib <tspan fill="#5C6DD4">as</tspan> <tspan fill="#CC2222">blt</tspan>
+  </text>
+  <text x="260" y="394" text-anchor="middle" font-family="'Georgia', 'Times New Roman', serif" font-size="12.5" fill="#999" font-style="italic" letter-spacing="0.3">
+    Will plot for food.
+  </text>
+</svg>

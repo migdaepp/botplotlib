@@ -36,7 +36,9 @@ def hex_to_rgb(hex_color: str) -> tuple[int, int, int]:
     if len(h) == 3:
         h = h[0] * 2 + h[1] * 2 + h[2] * 2
     if len(h) != 6:
-        raise ValueError(f"Invalid hex color: {hex_color!r}")
+        raise ValueError(
+            f"Invalid hex color: {hex_color!r}. Expected format: '#RRGGBB' or '#RGB'."
+        )
     return int(h[0:2], 16), int(h[2:4], 16), int(h[4:6], 16)
 
 

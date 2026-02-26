@@ -51,7 +51,9 @@ def check_text_contrast(
             f"has contrast ratio {ratio:.2f}:1, which is below the "
             f"WCAG AA "
             f"{'large text' if font_size >= LARGE_TEXT_THRESHOLD else 'normal text'} "
-            f"minimum of {threshold}:1."
+            f"minimum of {threshold}:1. "
+            f"Nobody reads what nobody can see. "
+            f"Try darkening the text or lightening the background."
         )
 
 
@@ -82,7 +84,8 @@ def check_palette_contrast(
             raise ContrastError(
                 f"Palette color {i} ({color}) on background {background_color} "
                 f"has contrast ratio {ratio:.2f}:1, which is below the "
-                f"minimum of {min_ratio}:1."
+                f"minimum of {min_ratio}:1. "
+                f"Darken the color or lighten the background."
             )
 
 
@@ -110,7 +113,8 @@ def check_adjacent_contrast(
             raise ContrastError(
                 f"Adjacent palette colors {i} ({palette[i]}) and "
                 f"{i + 1} ({palette[i + 1]}) have contrast ratio "
-                f"{ratio:.2f}:1, which is below the minimum of {min_ratio}:1."
+                f"{ratio:.2f}:1, which is below the minimum of {min_ratio}:1. "
+                f"Two colors that look identical aren't pulling their weight."
             )
 
 

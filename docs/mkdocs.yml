@@ -1,11 +1,13 @@
 site_name: botplotlib
-site_description: Beautiful plots, simple API, no matplotlib.
+site_description: Deadly serious plotting tools. Also sandwiches.
 site_url: https://migdaepp.github.io/botplotlib/
 repo_url: https://github.com/migdaepp/botplotlib
 repo_name: migdaepp/botplotlib
 
 theme:
   name: material
+  favicon: images/favicon.svg
+  logo: images/favicon.svg
   palette:
     - scheme: default
       primary: indigo
@@ -23,7 +25,6 @@ theme:
     - content.code.copy
     - content.code.annotate
     - navigation.tabs
-    - navigation.sections
     - navigation.top
     - navigation.footer
     - search.suggest
@@ -34,15 +35,7 @@ theme:
 
 nav:
   - Home: index.md
-  - Getting Started: getting-started.md
-  - Guide:
-      - Plot Types: guide/plot-types.md
-      - Themes: guide/themes.md
-      - Data Formats: guide/data-formats.md
-      - JSON Path (Agent API): guide/json-path.md
-      - Refactoring from Matplotlib: guide/refactoring.md
-  - Tutorial: tutorial.md
-  - Gallery: gallery/index.md
+  - Guide: guide.md
   - API Reference: api/index.md
   - Contributing: contributing.md
 

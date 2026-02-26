@@ -42,6 +42,7 @@ class LayerSpec(BaseModel):
     x: str  # column name for x axis
     y: str  # column name for y axis
     color: str | None = None  # column name for color grouping
+    color_map: dict[str, str] | None = None  # custom per-category colors
     labels: bool = False  # show value labels on bars
     label_format: str | None = None  # Python format string, e.g. "${:,.0f}"
 

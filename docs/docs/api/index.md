@@ -1,5 +1,9 @@
 # API Reference
 
+<p align="center">
+  <img src="../images/a-robot-walks-into-a-deli.png" alt="a robot walks into a deli" width="400">
+</p>
+
 ## Top-level functions
 
 ::: botplotlib.scatter
@@ -104,6 +108,7 @@ PlotSpec fields:
 | `x` | `str` | *required* | Column name for x-axis |
 | `y` | `str` | *required* | Column name for y-axis |
 | `color` | `str \| None` | `None` | Column name for color grouping |
+| `color_map` | `dict[str, str] \| None` | `None` | Custom per-category color overrides |
 | `labels` | `bool` | `False` | Show value labels on bars |
 | `label_format` | `str \| None` | `None` | Python format string for labels |
 
@@ -146,7 +151,7 @@ PlotSpec fields:
       heading_level: 3
       members: false
 
-See [Themes guide](../guide/themes.md) for full property reference and usage examples.
+See the [Guide](../guide.md#themes) for usage examples.
 
 ---
 
@@ -194,7 +199,7 @@ See [Themes guide](../guide/themes.md) for full property reference and usage exa
 | `bar` | `BarGeom` | Vertical bar chart |
 | `waterfall` | `WaterfallGeom` | Waterfall chart with running totals |
 
-See the [Contributing guide](../contributing.md#adding-a-new-geom) for instructions on adding custom geoms.
+See [AGENTS.md](https://github.com/migdaepp/botplotlib/blob/main/AGENTS.md) for instructions on adding custom geoms.
 
 ---
 
@@ -205,4 +210,4 @@ See the [Contributing guide](../contributing.md#adding-a-new-geom) for instructi
       show_root_heading: true
       heading_level: 3
 
-See [Data Formats guide](../guide/data-formats.md) for the full dispatch order and usage examples.
+See the [Guide](../guide.md#data-formats) for supported formats.

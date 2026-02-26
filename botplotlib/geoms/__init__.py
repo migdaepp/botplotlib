@@ -119,7 +119,9 @@ def get_geom(name: str) -> Geom:
         available = ", ".join(sorted(_REGISTRY.keys()))
         raise ValueError(
             f"Unknown geom '{name}'. Available geoms: {available}. "
-            "See AGENTS.md for how to add new geoms."
+            "To add a new geom: copy waterfall.py, implement 3 methods "
+            "(validate, scale_hint, compile), register in __init__.py. "
+            "See AGENTS.md for the full recipe."
         )
     return _REGISTRY[name]
 

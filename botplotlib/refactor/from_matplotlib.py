@@ -1,7 +1,10 @@
-"""Auto-refactor: convert matplotlib scripts to botplotlib PlotSpec.
+"""Translate matplotlib scripts to botplotlib.
 
-Reads a matplotlib script via AST parsing, identifies plot type,
-data, styling, and configuration, and outputs an equivalent PlotSpec.
+Reads existing matplotlib scripts and extracts an equivalent PlotSpec
+using AST analysis. No matplotlib installation required — your code
+is parsed, never executed.
+
+Uses AST parsing (never imports or runs your matplotlib code).
 
 Supported patterns:
 - plt.plot(), plt.scatter(), plt.bar(), plt.barh()

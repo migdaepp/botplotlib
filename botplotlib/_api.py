@@ -36,6 +36,7 @@ def _build_figure(
     labels: bool = False,
     label_format: str | None = None,
     legend_position: Literal["top", "bottom", "left", "right"] = "right",
+    color_map: dict[str, str] | None = None,
 ) -> Figure:
     """Internal helper to build a Figure from common arguments."""
     columns = normalize_data(data)
@@ -47,6 +48,7 @@ def _build_figure(
                 x=x,
                 y=y,
                 color=color,
+                color_map=color_map,
                 labels=labels,
                 label_format=label_format,
             )
@@ -80,6 +82,7 @@ def scatter(
     width: float = 800,
     height: float = 500,
     legend_position: Literal["top", "bottom", "left", "right"] = "right",
+    color_map: dict[str, str] | None = None,
 ) -> Figure:
     """Create a scatter plot.
 
@@ -103,6 +106,8 @@ def scatter(
         Theme name (default, bluesky, print, magazine).
     legend_position:
         Legend position ("top", "bottom", "left", "right").
+    color_map:
+        Custom color overrides per category, e.g. {"A": "#FF0000"}.
     """
     return _build_figure(
         data,
@@ -119,6 +124,7 @@ def scatter(
         width=width,
         height=height,
         legend_position=legend_position,
+        color_map=color_map,
     )
 
 
@@ -137,6 +143,7 @@ def line(
     width: float = 800,
     height: float = 500,
     legend_position: Literal["top", "bottom", "left", "right"] = "right",
+    color_map: dict[str, str] | None = None,
 ) -> Figure:
     """Create a line plot.
 
@@ -160,6 +167,8 @@ def line(
         Theme name (default, bluesky, print, magazine).
     legend_position:
         Legend position ("top", "bottom", "left", "right").
+    color_map:
+        Custom color overrides per category, e.g. {"A": "#FF0000"}.
     """
     return _build_figure(
         data,
@@ -176,6 +185,7 @@ def line(
         width=width,
         height=height,
         legend_position=legend_position,
+        color_map=color_map,
     )
 
 
@@ -196,6 +206,7 @@ def bar(
     labels: bool = False,
     label_format: str | None = None,
     legend_position: Literal["top", "bottom", "left", "right"] = "right",
+    color_map: dict[str, str] | None = None,
 ) -> Figure:
     """Create a bar chart.
 
@@ -223,6 +234,8 @@ def bar(
         Python format string for labels, e.g. "${:,.0f}".
     legend_position:
         Legend position ("top", "bottom", "left", "right").
+    color_map:
+        Custom color overrides per category, e.g. {"A": "#FF0000"}.
     """
     return _build_figure(
         data,
@@ -241,6 +254,7 @@ def bar(
         labels=labels,
         label_format=label_format,
         legend_position=legend_position,
+        color_map=color_map,
     )
 
 

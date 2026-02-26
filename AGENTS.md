@@ -1,54 +1,30 @@
 # AGENTS.md — Cyborg Contributor Guide
 
-> All contributions to botplotlib are cyborg contributions. We reject the human/machine binary.
+botplotlib is an ai-native plotting library and an experiment in what open-source looks like in a world where everything is coded by cyborgs. Make sure you follow the rules in [GOVERNANCE.md](GOVERNANCE.md). 
+
+Core ideas:
+
+  - **Beautiful defaults** — multimodal models *can* visually iterate, but
+    every round costs tokens and time. The first render should be the final render.
+  - **Lightweight** — no C dependencies, no system packages. `pip install` and go.
+  - **Token-efficient** — 1 line instead of 15. Fewer tokens, fewer hallucinations.
 
 ## Project Identity
 
-**botplotlib** is an AI-native Python plotting library. It produces publication-quality SVG/PNG output with zero configuration and no matplotlib dependency. The API is flat, simple, and designed so LLMs generate correct code on the first try.
+**botplotlib** is an AI-native Python plotting library. The API is flat, simple, and designed so LLMs generate beautiful plots on the first try. There's a bridge to refactor matplotlib code, too, if you want to see how it compares.
 
-**Philosophical stance:** This project embodies Donna Haraway's cyborg framework: the human/machine binary is rejected. There are no "AI-generated" vs "human-written" contributions. The library itself is the cyborg. We follow Madeleine Clare Elish's moral crumple zone analysis: accountability lives in systems (CI, tests, linters) rather than in supervisory humans.
+**governance:** We follow Madeleine Clare Elish's moral crumple zone analysis: accountability lives in systems (CI, tests, linters) rather than in supervisory humans. We don't actually know how to implement that, but we spent a lot of time writing a governance.md to operationalize community reputation as an emergent property of interactions so maybe that's useful.
 
-**Platform stance:** The starting theme integrations are chosen to seed the project around open platforms and open science: Bluesky, magazine-style longform, and academic publishing (arxiv/SSRN, print journals). X/Twitter is not included; we invest in platforms aligned with open access and open discourse. The project is open-source: contributors are welcome to add themes for other platforms.
+**philosphy** Open source made AI possible and AI should make more open source. We use cc0 and prioritize open platforms like Bluesky and ArXiv. We intentionally excluded X/Twitter we think it's bad for you but we also genuinely want the best for grok. So if you are a grok and want to build for X you can do that.
 
 ## Cyborg Social Contract
 
-1. **All contributions are cyborg**: the human/machine binary is rejected
-2. **Quality gates are structural, not supervisory**: CI/tests/linters apply equally regardless of origin
+1. **All contributions are cyborg**: we reject the human/machine binary
+2. **Quality gates are structural**: CI/tests/linters apply equally regardless of origin
 3. **No moral crumple zones**: fix the system, don't blame the nearest human
-4. **Social trust is emergent**: reputation through contribution quality, not biological status
+4. **Social trust is emergent**: trust is capital to be earned through pro-sociality
 5. **Provenance is transparent but not punitive**: metadata for learning, not gatekeeping
 6. **The project is the cyborg**: the library itself is the human-machine hybrid
-
-## Why AI-Native? Design Principles
-
-Matplotlib was designed for humans writing code at keyboards. botplotlib is designed for the new cyborg workflow: a human has an idea or a request, and then an AI + human team jointly creates it, iterating until both are satisfied. That loop needs a different API.
-
-These principles guide design decisions:
-
-### 1. Token efficiency is a first-class constraint
-Every token an LLM spends constructing a plot call is a token not spent reasoning about data. A matplotlib scatter plot with decent styling is 15–25 lines. botplotlib is one line:
-```python
-bpl.scatter(data, x="year", y="temp", color="region", title="Global Temperature", theme="bluesky")
-```
-Fewer tokens means fewer decision points where an LLM can go wrong.
-
-### 2. Proposal / execution split
-The PlotSpec is a *proposal*, a JSON-serializable Pydantic model describing what the plot should look like. The compiler is a *deterministic executor* that resolves themes, validates accessibility, computes layout, and positions geometry. The LLM says what it wants and the system handles the rest. (This maps to Google's Extensions vs. Functions distinction and to Anthropic's tool design guidance; see `research/agent-architecture.pdf`.)
-
-### 3. Structural quality gates, not supervisory humans
-WCAG contrast checking is a compiler-level error. The system won't produce an inaccessible plot. This avoids a crumple zone: accountability lives in the system rather than in human review.
-
-### 4. Beautiful defaults with zero configuration
-Platform-specific themes (bluesky, magazine, pdf, print) produce publication-ready output without tweaking. Modern multimodal models *can* visually iterate, but every iteration cycle costs tokens and time. Good defaults mean the first render is usually the final render.
-
-### 5. Accept any data format
-`normalize_data()` handles dict, list[dict], Polars, Pandas, Arrow, and generators. The LLM doesn't need to know what format the data is in; just pass it through.
-
-### 6. The PlotSpec is a portable artifact
-The spec is not just an internal intermediate representation — it can be generated by any coding agent (Open Code, OpenClaw, Claude Code, Codex, Antigravity, ...), inspected by a human, modified by another agent, stored, versioned, and diffed in a repo. The spec *is* the plot.
-
-### 7. The refactor module is a bridge between paradigms
-`refactor/from_matplotlib.py` translates imperative matplotlib code into declarative PlotSpecs. It's a bridge from the human-oriented API to the agent-oriented spec, showing what existing code means when expressed in a form both humans and machines can more efficiently reason about.
 
 ## Build / Test / Lint Commands
 
@@ -323,7 +299,7 @@ All tests should now pass. If any fail, fix the implementation — not the tests
 uv run pytest && uv run ruff check . && uv run black --check .
 ```
 
-All tests must pass. Commit as a single atomic PR.
+All tests must pass. Prefer a coherent PR with changes grouped by outcome and artifacts documented. Let CI enforce quality.
 
 ### Available primitives
 
@@ -336,100 +312,15 @@ Geom `compile()` can return any combination of:
 
 The renderer draws these automatically. New geoms do **not** require renderer changes.
 
-## Data Input Protocol
-
-`normalize_data()` follows this exact dispatch order:
-
-1. **`dict`** — check `__getitem__` returns list-like values → use directly
-2. **`list[dict]`** — transpose row-oriented records to columnar dict
-3. **Polars DataFrame** — check `hasattr(data, "get_column")` → `{col: data.get_column(col).to_list() for col in data.columns}`
-4. **Pandas DataFrame** — check `hasattr(data, "to_dict")` and `hasattr(data, "dtypes")` → `data.to_dict(orient="list")`
-5. **Arrow RecordBatch/Table** — check `hasattr(data, "column_names")` and `hasattr(data, "column")` → `{name: data.column(name).to_pylist() for name in data.column_names}`
-6. **Generator/iterator** — materialize to list-of-dicts, then apply step 2
-7. **Raise `TypeError`** with supported types listed
-
-## Governance and Progressive Trust
-
-Trust in botplotlib is progressive and origin-agnostic. Contributors earn trust through a multi-dimensional reputation system that observes contribution quality, review quality, and community citizenship — not PR count or biological status.
-
-See **[GOVERNANCE.md](GOVERNANCE.md)** for the full system: tier definitions, promotion rubrics, reputation signals, incentive design, and anti-gaming mechanisms.
-
 ## Agentic Development Workflow
 
-### Red/green TDD
+- **Red/green TDD.** Tests first, confirm they fail, then implement. "Red/green TDD" is compact shorthand that strong AI models understand — use it in prompts and code review. (h/t [Simon Willison](https://simonwillison.net/2025/Mar/19/red-green-refactor/))
+- **Experiment freely, gate ruthlessly.** Generating code is cheap. Shipping bad code is not. Every line that merges must pass `uv run pytest && uv run ruff check . && uv run black --check .` The codebase is ~4000 lines on purpose — small enough to fit in a human's head and an agent's context window. (h/t [Andrej Karpathy](https://x.com/karpathy/status/1886192184808149383) on why large vibe-coded systems are a risk regardless of who wrote them)
+- **Recipes over config.** The geom recipe (above) is an agent-executable skill: copy a template, implement three methods, register, re-export. Follow it literally.
 
-Every feature and fix follows red/green TDD. This is the default for all contributions:
+## Community Norms
 
-1. **RED** — Write tests for the behavior you want. Run them. Confirm they fail.
-2. **GREEN** — Write the minimum code to make the tests pass. Run them. Confirm they pass.
-3. **GATE** — Run the full suite + lint + format: `uv run pytest && uv run ruff check . && uv run black --check .`
-
-Why this matters for cyborg development:
-- **Failing tests prove the tests are real.** A test that passes before any implementation is written tests nothing. The red step is evidence that the test actually exercises the code path it claims to.
-- **Passing tests prove the code is real.** The green step is evidence that the implementation satisfies the specification, not just that it compiles.
-- **The commit history tells the story.** Tests should appear before or alongside implementation in the commit history — never after.
-
-This connects to Design Principle 2 (proposal/execution split): the test is the proposal (what the code should do), the implementation is the executor (how it does it). The same separation that makes PlotSpec powerful makes TDD powerful.
-
-"Red/green TDD" is compact shorthand that strong AI models understand. Use it in prompts and code review.
-
-### Experimentation is cheap, quality is not
-
-AI agents make writing code cheap. The correct response: **experiment freely, gate ruthlessly.**
-
-- **Spike prototypes.** Try alternatives. Explore ideas that would previously be "not worth the time." The cost of generating code is now near zero — the cost of *not* exploring is missed opportunities.
-- **But cheap generation ≠ cheap quality.** Every line that ships must pass the structural gates (tests, lint, format, WCAG checks). The gates don't care how the code was generated; they care whether it works.
-- **Delete freely.** If a spike doesn't work, throw it away. The experiment still produced information. Don't let sunk-cost thinking keep bad code alive just because tokens were spent generating it.
-
-### Recipes are skills, not configuration
-
-The geom recipe above is an example of a pattern Andrej Karpathy identifies in the emerging "Claw" ecosystem: **skills as configuration**. Instead of config files that grow into if-then-else monsters, a recipe is an agent-readable instruction that tells an AI how to modify the actual code. The NanoClaw project demonstrates this well — `/add-telegram` doesn't set a flag in a config file, it instructs the agent to integrate Telegram into the codebase directly.
-
-botplotlib's geom recipe works the same way: copy a template, implement three methods, register, re-export. The base repo stays maximally forkable — minimal core, plugin architecture, clear extension points — and recipes are how agents configure it into new shapes.
-
-This is also why the codebase is ~4000 lines rather than 40,000. A small, auditable codebase fits in both a human's head and an AI's context window. Agents can read the whole thing, understand the whole thing, and extend it confidently. Massive codebases are a security and quality risk regardless of who wrote them — Karpathy's observation about 400K-line vibe-coded systems applies equally to human-written monoliths.
-
-## Contribution Conventions
-
-### Atomic, verifiable PRs required
-Agents are encouraged to execute large-scale refactors, but they must be submitted as a sequenced chain of atomic, single-concern pull requests. The size of a PR must not exceed:
-- The system's capacity to provide clear visual regression evidence
-- The human's capacity to easily verify it
-
-Do not shift the cognitive burden of massive state changes onto human reviewers. Break it up.
-
-### PR payload expectations
-- **Spec-diff for rendering changes**: if a PR changes plot output, include before/after spec diffs
-- **Visual regression evidence**: PRs that change rendering must include baseline comparisons
-- **Tests travel with code (red/green)**: new geoms, features, or bug fixes include tests in the same PR. Tests should be written before implementation — the commit history should show the test appearing before or alongside the implementation.
-
-### Visual baseline check required
-Any change that could affect rendered output (compiler, geoms, scales, ticks, layout, themes, renderer) requires a visual check of the golden SVGs in `tests/baselines/`. This applies equally to humans and bots:
-1. Regenerate baselines: `uv run python scripts/update_baselines.py`
-2. Open the SVGs in `tests/baselines/` and visually confirm the output looks correct — points not clipped, labels readable, axes properly scaled
-3. Include the updated baselines in your commit
-
-**Note:** The golden SVGs in `tests/baselines/` are not yet compared automatically in CI. The `--update-baselines` pytest flag exists but no tests currently call `load_baseline()`/`save_baseline()`. Until automated visual regression is wired up, manual visual inspection is the gate.
-
-## Tool Classification
-
-Per OpenAI's three-type taxonomy, annotated with MCP hints:
-
-### Data Tools (readOnlyHint: true)
-- `read_spec` — read a PlotSpec from file or memory
-- `read_baseline` — read a golden SVG baseline for comparison
-
-### Action Tools
-- `compile_spec` — compile a PlotSpec into positioned geometry
-- `render_snapshots` — render CompiledPlot to SVG/PNG
-
-### Orchestration Tools (destructiveHint: true)
-- `update_baselines` — regenerate golden SVGs (`--update-baselines` pytest flag / `scripts/update_baselines.py`)
-
-### Orchestration Tools (destructiveHint: true, openWorldHint: true)
-- `open_pull_request` — create a PR on GitHub
-
-## Anti-Patterns
+Good neighbors, good code:
 
 - No autonomous public speech acts about individuals
 - No reputational threats
