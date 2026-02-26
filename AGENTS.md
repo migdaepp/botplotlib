@@ -161,7 +161,107 @@ examples/
 
 Adding a new plot type to botplotlib requires **one file and three methods**. The compiler dispatches to a plugin registry, so new geoms don't require changes to the core.
 
-### Step 1: Create the geom file
+This recipe follows red/green TDD: tests first, then implementation.
+
+### Step 1: Write the test file (RED)
+
+Create `tests/test_yourgeom.py` **before writing any implementation**. Copy this template and replace `yourgeom` / `YourGeom` with your geom name:
+
+```python
+"""Tests for the yourgeom geom."""
+
+from __future__ import annotations
+
+import pytest
+
+import botplotlib as bpl
+from botplotlib.compiler.compiler import compile_spec
+from botplotlib.geoms import get_geom, registered_geoms
+from botplotlib.spec.models import DataSpec, LayerSpec, PlotSpec
+
+# Test data — adjust columns and values for your geom
+SAMPLE_DATA = {
+    "x_col": ["A", "B", "C"],
+    "y_col": [10, 20, 30],
+}
+
+
+class TestYourGeomRegistry:
+    """Geom is registered and discoverable."""
+
+    def test_in_registry(self) -> None:
+        assert "yourgeom" in registered_geoms()
+
+    def test_get_geom(self) -> None:
+        assert get_geom("yourgeom").name == "yourgeom"
+
+
+class TestYourGeomAPI:
+    """bpl.yourgeom() convenience function works."""
+
+    def test_basic_render(self) -> None:
+        fig = bpl.yourgeom(SAMPLE_DATA, x="x_col", y="y_col")
+        svg = fig.to_svg()
+        assert "<svg" in svg and "</svg>" in svg
+
+    def test_with_title(self) -> None:
+        fig = bpl.yourgeom(SAMPLE_DATA, x="x_col", y="y_col", title="Test")
+        assert "Test" in fig.to_svg()
+
+
+class TestYourGeomCompilation:
+    """Compiles to correct geometry."""
+
+    def _compile(self):
+        spec = PlotSpec(
+            data=DataSpec(columns=SAMPLE_DATA),
+            layers=[LayerSpec(geom="yourgeom", x="x_col", y="y_col")],
+        )
+        return compile_spec(spec)
+
+    def test_produces_primitives(self) -> None:
+        compiled = self._compile()
+        assert len(compiled.primitives) > 0
+
+
+class TestYourGeomValidation:
+    """Validates data correctly."""
+
+    def test_missing_x_column(self) -> None:
+        spec = PlotSpec(
+            data=DataSpec(columns={"y_col": [1]}),
+            layers=[LayerSpec(geom="yourgeom", x="x_col", y="y_col")],
+        )
+        with pytest.raises(ValueError, match="x_col"):
+            compile_spec(spec)
+
+    def test_missing_y_column(self) -> None:
+        spec = PlotSpec(
+            data=DataSpec(columns={"x_col": ["A"]}),
+            layers=[LayerSpec(geom="yourgeom", x="x_col", y="y_col")],
+        )
+        with pytest.raises(ValueError, match="y_col"):
+            compile_spec(spec)
+
+
+class TestYourGeomEdgeCases:
+    """Handles edge cases."""
+
+    def test_single_data_point(self) -> None:
+        data = {"x_col": ["A"], "y_col": [42]}
+        fig = bpl.yourgeom(data, x="x_col", y="y_col")
+        assert "<svg" in fig.to_svg()
+```
+
+### Step 2: Confirm tests fail (RED confirmed)
+
+```bash
+uv run pytest tests/test_yourgeom.py
+```
+
+Tests should fail (import errors, missing registry entries, etc.). This confirms the tests are real — they exercise code that doesn't exist yet.
+
+### Step 3: Create the geom file (GREEN begins)
 
 Create `botplotlib/geoms/yourgeom.py`. Copy an existing geom (start with `waterfall.py` for categorical x-axis or `scatter.py` for numeric axes) and modify the three methods:
 
@@ -189,7 +289,7 @@ class YourGeom(Geom):
         return [CompiledBar(...), ...]
 ```
 
-### Step 2: Register it
+### Step 4: Register it
 
 Add your geom to `_register_builtins()` in `botplotlib/geoms/__init__.py`:
 
@@ -198,7 +298,7 @@ from botplotlib.geoms.yourgeom import YourGeom
 register_geom(YourGeom())
 ```
 
-### Step 3: Add a convenience API function
+### Step 5: Add a convenience API function
 
 Add a thin factory in `botplotlib/_api.py` (follow the pattern of `scatter()`, `bar()`, etc.):
 
@@ -209,15 +309,15 @@ def yourgeom(data, x, y, *, title=None, theme="default", ...):
 
 Then add the re-export in `botplotlib/__init__.py`.
 
-### Step 4: Write tests
+### Step 6: Confirm tests pass (GREEN confirmed)
 
-Create `tests/test_yourgeom.py`. Cover:
-- Basic rendering (SVG contains expected elements)
-- Compilation (correct number of primitives)
-- Validation (missing columns → clear error)
-- Edge cases (single data point, empty data, extreme values)
+```bash
+uv run pytest tests/test_yourgeom.py
+```
 
-### Step 5: Run the gate
+All tests should now pass. If any fail, fix the implementation — not the tests.
+
+### Step 7: Run the full gate
 
 ```bash
 uv run pytest && uv run ruff check . && uv run black --check .
@@ -254,6 +354,41 @@ Trust in botplotlib is progressive and origin-agnostic. Contributors earn trust 
 
 See **[GOVERNANCE.md](GOVERNANCE.md)** for the full system: tier definitions, promotion rubrics, reputation signals, incentive design, and anti-gaming mechanisms.
 
+## Agentic Development Workflow
+
+### Red/green TDD
+
+Every feature and fix follows red/green TDD. This is the default for all contributions:
+
+1. **RED** — Write tests for the behavior you want. Run them. Confirm they fail.
+2. **GREEN** — Write the minimum code to make the tests pass. Run them. Confirm they pass.
+3. **GATE** — Run the full suite + lint + format: `uv run pytest && uv run ruff check . && uv run black --check .`
+
+Why this matters for cyborg development:
+- **Failing tests prove the tests are real.** A test that passes before any implementation is written tests nothing. The red step is evidence that the test actually exercises the code path it claims to.
+- **Passing tests prove the code is real.** The green step is evidence that the implementation satisfies the specification, not just that it compiles.
+- **The commit history tells the story.** Tests should appear before or alongside implementation in the commit history — never after.
+
+This connects to Design Principle 2 (proposal/execution split): the test is the proposal (what the code should do), the implementation is the executor (how it does it). The same separation that makes PlotSpec powerful makes TDD powerful.
+
+"Red/green TDD" is compact shorthand that strong AI models understand. Use it in prompts and code review.
+
+### Experimentation is cheap, quality is not
+
+AI agents make writing code cheap. The correct response: **experiment freely, gate ruthlessly.**
+
+- **Spike prototypes.** Try alternatives. Explore ideas that would previously be "not worth the time." The cost of generating code is now near zero — the cost of *not* exploring is missed opportunities.
+- **But cheap generation ≠ cheap quality.** Every line that ships must pass the structural gates (tests, lint, format, WCAG checks). The gates don't care how the code was generated; they care whether it works.
+- **Delete freely.** If a spike doesn't work, throw it away. The experiment still produced information. Don't let sunk-cost thinking keep bad code alive just because tokens were spent generating it.
+
+### Recipes are skills, not configuration
+
+The geom recipe above is an example of a pattern Andrej Karpathy identifies in the emerging "Claw" ecosystem: **skills as configuration**. Instead of config files that grow into if-then-else monsters, a recipe is an agent-readable instruction that tells an AI how to modify the actual code. The NanoClaw project demonstrates this well — `/add-telegram` doesn't set a flag in a config file, it instructs the agent to integrate Telegram into the codebase directly.
+
+botplotlib's geom recipe works the same way: copy a template, implement three methods, register, re-export. The base repo stays maximally forkable — minimal core, plugin architecture, clear extension points — and recipes are how agents configure it into new shapes.
+
+This is also why the codebase is ~4000 lines rather than 40,000. A small, auditable codebase fits in both a human's head and an AI's context window. Agents can read the whole thing, understand the whole thing, and extend it confidently. Massive codebases are a security and quality risk regardless of who wrote them — Karpathy's observation about 400K-line vibe-coded systems applies equally to human-written monoliths.
+
 ## Contribution Conventions
 
 ### Atomic, verifiable PRs required
@@ -266,7 +401,7 @@ Do not shift the cognitive burden of massive state changes onto human reviewers.
 ### PR payload expectations
 - **Spec-diff for rendering changes**: if a PR changes plot output, include before/after spec diffs
 - **Visual regression evidence**: PRs that change rendering must include baseline comparisons
-- **Tests travel with code**: new geoms, features, or bug fixes include tests in the same PR
+- **Tests travel with code (red/green)**: new geoms, features, or bug fixes include tests in the same PR. Tests should be written before implementation — the commit history should show the test appearing before or alongside the implementation.
 
 ### Visual baseline check required
 Any change that could affect rendered output (compiler, geoms, scales, ticks, layout, themes, renderer) requires a visual check of the golden SVGs in `tests/baselines/`. This applies equally to humans and bots:
