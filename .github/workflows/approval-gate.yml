@@ -1,0 +1,153 @@
+name: Approval Gate
+
+on:
+  pull_request_review:
+    types: [submitted]
+  pull_request:
+    types: [labeled, synchronize, opened]
+
+permissions:
+  statuses: write
+  pull-requests: read
+  contents: read
+
+jobs:
+  check:
+    name: Tier-aware approval check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check approval requirements
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+
+            // --- Load contributor data ---
+            let contributors = {};
+            try {
+              const raw = fs.readFileSync('CONTRIBUTORS.json', 'utf8');
+              contributors = JSON.parse(raw).contributors || {};
+            } catch {
+              core.warning('CONTRIBUTORS.json not found or invalid — treating all authors as Tier 0');
+            }
+
+            const pr = context.payload.pull_request;
+            const author = pr.user.login;
+            const authorData = contributors[author] || { tier: 0, domains: {} };
+
+            // --- Determine risk level from labels ---
+            const { data: labels } = await github.rest.issues.listLabelsOnIssue({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pr.number,
+            });
+
+            const riskLabels = labels
+              .map(l => l.name)
+              .filter(n => n.startsWith('risk/'));
+
+            const riskPriority = { 'risk/low': 0, 'risk/moderate': 1, 'risk/high': 2, 'risk/critical': 3 };
+            let riskLabel = 'risk/low';
+            for (const label of riskLabels) {
+              if ((riskPriority[label] || 0) > (riskPriority[riskLabel] || 0)) {
+                riskLabel = label;
+              }
+            }
+            const riskLevel = riskLabel.replace('risk/', '');
+
+            // --- Determine author's effective tier for this PR ---
+            // Use the domain tier for the highest-risk area, falling back to global tier
+            const areaLabels = labels
+              .map(l => l.name)
+              .filter(n => n.startsWith('area/'))
+              .map(n => n.replace('area/', ''));
+
+            let effectiveTier = authorData.tier;
+            if (areaLabels.length > 0 && authorData.domains) {
+              // Use minimum domain tier across touched areas
+              const domainTiers = areaLabels
+                .map(a => authorData.domains[a] ?? 0);
+              if (domainTiers.length > 0) {
+                effectiveTier = Math.min(effectiveTier, Math.min(...domainTiers));
+              }
+            }
+
+            // --- Two-dimensional gate table ---
+            // gate[authorTier][riskLevel] = { approvals, minApproverTier }
+            const gate = {
+              0: {
+                low:      { approvals: 1, minApproverTier: 1 },
+                moderate: { approvals: 2, minApproverTier: 2 },
+                high:     { approvals: 2, minApproverTier: 3 },
+                critical: { approvals: 2, minApproverTier: 3 },
+              },
+              1: {
+                low:      { approvals: 1, minApproverTier: 1 },
+                moderate: { approvals: 1, minApproverTier: 2 },
+                high:     { approvals: 2, minApproverTier: 2 },
+                critical: { approvals: 2, minApproverTier: 3 },
+              },
+              2: {
+                low:      { approvals: 0, minApproverTier: 0 },
+                moderate: { approvals: 1, minApproverTier: 2 },
+                high:     { approvals: 1, minApproverTier: 3 },
+                critical: { approvals: 2, minApproverTier: 3 },
+              },
+              3: {
+                low:      { approvals: 0, minApproverTier: 0 },
+                moderate: { approvals: 0, minApproverTier: 0 },
+                high:     { approvals: 1, minApproverTier: 3 },
+                critical: { approvals: 1, minApproverTier: 3 },
+              },
+            };
+
+            const tierKey = Math.min(effectiveTier, 3);
+            const requirement = gate[tierKey][riskLevel];
+
+            // --- Count qualifying approvals ---
+            const { data: reviews } = await github.rest.pulls.listReviews({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pr.number,
+            });
+
+            // Deduplicate: take latest review per reviewer
+            const latestReviews = {};
+            for (const review of reviews) {
+              if (review.user.login === author) continue;  // self-reviews don't count
+              latestReviews[review.user.login] = review;
+            }
+
+            let qualifyingApprovals = 0;
+            const approverNames = [];
+            for (const [login, review] of Object.entries(latestReviews)) {
+              if (review.state !== 'APPROVED') continue;
+              const approverData = contributors[login] || { tier: 0 };
+              if (approverData.tier >= requirement.minApproverTier) {
+                qualifyingApprovals++;
+                approverNames.push(`${login} (Tier ${approverData.tier})`);
+              }
+            }
+
+            // --- Post status ---
+            const passed = qualifyingApprovals >= requirement.approvals;
+
+            const description = requirement.approvals === 0
+              ? `Tier ${effectiveTier} author, ${riskLevel} risk — self-merge OK after CI`
+              : passed
+                ? `${qualifyingApprovals}/${requirement.approvals} approvals from Tier ${requirement.minApproverTier}+ [${approverNames.join(', ')}]`
+                : `Need ${requirement.approvals} approval(s) from Tier ${requirement.minApproverTier}+, have ${qualifyingApprovals}`;
+
+            await github.rest.repos.createCommitStatus({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              sha: pr.head.sha,
+              state: passed ? 'success' : 'pending',
+              target_url: 'https://github.com/migdaepp/botplotlib/blob/main/GOVERNANCE.md#two-dimensional-review-gate',
+              description: description.substring(0, 140),
+              context: 'approval-gate',
+            });
+
+            core.info(`Approval gate: ${passed ? 'PASS' : 'PENDING'} — ${description}`);
