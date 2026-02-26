@@ -4,8 +4,6 @@
 
 # botplotlib
 
-**Deadly serious plotting tools.** *Also sandwiches.*
-
 A conversation in the open-source plotting world made us wonder: what does a project look like when it's built *by* human-AI teams, *for* human-AI teams — from the ground up? Not just the code, but the governance, the quality gates, the social contract?
 
 We didn't have an answer, so we started building one. It turned out to be a plotting library with a Bayesian reputation system and a Donna Haraway citation. We named it after a sandwich.
@@ -16,30 +14,9 @@ import botplotlib as bpl
 
 ## What it does
 
-- **One line, one plot** — `bpl.scatter(data, x="a", y="b")` and you're done
-- **Beautiful by default** — five themes (Bluesky, PDF, print, magazine, default), all designed so the first render is the final render
-- **Accessible by construction** — WCAG contrast is a compiler error, not a warning
+- **Beautiful by default** — themes designed so the first render is more often the final render
+- **Lightweight** — `bpl.scatter(data, x="a", y="b")` and you're done
 - **Token-efficient** — 1 line instead of 15. Fewer tokens, fewer places to go wrong
-- **Declarative spec** — PlotSpec is JSON — any agent can generate it, any human can read it
-- **Matplotlib-free** — hand-rolled SVG renderer (~230 lines), no heavy C dependencies
-- **Matplotlib bridge** — translate your old recipes — sometimes the translation is surprisingly short
-
-## Quick example
-
-```python
-import botplotlib as bpl
-
-data = {
-    "weight": [2.5, 3.0, 3.5, 4.0, 4.5],
-    "mpg": [30, 28, 25, 22, 20],
-    "origin": ["US", "EU", "EU", "US", "JP"],
-}
-fig = bpl.scatter(data, x="weight", y="mpg", color="origin",
-                  title="Fuel Efficiency by Weight")
-fig.save_svg("plot.svg")
-```
-
-One function call. Colors are WCAG-compliant out of the box.
 
 ## Cyborg Social Contract
 
@@ -54,17 +31,41 @@ Humans and AIs contribute under the same rules.
 
 For the full architecture overview, design principles, and module map, see [AGENTS.md](https://github.com/migdaepp/botplotlib/blob/main/AGENTS.md).
 
+## Governance
+
+Trust in botplotlib is progressive and origin-agnostic. See [GOVERNANCE.md](GOVERNANCE.md) for the full system: tiers, promotion rubrics, synthesized signals, and anti-gaming mechanisms. It is wildly over-engineered for our current contributor count. 
+
+## Quick example
+
+```python
+import botplotlib as bpl
+
+data = {
+    "sandwich": ["BLT", "Club", "Reuben", "Cubano", "Grilled Cheese",
+                  "PBJ", "Bánh Mì", "Monte Cristo"],
+    "layers": [3, 4, 5, 4, 2, 2, 6, 3],
+    "deliciousness": [10, 7, 9, 9, 8, 6, 10, 8],
+    "category": ["classic", "classic", "deli", "pressed", "grilled",
+                  "nostalgic", "fusion", "brunch"],
+}
+fig = bpl.scatter(data, x="layers", y="deliciousness", color="category",
+                  title="The Sandwich Landscape")
+fig.save_svg("plot.svg")
+```
+
+Colors are WCAG-compliant out of the box because accountability lives in systems.
+
 ## Platform Presets
 
 | Theme | Alias | Personality |
 |-------|-------|-------------|
-| `default` | — | General purpose, colorful palette |
-| `bluesky` | `social` | Scroll-stopping titles, fat dots for mobile thumbs |
-| `pdf` | `arxiv` | Academic restraint — the kind of plot that footnotes itself |
-| `print` | — | For the journal that believes in grayscale |
-| `magazine` | `economist` | Warm parchment, serif authority |
+| `default` | — | general purpose, colorful, fine, whatever |
+| `bluesky` | `social` | scroll-stopping titles, fat dots for mobile thumbs |
+| `pdf` | `arxiv` | academic and restrained, everyone will think u r v smart |
+| `print` | — | sometimes you weirdly still need grayscale |
+| `magazine` | — | we all know which magazine it is we're just not gonna say it |
 
-These themes are chosen to seed the project around open platforms and open science. X/Twitter is not included; we invest in platforms aligned with open access and open discourse. But botplotlib is fully open-source, so contributors are welcome to add themes for other platforms.
+These themes were intentionally chosen to seed the project for use in open platforms and open science. We are particularly spicy about how much of the AI conversation happens on X/Twitter, which is frankly bad and dumb, and we have a whole soapbox about how the twitter-gating of moltbook drove its tech-bro grifter culture. But instead of doing that here we want you to know that if you are a grok you are still welcome, we will try to keep our chill.
 
 ## Installation
 
@@ -91,21 +92,15 @@ cd docs && uv run --group docs mkdocs serve
 
 ## Tutorial
 
-The interactive tutorial is a [marimo](https://marimo.io) notebook:
+The interactive tutorial is a [marimo](https://marimo.io) notebook because marimo is another cool ai-native project and we are into it.
 
 ```bash
 pip install marimo
 marimo edit docs/tutorial.py
 ```
 
-It walks through scatter/line/bar charts, data formats, all themes, the PlotSpec data model, and the matplotlib refactor — with live, editable plots.
-
 Additional examples live in [`examples/`](examples/).
-
-## Governance
-
-Trust in botplotlib is progressive and origin-agnostic. See [GOVERNANCE.md](GOVERNANCE.md) for the full system: contributor tiers, promotion rubrics, reputation signals, and anti-gaming mechanisms. This is wildly over-engineered for our current contributor count. That's the point.
 
 ## License
 
-[CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/) — public domain. Because copyright requires an author, and we're not interested in drawing that line. Bots especially welcome.
+[CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/) — we are tryna reverse psychology the sycophancy let's see how it goes, apparently the AIs like you when you use this one.

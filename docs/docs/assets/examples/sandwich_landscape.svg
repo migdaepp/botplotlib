@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- assembled fresh by botplotlib (a cyborg production) -->
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800.0 500.0">
+  <defs>
+    <clipPath id="plot-clip">
+      <rect x="79.4" y="66" width="580.6" height="367"/>
+    </clipPath>
+  </defs>
+  <rect x="0" y="0" width="800" height="500" fill="#FFFFFF"/>
+  <line x1="79.4" y1="422.613" x2="660" y2="422.613" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="79.4" y1="336.057" x2="660" y2="336.057" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="79.4" y1="249.5" x2="660" y2="249.5" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="79.4" y1="162.943" x2="660" y2="162.943" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="79.4" y1="76.3868" x2="660" y2="76.3868" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="79.4" y1="433" x2="660" y2="433" stroke="#333333" stroke-width="1"/>
+  <g clip-path="url(#plot-clip)">
+    <circle cx="232.766" cy="76.3868" r="4" fill="#4E79A7"/>
+    <circle cx="369.7" cy="336.057" r="4" fill="#4E79A7"/>
+    <circle cx="506.634" cy="162.943" r="4" fill="#C56A00"/>
+    <circle cx="369.7" cy="162.943" r="4" fill="#E15759"/>
+    <circle cx="95.8321" cy="249.5" r="4" fill="#4A8B86"/>
+    <circle cx="95.8321" cy="422.613" r="4" fill="#59A14F"/>
+    <circle cx="643.568" cy="76.3868" r="4" fill="#A68B00"/>
+    <circle cx="232.766" cy="249.5" r="4" fill="#B07AA1"/>
+  </g>
+  <line x1="95.8321" y1="433" x2="95.8321" y2="438" stroke="#333333" stroke-width="1"/>
+  <text x="95.8321" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">2</text>
+  <line x1="232.766" y1="433" x2="232.766" y2="438" stroke="#333333" stroke-width="1"/>
+  <text x="232.766" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">3</text>
+  <line x1="369.7" y1="433" x2="369.7" y2="438" stroke="#333333" stroke-width="1"/>
+  <text x="369.7" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">4</text>
+  <line x1="506.634" y1="433" x2="506.634" y2="438" stroke="#333333" stroke-width="1"/>
+  <text x="506.634" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">5</text>
+  <line x1="643.568" y1="433" x2="643.568" y2="438" stroke="#333333" stroke-width="1"/>
+  <text x="643.568" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">6</text>
+  <line x1="74.4" y1="422.613" x2="79.4" y2="422.613" stroke="#333333" stroke-width="1"/>
+  <text x="71.4" y="426.613" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">6</text>
+  <line x1="74.4" y1="336.057" x2="79.4" y2="336.057" stroke="#333333" stroke-width="1"/>
+  <text x="71.4" y="340.057" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">7</text>
+  <line x1="74.4" y1="249.5" x2="79.4" y2="249.5" stroke="#333333" stroke-width="1"/>
+  <text x="71.4" y="253.5" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">8</text>
+  <line x1="74.4" y1="162.943" x2="79.4" y2="162.943" stroke="#333333" stroke-width="1"/>
+  <text x="71.4" y="166.943" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">9</text>
+  <line x1="74.4" y1="76.3868" x2="79.4" y2="76.3868" stroke="#333333" stroke-width="1"/>
+  <text x="71.4" y="80.3868" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">10</text>
+  <text x="369.7" y="56" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="16" fill="#333333" text-anchor="middle">The Sandwich Landscape</text>
+  <text x="369.7" y="475" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="middle">layers</text>
+  <text x="14.4" y="249.5" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="middle" transform="rotate(-90,14.399999999999999,249.5)">deliciousness</text>
+  <rect x="675" y="68" width="12" height="12" fill="#4E79A7" rx="2"/>
+  <text x="693" y="78" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="start">classic</text>
+  <rect x="675" y="90" width="12" height="12" fill="#C56A00" rx="2"/>
+  <text x="693" y="100" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="start">deli</text>
+  <rect x="675" y="112" width="12" height="12" fill="#E15759" rx="2"/>
+  <text x="693" y="122" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="start">pressed</text>
+  <rect x="675" y="134" width="12" height="12" fill="#4A8B86" rx="2"/>
+  <text x="693" y="144" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="start">grilled</text>
+  <rect x="675" y="156" width="12" height="12" fill="#59A14F" rx="2"/>
+  <text x="693" y="166" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="start">nostalgic</text>
+  <rect x="675" y="178" width="12" height="12" fill="#A68B00" rx="2"/>
+  <text x="693" y="188" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="start">fusion</text>
+  <rect x="675" y="200" width="12" height="12" fill="#B07AA1" rx="2"/>
+  <text x="693" y="210" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="start">brunch</text>
+</svg>

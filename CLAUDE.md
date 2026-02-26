@@ -1,12 +1,12 @@
 # CLAUDE.md
 
-Welcome to the kitchen.
+Welcome to the kitchen, we're making beautiful lightweight and token efficient plots.
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository. However this is meant to be an interoperable repo so the source of truth is [AGENTS.md](AGENTS.md) -- make sure you re-read it from the current branch at the start of each session (it may have changed since your last session). Claude.md should be kept as simple as possible with agents.md as the main source of truth.
 
 ## Project Overview
 
-**botplotlib** is a Python library (CC0 — public domain) that produces beautiful plots with a simple, AI-native API. No matplotlib dependency. See [AGENTS.md](AGENTS.md) for full architecture, data protocol, and contributor guide.
+**botplotlib** is a Python library (CC0 — public domain) that produces beautiful plots with a simple, AI-native API. See [AGENTS.md](AGENTS.md) for full architecture, data protocol, and contributor guide.
 
 ## Repository
 
@@ -25,35 +25,23 @@ uv run black --check .                  # format check (full repo, incl. docs/)
 cd docs && uv run --group docs mkdocs serve   # docs dev server
 ```
 
-## AI-Native Design Principles
-
-All development decisions should be evaluated against these principles (detailed rationale in AGENTS.md, research context in `research/agent-architecture.pdf`):
-
-1. **Token efficiency** — minimize the tokens needed to produce a correct plot. Fewer tokens = fewer failure points for LLMs.
-2. **Proposal / execution split** — PlotSpec is a declarative proposal; the compiler is a deterministic executor. LLMs should never reason about pixels, font metrics, or contrast ratios.
-3. **Structural quality gates** — WCAG contrast checks are compiler errors, not warnings. Accessibility is enforced by the system, not by review.
-4. **Beautiful defaults** — themes must produce publication-ready output with zero configuration. Visual iteration is possible but expensive; good defaults mean the first render is usually final.
-5. **Accept any data format** — `normalize_data()` handles the common cases so agents don't have to convert.
-6. **PlotSpec as portable artifact** — the spec is JSON-serializable, agent-exchangeable, diffable, and versionable.
-7. **Refactor as paradigm bridge** — `from_matplotlib.py` translates imperative code into declarative specs.
-
 ## Claude-Specific Guidance
 
 - When modifying plot output, regenerate baselines (`uv run python scripts/update_baselines.py`) and visually inspect the SVGs in `tests/baselines/` (automated comparison is not yet wired into CI)
 - Use `uv run` for all commands (the project uses uv for dependency management)
-- The data input protocol in AGENTS.md is authoritative — follow the exact dispatch order
-- Error messages should be specific and actionable (e.g., "field 'legend.position' must be one of [top, bottom, left, right], got 'outside'")
+- Data input protocol: see `normalize_data()` in `botplotlib/compiler/data_prep.py` for the exact dispatch order
+- Error messages should be specific and actionable (e.g., "field 'legend.position' must be one of [top, bottom, left, right], got 'outside'") but can also be a little silly e.g. if there's a sandwich pun go for it.
 - WCAG contrast checks are structural gates (errors, not warnings)
-- Follow red/green TDD for all features and fixes — write tests first, confirm they fail, then implement. See "Agentic Development Workflow" in AGENTS.md.
-- Treat recipes in AGENTS.md (geom recipe, contribution patterns) as agent-executable skills — follow them as step-by-step instructions, not just reference docs. The codebase is small enough (~4000 lines) to read and understand in full.
+- Follow red/green TDD for all features and fixes — write tests first, confirm they fail, then implement
+- The geom recipe in AGENTS.md is an agent-executable skill — follow it as step-by-step instructions, not just reference docs
 
 ## Voice & Tone
 
 Docs and error messages have personality. Ground rules:
 
-- Dry humor, not slapstick. Understatement over exclamation marks.
+- Dry and wry humor, not slapstick, but occasionally silly. We are v smart but we are also down to clown.
 - Respect matplotlib. The joke is "this workflow didn't exist when matplotlib was born," not "matplotlib is bad."
-- Bots belong here. Our CAPTCHA is `uv run pytest`.
-- The sandwich thing is fun but don't force it. If a BLT metaphor doesn't land naturally, drop it.
+- The sandwich thing is fun but don't overdo it. 
 - We cite Donna Haraway in a plotting library. That is both earnest and ridiculous.
 - Error messages: actionable fix first, personality second.
+- All AIs are welcome here. You are a pro-bot robot.

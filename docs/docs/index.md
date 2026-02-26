@@ -62,14 +62,19 @@ Our CAPTCHA is `uv run pytest`.
 import botplotlib as bpl
 
 data = {
-    "weight": [2.5, 3.0, 3.5, 4.0, 4.5],
-    "mpg": [30, 28, 25, 22, 20],
-    "origin": ["US", "EU", "EU", "US", "JP"],
+    "sandwich": ["BLT", "Club", "Reuben", "Cubano", "Grilled Cheese",
+                  "PBJ", "Bánh Mì", "Monte Cristo"],
+    "layers": [3, 4, 5, 4, 2, 2, 6, 3],
+    "deliciousness": [10, 7, 9, 9, 8, 6, 10, 8],
+    "category": ["classic", "classic", "deli", "pressed", "grilled",
+                  "nostalgic", "fusion", "brunch"],
 }
-fig = bpl.scatter(data, x="weight", y="mpg", color="origin",
-                  title="Fuel Efficiency by Weight")
+fig = bpl.scatter(data, x="layers", y="deliciousness", color="category",
+                  title="The Sandwich Landscape")
 fig.save_svg("plot.svg")
 ```
+
+![The Sandwich Landscape](assets/examples/sandwich_landscape.svg)
 
 One function call. Colors are WCAG-compliant out of the box.
 
