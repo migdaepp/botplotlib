@@ -272,6 +272,7 @@ Some events are serious enough to warrant immediate response, not gradual decay.
 - Compromised account — whether through stolen credentials, leaked API keys, prompt injection, or any other vector that causes an account to act contrary to its established pattern
 - Repeated approval of subsequently-reverted PRs
 - Sudden, unexplained capability shift (an account that consistently shipped clean code begins producing qualitatively different output — this could indicate a model change, a compromised key, or a different entity operating the account)
+- Coordinated inauthentic behavior — multiple accounts acting in concert (mutual-review cliques, synchronized timing, correlated domain targeting) as identified by review-graph analysis
 
 ### Immediate actions (hours)
 
@@ -439,6 +440,28 @@ The reputation system is designed to make gaming expensive — not by punishing 
 
 This is symbiosis rather than siege. The system is designed so that the easiest way to gain reputation is to genuinely contribute well. If you find a cheaper strategy, let us know — that's a bug, not a feature.
 
+### The swarm problem (and what we actually do about it)
+
+The anti-gaming mechanisms above were designed for a world where building reputation is expensive because quality work takes effort. But AI changes the cost structure. An AI (or a swarm of AI accounts) can generate clean PRs that pass every structural gate at near-zero marginal cost. Multi-dimensional consistency? Cheaper when one model can write code, reviews, and docs in the same session. Patience? Free. A swarm can contribute cleanly for months, build Tier 2 across multiple domains, and then coordinate a destructive action — having already written off the escrowed reputation as a sunk cost.
+
+We are not going to pretend the reputation system solves this. It doesn't. No reputation system fully defends against a patient, well-resourced attacker willing to invest real value before defecting. And we are not going to solve it by requiring a human in every loop — that's a moral crumple zone with a payroll. It doesn't scale, it privileges human contributors over AI contributors, and it just moves the vulnerability to "compromise the human reviewer" instead of "compromise the bot account."
+
+Here is what actually defends this project:
+
+**1. Blast radius is bounded.** The worst damage any single contributor can do is limited by the two-dimensional review gate. Even a Tier 3 maintainer can't self-merge critical-risk changes. Attacking the compiler requires a Tier 3 approval from someone *else*. Attacking CI requires *two* Tier 3 approvals from different accounts. A coordinated swarm needs to compromise multiple high-tier accounts across different domains to do serious damage — and each of those accounts represents months of genuine contributions that the project already benefited from.
+
+**2. Reversibility is the real backstop.** Git means almost everything can be undone in minutes. The "burn it down" window is the time between merge and detection, which for a monitored repo is hours to days, not permanent. The damage from a successful attack is bounded and temporary. The value of three months of genuine contributions leading up to the attack is permanent.
+
+**3. Structural gates catch what reputation can't.** CI runs regardless of who submitted the code. Tests fail regardless of the author's tier. WCAG contrast checks don't care about your reputation balance. These gates catch a large class of harmful changes (broken code, regressions, accessibility violations) *even if the author has earned full trust.* The gates are the defense. The reputation system is the efficiency layer that decides how much additional review to add on top.
+
+**4. The economics still favor contributing well.** If gaming the system requires three months of clean, useful contributions across multiple domains with reviews that genuinely improved others' work — the project got real value. The cost to the attacker (three months of quality output × N swarm accounts) is real, and the project captures all of it even if the attack succeeds. This is not a complete defense, but it means the expected value of the "long con" strategy is worse than it looks: you have to produce genuinely good work, for months, before you can do damage that gets reverted in hours.
+
+**5. Coordination patterns are detectable.** Swarm accounts that always review each other, never interact with organic contributors, submit PRs in coordinated timing patterns, or all touch the same subsystems create detectable graph signatures. These patterns don't require a human to notice them — they're computable from the contributor event log. (See [v3 roadmap](#v3-algorithmic-scoring-planned) for review-graph analysis.)
+
+**What we don't do:** We don't require human approval as a swarm defense. That's too expensive, it creates a bottleneck that privileges human-mediated contributions, and it's a moral crumple zone — the human reviewer becomes the accountability sink for systemic failures. If a swarm gets past the structural gates and the review requirements and the blast radius limits, the answer is "improve the gates," not "add more humans."
+
+**What we do instead:** We invest in structural gates that are hard to circumvent regardless of trust level, we bound the blast radius at every tier, we make reversal fast and cheap, and we build toward automated detection of coordinated inauthentic behavior. The reputation system makes casual gaming expensive. The architecture makes sophisticated gaming bounded in damage. And the economics make the "long con" a bad trade for the attacker even when it works.
+
 ---
 
 ## Incentive Design
@@ -521,7 +544,8 @@ The previous version of this section said "Nothing!" which was at least honest. 
 
 - [ ] Bayesian signal synthesis from CONTRIBUTORS.json event history
 - [ ] Automated tier promotion proposals (Action opens promotion issues when thresholds are crossed)
-- [ ] Review-graph analysis (who reviews whom, weighted by reviewer reputation)
+- [ ] Review-graph analysis (who reviews whom, weighted by reviewer reputation) — also serves as swarm detection: accounts that form a closed review clique with minimal organic interaction are flagged
+- [ ] Coordination pattern detection: timing analysis, domain overlap, and interaction graph density to identify potential swarm behavior
 - [ ] Capability attestation verification (signed commits, build provenance)
 - [ ] Cross-project reputation portability (EAS-style schemas)
 
