@@ -1,0 +1,147 @@
+name: Contributor Tracker
+
+on:
+  pull_request:
+    types: [closed]
+
+permissions:
+  contents: write
+  pull-requests: read
+
+jobs:
+  track:
+    name: Record contribution event
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update CONTRIBUTORS.json
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = 'CONTRIBUTORS.json';
+
+            // Read current contributors file
+            const raw = fs.readFileSync(path, 'utf8');
+            const data = JSON.parse(raw);
+
+            const pr = context.payload.pull_request;
+            const author = pr.user.login;
+
+            // Determine areas touched
+            const { data: files } = await github.rest.pulls.listFiles({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pr.number,
+            });
+
+            const areaRules = [
+              { pattern: /^\.github\//, area: 'ci' },
+              { pattern: /^(GOVERNANCE|AGENTS|CODEOWNERS|CONTRIBUTORS|reputation_ledger)/, area: 'governance' },
+              { pattern: /^pyproject\.toml$/, area: 'ci' },
+              { pattern: /^botplotlib\/compiler\//, area: 'compiler' },
+              { pattern: /^botplotlib\/render\//, area: 'render' },
+              { pattern: /^botplotlib\/spec\//, area: 'spec' },
+              { pattern: /^botplotlib\/geoms\//, area: 'geoms' },
+              { pattern: /^botplotlib\/(_api|figure|__init__)\.py$/, area: 'api' },
+              { pattern: /^botplotlib\//, area: 'api' },
+              { pattern: /^tests\//, area: 'tests' },
+              { pattern: /^scripts\//, area: 'ci' },
+              { pattern: /^(docs|examples|research)\//, area: 'docs' },
+              { pattern: /\.md$/, area: 'docs' },
+            ];
+
+            const riskRules = [
+              { pattern: /^\.github\//, risk: 'critical' },
+              { pattern: /^(GOVERNANCE|AGENTS|CODEOWNERS|CONTRIBUTORS|reputation_ledger|pyproject)/, risk: 'critical' },
+              { pattern: /^botplotlib\/(compiler|render|spec)\//, risk: 'high' },
+              { pattern: /^botplotlib\/(_api|figure|__init__)\.py$/, risk: 'high' },
+              { pattern: /^(botplotlib\/geoms|tests|scripts)\//, risk: 'moderate' },
+            ];
+
+            const areas = new Set();
+            let maxRisk = 'low';
+            const riskPriority = { low: 0, moderate: 1, high: 2, critical: 3 };
+
+            for (const file of files) {
+              for (const rule of areaRules) {
+                if (rule.pattern.test(file.filename)) {
+                  areas.add(rule.area);
+                  break;
+                }
+              }
+              for (const rule of riskRules) {
+                if (rule.pattern.test(file.filename)) {
+                  if (riskPriority[rule.risk] > riskPriority[maxRisk]) {
+                    maxRisk = rule.risk;
+                  }
+                  break;
+                }
+              }
+            }
+
+            // Get reviewers and approval status
+            const { data: reviews } = await github.rest.pulls.listReviews({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pr.number,
+            });
+
+            const approvers = reviews
+              .filter(r => r.state === 'APPROVED')
+              .map(r => r.user.login);
+            const changesRequested = reviews.some(r => r.state === 'CHANGES_REQUESTED');
+
+            // Build event record
+            const event = {
+              type: 'pr_merged',
+              date: new Date().toISOString().split('T')[0],
+              pr_number: pr.number,
+              areas: [...areas],
+              risk_level: maxRisk,
+              reviewers: approvers,
+              first_pass_approval: !changesRequested,
+            };
+
+            // Create contributor entry if new
+            if (!data.contributors[author]) {
+              data.contributors[author] = {
+                tier: 0,
+                domains: {
+                  docs: 0,
+                  geoms: 0,
+                  compiler: 0,
+                  render: 0,
+                  spec: 0,
+                  api: 0,
+                  tests: 0,
+                  ci: 0,
+                  governance: 0,
+                },
+                joined: new Date().toISOString().split('T')[0],
+                probation_until: null,
+                vouched_by: null,
+                active_vouches: [],
+                events: [],
+              };
+              core.info(`New contributor: ${author} (Tier 0)`);
+            }
+
+            data.contributors[author].events.push(event);
+
+            // Write updated file
+            fs.writeFileSync(path, JSON.stringify(data, null, 2) + '\n');
+            core.info(`Recorded event for ${author}: PR #${pr.number} (${maxRisk} risk, areas: ${[...areas].join(', ')})`);
+
+      - name: Commit updated CONTRIBUTORS.json
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add CONTRIBUTORS.json
+          git diff --cached --quiet || git commit -m "Track contribution: PR #${{ github.event.pull_request.number }} by ${{ github.event.pull_request.user.login }}"
+          git push

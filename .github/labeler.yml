@@ -1,0 +1,49 @@
+# Area labels — based on which files a PR touches
+area/docs:
+  - changed-files:
+      - any-glob-to-any-file: ['docs/**', '*.md']
+
+area/geoms:
+  - changed-files:
+      - any-glob-to-any-file: ['botplotlib/geoms/**']
+
+area/compiler:
+  - changed-files:
+      - any-glob-to-any-file: ['botplotlib/compiler/**']
+
+area/render:
+  - changed-files:
+      - any-glob-to-any-file: ['botplotlib/renderer/**']
+
+area/spec:
+  - changed-files:
+      - any-glob-to-any-file: ['botplotlib/spec/**']
+
+area/api:
+  - changed-files:
+      - any-glob-to-any-file: ['botplotlib/_api.py']
+
+area/tests:
+  - changed-files:
+      - any-glob-to-any-file: ['tests/**']
+
+area/ci:
+  - changed-files:
+      - any-glob-to-any-file: ['.github/**']
+
+area/governance:
+  - changed-files:
+      - any-glob-to-any-file: ['GOVERNANCE.md', 'CONTRIBUTORS.json', 'AGENTS.md']
+
+# Risk labels — based on high-risk file patterns
+risk/critical:
+  - changed-files:
+      - any-glob-to-any-file: ['GOVERNANCE.md', 'CONTRIBUTORS.json', '.github/workflows/**']
+
+risk/high:
+  - changed-files:
+      - any-glob-to-any-file: ['botplotlib/compiler/**', 'botplotlib/renderer/**', 'pyproject.toml']
+
+risk/moderate:
+  - changed-files:
+      - any-glob-to-any-file: ['botplotlib/geoms/**', 'botplotlib/spec/**', 'botplotlib/_api.py']

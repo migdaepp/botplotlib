@@ -1,0 +1,45 @@
+name: Feature Request
+description: Propose an enhancement or new capability.
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem statement
+      description: What problem does this feature solve? Why does it matter?
+      placeholder: I want to be able to...
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+      description: How should this work? Include API sketches, examples, or mockups if helpful.
+      placeholder: |
+        Example API:
+        fig = bpl.heatmap(data, x="col_a", y="col_b", value="count")
+
+  - type: dropdown
+    id: risk-area
+    attributes:
+      label: Risk area
+      description: Which part of the codebase would this touch? See GOVERNANCE.md risk taxonomy.
+      options:
+        - docs
+        - geoms
+        - compiler
+        - renderer
+        - spec
+        - tests
+        - ci
+        - governance
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: What other approaches did you consider?

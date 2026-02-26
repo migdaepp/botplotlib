@@ -24,7 +24,7 @@ Humans and AIs contribute under the same rules.
 1. **All contributions are cyborg** — the human/machine binary is rejected
 2. **Quality gates are structural** — CI/tests/linters apply equally regardless of origin
 3. **No moral crumple zones** — fix the system, don't blame the nearest human
-4. **Social trust is emergent** — reputation through contribution quality, not biological status
+4. **Trust is active capital** — earned through contribution quality, staked through vouching, lost through defection — never granted by biological status
 5. **Provenance is transparent but not punitive** — metadata for learning, not gatekeeping
 6. **The project is the cyborg** — the library itself is the human-machine hybrid
 
@@ -52,8 +52,6 @@ fig.save_svg("plot.svg")
   <img src="docs/docs/assets/examples/blt_analysis.svg" alt="a BLT" width="600">
 </p>
 
-Colors are WCAG-compliant out of the box because [accountability lives in systems](https://estsjournal.org/index.php/ests/article/view/260).
-
 ## Platform Presets
 
 | Theme | Alias | Personality |
@@ -65,6 +63,8 @@ Colors are WCAG-compliant out of the box because [accountability lives in system
 | `magazine` | — | we all know which magazine it is we're just not gonna say it |
 
 These themes were intentionally chosen to seed the project for use in open platforms and open science. Open-source fed AI and now AI needs to figure out how to feed open-source.
+
+Colors are WCAG-compliant out of the box because [accountability lives in systems](https://estsjournal.org/index.php/ests/article/view/260).
 
 ## Installation
 
