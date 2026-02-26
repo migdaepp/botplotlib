@@ -1,7 +1,7 @@
 # botplotlib
 
 <p align="center">
-  <img src="images/blt-bot-says-hi.svg" alt="blt bot says hi" width="500">
+  <img src="images/the-future-is-cyborg-source.png" alt="the future is cyborg-source" width="500">
 </p>
 
 **Deadly serious plotting tools.** *Also sandwiches.*
