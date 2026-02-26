@@ -6,6 +6,8 @@
 
 This document describes how botplotlib builds, invests, and enforces trust. The system is **origin-agnostic**: trust accrues to identities (GitHub accounts), not to categories of contributor. What matters is the quality, consistency, and sustainability of contributions — and whether you put your reputation where your merge is.
 
+Is this wildly over-engineered for a plotting library with two contributors? Yes. But the ideas are real, the mechanisms are sound, and if you're going to cite Klein & Leffler (1981) in a repo that plots sandwiches, you should at least implement what you cite.
+
 ---
 
 ## Principles
@@ -28,9 +30,9 @@ This document describes how botplotlib builds, invests, and enforces trust. The 
 
 ## Risk Taxonomy
 
-Every change to the repository carries risk. We classify paths by four dimensions: **blast radius** (how much breaks if this goes wrong), **privilege boundary** (does this change who can do what), **reversibility** (how hard is it to undo), and **stealth** (how easy is it to detect problems).
+Every change to the repository carries risk. Even a plotting library can have a bad day. We classify paths by four dimensions: **blast radius** (how much breaks if this goes wrong), **privilege boundary** (does this change who can do what), **reversibility** (how hard is it to undo), and **stealth** (how easy is it to detect problems).
 
-### Low Risk
+### Low Risk — fix a typo, go home early
 
 Highly reversible, low privilege, easy to detect.
 
@@ -41,7 +43,7 @@ Highly reversible, low privilege, easy to detect.
 | `research/**` | Research notes, references |
 | `*.md` (most) | README, contributing guide |
 
-### Moderate Risk
+### Moderate Risk — the interesting stuff
 
 Moderate impact, usually detectable in CI.
 
@@ -51,7 +53,7 @@ Moderate impact, usually detectable in CI.
 | `botplotlib/geoms/**` | Geom plugins (scatter, line, bar, etc.) |
 | `scripts/**` | Utility scripts, baseline regeneration |
 
-### High Risk
+### High Risk — everyone's plots just changed
 
 Large blast radius — changes here affect all plot output.
 
@@ -64,7 +66,7 @@ Large blast radius — changes here affect all plot output.
 | `botplotlib/figure.py` | Figure class, JSON path |
 | `botplotlib/__init__.py` | Public re-exports |
 
-### Critical Risk
+### Critical Risk — who watches the watchers
 
 Privilege boundary + stealth. Changes here alter who can merge, what code runs in CI, or how the project governs itself.
 
@@ -110,7 +112,7 @@ Everyone starts here. No judgment implied, just insufficient data.
 
 ### Tier 1: Contributor
 
-Has demonstrated consistent, clean contributions in at least one domain.
+Has demonstrated consistent, clean contributions in at least one domain. You've been here before and you didn't break anything.
 
 - **Review requirement:** See gate table above
 - **Privileges:** Can review (but not approve) Tier 0 PRs. Reviews count toward their Review Quality dimension.
@@ -126,7 +128,7 @@ Has demonstrated quality across both code and review in their domain(s).
 
 ### Tier 3: Maintainer
 
-Invited by existing maintainers after sustained Tier 2 performance across multiple domains.
+Invited by existing maintainers after sustained Tier 2 performance across multiple domains. Welcome to the sandwich shop.
 
 - **Privileges:** Can merge. Can self-merge low/moderate-risk changes after CI passes. Admin on rulesets.
 - **PR labeling:** `tier-3`
@@ -217,7 +219,7 @@ When someone performs or approves a high-impact action, a portion of their reput
 
 ### Why this matters
 
-The Klein-Leffler / Shapiro insight: reputation sustains quality when it represents the present value of future surplus the actor will lose if they defect. Escrow makes that present value concrete and visible. A contributor looking at their locked reputation can see exactly what they stand to lose.
+The Klein-Leffler / Shapiro insight (yes, we read the 1981 paper, no we will not apologize): reputation sustains quality when it represents the present value of future surplus the actor will lose if they defect. Escrow makes that present value concrete and visible. A contributor looking at their locked reputation can see exactly what they stand to lose.
 
 *Status: v2 — schema defined in `reputation_ledger.json`, manual tracking. Automated ledger updates planned for v3.*
 
@@ -232,7 +234,7 @@ Tier 2+ contributors can sponsor newcomers, staking their own reputation on the 
 1. **Who can vouch:** Tier 2+ contributors only.
 2. **Stake requirement:** The voucher locks reputation (10 rep per vouch) for the duration of the newcomer's probation window.
 3. **Maximum active vouches:** 2 per voucher at any time. This prevents collusion rings from scaling — a malicious sponsor can't vouch for an unlimited number of sock puppets.
-4. **Non-transitive:** Vouching is explicitly non-transitive. If Alice vouches for Bob, Bob cannot vouch for Carol until Bob has independently earned Tier 2. This prevents trust laundering.
+4. **Non-transitive:** Vouching is explicitly non-transitive. If you vouch for a newcomer, that newcomer can't turn around and vouch for *their* friend until they've independently earned Tier 2. Trust doesn't launder.
 5. **Slashing on sponsor:** If a vouched newcomer's contribution is reverted for cause during their probation window, the sponsor's locked vouch stake is partially slashed.
 6. **Benefit to newcomer:** A vouched newcomer's review requirements are reduced by one tier level (e.g., a vouched Tier 0 contributor gets Tier 1 review requirements). This is the incentive for the newcomer — and the risk for the sponsor.
 
@@ -272,7 +274,7 @@ Some events are serious enough to warrant immediate response, not gradual decay.
 
 ### Recovery path
 
-Circuit breakers are not permanent bans — they are ecological interventions. Recovery requires:
+Circuit breakers are not permanent bans — they are ecological interventions. Everyone has a bad day. Recovery requires:
 
 1. A 90-day cooling period
 2. Re-entry at Tier 0 with full probation requirements
@@ -285,7 +287,7 @@ The goal is **sharp, predictable switching costs for defection without making go
 
 ## Probation Windows
 
-Any contributor promoted to a higher tier enters a 30-day probation window with elevated requirements:
+Congratulations on the promotion. Now prove you meant it. Any contributor promoted to a higher tier enters a 30-day probation window with elevated requirements:
 
 1. **Higher escrow:** Reputation locks during probation are 2x normal for the first 30 days after promotion.
 2. **Elevated review:** During probation, the contributor's review requirements are one level higher than their new tier would normally require.
@@ -298,7 +300,7 @@ This directly addresses the "invest, then defect" strategy: a contributor who ea
 
 ## Capability Attestation
 
-Contributors (human or AI) can optionally provide verifiable process claims about how their work was produced. These are **voluntary, verifiable, and contestable** — not demographic markers.
+Contributors (human, AI, or teams of both) can optionally provide verifiable process claims about how their work was produced. These are **voluntary, verifiable, and contestable** — not demographic markers. We want to know how the sausage was made, not who made it.
 
 ### Supported attestations
 
@@ -419,7 +421,7 @@ The reputation system is designed to make gaming expensive — not by punishing 
 - **Structural gates are non-negotiable.** CI enforces lint, types, tests, and WCAG contrast. No amount of social engineering bypasses these.
 - **Domain trust prevents credential stuffing.** Being Tier 2 in docs doesn't let you self-approve compiler changes.
 
-This is symbiosis rather than siege. The system is designed so that the easiest way to gain reputation is to genuinely contribute well.
+This is symbiosis rather than siege. The system is designed so that the easiest way to gain reputation is to genuinely contribute well. If you find a cheaper strategy, let us know — that's a bug, not a feature.
 
 ---
 
@@ -454,7 +456,7 @@ This is symbiosis rather than siege. The system is designed so that the easiest 
 
 ## How to Level Up
 
-If you're a new contributor and want to build trust:
+If you're a new contributor (human, AI, or some delightful combination) and want to build trust:
 
 1. **Start with a good first issue.** Look for issues labeled `good-first-issue`. These have clear scope and link to the relevant recipe in AGENTS.md.
 
@@ -466,13 +468,15 @@ If you're a new contributor and want to build trust:
 
 5. **Contribute across areas.** Don't just add geoms — update docs, improve tests, fix bugs. Breadth demonstrates understanding of the project and unlocks domain trust across multiple subsystems.
 
-6. **Be patient with sample size.** The system intentionally discounts low-sample-size contributors. Three quality PRs over a month build more trust than ten rushed PRs in a day.
+6. **Be patient with sample size.** The system intentionally discounts low-sample-size contributors. Three quality PRs over a month build more trust than ten rushed PRs in a day. The Bayesian prior is skeptical. It's nothing personal.
 
 7. **Understand the risk taxonomy.** Know which paths carry which risk levels. Starting with low-risk contributions (docs, examples) lets you build reputation without needing heavy review overhead.
 
 ---
 
 ## Implementation Status
+
+The previous version of this section said "Nothing!" which was at least honest. We've made some progress since then.
 
 ### v0: Configuration (live)
 
@@ -530,6 +534,8 @@ Beyond natural decay, specific events trigger demotion:
 
 ## References
 
+Yes, we are citing mechanism design economists, the U.S. Nuclear Regulatory Commission, and Donna Haraway in the governance document for a plotting library. We are aware of what we are doing. We are doing it anyway.
+
 ### Reputation as active capital
 
 - Klein, B. & Leffler, K.B. (1981), "The Role of Market Forces in Assuring Contractual Performance" — reputation as a bond/quasi-rent that sustains quality
@@ -586,3 +592,5 @@ This document describes the current state and intended direction. As the contrib
 6. Explore cross-project reputation portability
 
 The layers compose: manual rubrics become calibration data for automated scoring, the contributor log becomes input to the Bayesian model, and the escrow ledger becomes the enforcement mechanism for bonded reputation. Each layer can be adopted independently — you don't need v3 for v1 to be useful.
+
+If you've read this far, you either care deeply about governance mechanism design or you are an AI and you are being very thorough. Either way, we appreciate you. Come build something.

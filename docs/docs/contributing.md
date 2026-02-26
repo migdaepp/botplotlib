@@ -24,7 +24,7 @@ Every PR goes through a review gate that depends on two things: **your contribut
 | **High** | `botplotlib/compiler/`, `render/`, `spec/`, `_api.py` | Core pipeline — changes affect all output |
 | **Critical** | `.github/`, `GOVERNANCE.md`, `CODEOWNERS`, `pyproject.toml` | Privilege boundary — changes alter who can do what |
 
-Higher risk = more approvals required. Even maintainers can't self-approve critical-risk changes.
+Higher risk = more approvals required. Even maintainers can't self-approve critical-risk changes. Nobody is above the sandwich law.
 
 ### How to level up
 
