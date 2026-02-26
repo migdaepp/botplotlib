@@ -53,6 +53,10 @@ fig = bpl.scatter(data, x="layers", y="deliciousness", color="category",
 fig.save_svg("plot.svg")
 ```
 
+<p align="center">
+  <img src="docs/docs/assets/examples/sandwich_landscape.svg" alt="The Sandwich Landscape" width="600">
+</p>
+
 Colors are WCAG-compliant out of the box because accountability lives in systems.
 
 ## Platform Presets
