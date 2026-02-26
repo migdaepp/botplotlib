@@ -299,7 +299,7 @@ All tests should now pass. If any fail, fix the implementation — not the tests
 uv run pytest && uv run ruff check . && uv run black --check .
 ```
 
-All tests must pass. Commit as a single atomic PR.
+All tests must pass. Prefer a coherent PR with changes grouped by outcome and artifacts documented. Let CI enforce quality.
 
 ### Available primitives
 
