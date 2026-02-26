@@ -146,7 +146,7 @@ PlotSpec fields:
       heading_level: 3
       members: false
 
-See [Themes guide](../guide/themes.md) for full property reference and usage examples.
+See the [Guide](../guide.md#themes) for usage examples.
 
 ---
 
@@ -194,7 +194,7 @@ See [Themes guide](../guide/themes.md) for full property reference and usage exa
 | `bar` | `BarGeom` | Vertical bar chart |
 | `waterfall` | `WaterfallGeom` | Waterfall chart with running totals |
 
-See the [Contributing guide](../contributing.md#adding-a-new-geom) for instructions on adding custom geoms.
+See [AGENTS.md](https://github.com/migdaepp/botplotlib/blob/main/AGENTS.md) for instructions on adding custom geoms.
 
 ---
 
@@ -205,4 +205,4 @@ See the [Contributing guide](../contributing.md#adding-a-new-geom) for instructi
       show_root_heading: true
       heading_level: 3
 
-See [Data Formats guide](../guide/data-formats.md) for the full dispatch order and usage examples.
+See the [Guide](../guide.md#data-formats) for supported formats.

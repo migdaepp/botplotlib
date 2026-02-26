@@ -47,7 +47,7 @@ fig.save_svg("plot.svg")
   <img src="docs/docs/assets/examples/blt_analysis.svg" alt="a BLT" width="600">
 </p>
 
-Colors are WCAG-compliant out of the box because accountability lives in systems.
+Colors are WCAG-compliant out of the box because [accountability lives in systems](https://estsjournal.org/index.php/ests/article/view/260).
 
 ## Platform Presets
 
@@ -97,7 +97,7 @@ Additional examples live in [`examples/`](examples/).
 
 ## Other Stuff
 
-Our approach to agentic engineering is heavily influenced by [Simon Willison's patterns](https://simonwillison.net/guides/agentic-engineering-patterns/).
+Our approach to agentic engineering is heavily influenced by [Simon Willison's patterns](https://simonwillison.net/guides/agentic-engineering-patterns/). Our governance model builds on [Madeleine Clare Elish's](https://estsjournal.org/index.php/ests/article/view/260) idea of moral crumple zones, which tells us that accountability should live in systems, not in the nearest human. Finally, we are very influenced by [Donna Haraway](https://en.wikipedia.org/wiki/A_Cyborg_Manifesto), which is a lot, but here we are.
 
 ## License
 
