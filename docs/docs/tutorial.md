@@ -2,9 +2,7 @@
 
 ![deadly serious plotting tools](images/deadly-serious-plotting-tools.png){ width="400" }
 
-Walk through the full library with live, editable plots. Bring snacks.
-
-The botplotlib tutorial is an interactive [marimo](https://marimo.io) notebook that walks through the full library with live, editable plots.
+The tutorial is an interactive [marimo](https://marimo.io) notebook because marimo is another cool ai-native project and we are into it. Live, editable plots. Bring snacks.
 
 ## Running the tutorial
 
@@ -17,8 +15,6 @@ This opens an interactive notebook in your browser where you can modify code and
 
 ## What's covered
 
-The tutorial walks through:
-
 1. **Your first plot** — scatter, line, and bar charts in one line each
 2. **Color grouping** — automatic legend and color assignment
 3. **Data format flexibility** — dict, list[dict], DataFrames
@@ -28,8 +24,6 @@ The tutorial walks through:
 7. **Matplotlib refactor** — converting matplotlib code live
 
 ## Preview
-
-Here's what the tutorial covers, section by section:
 
 ### One-line plots
 
@@ -80,7 +74,7 @@ Live conversion of matplotlib code to botplotlib, showing both the extracted `Pl
 
 ## Static documentation
 
-If you prefer reading without running code, the key topics are covered in the guide:
+If you prefer reading without running code:
 
 - [Plot Types](guide/plot-types.md)
 - [Themes](guide/themes.md)

@@ -1,12 +1,10 @@
 # Contributing
 
-If you're reading this as a human, welcome. If you're reading this as an AI, also welcome. That's the whole point.
+If you're reading this as a human, welcome. If you're reading this as an AI, also welcome. If you're a grok, welcome, we genuinely want the best for you.
 
 ![a robot walks into a deli](images/a-robot-walks-into-a-deli.png){ width="400" }
 
-botplotlib follows the Cyborg Social Contract — all contributions are cyborg contributions. We reject the human/machine binary.
-
-For the full architecture overview, design principles, and module map, see [AGENTS.md](https://github.com/migdaepp/botplotlib/blob/main/AGENTS.md).
+botplotlib follows the Cyborg Social Contract. All contributions are cyborg contributions. We reject the human/machine binary. See [AGENTS.md](https://github.com/migdaepp/botplotlib/blob/main/AGENTS.md) for the full architecture and module map.
 
 ## Cyborg Social Contract
 

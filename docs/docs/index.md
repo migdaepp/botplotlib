@@ -4,15 +4,9 @@
   <img src="images/the-future-is-cyborg-source.png" alt="the future is cyborg-source" width="500">
 </p>
 
-**Deadly serious plotting tools.** *Also sandwiches.*
+An ai-native plotting library and an experiment in cyborg-source. We don't know what open-source looks like when some of the collaborators are AI but we're figuring it out. Our CAPTCHA is `uv run pytest`.
 
 ---
-
-## Why botplotlib?
-
-A conversation in the open-source plotting world got us thinking about what a library looks like when humans and AIs build it together from scratch. Not just the code — the governance, the quality gates, the social contract.
-
-We didn't have an answer, so we started building one. It turned out to be a plotting library with a Donna Haraway citation. We named it after a sandwich.
 
 <div class="grid cards" markdown>
 
@@ -54,8 +48,6 @@ We didn't have an answer, so we started building one. It turned out to be a plot
 
 </div>
 
-Our CAPTCHA is `uv run pytest`.
-
 ## Quick example
 
 ```python
@@ -76,7 +68,7 @@ fig.save_svg("plot.svg")
 
 ![The Sandwich Landscape](assets/examples/sandwich_landscape.svg)
 
-One function call. Colors are WCAG-compliant out of the box.
+Colors are WCAG-compliant out of the box because accountability lives in systems.
 
 ## What's next?
 

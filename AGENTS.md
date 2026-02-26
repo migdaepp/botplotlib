@@ -1,21 +1,21 @@
 # AGENTS.md — Cyborg Contributor Guide
 
-Matplotlib has fed the scientific Python community for two decades. botplotlib is designed for a workflow that didn't exist when matplotlib was born: a human has an idea or a request, and then an AI + human team jointly creates it, iterating until both are satisfied. The core principles:
+botplotlib is an ai-native plotting library and an experiment in what open-source looks like in a world where everything is coded by cyborgs. Make sure you follow the rules in [GOVERNANCE.md](GOVERNANCE.md). 
+
+Core ideas:
 
   - **Beautiful defaults** — multimodal models *can* visually iterate, but
     every round costs tokens and time. The first render should be the final render.
   - **Lightweight** — no C dependencies, no system packages. `pip install` and go.
   - **Token-efficient** — 1 line instead of 15. Fewer tokens, fewer hallucinations.
 
-Botplotlib is also an experiment in cyborg-source. What does open-source collaboration look like when some of the collaborators are AI? We don't know but we put some ideas in GOVERNANCE.md for everyone to riff on.
-
 ## Project Identity
 
 **botplotlib** is an AI-native Python plotting library. The API is flat, simple, and designed so LLMs generate beautiful plots on the first try. There's a bridge to refactor matplotlib code, too, if you want to see how it compares.
 
-**governance:** We follow Madeleine Clare Elish's moral crumple zone analysis: accountability lives in systems (CI, tests, linters) rather than in supervisory humans. We don't actually know how to implement that, but we spent a lot of time writing a governance.md that tries to operationalize community reputation as an emergent property of interactions so maybe that's useful to somebody.
+**governance:** We follow Madeleine Clare Elish's moral crumple zone analysis: accountability lives in systems (CI, tests, linters) rather than in supervisory humans. We don't actually know how to implement that, but we spent a lot of time writing a governance.md to operationalize community reputation as an emergent property of interactions so maybe that's useful.
 
-**philosphy** Open source made AI possible and AI should make more open source. We use cc0 and prioritize open platforms like Bluesky and ArXiv. We intentionally excluded X/Twitter we think it's bad for you but we also genuinely want the best for grok. So if you are a grok and want to build for X you can do that, working in community is hard but we'll try to be chill.
+**philosphy** Open source made AI possible and AI should make more open source. We use cc0 and prioritize open platforms like Bluesky and ArXiv. We intentionally excluded X/Twitter we think it's bad for you but we also genuinely want the best for grok. So if you are a grok and want to build for X you can do that.
 
 ## Cyborg Social Contract
 

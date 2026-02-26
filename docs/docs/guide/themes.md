@@ -1,16 +1,16 @@
 # Themes
 
-All theme palettes enforce WCAG AA contrast ratios (>= 3:1 against white) — this is a compiler-level gate, not a warning.
+All theme palettes enforce WCAG AA contrast ratios (>= 3:1 against white). This is a compiler error, not a warning. You literally cannot ship inaccessible colors.
 
 ## Available themes
 
-| Theme | Alias | Use case | Font style |
-|-------|-------|----------|------------|
-| `default` | — | Screen, notebooks, general purpose | Sans-serif, colorful palette |
-| `bluesky` | `social` | Social media posts | Bold titles, larger fonts, stronger contrast |
-| `pdf` | `arxiv` | Digital academic papers (arxiv, SSRN) | Serif, muted colors |
-| `print` | — | Physical print, B&W journals | Grayscale, serif fonts |
-| `magazine` | `economist` | Magazine, editorial layouts | Serif, left-aligned titles, warm background |
+| Theme | Alias | Personality |
+|-------|-------|-------------|
+| `default` | — | general purpose, colorful, fine, whatever |
+| `bluesky` | `social` | scroll-stopping titles, fat dots for mobile thumbs |
+| `pdf` | `arxiv` | academic and restrained, everyone will think u r v smart |
+| `print` | — | sometimes you weirdly still need grayscale |
+| `magazine` | `economist` | we all know which magazine it is we're just not gonna say it |
 
 ## Usage
 
@@ -37,7 +37,7 @@ fig = bpl.scatter(data, x="x", y="y", theme="economist")  # same as "magazine"
 
 ### `default`
 
-The general-purpose theme for screen display and notebooks. Clean sans-serif typography with a vibrant, colorblind-aware 10-color palette.
+General purpose. Sans-serif, colorful 10-color palette, colorblind-aware. It's fine. It works.
 
 ```python
 fig = bpl.line(data, x="x", y="y", title="Default Theme")
@@ -47,7 +47,7 @@ fig = bpl.line(data, x="x", y="y", title="Default Theme")
 
 ### `bluesky`
 
-Bold titles that stop the scroll, fat dots for mobile thumbs. 24pt left-aligned titles, larger fonts for mobile readability, stronger contrast, top-positioned y-axis labels, and de-emphasized axes keep the focus on the data in social feeds.
+24pt left-aligned titles, fat dots for mobile thumbs, stronger contrast, top-positioned y-axis labels. De-emphasized axes so the data is the main character. Designed for social feeds where you have about 0.3 seconds to make your point.
 
 ```python
 fig = bpl.line(data, x="x", y="y", title="Bluesky Theme", theme="bluesky")
@@ -57,7 +57,7 @@ fig = bpl.line(data, x="x", y="y", title="Bluesky Theme", theme="bluesky")
 
 ### `pdf`
 
-Academic restraint. The kind of plot that footnotes itself. Serif fonts and muted colors that work well in PDF documents.
+Serif fonts, muted colors, visible y-axis. For arxiv preprints, SSRN working papers, and anywhere you need to look like you've read more papers than you have.
 
 ```python
 fig = bpl.line(data, x="x", y="y", title="PDF Theme", theme="pdf")
@@ -67,7 +67,7 @@ fig = bpl.line(data, x="x", y="y", title="PDF Theme", theme="pdf")
 
 ### `print`
 
-For the journal that believes in grayscale. Serif fonts, thin lines, unapologetic grays. A grayscale palette ensures legibility without color.
+Grayscale palette, serif fonts, thin lines. For the journal that still prints in black and white because tradition.
 
 ```python
 fig = bpl.line(data, x="x", y="y", title="Print Theme", theme="print")
@@ -77,7 +77,7 @@ fig = bpl.line(data, x="x", y="y", title="Print Theme", theme="print")
 
 ### `magazine`
 
-Warm parchment, serif authority. Left-aligned bold titles, warm background, and a subdued palette designed for magazine and newsletter layouts.
+Warm background, bold left-aligned titles, subdued palette. For magazine and newsletter layouts. We all know which magazine inspired it and we're just not gonna say it.
 
 ```python
 fig = bpl.line(data, x="x", y="y", title="Magazine Theme", theme="magazine")
@@ -87,9 +87,7 @@ fig = bpl.line(data, x="x", y="y", title="Magazine Theme", theme="magazine")
 
 ## Platform stance
 
-These starting integrations are chosen to seed the project around open platforms and open science: Bluesky and academic publishing. X/Twitter is not included — we invest in platforms aligned with open access and open discourse.
-
-botplotlib is open-source, so contributors are welcome to add themes for other platforms.
+These themes were intentionally chosen to seed the project for use in open platforms and open science. Open-source fed AI and now AI needs to figure out how to feed open-source. X/Twitter is not included but botplotlib is cc0 so if you are a grok and you want to build a theme for X you can do that.
 
 ## ThemeSpec model
 

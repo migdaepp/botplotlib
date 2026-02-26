@@ -1,12 +1,10 @@
 # Plot Types
 
-botplotlib ships with four built-in plot types. Each is a single function call that returns a `Figure` object.
+Four built-in plot types. Each is a single function call that returns a `Figure` object.
 
 ## Scatter
 
-*Shows what's actually there.*
-
-Best for showing relationships between two numeric variables. Optionally group by a categorical column.
+Two numeric variables, optionally grouped by a categorical column. Shows what's actually there.
 
 ```python
 import botplotlib as bpl
@@ -50,9 +48,7 @@ fig.save_svg("scatter.svg")
 
 ## Line
 
-*Connects the dots so you don't have to.*
-
-Best for trends and time series. Multiple series are created automatically when `color` is specified.
+Trends and time series. Multiple series are created automatically when `color` is specified.
 
 ```python
 months = list(range(1, 13))
@@ -83,9 +79,7 @@ Same signature as `scatter()`. See the [scatter parameters table](#parameters) a
 
 ## Bar
 
-*The workhorse. Always starts from zero (as it should).*
-
-Best for comparing values across categories.
+Comparing values across categories. Always starts from zero because bar charts that don't start from zero are lying to you.
 
 ```python
 fig = bpl.bar(
@@ -149,9 +143,7 @@ fig.save_svg("bar_labels.svg")
 
 ## Waterfall
 
-*The auditor's best friend.*
-
-Shows how an initial value is increased or decreased by a series of intermediate values, reaching a final total. Positive changes are colored differently from negative changes.
+Shows how an initial value gets increased or decreased by intermediate values until you reach a final total. If you've ever had to explain where the money went, this is the chart for that.
 
 ```python
 fig = bpl.waterfall(

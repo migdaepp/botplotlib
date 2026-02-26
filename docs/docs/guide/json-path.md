@@ -1,6 +1,6 @@
 # JSON Path (Agent API)
 
-botplotlib is designed for AI agents to generate plots via structured tool calls. The **JSON path** lets agents produce plots by generating a `PlotSpec` as JSON — no Python code execution required.
+Agents can generate plots by producing a `PlotSpec` as JSON — no Python code execution required. Same structural gates (WCAG contrast, validation) apply regardless of who built the spec.
 
 ## Architecture
 

@@ -1,6 +1,6 @@
 # Refactoring from Matplotlib
 
-Got existing matplotlib code? We can translate it. Fair warning: the translation is often shorter than you expect.
+Feed it your matplotlib scripts. The translation is often shorter than the import block it replaces.
 
 botplotlib includes an AST-based refactor module that converts existing matplotlib scripts into clean PlotSpecs — no matplotlib installation required.
 
@@ -122,7 +122,7 @@ The `examples/refactor_examples/` directory contains paired before/after scripts
 
 Run `05_auto_refactor_demo.py` to see the automated conversion in action.
 
-The lines that disappeared were mostly configuration — figsize, font sizes, axis limits, layout tweaks. botplotlib's themes handle all of that.
+The lines that disappeared were mostly configuration — figsize, font sizes, axis limits, layout tweaks. Themes handle all of that now.
 
 ## How it works
 

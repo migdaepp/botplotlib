@@ -1,6 +1,6 @@
 # Data Formats
 
-botplotlib accepts basically anything that looks like data. Pass whatever your pipeline produces — the library handles conversion automatically through `normalize_data()`.
+Pass whatever your pipeline produces. botplotlib figures it out via `normalize_data()`. Dicts, DataFrames, Arrow tables, generators — it's all fine.
 
 ## Supported formats
 

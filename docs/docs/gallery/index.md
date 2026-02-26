@@ -1,6 +1,6 @@
 # Gallery
 
-A visual tour of botplotlib's themes. Each theme is shown with the same multi-series dataset so you can compare typography, color, and layout choices side by side.
+Same data, five themes. You can see for yourself what each one does.
 
 ```python
 import botplotlib as bpl
@@ -19,7 +19,7 @@ data = {
 
 ### Default
 
-General-purpose theme for notebooks and screen presentations. Clean sans-serif type with a balanced color palette.
+Fine, whatever, it works.
 
 ```python
 fig = bpl.line(data, x="month", y="revenue", color="segment",
@@ -32,7 +32,7 @@ fig.save_svg("gallery_default.svg")
 
 ### Bluesky
 
-Bold titles that stop the scroll. 24pt left-aligned, fat dots for mobile thumbs, stronger contrast, de-emphasized axes for social feeds.
+You have about 0.3 seconds to make your point on social media. This theme knows that.
 
 ```python
 fig = bpl.line(data, x="month", y="revenue", color="segment",
@@ -45,7 +45,7 @@ fig.save_svg("gallery_bluesky.svg")
 
 ### PDF
 
-Academic restraint. Serif fonts, muted palette, visible y-axis, lighter line weights — the kind of plot that footnotes itself.
+Everyone will think u r v smart.
 
 ```python
 fig = bpl.line(data, x="month", y="revenue", color="segment",
@@ -58,7 +58,7 @@ fig.save_svg("gallery_pdf.svg")
 
 ### Print
 
-For the journal that believes in grayscale. Serif fonts and a grayscale palette ensure readability without color.
+Sometimes you weirdly still need grayscale.
 
 ```python
 fig = bpl.line(data, x="month", y="revenue", color="segment",
@@ -71,7 +71,7 @@ fig.save_svg("gallery_print.svg")
 
 ### Magazine
 
-Warm parchment, serif authority. Bold left-aligned titles and a custom palette inspired by editorial data journalism.
+We all know which magazine it is we're just not gonna say it.
 
 ```python
 fig = bpl.line(data, x="month", y="revenue", color="segment",

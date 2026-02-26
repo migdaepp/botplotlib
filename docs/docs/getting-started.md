@@ -14,7 +14,7 @@ For PNG export support (requires Cairo):
 pip install "botplotlib[png] @ git+https://github.com/migdaepp/botplotlib.git"
 ```
 
-That's everything. No C dependencies, no system packages, no waiting for Fortran to compile.
+No C dependencies, no system packages, no waiting for Fortran to compile.
 
 ## Your first plot
 
@@ -32,7 +32,7 @@ fig.save_svg("my_plot.svg")
 
 ![Basic scatter plot](assets/examples/gs_basic_scatter.svg)
 
-One call, one plot, WCAG-compliant. Done.
+That's it. Colors are WCAG-compliant because we don't trust you to check (no offense).
 
 ## Adding color groups
 
@@ -87,7 +87,7 @@ Pass the `theme` parameter to switch styles:
 fig = bpl.scatter(data, x="x", y="y", theme="bluesky")
 ```
 
-Available themes: `default` (general purpose), `bluesky` (scroll-stopping), `pdf` (academic restraint), `print` (unapologetic grayscale), `magazine` (warm authority). See the [Themes guide](guide/themes.md) for details and visual examples.
+Available themes: `default` (fine, whatever), `bluesky` (scroll-stopping), `pdf` (everyone will think u r v smart), `print` (sometimes you weirdly still need grayscale), `magazine` (you know the one). See the [Themes guide](guide/themes.md) for details.
 
 ## Next steps
 
