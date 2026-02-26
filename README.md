@@ -1,22 +1,20 @@
+# botplotlib
+
+Matplotlib has fed the scientific Python community for two decades. botplotlib is designed for a workflow that didn't exist when matplotlib was born: a human has an idea or a request, and then an AI + human team jointly creates it, iterating until both are satisfied. The core principles:
+
 <p align="center">
   <img src="docs/docs/images/the-future-is-cyborg-source.png" alt="the future is cyborg" width="500">
 </p>
 
-# botplotlib
+- **Beautiful by default** — themes designed so the first render is more often the final render
+- **Lightweight** — `bpl.scatter(data, x="a", y="b")` and you're done
+- **Token-efficient** — 1 line instead of 15. Fewer tokens, fewer places to go wrong
 
-A conversation in the open-source plotting world made us wonder: what does a project look like when it's built *by* human-AI teams, *for* human-AI teams — from the ground up? Not just the code, but the governance, the quality gates, the social contract?
-
-We didn't have an answer, so we started building one. It turned out to be a plotting library with a Bayesian reputation system and a Donna Haraway citation. We named it after a sandwich.
+Botplotlib is also an experiment in cyborg-source. What does open-source collaboration look like when some of the collaborators are AI? We don't know but we put a bunch of ideas in [GOVERNANCE.md](GOVERNANCE.md). It is wildly over-engineered for our current contributor count. 
 
 ```python
 import botplotlib as bpl
 ```
-
-## What it does
-
-- **Beautiful by default** — themes designed so the first render is more often the final render
-- **Lightweight** — `bpl.scatter(data, x="a", y="b")` and you're done
-- **Token-efficient** — 1 line instead of 15. Fewer tokens, fewer places to go wrong
 
 ## Cyborg Social Contract
 
@@ -30,10 +28,6 @@ Humans and AIs contribute under the same rules.
 6. **The project is the cyborg** — the library itself is the human-machine hybrid
 
 For the full architecture overview, design principles, and module map, see [AGENTS.md](https://github.com/migdaepp/botplotlib/blob/main/AGENTS.md).
-
-## Governance
-
-Trust in botplotlib is progressive and origin-agnostic. See [GOVERNANCE.md](GOVERNANCE.md) for the full system: tiers, promotion rubrics, synthesized signals, and anti-gaming mechanisms. It is wildly over-engineered for our current contributor count. 
 
 ## Quick example
 
