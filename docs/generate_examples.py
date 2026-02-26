@@ -226,66 +226,44 @@ plt.savefig("old_plot.png")
 spec2 = from_matplotlib(mpl_code2)
 bpl.render(spec2).save_svg(OUT / "refactor_squared.svg")
 
-# ── Gallery: theme showcase ──────────────────────────────────────────────
+# ── Gallery: theme showcase (Nathan's Hot Dog Eating Contest) ────────────
 
+years = list(range(2011, 2026))
 gallery_data = {
-    "month": list(range(1, 13)) * 2,
-    "revenue": [
-        10,
-        13,
-        15,
-        14,
-        18,
-        22,
-        25,
-        28,
-        26,
-        30,
-        35,
-        40,
-        20,
-        19,
-        21,
-        22,
-        23,
-        22,
-        24,
-        25,
-        26,
-        25,
-        27,
-        28,
+    "year": years * 2,
+    "hot_dogs": [
+        62, 68, 69, 61, 62, 70, 72, 74, 71, 75, 76, 63, 62, 58, 70,
+        40, 45, 37, 34, 38, 38, 41, 37, 31, 48, 31, 40, 40, 51, 33,
     ],
-    "segment": ["SaaS"] * 12 + ["Hardware"] * 12,
+    "division": ["men"] * 15 + ["women"] * 15,
 }
 
 for theme_name in ("default", "bluesky", "pdf", "print", "magazine"):
     bpl.line(
         gallery_data,
-        x="month",
-        y="revenue",
-        color="segment",
-        title="Revenue by Segment",
-        x_label="Month",
-        y_label="Revenue ($M)",
+        x="year",
+        y="hot_dogs",
+        color="division",
+        title="Nathan's Hot Dog Eating Contest",
+        x_label="Year",
+        y_label="Hot Dogs Eaten",
         theme=theme_name,
     ).save_svg(OUT / f"gallery_{theme_name}.svg")
 
-# Gallery: bar charts with labels
+# Gallery: bar charts with labels (Joey Chestnut's climb to 76)
 bar_data = {
-    "quarter": ["Q1", "Q2", "Q3", "Q4"],
-    "revenue": [38000, 52000, 47000, 61000],
+    "year": ["2007", "2009", "2013", "2016", "2017", "2018", "2020", "2021"],
+    "hot_dogs": [66, 68, 69, 70, 72, 74, 75, 76],
 }
 
 for theme_name in ("default", "magazine"):
     bpl.bar(
         bar_data,
-        x="quarter",
-        y="revenue",
-        title="Quarterly Revenue",
-        y_label="Revenue ($)",
+        x="year",
+        y="hot_dogs",
+        title="Joey Chestnut: The Climb to 76",
+        y_label="Hot Dogs in 10 Min",
         labels=True,
-        label_format="${:,.0f}",
         theme=theme_name,
     ).save_svg(OUT / f"gallery_bar_{theme_name}.svg")
 

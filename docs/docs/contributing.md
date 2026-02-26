@@ -1,10 +1,6 @@
 # Contributing
 
-![a robot walks into a deli](images/a-robot-walks-into-a-deli.png){ width="400" }
-
-Read [AGENTS.md](https://github.com/migdaepp/botplotlib/blob/main/AGENTS.md) — it has the full architecture, module map, geom recipe, and cyborg social contract.
-
-Read [GOVERNANCE.md](https://github.com/migdaepp/botplotlib/blob/main/GOVERNANCE.md) — it has the community governance framework, contributor tiers, and reputation system.
+![we are all cyborgs here my friends](images/all-cyborgs-here.png){ width="400" }
 
 ## Cyborg Social Contract
 
@@ -30,3 +26,11 @@ uv run black --check .                  # format check
 - **Spec-diff for rendering changes**: if a PR changes plot output, include before/after spec diffs
 - **Visual regression evidence**: PRs that change rendering must include baseline comparisons
 - **Tests travel with code**: new geoms, features, or bug fixes include tests in the same PR
+
+## Governance
+
+Read [GOVERNANCE.md](https://github.com/migdaepp/botplotlib/blob/main/GOVERNANCE.md) — it is a lot but it's what we've got.
+
+## License
+
+[CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/) — this is what the cool bots are using.

@@ -15,7 +15,10 @@ from __future__ import annotations
 
 from botplotlib._colors.palettes import assign_colors
 from botplotlib._types import TickMark
-from botplotlib.compiler.accessibility import validate_theme_accessibility
+from botplotlib.compiler.accessibility import (
+    check_palette_contrast,
+    validate_theme_accessibility,
+)
 from botplotlib.compiler.layout import TextLabel, avoid_collisions, compute_layout
 from botplotlib.compiler.ticks import format_tick, nice_ticks
 from botplotlib.geoms import ResolvedScales, get_geom
@@ -85,6 +88,10 @@ def compile_spec(spec: PlotSpec) -> CompiledPlot:
             color_map = assign_colors(groups, theme.palette)
             if layer.color_map:
                 color_map.update(layer.color_map)
+                check_palette_contrast(
+                    list(layer.color_map.values()),
+                    theme.background_color,
+                )
             has_legend = spec.legend.show
 
     # 5. Compute layout

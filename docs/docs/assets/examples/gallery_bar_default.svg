@@ -14,34 +14,50 @@
   <line x1="79.4" y1="76.3868" x2="780" y2="76.3868" stroke="#EEEEEE" stroke-width="1"/>
   <line x1="79.4" y1="433" x2="780" y2="433" stroke="#333333" stroke-width="1"/>
   <g clip-path="url(#plot-clip)">
-    <rect x="96.915" y="258.156" width="140.12" height="164.458" fill="#4E79A7"/>
-    <rect x="272.065" y="197.566" width="140.12" height="225.047" fill="#4E79A7"/>
-    <rect x="447.215" y="219.205" width="140.12" height="203.408" fill="#4E79A7"/>
-    <rect x="622.365" y="158.616" width="140.12" height="263.998" fill="#4E79A7"/>
+    <rect x="88.1575" y="136.976" width="70.06" height="285.637" fill="#4E79A7"/>
+    <rect x="175.733" y="128.321" width="70.06" height="294.292" fill="#4E79A7"/>
+    <rect x="263.308" y="123.993" width="70.06" height="298.62" fill="#4E79A7"/>
+    <rect x="350.883" y="119.665" width="70.06" height="302.948" fill="#4E79A7"/>
+    <rect x="438.458" y="111.009" width="70.06" height="311.604" fill="#4E79A7"/>
+    <rect x="526.033" y="102.354" width="70.06" height="320.259" fill="#4E79A7"/>
+    <rect x="613.608" y="98.0259" width="70.06" height="324.587" fill="#4E79A7"/>
+    <rect x="701.183" y="93.6981" width="70.06" height="328.915" fill="#4E79A7"/>
   </g>
-  <line x1="166.975" y1="433" x2="166.975" y2="438" stroke="#333333" stroke-width="1"/>
-  <text x="166.975" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">Q1</text>
-  <line x1="342.125" y1="433" x2="342.125" y2="438" stroke="#333333" stroke-width="1"/>
-  <text x="342.125" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">Q2</text>
-  <line x1="517.275" y1="433" x2="517.275" y2="438" stroke="#333333" stroke-width="1"/>
-  <text x="517.275" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">Q3</text>
-  <line x1="692.425" y1="433" x2="692.425" y2="438" stroke="#333333" stroke-width="1"/>
-  <text x="692.425" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">Q4</text>
+  <line x1="123.188" y1="433" x2="123.188" y2="438" stroke="#333333" stroke-width="1"/>
+  <text x="123.188" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">2007</text>
+  <line x1="210.763" y1="433" x2="210.763" y2="438" stroke="#333333" stroke-width="1"/>
+  <text x="210.763" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">2009</text>
+  <line x1="298.337" y1="433" x2="298.337" y2="438" stroke="#333333" stroke-width="1"/>
+  <text x="298.337" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">2013</text>
+  <line x1="385.913" y1="433" x2="385.913" y2="438" stroke="#333333" stroke-width="1"/>
+  <text x="385.913" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">2016</text>
+  <line x1="473.488" y1="433" x2="473.488" y2="438" stroke="#333333" stroke-width="1"/>
+  <text x="473.488" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">2017</text>
+  <line x1="561.062" y1="433" x2="561.062" y2="438" stroke="#333333" stroke-width="1"/>
+  <text x="561.062" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">2018</text>
+  <line x1="648.638" y1="433" x2="648.638" y2="438" stroke="#333333" stroke-width="1"/>
+  <text x="648.638" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">2020</text>
+  <line x1="736.212" y1="433" x2="736.212" y2="438" stroke="#333333" stroke-width="1"/>
+  <text x="736.212" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">2021</text>
   <line x1="74.4" y1="422.613" x2="79.4" y2="422.613" stroke="#333333" stroke-width="1"/>
   <text x="71.4" y="426.613" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">0</text>
   <line x1="74.4" y1="336.057" x2="79.4" y2="336.057" stroke="#333333" stroke-width="1"/>
-  <text x="71.4" y="340.057" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">20000</text>
+  <text x="71.4" y="340.057" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">20</text>
   <line x1="74.4" y1="249.5" x2="79.4" y2="249.5" stroke="#333333" stroke-width="1"/>
-  <text x="71.4" y="253.5" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">40000</text>
+  <text x="71.4" y="253.5" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">40</text>
   <line x1="74.4" y1="162.943" x2="79.4" y2="162.943" stroke="#333333" stroke-width="1"/>
-  <text x="71.4" y="166.943" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">60000</text>
+  <text x="71.4" y="166.943" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">60</text>
   <line x1="74.4" y1="76.3868" x2="79.4" y2="76.3868" stroke="#333333" stroke-width="1"/>
-  <text x="71.4" y="80.3868" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">80000</text>
-  <text x="429.7" y="56" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="16" fill="#333333" text-anchor="middle">Quarterly Revenue</text>
-  <text x="429.7" y="475" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="middle">quarter</text>
-  <text x="14.4" y="249.5" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="middle" transform="rotate(-90,14.399999999999999,249.5)">Revenue ($)</text>
-  <text x="166.975" y="343.718" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">$38,000</text>
-  <text x="342.125" y="313.423" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">$52,000</text>
-  <text x="517.275" y="324.243" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">$47,000</text>
-  <text x="692.425" y="293.948" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">$61,000</text>
+  <text x="71.4" y="80.3868" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">80</text>
+  <text x="429.7" y="56" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="16" fill="#333333" text-anchor="middle">Joey Chestnut: The Climb to 76</text>
+  <text x="429.7" y="475" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="middle">year</text>
+  <text x="14.4" y="249.5" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="middle" transform="rotate(-90,14.399999999999999,249.5)">Hot Dogs in 10 Min</text>
+  <text x="123.188" y="283.128" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">66</text>
+  <text x="210.763" y="278.8" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">68</text>
+  <text x="298.337" y="276.636" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">69</text>
+  <text x="385.913" y="274.472" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">70</text>
+  <text x="473.488" y="270.145" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">72</text>
+  <text x="561.062" y="265.817" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">74</text>
+  <text x="648.638" y="263.653" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">75</text>
+  <text x="736.212" y="261.489" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">76</text>
 </svg>

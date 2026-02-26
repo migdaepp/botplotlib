@@ -36,9 +36,9 @@ data = {
 }
 fig = bpl.bar(
     data, x="layer", y="size", color="layer",
-    color_map={"bottom bun": "#C4883A", "lettuce": "#4CAF50",
+    color_map={"bottom bun": "#B07830", "lettuce": "#388E3C",
                "bot": "#4E79A7", "tomato": "#E53935",
-               "top bun": "#C4883A"},
+               "top bun": "#B07830"},
 )
 fig.save_svg("plot.svg")
 ```

@@ -15,11 +15,11 @@
   <line x1="79.4" y1="51.1226" x2="660" y2="51.1226" stroke="#EEEEEE" stroke-width="1"/>
   <line x1="79.4" y1="433" x2="660" y2="433" stroke="#333333" stroke-width="1"/>
   <g clip-path="url(#plot-clip)">
-    <rect x="91.012" y="51.1226" width="92.896" height="370.755" fill="#C4883A"/>
-    <rect x="207.132" y="51.1226" width="92.896" height="370.755" fill="#4CAF50"/>
+    <rect x="91.012" y="51.1226" width="92.896" height="370.755" fill="#B07830"/>
+    <rect x="207.132" y="51.1226" width="92.896" height="370.755" fill="#388E3C"/>
     <rect x="323.252" y="51.1226" width="92.896" height="370.755" fill="#4E79A7"/>
     <rect x="439.372" y="51.1226" width="92.896" height="370.755" fill="#E53935"/>
-    <rect x="555.492" y="51.1226" width="92.896" height="370.755" fill="#C4883A"/>
+    <rect x="555.492" y="51.1226" width="92.896" height="370.755" fill="#B07830"/>
   </g>
   <line x1="137.46" y1="433" x2="137.46" y2="438" stroke="#333333" stroke-width="1"/>
   <text x="137.46" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">bottom bun</text>
@@ -45,14 +45,14 @@
   <text x="71.4" y="55.1226" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">1</text>
   <text x="369.7" y="475" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="middle">layer</text>
   <text x="14.4" y="236.5" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="middle" transform="rotate(-90,14.399999999999999,236.5)">size</text>
-  <rect x="675" y="42" width="12" height="12" fill="#C4883A" rx="2"/>
+  <rect x="675" y="42" width="12" height="12" fill="#B07830" rx="2"/>
   <text x="693" y="52" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="start">bottom bun</text>
-  <rect x="675" y="64" width="12" height="12" fill="#4CAF50" rx="2"/>
+  <rect x="675" y="64" width="12" height="12" fill="#388E3C" rx="2"/>
   <text x="693" y="74" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="start">lettuce</text>
   <rect x="675" y="86" width="12" height="12" fill="#4E79A7" rx="2"/>
   <text x="693" y="96" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="start">bot</text>
   <rect x="675" y="108" width="12" height="12" fill="#E53935" rx="2"/>
   <text x="693" y="118" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="start">tomato</text>
-  <rect x="675" y="130" width="12" height="12" fill="#C4883A" rx="2"/>
+  <rect x="675" y="130" width="12" height="12" fill="#B07830" rx="2"/>
   <text x="693" y="140" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="start">top bun</text>
 </svg>

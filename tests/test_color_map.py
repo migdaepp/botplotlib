@@ -2,7 +2,10 @@
 
 from __future__ import annotations
 
+import pytest
+
 import botplotlib as bpl
+from botplotlib.compiler.accessibility import ContrastError
 from botplotlib.compiler.compiler import compile_spec
 from botplotlib.spec.models import DataSpec, LayerSpec, PlotSpec
 
@@ -67,16 +70,16 @@ class TestColorMapBar:
             y="size",
             color="layer",
             color_map={
-                "bottom bun": "#C4883A",
-                "lettuce": "#4CAF50",
+                "bottom bun": "#B07830",
+                "lettuce": "#388E3C",
                 "bot": "#4E79A7",
                 "tomato": "#E53935",
-                "top bun": "#C4883A",
+                "top bun": "#B07830",
             },
         )
         svg = fig.to_svg()
-        assert "#C4883A" in svg
-        assert "#4CAF50" in svg
+        assert "#B07830" in svg
+        assert "#388E3C" in svg
         assert "#4E79A7" in svg
         assert "#E53935" in svg
 
@@ -157,3 +160,24 @@ class TestColorMapRoundTrip:
         # A should have the custom color in the legend
         legend_colors = {e.label: e.color for e in compiled.legend_entries}
         assert legend_colors["A"] == "#FF0000"
+
+
+class TestColorMapWCAG:
+    """color_map colors are validated for WCAG contrast."""
+
+    def test_low_contrast_color_raises(self) -> None:
+        """A near-white color on white background should fail."""
+        spec = PlotSpec(
+            data=DataSpec(columns=BAR_DATA),
+            layers=[
+                LayerSpec(
+                    geom="bar",
+                    x="category",
+                    y="value",
+                    color="category",
+                    color_map={"A": "#EEEEEE"},
+                )
+            ],
+        )
+        with pytest.raises(ContrastError):
+            compile_spec(spec)

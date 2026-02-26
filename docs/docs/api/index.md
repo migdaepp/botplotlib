@@ -1,5 +1,7 @@
 # API Reference
 
+![a robot walks into a deli](images/a-robot-walks-into-a-deli.png){ width="400" }
+
 ## Top-level functions
 
 ::: botplotlib.scatter

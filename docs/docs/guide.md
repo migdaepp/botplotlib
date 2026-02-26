@@ -1,10 +1,26 @@
 # Guide
 
+## Quick example
+
+```python
+import botplotlib as bpl
+
+data = {
+    "layer": ["bottom bun", "lettuce", "bot", "tomato", "top bun"],
+    "size": [1, 1, 1, 1, 1],
+}
+fig = bpl.bar(
+    data, x="layer", y="size", color="layer",
+    color_map={"bottom bun": "#B07830", "lettuce": "#388E3C",
+               "bot": "#4E79A7", "tomato": "#E53935",
+               "top bun": "#B07830"},
+)
+fig.save_svg("plot.svg")
+```
+
+![a BLT](assets/examples/blt_analysis.svg)  
+
 ## Themes
-
-Same data, five themes. The data is real — [Nathan's Famous Hot Dog Eating Contest](https://en.wikipedia.org/wiki/Nathan%27s_Hot_Dog_Eating_Contest), Coney Island, every July 4th since 1916.
-
-All theme palettes enforce WCAG AA contrast ratios (>= 3:1 against white). This is a compiler error, not a warning. You literally cannot ship inaccessible colors.
 
 | Theme | Alias | Personality |
 |-------|-------|-------------|
@@ -13,6 +29,8 @@ All theme palettes enforce WCAG AA contrast ratios (>= 3:1 against white). This 
 | `pdf` | `arxiv` | academic and restrained, everyone will think u r v smart |
 | `print` | — | sometimes you weirdly still need grayscale |
 | `magazine` | `economist` | we all know which magazine it is we're just not gonna say it |
+
+All theme palettes enforce WCAG AA contrast ratios (>= 3:1 against white). This is a compiler error, not a warning. You literally cannot ship inaccessible colors because [accountability lives in systems](https://estsjournal.org/index.php/ests/article/view/260).   
 
 ```python
 import botplotlib as bpl
@@ -25,6 +43,8 @@ data = {
     "division": ["men"] * 15 + ["women"] * 15,
 }
 ```
+
+These Data are from [Nathan's Famous Hot Dog Eating Contest](https://en.wikipedia.org/wiki/Nathan%27s_Hot_Dog_Eating_Contest), Coney Island, every July 4th since 1916.
 
 ### Default
 
@@ -80,158 +100,11 @@ fig = bpl.line(data, x="year", y="hot_dogs", color="division",
 
 ![Magazine theme](assets/examples/gallery_magazine.svg)
 
-Aliases work too — `social`, `arxiv`, and `economist` map to their obvious counterparts. See the [API Reference](api/index.md) for the full `ThemeSpec` schema.
-
----
-
-## Plot types
-
-Four built-in plot types. Each is a single function call that returns a `Figure` object.
-
-### Scatter
-
-Two numeric variables, optionally grouped by a categorical column.
-
-```python
-import botplotlib as bpl
-
-fig = bpl.scatter(
-    {
-        "weight": [2.5, 3.0, 3.5, 4.0, 4.5, 3.2, 2.8],
-        "mpg": [30, 28, 25, 22, 20, 26, 29],
-        "origin": ["US", "EU", "EU", "US", "JP", "JP", "EU"],
-    },
-    x="weight",
-    y="mpg",
-    color="origin",
-    title="Fuel Efficiency by Vehicle Weight",
-    x_label="Weight (1000 lbs)",
-    y_label="Miles per Gallon",
-)
-```
-
-![Scatter plot with color groups](assets/examples/pt_scatter.svg)
-
-### Line
-
-Trends and time series. Multiple series are created automatically when `color` is specified.
-
-```python
-months = list(range(1, 13))
-fig = bpl.line(
-    {
-        "month": months * 2,
-        "revenue": [10, 13, 15, 14, 18, 22, 25, 28, 26, 30, 35, 40,
-                    20, 19, 21, 22, 23, 22, 24, 25, 26, 25, 27, 28],
-        "segment": ["SaaS"] * 12 + ["Hardware"] * 12,
-    },
-    x="month",
-    y="revenue",
-    color="segment",
-    title="Revenue by Segment",
-    x_label="Month",
-    y_label="Revenue ($M)",
-)
-```
-
-![Multi-series line chart](assets/examples/pt_line.svg)
-
-### Bar
-
-Always starts from zero because bar charts that don't start from zero are lying to you.
-
-```python
-fig = bpl.bar(
-    {
-        "language": ["Python", "JavaScript", "TypeScript", "Rust", "Go", "Java"],
-        "score": [92, 78, 71, 54, 48, 45],
-    },
-    x="language",
-    y="score",
-    title="Programming Language Popularity",
-    x_label="Language",
-    y_label="Popularity Score",
-)
-```
-
-![Bar chart](assets/examples/pt_bar.svg)
-
-Add `labels=True` for value labels on each bar. Use `label_format` for custom formatting (e.g. `"${:,.0f}"`).
-
-### Waterfall
-
-Shows how an initial value gets increased or decreased by intermediate values until you reach a final total. If you've ever had to explain where the money went, this is the chart for that.
-
-```python
-fig = bpl.waterfall(
-    {
-        "category": ["Revenue", "COGS", "Gross Profit", "OpEx",
-                      "Tax", "Net Income"],
-        "amount": [500, -200, 300, -150, -45, 105],
-    },
-    x="category",
-    y="amount",
-    title="Income Statement Waterfall",
-    x_label="",
-    y_label="Amount ($K)",
-)
-```
-
-![Waterfall chart](assets/examples/pt_waterfall.svg)
-
-!!! note
-    Waterfall does not support the `color` parameter — colors are determined automatically based on positive/negative values.
-
-### Parameters
-
-All plot functions share these parameters:
-
-| Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
-| `data` | any | *required* | Data in any supported format (see below) |
-| `x` | `str` | *required* | Column name for x-axis |
-| `y` | `str` | *required* | Column name for y-axis |
-| `color` | `str` | `None` | Column name for color grouping |
-| `title` | `str` | `None` | Plot title |
-| `subtitle` | `str` | `None` | Plot subtitle |
-| `x_label` | `str` | `None` | X-axis label |
-| `y_label` | `str` | `None` | Y-axis label |
-| `footnote` | `str` | `None` | Footnote below the plot |
-| `theme` | `str` | `"default"` | Theme name |
-| `width` | `float` | `800` | Canvas width in pixels |
-| `height` | `float` | `500` | Canvas height in pixels |
-
-Bar and waterfall also accept `labels` (`bool`, default `False`) and `label_format` (`str`).
-
-### Layered plots
-
-For multi-layer plots (e.g., line + scatter overlay), use `bpl.plot()` with chained `.add_*()` methods:
-
-```python
-fig = (
-    bpl.plot(
-        {
-            "year": [2019, 2020, 2021, 2022, 2023, 2024],
-            "actual": [4.2, 3.8, 5.1, 6.3, 7.0, 8.2],
-            "forecast": [4.0, 4.5, 5.0, 5.5, 6.0, 6.5],
-        }
-    )
-    .add_line(x="year", y="forecast")
-    .add_scatter(x="year", y="actual")
-)
-fig.title = "Actual vs Forecast Revenue ($B)"
-fig.save_svg("layered.svg")
-```
-
-![Layered line and scatter plot](assets/examples/pt_layered.svg)
-
-Available layer methods: `.add_scatter()`, `.add_line()`, `.add_bar()`. Each accepts `x`, `y`, and optional `color` parameters.
-
----
+Aliases work too — `social` and `arxiv` map to their obvious counterparts. See the [API Reference](api/index.md) for the full `ThemeSpec` schema.
 
 ## Data formats
 
-Pass whatever your pipeline produces. botplotlib figures it out.
+Pass whatever your pipeline produces and botplotlib figures it out. We're all mad here.
 
 Supported formats:
 
@@ -249,54 +122,6 @@ If a column doesn't exist, the compiler raises a clear `ValueError` naming the m
 ## JSON path
 
 Agents can generate plots by producing a `PlotSpec` as JSON — no Python code execution required. Same structural gates (WCAG contrast, validation) apply regardless of who built the spec.
-
-### `Figure.from_json()`
-
-Parse a PlotSpec from a JSON string:
-
-```python
-import botplotlib as bpl
-
-json_string = '''{
-    "data": {
-        "columns": {
-            "x": [1, 2, 3, 4, 5],
-            "y": [1, 4, 9, 16, 25]
-        }
-    },
-    "layers": [{"geom": "scatter", "x": "x", "y": "y"}],
-    "labels": {"title": "Perfect Squares", "x": "n", "y": "n squared"},
-    "theme": "default"
-}'''
-
-fig = bpl.Figure.from_json(json_string)
-fig.save_svg("from_json.svg")
-```
-
-![Plot from JSON](assets/examples/json_from_dict.svg)
-
-### `Figure.from_dict()`
-
-Construct from a plain dict — the typical output of an LLM function/tool call:
-
-```python
-spec_dict = {
-    "data": {
-        "columns": {
-            "year": [2020, 2021, 2022, 2023, 2024],
-            "revenue": [4.2, 3.8, 5.1, 6.3, 8.2],
-        }
-    },
-    "layers": [{"geom": "line", "x": "year", "y": "revenue"}],
-    "labels": {"title": "Revenue Growth"},
-    "theme": "bluesky",
-}
-
-fig = bpl.Figure.from_dict(spec_dict)
-fig.save_svg("from_dict.svg")
-```
-
-![Plot from dict](assets/examples/json_from_dict_line.svg)
 
 ### PlotSpec JSON schema
 
@@ -378,8 +203,6 @@ fig = bpl.scatter(
 )
 fig.save_svg("plot.svg")
 ```
-
-9 lines of matplotlib become 1 function call. Because it uses AST analysis rather than execution, matplotlib doesn't even need to be installed.
 
 You can also extract a `PlotSpec` directly:
 
