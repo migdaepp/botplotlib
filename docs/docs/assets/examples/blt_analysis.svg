@@ -3,56 +3,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800.0 500.0">
   <defs>
     <clipPath id="plot-clip">
-      <rect x="79.4" y="66" width="700.6" height="367"/>
+      <rect x="60" y="40" width="720" height="393"/>
     </clipPath>
   </defs>
   <rect x="0" y="0" width="800" height="500" fill="#FFFFFF"/>
-  <line x1="79.4" y1="422.613" x2="780" y2="422.613" stroke="#EEEEEE" stroke-width="1"/>
-  <line x1="79.4" y1="353.368" x2="780" y2="353.368" stroke="#EEEEEE" stroke-width="1"/>
-  <line x1="79.4" y1="284.123" x2="780" y2="284.123" stroke="#EEEEEE" stroke-width="1"/>
-  <line x1="79.4" y1="214.877" x2="780" y2="214.877" stroke="#EEEEEE" stroke-width="1"/>
-  <line x1="79.4" y1="145.632" x2="780" y2="145.632" stroke="#EEEEEE" stroke-width="1"/>
-  <line x1="79.4" y1="76.3868" x2="780" y2="76.3868" stroke="#EEEEEE" stroke-width="1"/>
-  <line x1="79.4" y1="433" x2="780" y2="433" stroke="#333333" stroke-width="1"/>
+  <line x1="60" y1="433" x2="780" y2="433" stroke="#333333" stroke-width="1"/>
   <g clip-path="url(#plot-clip)">
-    <rect x="91.0767" y="214.877" width="93.4133" height="207.736" fill="#4E79A7"/>
-    <rect x="207.843" y="353.368" width="93.4133" height="69.2453" fill="#4E79A7"/>
-    <rect x="324.61" y="284.123" width="93.4133" height="138.491" fill="#4E79A7"/>
-    <rect x="441.377" y="145.632" width="93.4133" height="276.981" fill="#4E79A7"/>
-    <rect x="558.143" y="76.3868" width="93.4133" height="346.226" fill="#4E79A7"/>
-    <rect x="674.91" y="214.877" width="93.4133" height="207.736" fill="#4E79A7"/>
+    <rect x="78" y="51" width="153" height="382" rx="4" fill="#C4883A"/>
+    <rect x="258" y="51" width="153" height="382" rx="4" fill="#4CAF50"/>
+    <rect x="438" y="51" width="153" height="382" rx="4" fill="#E53935"/>
+    <rect x="618" y="51" width="153" height="382" rx="4" fill="#C4883A"/>
   </g>
-  <line x1="137.783" y1="433" x2="137.783" y2="438" stroke="#333333" stroke-width="1"/>
-  <text x="137.783" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">bottom bun</text>
-  <line x1="254.55" y1="433" x2="254.55" y2="438" stroke="#333333" stroke-width="1"/>
-  <text x="254.55" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">mayo</text>
-  <line x1="371.317" y1="433" x2="371.317" y2="438" stroke="#333333" stroke-width="1"/>
-  <text x="371.317" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">lettuce</text>
-  <line x1="488.083" y1="433" x2="488.083" y2="438" stroke="#333333" stroke-width="1"/>
-  <text x="488.083" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">tomato</text>
-  <line x1="604.85" y1="433" x2="604.85" y2="438" stroke="#333333" stroke-width="1"/>
-  <text x="604.85" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">bacon</text>
-  <line x1="721.617" y1="433" x2="721.617" y2="438" stroke="#333333" stroke-width="1"/>
-  <text x="721.617" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">top bun</text>
-  <line x1="74.4" y1="422.613" x2="79.4" y2="422.613" stroke="#333333" stroke-width="1"/>
-  <text x="71.4" y="426.613" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">0</text>
-  <line x1="74.4" y1="353.368" x2="79.4" y2="353.368" stroke="#333333" stroke-width="1"/>
-  <text x="71.4" y="357.368" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">1</text>
-  <line x1="74.4" y1="284.123" x2="79.4" y2="284.123" stroke="#333333" stroke-width="1"/>
-  <text x="71.4" y="288.123" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">2</text>
-  <line x1="74.4" y1="214.877" x2="79.4" y2="214.877" stroke="#333333" stroke-width="1"/>
-  <text x="71.4" y="218.877" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">3</text>
-  <line x1="74.4" y1="145.632" x2="79.4" y2="145.632" stroke="#333333" stroke-width="1"/>
-  <text x="71.4" y="149.632" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">4</text>
-  <line x1="74.4" y1="76.3868" x2="79.4" y2="76.3868" stroke="#333333" stroke-width="1"/>
-  <text x="71.4" y="80.3868" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#333333" text-anchor="end">5</text>
-  <text x="429.7" y="56" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="16" fill="#333333" text-anchor="middle">Structural Analysis of a BLT</text>
-  <text x="429.7" y="475" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="middle">layer</text>
-  <text x="14.4" y="249.5" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#333333" text-anchor="middle" transform="rotate(-90,14.399999999999999,249.5)">Importance</text>
-  <text x="137.783" y="322.079" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">3</text>
-  <text x="254.55" y="391.324" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">1</text>
-  <text x="371.317" y="356.701" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">2</text>
-  <text x="488.083" y="287.456" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">4</text>
-  <text x="604.85" y="252.833" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">5</text>
-  <text x="721.617" y="322.079" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">3</text>
+  <text x="154.5" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#333333" text-anchor="middle">bottom bun</text>
+  <text x="334.5" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#333333" text-anchor="middle">lettuce</text>
+  <text x="514.5" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#333333" text-anchor="middle">tomato</text>
+  <text x="694.5" y="451" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="11" fill="#333333" text-anchor="middle">top bun</text>
 </svg>

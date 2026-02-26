@@ -54,16 +54,14 @@ An ai-native plotting library and an experiment in cyborg-source. We don't know 
 import botplotlib as bpl
 
 data = {
-    "layer": ["bottom bun", "mayo", "lettuce", "tomato", "bacon", "top bun"],
-    "importance": [3, 1, 2, 4, 5, 3],
+    "layer": ["bottom bun", "lettuce", "tomato", "top bun"],
+    "size": [1, 1, 1, 1],
 }
-fig = bpl.bar(data, x="layer", y="importance",
-              title="Structural Analysis of a BLT",
-              y_label="Importance", labels=True)
+fig = bpl.bar(data, x="layer", y="size")
 fig.save_svg("plot.svg")
 ```
 
-![Structural Analysis of a BLT](assets/examples/blt_analysis.svg)
+![a BLT](assets/examples/blt_analysis.svg)
 
 Colors are WCAG-compliant out of the box because accountability lives in systems.
 

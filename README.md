@@ -2,10 +2,6 @@
 
 Matplotlib has fed the scientific Python community for two decades. botplotlib is designed for a workflow that didn't exist when matplotlib was born: a human has an idea or a request, and then an AI + human team jointly creates it, iterating until both are satisfied. 
 
-```python
-import botplotlib as bpl
-```
-
 <p align="center">
   <img src="docs/docs/images/the-future-is-cyborg-source.png" alt="the future is cyborg" width="500">
 </p>
@@ -37,17 +33,15 @@ For the full architecture overview, design principles, and module map, see [AGEN
 import botplotlib as bpl
 
 data = {
-    "layer": ["bottom bun", "mayo", "lettuce", "tomato", "bacon", "top bun"],
-    "importance": [3, 1, 2, 4, 5, 3],
+    "layer": ["bottom bun", "lettuce", "tomato", "top bun"],
+    "size": [1, 1, 1, 1],
 }
-fig = bpl.bar(data, x="layer", y="importance",
-              title="Structural Analysis of a BLT",
-              y_label="Importance", labels=True)
+fig = bpl.bar(data, x="layer", y="size")
 fig.save_svg("plot.svg")
 ```
 
 <p align="center">
-  <img src="docs/docs/assets/examples/blt_analysis.svg" alt="Structural Analysis of a BLT" width="600">
+  <img src="docs/docs/assets/examples/blt_analysis.svg" alt="a BLT" width="600">
 </p>
 
 Colors are WCAG-compliant out of the box because accountability lives in systems.
