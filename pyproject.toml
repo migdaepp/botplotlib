@@ -1,7 +1,7 @@
 [project]
 name = "botplotlib"
 version = "0.1.0"
-description = "Deadly serious plotting tools. Also sandwiches."
+description = "Beautiful, lightweight, and token-efficient plotting. Also an experiment in cyborg-source. CC0 licensed."
 readme = "README.md"
 license = "CC0-1.0"
 requires-python = ">=3.10"
