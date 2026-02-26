@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Governance
+    url: https://github.com/migdaepp/botplotlib/blob/main/GOVERNANCE.md
+    about: How we build trust — risk taxonomy, review gates, reputation escrow
+  - name: Contributing Guide
+    url: https://github.com/migdaepp/botplotlib/blob/main/docs/docs/contributing.md
+    about: Build/test/lint commands, PR conventions, cyborg social contract

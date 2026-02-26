@@ -1,0 +1,34 @@
+# CODEOWNERS — botplotlib
+#
+# Path groups match the risk taxonomy in GOVERNANCE.md.
+# All paths initially route to @migdaepp until trusted contributors
+# earn domain-specific code ownership via the promotion rubrics.
+#
+# This file is CRITICAL risk — changes require 2 Tier 3 approvals.
+
+# Critical risk: governance and CI infrastructure
+/.github/                   @migdaepp
+/GOVERNANCE.md              @migdaepp
+/AGENTS.md                  @migdaepp
+/CODEOWNERS                 @migdaepp
+/pyproject.toml             @migdaepp
+/CONTRIBUTORS.json          @migdaepp
+/reputation_ledger.json     @migdaepp
+
+# High risk: core pipeline
+/botplotlib/compiler/       @migdaepp
+/botplotlib/render/         @migdaepp
+/botplotlib/spec/           @migdaepp
+/botplotlib/_api.py         @migdaepp
+/botplotlib/figure.py       @migdaepp
+/botplotlib/__init__.py     @migdaepp
+
+# Moderate risk: geoms, tests, scripts
+/botplotlib/geoms/          @migdaepp
+/tests/                     @migdaepp
+/scripts/                   @migdaepp
+
+# Low risk: docs, examples, research
+/docs/                      @migdaepp
+/examples/                  @migdaepp
+/research/                  @migdaepp

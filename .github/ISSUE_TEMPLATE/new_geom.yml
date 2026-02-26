@@ -1,0 +1,61 @@
+name: New Geom Proposal
+description: Propose a new plot type for botplotlib.
+title: "[Geom]: "
+labels: ["geom", "enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        New geoms follow the [geom recipe in AGENTS.md](https://github.com/migdaepp/botplotlib/blob/main/AGENTS.md#how-to-add-a-new-geom-copyable-recipe): one file, three methods, red/green TDD.
+
+  - type: input
+    id: plot-type
+    attributes:
+      label: Plot type
+      description: What kind of plot is this?
+      placeholder: e.g., heatmap, area, histogram, violin, boxplot
+    validations:
+      required: true
+
+  - type: textarea
+    id: example-data
+    attributes:
+      label: Example data
+      description: Sample data that this geom would visualize.
+      render: python
+      placeholder: |
+        data = {
+            "x": ["A", "B", "C", "D"],
+            "y": [10, 25, 15, 30],
+        }
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-output
+    attributes:
+      label: Expected output
+      description: Describe what the rendered plot should look like.
+      placeholder: |
+        A heatmap with rows on the y-axis, columns on the x-axis,
+        and color intensity representing the value in each cell.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: primitives
+    attributes:
+      label: Primitives needed
+      description: Which rendering primitives would this geom use?
+      options:
+        - label: "CompiledPoint (circles)"
+        - label: "CompiledLine (polylines)"
+        - label: "CompiledBar (rectangles)"
+        - label: "CompiledText (labels)"
+        - label: "CompiledPath (arbitrary SVG paths)"
+
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      description: Links to similar implementations, papers, or visual examples.
