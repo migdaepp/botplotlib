@@ -3,7 +3,7 @@ name = "botplotlib"
 version = "0.1.0"
 description = "Beautiful plots, simple API, no matplotlib."
 readme = "README.md"
-license = "MIT"
+license = "CC0-1.0"
 requires-python = ">=3.10"
 dependencies = ["pydantic>=2.0"]
 

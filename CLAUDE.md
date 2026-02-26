@@ -4,12 +4,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**botplotlib** is a Python library (MIT licensed) that produces beautiful plots with a simple, AI-native API. No matplotlib dependency. See [AGENTS.md](AGENTS.md) for full architecture, data protocol, and contributor guide.
+**botplotlib** is a Python library (CC0 — public domain) that produces beautiful plots with a simple, AI-native API. No matplotlib dependency. See [AGENTS.md](AGENTS.md) for full architecture, data protocol, and contributor guide.
 
 ## Repository
 
 - GitHub: https://github.com/migdaepp/botplotlib
-- License: MIT
+- License: CC0-1.0 (public domain)
 - Governance: [GOVERNANCE.md](GOVERNANCE.md) — progressive trust, contributor tiers, reputation system
 
 ## Build / Test / Lint
