@@ -108,6 +108,7 @@ PlotSpec fields:
 | `x` | `str` | *required* | Column name for x-axis |
 | `y` | `str` | *required* | Column name for y-axis |
 | `color` | `str \| None` | `None` | Column name for color grouping |
+| `color_map` | `dict[str, str] \| None` | `None` | Custom per-category color overrides |
 | `labels` | `bool` | `False` | Show value labels on bars |
 | `label_format` | `str \| None` | `None` | Python format string for labels |
 
