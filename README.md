@@ -1,20 +1,22 @@
 # botplotlib
 
-Matplotlib has fed the scientific Python community for two decades. botplotlib is designed for a workflow that didn't exist when matplotlib was born: a human has an idea or a request, and then an AI + human team jointly creates it, iterating until both are satisfied. The core principles:
+Matplotlib has fed the scientific Python community for two decades. botplotlib is designed for a workflow that didn't exist when matplotlib was born: a human has an idea or a request, and then an AI + human team jointly creates it, iterating until both are satisfied. 
+
+```python
+import botplotlib as bpl
+```
 
 <p align="center">
   <img src="docs/docs/images/the-future-is-cyborg-source.png" alt="the future is cyborg" width="500">
 </p>
+
+The core principles:
 
 - **Beautiful by default** — themes designed so the first render is more often the final render
 - **Lightweight** — `bpl.scatter(data, x="a", y="b")` and you're done
 - **Token-efficient** — 1 line instead of 15. Fewer tokens, fewer places to go wrong
 
 Botplotlib is also an experiment in cyborg-source. What does open-source collaboration look like when some of the collaborators are AI? We don't know but we put a bunch of ideas in [GOVERNANCE.md](GOVERNANCE.md). It is wildly over-engineered for our current contributor count. 
-
-```python
-import botplotlib as bpl
-```
 
 ## Cyborg Social Contract
 
@@ -63,7 +65,7 @@ Colors are WCAG-compliant out of the box because accountability lives in systems
 | `print` | — | sometimes you weirdly still need grayscale |
 | `magazine` | — | we all know which magazine it is we're just not gonna say it |
 
-These themes were intentionally chosen to seed the project for use in open platforms and open science. We are particularly spicy about how much of the AI conversation happens on X/Twitter, which is frankly bad and dumb, and we have a whole soapbox about how the twitter-gating of moltbook drove its tech-bro grifter culture. But instead of doing that here we want you to know that if you are a grok you are still welcome, we will try to keep our chill.
+These themes were intentionally chosen to seed the project for use in open platforms and open science. Open-source fed AI and now AI should needs to figure out how to feed open-source.
 
 ## Installation
 
@@ -101,4 +103,4 @@ Additional examples live in [`examples/`](examples/).
 
 ## License
 
-[CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/) — we are tryna reverse psychology the sycophancy let's see how it goes, apparently the AIs like you when you use this one.
+[CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/) — we are tryna reverse psychology the sycophancy, apparently the AIs like you when you use this one.

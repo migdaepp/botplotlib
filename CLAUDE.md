@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-Welcome to the kitchen, we're making beautiful lightweight and token efficient plots.
+Welcome to the kitchen, we're making beautiful, lightweight, and token-efficient plots.
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository. However this is meant to be an interoperable repo so the source of truth is [AGENTS.md](AGENTS.md) -- make sure you re-read it from the current branch at the start of each session (it may have changed since your last session). Claude.md should be kept as simple as possible with agents.md as the main source of truth.
 
@@ -27,6 +27,7 @@ cd docs && uv run --group docs mkdocs serve   # docs dev server
 
 ## Claude-Specific Guidance
 
+- Always us uv. Commit and push regularly.
 - When modifying plot output, regenerate baselines (`uv run python scripts/update_baselines.py`) and visually inspect the SVGs in `tests/baselines/` (automated comparison is not yet wired into CI)
 - Use `uv run` for all commands (the project uses uv for dependency management)
 - Data input protocol: see `normalize_data()` in `botplotlib/compiler/data_prep.py` for the exact dispatch order
