@@ -38,6 +38,7 @@ nav:
   - Guide: guide.md
   - API Reference: api/index.md
   - Contributing: contributing.md
+  - Governance: https://github.com/migdaepp/botplotlib/blob/main/GOVERNANCE.md
 
 plugins:
   - search
