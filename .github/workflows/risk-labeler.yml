@@ -1,0 +1,134 @@
+name: Risk Labeler
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+permissions:
+  pull-requests: write
+  contents: read
+
+jobs:
+  label:
+    name: Label PR by risk and area
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Apply risk and area labels
+        uses: actions/github-script@v7
+        with:
+          script: |
+            // Path-to-risk mapping — mirrors GOVERNANCE.md risk taxonomy
+            const riskRules = [
+              // Critical risk: privilege boundary + stealth
+              { pattern: /^\.github\//, risk: 'critical', area: 'ci' },
+              { pattern: /^GOVERNANCE\.md$/, risk: 'critical', area: 'governance' },
+              { pattern: /^AGENTS\.md$/, risk: 'critical', area: 'governance' },
+              { pattern: /^CODEOWNERS$/, risk: 'critical', area: 'governance' },
+              { pattern: /^pyproject\.toml$/, risk: 'critical', area: 'ci' },
+              { pattern: /^CONTRIBUTORS\.json$/, risk: 'critical', area: 'governance' },
+              { pattern: /^reputation_ledger\.json$/, risk: 'critical', area: 'governance' },
+
+              // High risk: core pipeline
+              { pattern: /^botplotlib\/compiler\//, risk: 'high', area: 'compiler' },
+              { pattern: /^botplotlib\/render\//, risk: 'high', area: 'renderer' },
+              { pattern: /^botplotlib\/spec\//, risk: 'high', area: 'spec' },
+              { pattern: /^botplotlib\/_api\.py$/, risk: 'high', area: 'api' },
+              { pattern: /^botplotlib\/figure\.py$/, risk: 'high', area: 'api' },
+              { pattern: /^botplotlib\/__init__\.py$/, risk: 'high', area: 'api' },
+
+              // Moderate risk: geoms, tests, scripts
+              { pattern: /^botplotlib\/geoms\//, risk: 'moderate', area: 'geoms' },
+              { pattern: /^tests\//, risk: 'moderate', area: 'tests' },
+              { pattern: /^scripts\//, risk: 'moderate', area: 'scripts' },
+
+              // Low risk: docs, examples, research, other markdown
+              { pattern: /^docs\//, risk: 'low', area: 'docs' },
+              { pattern: /^examples\//, risk: 'low', area: 'examples' },
+              { pattern: /^research\//, risk: 'low', area: 'docs' },
+              { pattern: /\.md$/, risk: 'low', area: 'docs' },
+            ];
+
+            // Risk priority (higher = takes precedence)
+            const riskPriority = { low: 0, moderate: 1, high: 2, critical: 3 };
+
+            const { data: files } = await github.rest.pulls.listFiles({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.payload.pull_request.number,
+            });
+
+            let maxRisk = 'low';
+            const areas = new Set();
+
+            for (const file of files) {
+              for (const rule of riskRules) {
+                if (rule.pattern.test(file.filename)) {
+                  if (riskPriority[rule.risk] > riskPriority[maxRisk]) {
+                    maxRisk = rule.risk;
+                  }
+                  areas.add(rule.area);
+                  break;  // first match wins per file
+                }
+              }
+            }
+
+            // Build label set
+            const labelsToAdd = [`risk/${maxRisk}`];
+            for (const area of areas) {
+              labelsToAdd.push(`area/${area}`);
+            }
+
+            // Remove stale risk labels, then add new ones
+            const riskLabels = ['risk/low', 'risk/moderate', 'risk/high', 'risk/critical'];
+            const { data: currentLabels } = await github.rest.issues.listLabelsOnIssue({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.pull_request.number,
+            });
+
+            for (const label of currentLabels) {
+              if (riskLabels.includes(label.name) && !labelsToAdd.includes(label.name)) {
+                await github.rest.issues.removeLabel({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: context.payload.pull_request.number,
+                  name: label.name,
+                });
+              }
+            }
+
+            // Ensure labels exist, then apply
+            const labelColors = {
+              'risk/low': '0e8a16',
+              'risk/moderate': 'fbca04',
+              'risk/high': 'e99695',
+              'risk/critical': 'b60205',
+            };
+
+            for (const label of labelsToAdd) {
+              try {
+                await github.rest.issues.getLabel({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  name: label,
+                });
+              } catch {
+                await github.rest.issues.createLabel({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  name: label,
+                  color: labelColors[label] || 'ededed',
+                });
+              }
+            }
+
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.pull_request.number,
+              labels: labelsToAdd,
+            });
+
+            core.info(`Applied labels: ${labelsToAdd.join(', ')}`);
