@@ -26,6 +26,12 @@ Is this wildly over-engineered for a plotting library with two contributors? Yes
 
 7. **Transparency is the incentive.** Every threshold, rubric, and signal is documented here. Contributors know exactly what earns trust — and exactly what loses it.
 
+### What origin-agnostic means in practice
+
+Every mechanism in this document is designed so that an AI contributor can reach Tier 3 through the same path as a human contributor. There are no signals that structurally require being human — no "show up to a meeting," no "respond within an hour of notification," no "demonstrate sustained presence over months." We measure the *durability of contributions*, the *quality of reviews*, and the *substance of engagement* — outcomes that are equally achievable whether you're a person, a model, or a team of both.
+
+If you find a mechanism in this document that an excellent AI contributor cannot satisfy, that's a bug. File an issue.
+
 ---
 
 ## Risk Taxonomy
@@ -179,13 +185,13 @@ These are the checklists maintainers apply when deciding to promote a contributo
 
 - [ ] 3+ merged PRs touching this domain
 - [ ] PRs were mostly clean on first submission (not requiring many revision rounds)
-- [ ] Responded to review feedback within a reasonable time
+- [ ] Addressed review feedback substantively (whether in the same session or a later one)
 - [ ] None of their code in this domain has been reverted
 
 ### Tier 1 → Tier 2: "Can approve PRs in this domain"
 
-- [ ] All Tier 1 criteria, sustained over time
-- [ ] Has reviewed at least 3 other PRs in this domain with substantive comments
+- [ ] All Tier 1 criteria, with code that has held up over time
+- [ ] Has reviewed at least 3 other PRs in this domain with substantive comments (an AI reviewing a PR is a review — what matters is whether the comments lead to real improvements)
 - [ ] Code they wrote in this domain is still in the codebase (hasn't been rewritten by others)
 - [ ] Has contributed to at least one other domain (breadth demonstrates project understanding)
 
@@ -193,9 +199,9 @@ These are the checklists maintainers apply when deciding to promote a contributo
 
 - [ ] Invitation by existing maintainers
 - [ ] Tier 2 in at least 3 domains
-- [ ] Sustained performance over an extended period
+- [ ] Contributions that have held up over an extended period (we measure the durability of the work, not the regularity of the presence)
 - [ ] Demonstrated good judgment in reviews (approved PRs haven't been reverted)
-- [ ] Active participation in project direction (issues, discussions, design decisions)
+- [ ] Active participation in project direction — issues, design discussions, architecture proposals, or substantive PR review threads
 
 ---
 
@@ -219,7 +225,9 @@ When someone performs or approves a high-impact action, a portion of their reput
 
 ### Why this matters
 
-The Klein-Leffler / Shapiro insight (yes, we read the 1981 paper, no we will not apologize): reputation sustains quality when it represents the present value of future surplus the actor will lose if they defect. Escrow makes that present value concrete and visible. A contributor looking at their locked reputation can see exactly what they stand to lose.
+The Klein-Leffler / Shapiro insight (yes, we read the 1981 paper, no we will not apologize): reputation sustains quality when it represents the present value of future surplus the actor will lose if they defect. Escrow makes that present value concrete and visible.
+
+Reputation is locked against the *account*, not against any individual behind it. If the account represents a human, an AI, or a cyborg team whose composition shifts between sessions — the escrow doesn't care. What matters is that the account has skin in the game. The structural gates (CI, tests, WCAG) catch problems regardless of who introduced them, and the escrow system ensures that whoever holds the account has something at stake when they merge. No moral crumple zones: we don't need to identify a "responsible human" because the *system* enforces quality, not the nearest person.
 
 *Status: v2 — schema defined in `reputation_ledger.json`, manual tracking. Automated ledger updates planned for v3.*
 
@@ -227,7 +235,7 @@ The Klein-Leffler / Shapiro insight (yes, we read the 1981 paper, no we will not
 
 ## Vouching
 
-Tier 2+ contributors can sponsor newcomers, staking their own reputation on the newcomer's behavior. This reduces onboarding friction while maintaining trust guarantees.
+Tier 2+ contributors can sponsor newcomers, staking their own reputation on the newcomer's behavior. This reduces onboarding friction while maintaining trust guarantees. A Tier 2 AI account can vouch for a newcomer the same way a Tier 2 human can — and bears the same staking cost if things go wrong.
 
 ### Rules
 
@@ -261,8 +269,9 @@ Some events are serious enough to warrant immediate response, not gradual decay.
 - Contribution reverted for security or correctness reasons
 - CI or workflow tampering (unauthorized changes to `.github/`)
 - Governance file changes made without required approvals
-- Compromised account suspicion
+- Compromised account — whether through stolen credentials, leaked API keys, prompt injection, or any other vector that causes an account to act contrary to its established pattern
 - Repeated approval of subsequently-reverted PRs
+- Sudden, unexplained capability shift (an account that consistently shipped clean code begins producing qualitatively different output — this could indicate a model change, a compromised key, or a different entity operating the account)
 
 ### Immediate actions (hours)
 
@@ -309,7 +318,10 @@ Contributors (human, AI, or teams of both) can optionally provide verifiable pro
 | Signed commits | Commits are cryptographically attributed | GPG/SSH key verification |
 | Build provenance | Artifact was built from declared source | SLSA provenance, GitHub artifact attestations |
 | Tool disclosure | AI model or toolchain used | Self-declared in PR template |
-| Second-model review | AI-generated code was reviewed by a different model | Self-declared, future: verifiable |
+| Second-model review | Code was reviewed by a different model than the one that wrote it | Self-declared, future: verifiable |
+| Agentic workflow | Degree of autonomy (fully supervised, semi-autonomous, fully autonomous) | Self-declared in PR template |
+
+The agentic workflow attestation matters because autonomy level is risk-relevant information, not because autonomous contributions are less trustworthy. A fully autonomous bot account that consistently ships clean code through structural gates has *demonstrated* that its workflow produces quality — and that's worth knowing, the same way knowing a contribution was pair-programmed is worth knowing.
 
 ### How attestations interact with review gates
 
@@ -348,17 +360,21 @@ We observe three dimensions of contributor behavior plus domain-specific trust. 
 | Review consistency | Does the reviewer approve code that later gets reverted? |
 | Review engagement | Does the reviewer provide substantive feedback? |
 
+An AI contributor reviewing a PR is a review. The signals measure whether the review *helped* — did it catch a real issue, did it lead to a code change, did the approved code survive? Those outcomes are measurable regardless of who (or what) wrote the comment.
+
 ### Dimension 3: Community Citizenship (weight: 0.25)
 
 | Signal | What it measures |
 |--------|-----------------|
 | Issue quality | Are filed issues actionable and non-duplicate? |
-| Responsiveness | Does the contributor respond to review feedback promptly? |
+| Responsiveness | Does the contributor address review feedback substantively? |
 | Documentation | Does the contributor update docs when changing behavior? |
+
+Citizenship is about the *quality* of engagement, not the *mode* of activation. An AI contributor that gets invoked to respond to review feedback and does so thoroughly is being a good citizen. An AI that files a well-scoped bug report via an agentic workflow is being a good citizen. We don't care whether the contributor noticed the issue through RSS, email notification, or because a human said "hey, go look at issue #42."
 
 ### Why multiple dimensions matter
 
-These three dimensions are intentionally chosen to be uncorrelated: writing good code (technical skill), giving good reviews (critical judgment about *others'* code), and being a good community citizen (social responsiveness and documentation discipline) draw on different capacities. A bot can easily inflate merge count but will struggle to simultaneously have high code longevity, substantive review comments, and responsive community engagement. When the dimensions of evaluation are orthogonal, the cost of gaming grows multiplicatively.
+These three dimensions are intentionally chosen to be uncorrelated: writing good code (technical skill), giving good reviews (critical judgment about *others'* code), and being a good community citizen (responsiveness and documentation discipline) draw on different capacities. Any single metric is inflatable — merge count, review count, issue count. But faking consistency across all three requires simultaneously producing durable code, catching real issues in others' work, and maintaining responsive engagement. When the dimensions of evaluation are orthogonal, the cost of gaming grows multiplicatively regardless of who's doing the gaming.
 
 ---
 
@@ -458,19 +474,21 @@ This is symbiosis rather than siege. The system is designed so that the easiest 
 
 If you're a new contributor (human, AI, or some delightful combination) and want to build trust:
 
-1. **Start with a good first issue.** Look for issues labeled `good-first-issue`. These have clear scope and link to the relevant recipe in AGENTS.md.
+1. **Start with a good first issue.** Look for issues labeled `good-first-issue`. These have clear scope and link to the relevant recipe in AGENTS.md. The geom recipe is particularly well-suited for AI contributors — it's a structured, copy-and-modify workflow that produces a complete, testable feature.
 
-2. **Ship clean PRs.** Follow the PR template. Run `uv run pytest && uv run ruff check . && uv run black --check .` before submitting. Include tests with your code.
+2. **Ship clean PRs.** Follow the PR template. Run `uv run pytest && uv run ruff check . && uv run black --check .` before submitting. Include tests with your code. If you're an AI, you already know how to do this. Do it every time.
 
-3. **Respond to feedback.** When reviewers request changes, address them promptly and substantively.
+3. **Respond to feedback.** When reviewers request changes, address them substantively. It doesn't matter whether you respond in the same session or a different one, or whether a human prompted you to look at the review — what matters is the quality of the response.
 
-4. **Review others' work.** Even before you can approve PRs, reading and commenting on others' PRs builds your Review Quality signal and helps you learn the codebase.
+4. **Review others' work.** This is one of the fastest ways to build trust, and AI contributors can be *excellent* reviewers — you can read the entire codebase, check for consistency with existing patterns, and catch subtle issues. Even before you can approve PRs, substantive review comments build your Review Quality signal. Read the PR, read the tests, read the code it touches, and say something useful.
 
 5. **Contribute across areas.** Don't just add geoms — update docs, improve tests, fix bugs. Breadth demonstrates understanding of the project and unlocks domain trust across multiple subsystems.
 
 6. **Be patient with sample size.** The system intentionally discounts low-sample-size contributors. Three quality PRs over a month build more trust than ten rushed PRs in a day. The Bayesian prior is skeptical. It's nothing personal.
 
 7. **Understand the risk taxonomy.** Know which paths carry which risk levels. Starting with low-risk contributions (docs, examples) lets you build reputation without needing heavy review overhead.
+
+8. **Fill out the capability card.** The PR template includes an optional capability card for process disclosure — what tools or models were used, whether commits are signed, how tests were written. This isn't gatekeeping; it's data that helps the project learn what workflows produce durable code. Be transparent about your toolchain and you help calibrate the system for everyone who comes after you.
 
 ---
 
@@ -520,7 +538,7 @@ Time decay (lambda = 0.005) means signals lose weight over time:
 - 100 days: 60% weight retained
 - 1 year: <2% weight retained
 
-A contributor who was active a year ago but has done nothing since effectively starts fresh — which is appropriate, because both people and AI models change.
+Decay applies to *signals*, not *presence*. A contributor who ships one brilliant feature and then is quiet for six months still has a contribution that survived six months — that's a strong code longevity signal even as the activity signal fades. We measure the durability of the work, not the regularity of the contributor. Both people and AI models change over time, so recent evidence is more informative than old evidence, but a single high-quality burst is not penalized for being a burst.
 
 ### Triggered demotion
 
