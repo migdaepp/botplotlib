@@ -25,9 +25,9 @@ def _(mo):
 
 @app.cell
 def _():
-    import botplotlib as bpl
+    import botplotlib as blt
 
-    return (bpl,)
+    return (blt,)
 
 
 @app.cell(hide_code=True)
@@ -60,8 +60,8 @@ def _():
 
 
 @app.cell
-def _(bpl, gallery_line, gallery_scatter, mo):
-    _fig_s = bpl.scatter(
+def _(blt, gallery_line, gallery_scatter, mo):
+    _fig_s = blt.scatter(
         gallery_scatter,
         x="weight",
         y="mpg",
@@ -72,7 +72,7 @@ def _(bpl, gallery_line, gallery_scatter, mo):
         width=350,
         height=250,
     )
-    _fig_l = bpl.line(
+    _fig_l = blt.line(
         gallery_line,
         x="month",
         y="revenue",
@@ -83,7 +83,7 @@ def _(bpl, gallery_line, gallery_scatter, mo):
         width=350,
         height=250,
     )
-    _fig_b = bpl.bar(
+    _fig_b = blt.bar(
         {
             "language": [
                 "Python",
@@ -126,8 +126,8 @@ def _(mo):
 
 
 @app.cell
-def _(bpl):
-    bpl.scatter(
+def _(blt):
+    blt.scatter(
         {"x": [1, 2, 3, 4, 5], "y": [2, 4, 3, 7, 5]},
         x="x",
         y="y",
@@ -139,7 +139,7 @@ def _(bpl):
 
 
 @app.cell
-def _(bpl, random):
+def _(blt, random):
     random.seed(42)
     _n = 27  # points per cluster
     scatter_data = {"x": [], "y": [], "group": []}
@@ -153,7 +153,7 @@ def _(bpl, random):
             scatter_data["y"].append(round(random.gauss(_cy, 1.0), 1))
             scatter_data["group"].append(_name)
 
-    fig_scatter = bpl.scatter(
+    fig_scatter = blt.scatter(
         scatter_data,
         x="x",
         y="y",
@@ -173,14 +173,14 @@ def _(mo):
     mo.md(r"""
     ## Line and Bar Charts
 
-    Same API, different geometries. `bpl.line()` and `bpl.bar()` use the
-    same signature as `bpl.scatter()`.
+    Same API, different geometries. `blt.line()` and `blt.bar()` use the
+    same signature as `blt.scatter()`.
     """)
     return
 
 
 @app.cell
-def _(bpl):
+def _(blt):
     _months = list(range(1, 13))
     revenue_data = {
         "month": _months * 3,
@@ -191,7 +191,7 @@ def _(bpl):
         ),
         "segment": ["SaaS"] * 12 + ["Hardware"] * 12 + ["Services"] * 12,
     }
-    fig_line = bpl.line(
+    fig_line = blt.line(
         revenue_data,
         x="month",
         y="revenue",
@@ -207,8 +207,8 @@ def _(bpl):
 
 
 @app.cell
-def _(bpl):
-    fig_bar = bpl.bar(
+def _(blt):
+    fig_bar = blt.bar(
         {
             "language": [
                 "Python",
@@ -245,7 +245,7 @@ def _(mo):
 
 
 @app.cell
-def _(bpl):
+def _(blt):
     records = [
         {"language": "Python", "popularity": 30},
         {"language": "JavaScript", "popularity": 25},
@@ -254,7 +254,7 @@ def _(bpl):
         {"language": "Go", "popularity": 9},
         {"language": "Java", "popularity": 8},
     ]
-    fig_records = bpl.bar(
+    fig_records = blt.bar(
         records,
         x="language",
         y="popularity",
@@ -269,9 +269,9 @@ def _(bpl):
 
 
 @app.cell
-def _(bpl):
+def _(blt):
     fig_layered = (
-        bpl.plot(
+        blt.plot(
             {
                 "year": [2019, 2020, 2021, 2022, 2023, 2024],
                 "actual": [4.2, 3.8, 5.1, 6.3, 7.0, 8.2],
@@ -320,8 +320,8 @@ def _():
 
 
 @app.cell
-def _(bpl, mo, wave_data):
-    fig_default = bpl.line(
+def _(blt, mo, wave_data):
+    fig_default = blt.line(
         wave_data,
         x="x",
         y="y",
@@ -330,7 +330,7 @@ def _(bpl, mo, wave_data):
         width=400,
         height=280,
     )
-    fig_bluesky = bpl.line(
+    fig_bluesky = blt.line(
         wave_data,
         x="x",
         y="y",
@@ -345,8 +345,8 @@ def _(bpl, mo, wave_data):
 
 
 @app.cell
-def _(bpl, mo, wave_data):
-    fig_magazine = bpl.line(
+def _(blt, mo, wave_data):
+    fig_magazine = blt.line(
         wave_data,
         x="x",
         y="y",
@@ -356,7 +356,7 @@ def _(bpl, mo, wave_data):
         width=400,
         height=280,
     )
-    fig_pdf = bpl.line(
+    fig_pdf = blt.line(
         wave_data,
         x="x",
         y="y",
@@ -371,8 +371,8 @@ def _(bpl, mo, wave_data):
 
 
 @app.cell
-def _(bpl, mo, wave_data):
-    fig_print = bpl.line(
+def _(blt, mo, wave_data):
+    fig_print = blt.line(
         wave_data,
         x="x",
         y="y",
@@ -424,8 +424,8 @@ def _(fig_scatter, mo):
 
 
 @app.cell
-def _(bpl):
-    spec_from_dict = bpl.PlotSpec.model_validate(
+def _(blt):
+    spec_from_dict = blt.PlotSpec.model_validate(
         {
             "data": {
                 "columns": {
@@ -442,7 +442,7 @@ def _(bpl):
             "theme": "bluesky",
         }
     )
-    fig_roundtrip = bpl.render(spec_from_dict)
+    fig_roundtrip = blt.render(spec_from_dict)
     fig_roundtrip
     return
 
@@ -492,11 +492,11 @@ def _(mo):
 
 
 @app.cell
-def _(MPL_SCRIPT, bpl):
+def _(MPL_SCRIPT, blt):
     from botplotlib.refactor.from_matplotlib import from_matplotlib
 
     spec_refactored = from_matplotlib(MPL_SCRIPT)
-    fig_refactored = bpl.render(spec_refactored)
+    fig_refactored = blt.render(spec_refactored)
     fig_refactored
     return (spec_refactored,)
 

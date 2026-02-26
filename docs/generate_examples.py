@@ -4,7 +4,7 @@ import math
 import random
 from pathlib import Path
 
-import botplotlib as bpl
+import botplotlib as blt
 from botplotlib.refactor import from_matplotlib
 
 OUT = Path(__file__).parent / "docs" / "assets" / "examples"
@@ -15,7 +15,7 @@ random.seed(42)
 # ── Getting Started ──────────────────────────────────────────────────────
 
 # Basic scatter
-bpl.scatter(
+blt.scatter(
     {"x": [1, 2, 3, 4, 5], "y": [2, 4, 3, 7, 5]},
     x="x",
     y="y",
@@ -23,7 +23,7 @@ bpl.scatter(
 ).save_svg(OUT / "gs_basic_scatter.svg")
 
 # Grouped scatter
-bpl.scatter(
+blt.scatter(
     {
         "weight": [2.5, 3.0, 3.5, 4.0, 4.5],
         "mpg": [30, 28, 25, 22, 20],
@@ -45,7 +45,7 @@ weights = [2.0 + random.gauss(0, 0.6) for _ in range(n)]
 mpg = [45 - 8 * w + random.gauss(0, 2.5) for w in weights]
 origins = random.choices(["USA", "Europe", "Japan"], weights=[4, 3, 3], k=n)
 
-bpl.scatter(
+blt.scatter(
     {"weight": weights, "mpg": mpg, "origin": origins},
     x="weight",
     y="mpg",
@@ -57,7 +57,7 @@ bpl.scatter(
 
 # Line
 months = list(range(1, 13))
-bpl.line(
+blt.line(
     {
         "month": months * 2,
         "revenue": [
@@ -97,7 +97,7 @@ bpl.line(
 ).save_svg(OUT / "pt_line.svg")
 
 # Bar
-bpl.bar(
+blt.bar(
     {
         "language": ["Python", "JavaScript", "TypeScript", "Rust", "Go", "Java"],
         "score": [92, 78, 71, 54, 48, 45],
@@ -110,7 +110,7 @@ bpl.bar(
 ).save_svg(OUT / "pt_bar.svg")
 
 # Waterfall
-bpl.waterfall(
+blt.waterfall(
     {
         "category": ["Revenue", "COGS", "Gross Profit", "OpEx", "Tax", "Net Income"],
         "amount": [500, -200, 300, -150, -45, 105],
@@ -124,7 +124,7 @@ bpl.waterfall(
 
 # Layered
 fig_layered = (
-    bpl.plot(
+    blt.plot(
         {
             "year": [2019, 2020, 2021, 2022, 2023, 2024],
             "actual": [4.2, 3.8, 5.1, 6.3, 7.0, 8.2],
@@ -147,7 +147,7 @@ wave_data = {
 }
 
 for theme_name in ("default", "bluesky", "pdf", "print", "magazine"):
-    bpl.line(
+    blt.line(
         wave_data,
         x="x",
         y="y",
@@ -158,7 +158,7 @@ for theme_name in ("default", "bluesky", "pdf", "print", "magazine"):
 
 # ── JSON Path ────────────────────────────────────────────────────────────
 
-bpl.Figure.from_dict(
+blt.Figure.from_dict(
     {
         "data": {"columns": {"x": [1, 2, 3, 4, 5], "y": [1, 4, 9, 16, 25]}},
         "layers": [{"geom": "scatter", "x": "x", "y": "y"}],
@@ -167,7 +167,7 @@ bpl.Figure.from_dict(
     }
 ).save_svg(OUT / "json_from_dict.svg")
 
-bpl.Figure.from_dict(
+blt.Figure.from_dict(
     {
         "data": {
             "columns": {
@@ -181,7 +181,7 @@ bpl.Figure.from_dict(
     }
 ).save_svg(OUT / "json_from_dict_line.svg")
 
-spec = bpl.PlotSpec.model_validate(
+spec = blt.PlotSpec.model_validate(
     {
         "data": {"columns": {"x": [1, 2, 3], "y": [1, 4, 9]}},
         "layers": [{"geom": "line", "x": "x", "y": "y"}],
@@ -189,7 +189,7 @@ spec = bpl.PlotSpec.model_validate(
         "theme": "bluesky",
     }
 )
-bpl.render(spec).save_svg(OUT / "json_render.svg")
+blt.render(spec).save_svg(OUT / "json_render.svg")
 
 # ── Refactoring ──────────────────────────────────────────────────────────
 
@@ -207,7 +207,7 @@ plt.show()
 """
 
 spec = from_matplotlib(mpl_code)
-bpl.render(spec).save_svg(OUT / "refactor_scatter.svg")
+blt.render(spec).save_svg(OUT / "refactor_scatter.svg")
 
 mpl_code2 = """\
 import matplotlib.pyplot as plt
@@ -224,7 +224,7 @@ plt.savefig("old_plot.png")
 """
 
 spec2 = from_matplotlib(mpl_code2)
-bpl.render(spec2).save_svg(OUT / "refactor_squared.svg")
+blt.render(spec2).save_svg(OUT / "refactor_squared.svg")
 
 # ── Gallery: theme showcase (Nathan's Hot Dog Eating Contest) ────────────
 
@@ -267,7 +267,7 @@ gallery_data = {
 }
 
 for theme_name in ("default", "bluesky", "pdf", "print", "magazine"):
-    bpl.line(
+    blt.line(
         gallery_data,
         x="year",
         y="hot_dogs",
@@ -285,7 +285,7 @@ bar_data = {
 }
 
 for theme_name in ("default", "magazine"):
-    bpl.bar(
+    blt.bar(
         bar_data,
         x="year",
         y="hot_dogs",

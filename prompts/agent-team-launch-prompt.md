@@ -39,7 +39,7 @@ The foundational refactor: replace hardcoded geom dispatch with a plugin archite
 
 4. Change `LayerSpec.geom` from `Literal["scatter", "line", "bar"]` to `str`, validated against the geom registry at compile time. Error message must be specific: "Unknown geom 'xyz'. Available geoms: scatter, line, bar. See AGENTS.md for how to add new geoms."
 
-5. Build waterfall as proof of concept — `botplotlib/geoms/waterfall.py` + `bpl.waterfall()` convenience function + golden baseline tests.
+5. Build waterfall as proof of concept — `botplotlib/geoms/waterfall.py` + `blt.waterfall()` convenience function + golden baseline tests.
 
 6. Run `uv run pytest` — ALL existing tests must pass. Run `uv run ruff check .` and `uv run black --check .`. Fix anything that breaks. Commit.
 
@@ -82,7 +82,7 @@ Tasks:
 
 2. Write tests in `tests/test_json_path.py`: valid round-trip (PlotSpec → JSON → from_json → SVG matches original), missing required fields (clear error), extra fields (ignored gracefully), realistic LLM-generated dict example, malformed types.
 
-3. When done, message the lead with a summary of what was added. The lead will add `bpl.from_json()` and `bpl.from_dict()` re-exports to `__init__.py`.
+3. When done, message the lead with a summary of what was added. The lead will add `blt.from_json()` and `blt.from_dict()` re-exports to `__init__.py`.
 
 4. Run tests, lint, format. Commit.
 

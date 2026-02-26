@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import pytest
 
-import botplotlib as bpl
+import botplotlib as blt
 from botplotlib.compiler.accessibility import ContrastError
 from botplotlib.compiler.compiler import compile_spec
 from botplotlib.spec.models import DataSpec, LayerSpec, PlotSpec
@@ -24,7 +24,7 @@ class TestColorMapBar:
     """color_map produces correct fill colors on bar charts."""
 
     def test_custom_colors_in_svg(self) -> None:
-        fig = bpl.bar(
+        fig = blt.bar(
             BAR_DATA,
             x="category",
             y="value",
@@ -38,7 +38,7 @@ class TestColorMapBar:
 
     def test_partial_color_map_falls_back(self) -> None:
         """Only override some categories; the rest get palette colors."""
-        fig = bpl.bar(
+        fig = blt.bar(
             BAR_DATA,
             x="category",
             y="value",
@@ -52,7 +52,7 @@ class TestColorMapBar:
 
     def test_color_map_without_color_param_ignored(self) -> None:
         """color_map without color= grouping doesn't crash."""
-        fig = bpl.bar(
+        fig = blt.bar(
             BAR_DATA,
             x="category",
             y="value",
@@ -64,7 +64,7 @@ class TestColorMapBar:
 
     def test_blt_food_colors(self) -> None:
         """The BLT bar chart with food-appropriate colors."""
-        fig = bpl.bar(
+        fig = blt.bar(
             BLT_DATA,
             x="layer",
             y="size",
@@ -89,7 +89,7 @@ class TestColorMapScatter:
 
     def test_scatter_custom_colors(self) -> None:
         data = {"x": [1, 2, 3], "y": [4, 5, 6], "grp": ["a", "b", "a"]}
-        fig = bpl.scatter(
+        fig = blt.scatter(
             data,
             x="x",
             y="y",
@@ -110,7 +110,7 @@ class TestColorMapLine:
             "y": [1, 2, 3, 3, 2, 1],
             "g": ["a", "a", "a", "b", "b", "b"],
         }
-        fig = bpl.line(
+        fig = blt.line(
             data,
             x="x",
             y="y",

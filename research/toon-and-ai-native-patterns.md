@@ -66,7 +66,7 @@ botplotlib's LLM interactions fall into three distinct modes, and TOON's fit dif
 An LLM generates a Python call like:
 
 ```python
-bpl.scatter(df, x="year", y="temp", color="region", title="Temperature Trend", theme="bluesky")
+blt.scatter(df, x="year", y="temp", color="region", title="Temperature Trend", theme="bluesky")
 ```
 
 This is approximately 35–45 tokens. Data is already in a Python variable (`df`) — it never enters the token stream. TOON is not relevant here. This mode is where botplotlib's token efficiency advantage is greatest: a matplotlib-equivalent is 100–150 tokens; botplotlib is 35–45 tokens.
@@ -114,7 +114,7 @@ The savings grow with row count but plateau around 20–25% for columnar data (b
 
 **Do not add TOON as a primary serialization format.** The complexity cost is not justified for botplotlib's dominant use cases (Modes 1 and 2), where data is already out of the token stream.
 
-**Consider a narrow opt-in for Mode 3.** A `spec.to_toon()` method (or a `bpl.dump_toon(spec)` utility) could be offered for users who explicitly want compact portable artifacts with embedded data. This would be clearly documented as an optimization for the archive/transmission use case, not as the default. Implementation would be ~100 lines of Python; no external dependency needed if we hand-roll the encoder (TOON's grammar is simple).
+**Consider a narrow opt-in for Mode 3.** A `spec.to_toon()` method (or a `blt.dump_toon(spec)` utility) could be offered for users who explicitly want compact portable artifacts with embedded data. This would be clearly documented as an optimization for the archive/transmission use case, not as the default. Implementation would be ~100 lines of Python; no external dependency needed if we hand-roll the encoder (TOON's grammar is simple).
 
 **The more important token efficiency work is already done.** botplotlib's Python API is 35–45 tokens for a complete plot. matplotlib is 100–150 tokens. That 3–4x gap is far more impactful than the 20% savings TOON might offer on the data section of a portable spec.
 
@@ -262,7 +262,7 @@ botplotlib should treat MCP-server exposure as a first-class deliverable alongsi
 
 **Rationale:** There is a legitimate use case for compact portable specs — archiving a plot as a self-contained artifact that includes data, storing specs in a repo, or transmitting between agents that don't share a data environment. For 100+ rows of data, TOON would reduce the data section by ~20%.
 
-**What to do:** A `bpl.dump_toon(spec)` function that encodes the columnar DataSpec as TOON arrays and the spec fields as YAML-style key-values. Roughly 100 lines of Python, no dependencies. Clearly scoped as an optimization utility, not a primary format. Parser (`bpl.load_toon(toon_str)`) required alongside encoder.
+**What to do:** A `blt.dump_toon(spec)` function that encodes the columnar DataSpec as TOON arrays and the spec fields as YAML-style key-values. Roughly 100 lines of Python, no dependencies. Clearly scoped as an optimization utility, not a primary format. Parser (`blt.load_toon(toon_str)`) required alongside encoder.
 
 **Priority:** Low. Build the geom registry and MCP server first.
 

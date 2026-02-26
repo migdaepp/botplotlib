@@ -10,7 +10,7 @@ Then open the generated SVGs in your browser.
 import random
 from pathlib import Path
 
-import botplotlib as bpl
+import botplotlib as blt
 
 OUT = Path(__file__).parent
 random.seed(42)
@@ -18,7 +18,7 @@ random.seed(42)
 # ---------------------------------------------------------------------------
 # Bar chart: magazine-style categorical data
 # ---------------------------------------------------------------------------
-fig_bar = bpl.bar(
+fig_bar = blt.bar(
     {
         "country": ["China", "United States", "India", "Germany", "Japan", "UK"],
         "gdp": [17.96, 25.46, 3.73, 4.26, 4.23, 3.07],
@@ -45,7 +45,7 @@ life_exp = [70 + random.gauss(0, 5) for _ in range(n)]
 gdp_pc = [20 + le * 0.5 + random.gauss(0, 3) for le in life_exp]
 regions = random.choices(["Europe", "Asia", "Americas"], weights=[3, 4, 3], k=n)
 
-fig_scatter = bpl.scatter(
+fig_scatter = blt.scatter(
     {"life_expectancy": life_exp, "gdp_per_capita": gdp_pc, "region": regions},
     x="life_expectancy",
     y="gdp_per_capita",

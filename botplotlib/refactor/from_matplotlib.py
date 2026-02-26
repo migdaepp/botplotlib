@@ -128,7 +128,7 @@ def to_botplotlib_code(source: str | Path) -> str:
         Python code using botplotlib that produces the equivalent plot.
     """
     spec = from_matplotlib(source)
-    lines = ["import botplotlib as bpl", ""]
+    lines = ["import botplotlib as blt", ""]
 
     if not spec.layers:
         lines.append("# No plot calls detected in the matplotlib script")
@@ -148,7 +148,7 @@ def to_botplotlib_code(source: str | Path) -> str:
     if len(spec.layers) == 1:
         layer = spec.layers[0]
         func = layer.geom  # scatter, line, bar
-        parts = [f'bpl.{func}(data, x="{layer.x}", y="{layer.y}"']
+        parts = [f'blt.{func}(data, x="{layer.x}", y="{layer.y}"']
 
         if spec.labels.title:
             parts.append(f', title="{spec.labels.title}"')
@@ -165,12 +165,12 @@ def to_botplotlib_code(source: str | Path) -> str:
         lines.append("".join(parts))
     else:
         # Multi-layer: use Figure directly
-        lines.append("spec = bpl.PlotSpec(")
-        lines.append("    data=bpl.spec.models.DataSpec(columns=data),")
+        lines.append("spec = blt.PlotSpec(")
+        lines.append("    data=blt.spec.models.DataSpec(columns=data),")
         lines.append("    layers=[")
         for layer in spec.layers:
             lines.append(
-                f'        bpl.spec.models.LayerSpec(geom="{layer.geom}", '
+                f'        blt.spec.models.LayerSpec(geom="{layer.geom}", '
                 f'x="{layer.x}", y="{layer.y}"),'
             )
         lines.append("    ],")
@@ -179,11 +179,11 @@ def to_botplotlib_code(source: str | Path) -> str:
             x_str = f'"{spec.labels.x}"' if spec.labels.x else "None"
             y_str = f'"{spec.labels.y}"' if spec.labels.y else "None"
             lines.append(
-                f"    labels=bpl.spec.models.LabelsSpec("
+                f"    labels=blt.spec.models.LabelsSpec("
                 f"title={title_str}, x={x_str}, y={y_str}),"
             )
         lines.append(")")
-        lines.append("fig = bpl.render(spec)")
+        lines.append("fig = blt.render(spec)")
 
     # Add save call if savefig was detected
     if hasattr(spec, "_refactor_metadata"):
