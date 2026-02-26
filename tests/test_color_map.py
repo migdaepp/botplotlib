@@ -94,11 +94,11 @@ class TestColorMapScatter:
             x="x",
             y="y",
             color="grp",
-            color_map={"a": "#AA0000", "b": "#00BB00"},
+            color_map={"a": "#AA0000", "b": "#006600"},
         )
         svg = fig.to_svg()
         assert "#AA0000" in svg
-        assert "#00BB00" in svg
+        assert "#006600" in svg
 
 
 class TestColorMapLine:
