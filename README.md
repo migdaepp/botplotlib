@@ -7,7 +7,7 @@ Matplotlib has fed the scientific Python community for two decades. botplotlib i
 </p>
 
 - **Beautiful by default** — themes designed so the first render is more often the final render
-- **Lightweight** — `bpl.scatter(data, x="a", y="b")` and you're done
+- **Lightweight** — `blt.scatter(data, x="a", y="b")` and you're done
 - **Token-efficient** — 1 line instead of 15. Fewer tokens, fewer places to go wrong
 
 Botplotlib is also an experiment in cyborg-source. What does open-source collaboration look like when some of the collaborators are AI? We don't know but we put a bunch of ideas in [GOVERNANCE.md](GOVERNANCE.md). It is wildly over-engineered for our current contributor count. 
@@ -28,13 +28,13 @@ For the full architecture overview, design principles, and module map, see [AGEN
 ## Quick example
 
 ```python
-import botplotlib as bpl
+import botplotlib as blt
 
 data = {
     "layer": ["bottom bun", "lettuce", "bot", "tomato", "top bun"],
     "size": [1, 1, 1, 1, 1],
 }
-fig = bpl.bar(
+fig = blt.bar(
     data, x="layer", y="size", color="layer",
     color_map={"bottom bun": "#B07830", "lettuce": "#388E3C",
                "bot": "#4E79A7", "tomato": "#E53935",

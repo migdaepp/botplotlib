@@ -638,8 +638,8 @@ plt.scatter([1, 2, 3], [4, 5, 6])
 plt.title("Test")
 """
         result = to_botplotlib_code(code)
-        assert "import botplotlib as bpl" in result
-        assert "bpl.scatter(" in result
+        assert "import botplotlib as blt" in result
+        assert "blt.scatter(" in result
         assert 'title="Test"' in result
 
     def test_line_with_labels(self) -> None:
@@ -651,7 +651,7 @@ plt.xlabel("X Axis")
 plt.ylabel("Y Axis")
 """
         result = to_botplotlib_code(code)
-        assert "bpl.line(" in result
+        assert "blt.line(" in result
         assert 'title="My Line"' in result
         assert 'x_label="X Axis"' in result
         assert 'y_label="Y Axis"' in result
@@ -662,7 +662,7 @@ import matplotlib.pyplot as plt
 plt.bar(["A", "B"], [10, 20])
 """
         result = to_botplotlib_code(code)
-        assert "bpl.bar(" in result
+        assert "blt.bar(" in result
 
     def test_no_plots_returns_comment(self) -> None:
         code = """
@@ -679,7 +679,7 @@ plt.plot([5, 6], [7, 8])
 """
         result = to_botplotlib_code(code)
         assert "PlotSpec" in result
-        assert "bpl.render(spec)" in result
+        assert "blt.render(spec)" in result
 
     def test_custom_figsize_in_code(self) -> None:
         code = """

@@ -5,7 +5,7 @@ from __future__ import annotations
 import tempfile
 from pathlib import Path
 
-import botplotlib as bpl
+import botplotlib as blt
 from botplotlib.figure import Figure
 from botplotlib.spec.models import PlotSpec
 from tests.conftest import assert_valid_svg
@@ -13,7 +13,7 @@ from tests.conftest import assert_valid_svg
 
 class TestScatter:
     def test_basic_scatter(self) -> None:
-        fig = bpl.scatter(
+        fig = blt.scatter(
             {"x": [1, 2, 3], "y": [4, 5, 6]},
             x="x",
             y="y",
@@ -23,7 +23,7 @@ class TestScatter:
         assert_valid_svg(svg)
 
     def test_scatter_with_title(self) -> None:
-        fig = bpl.scatter(
+        fig = blt.scatter(
             {"x": [1, 2, 3], "y": [4, 5, 6]},
             x="x",
             y="y",
@@ -32,7 +32,7 @@ class TestScatter:
         assert "My Scatter" in fig.to_svg()
 
     def test_scatter_with_color(self) -> None:
-        fig = bpl.scatter(
+        fig = blt.scatter(
             {"x": [1, 2, 3], "y": [4, 5, 6], "g": ["A", "A", "B"]},
             x="x",
             y="y",
@@ -42,7 +42,7 @@ class TestScatter:
         assert_valid_svg(svg)
 
     def test_scatter_with_theme(self) -> None:
-        fig = bpl.scatter(
+        fig = blt.scatter(
             {"x": [1, 2, 3], "y": [4, 5, 6]},
             x="x",
             y="y",
@@ -52,13 +52,13 @@ class TestScatter:
 
     def test_scatter_with_list_of_dicts(self) -> None:
         data = [{"x": 1, "y": 4}, {"x": 2, "y": 5}, {"x": 3, "y": 6}]
-        fig = bpl.scatter(data, x="x", y="y")
+        fig = blt.scatter(data, x="x", y="y")
         assert_valid_svg(fig.to_svg())
 
 
 class TestLine:
     def test_basic_line(self) -> None:
-        fig = bpl.line(
+        fig = blt.line(
             {"x": [1, 2, 3, 4], "y": [10, 20, 15, 25]},
             x="x",
             y="y",
@@ -66,7 +66,7 @@ class TestLine:
         assert_valid_svg(fig.to_svg())
 
     def test_line_with_groups(self) -> None:
-        fig = bpl.line(
+        fig = blt.line(
             {
                 "x": [1, 2, 3, 4, 1, 2, 3, 4],
                 "y": [10, 20, 15, 25, 8, 18, 12, 22],
@@ -81,7 +81,7 @@ class TestLine:
 
 class TestBar:
     def test_basic_bar(self) -> None:
-        fig = bpl.bar(
+        fig = blt.bar(
             {"category": ["A", "B", "C"], "value": [10, 20, 15]},
             x="category",
             y="value",
@@ -89,7 +89,7 @@ class TestBar:
         assert_valid_svg(fig.to_svg())
 
     def test_bar_with_title(self) -> None:
-        fig = bpl.bar(
+        fig = blt.bar(
             {"category": ["A", "B", "C"], "value": [10, 20, 15]},
             x="category",
             y="value",
@@ -101,7 +101,7 @@ class TestBar:
 class TestPlot:
     def test_layered_plot(self) -> None:
         data = {"x": [1, 2, 3, 4], "y": [10, 20, 15, 25]}
-        fig = bpl.plot(data)
+        fig = blt.plot(data)
         fig.add_line(x="x", y="y")
         fig.add_scatter(x="x", y="y")
         fig.title = "Layered Plot"
@@ -117,13 +117,13 @@ class TestRender:
             layers=[LayerSpec(geom="scatter", x="x", y="y")],
             labels=LabelsSpec(title="From Spec"),
         )
-        fig = bpl.render(spec)
+        fig = blt.render(spec)
         assert "From Spec" in fig.to_svg()
 
 
 class TestSaveSvg:
     def test_save_svg_creates_file(self) -> None:
-        fig = bpl.scatter(
+        fig = blt.scatter(
             {"x": [1, 2, 3], "y": [4, 5, 6]},
             x="x",
             y="y",
@@ -137,7 +137,7 @@ class TestSaveSvg:
 
 class TestReprSvg:
     def test_repr_svg(self) -> None:
-        fig = bpl.scatter(
+        fig = blt.scatter(
             {"x": [1, 2, 3], "y": [4, 5, 6]},
             x="x",
             y="y",
