@@ -1,6 +1,8 @@
 # API Reference
 
-![a robot walks into a deli](images/a-robot-walks-into-a-deli.png){ width="400" }
+<p align="center">
+  <img src="../images/a-robot-walks-into-a-deli.png" alt="a robot walks into a deli" width="400">
+</p>
 
 ## Top-level functions
 

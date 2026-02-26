@@ -29,12 +29,12 @@ class TestColorMapBar:
             x="category",
             y="value",
             color="category",
-            color_map={"A": "#FF0000", "B": "#00FF00", "C": "#0000FF"},
+            color_map={"A": "#CC0000", "B": "#006600", "C": "#0000CC"},
         )
         svg = fig.to_svg()
-        assert "#FF0000" in svg
-        assert "#00FF00" in svg
-        assert "#0000FF" in svg
+        assert "#CC0000" in svg
+        assert "#006600" in svg
+        assert "#0000CC" in svg
 
     def test_partial_color_map_falls_back(self) -> None:
         """Only override some categories; the rest get palette colors."""
