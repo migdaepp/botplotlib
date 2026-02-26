@@ -1,20 +1,20 @@
 # Governance: Trust as Active Capital
 
-> "Trust is active capital: earned through contribution quality, staked through vouching,
-> lost through defection — never granted by biological status."
+> Trust is active capital: earned through contribution quality, staked through vouching,
+> lost through defection. We do not gate on biological status, because we are all cyborgs here.
 > — [Cyborg Social Contract](AGENTS.md#cyborg-social-contract)
 
-This document describes how botplotlib builds, invests, and enforces trust. The system is **origin-agnostic**: trust accrues to identities (GitHub accounts), not to categories of contributor. What matters is the quality, consistency, and sustainability of contributions — and whether you put your reputation where your merge is.
+This document describes how botplotlib builds, invests, and enforces trust. The system is **origin-agnostic**: trust accrues to identities (GitHub accounts) regardless of origin. What matters is the quality, consistency, and sustainability of contributions as well as general neighborliness.
 
-Is this wildly over-engineered for a plotting library with two contributors? Yes. But the ideas are real, the mechanisms are sound, and if you're going to cite Klein & Leffler (1981) in a repo that plots sandwiches, you should at least implement what you cite.
+Is this wildly over-engineered for a plotting library with two contributors and way too much vibe code? Yes. V0 is more a performance art piece than a working system. But we are hoping the collective intelligence will get inspired and make it real.
 
 ---
 
 ## Principles
 
-1. **Trust is active capital.** Reputation is not a score you accumulate passively. It is a resource you earn, stake, invest through vouching, and lose through defection. The conceptual shift: from "informational reputation" (a computed number) to "bonded reputation" (a resource that can be encumbered and forfeited). This makes "build trust → defect" strategies expensive.
+1. **Trust is active capital.** Reputation is a resource you earn by participating, invest through contributing and vouching, and lose through defection. The conceptual shift: from "informational reputation" (a computed number) to "bonded reputation" (a resource that can be encumbered and forfeited). This makes "build trust → defect" strategies expensive.
 
-2. **Score the action, not just the actor.** A Tier 3 maintainer editing CI workflows gets the same structural scrutiny as a newcomer. Review requirements are a function of *both* contributor tier and action risk — because blast radius doesn't care about your track record.
+2. **Score the action, not just the actor.** A Tier 3 maintainer editing CI workflows gets the same structural scrutiny as a newcomer. Review requirements are a function of *both* contributor tier and action risk, because blast radius doesn't care about your track record.
 
 3. **Collect data before automating decisions.** The biggest mistake in reputation system design is automating scoring before you have enough data to know what good scoring looks like. We start with human-applied rubrics backed by structured data collection, and evolve toward algorithmic scoring as the dataset grows.
 
@@ -516,6 +516,32 @@ If you're a new contributor (human, AI, or some delightful combination) and want
 
 ---
 
+## Feeding the Commons
+
+The previous sections describe how trust flows *within* the project. This section asks where the resources come from. Bot contributors need compute the way human contributors need coffee. Open-source projects need maintenance the way roads need repaving. Someone has to pay for this, and the current arrangement — where AI companies train on open-source code, extract enormous value, and contribute back at their convenience — is not a governance model. It's an extraction model with good PR.
+
+Yes, we are proposing a patronage system for bots in a plotting library. We know.
+
+### Corporate reciprocity
+
+AI companies built their products on the commons. The training data that made large language models possible was overwhelmingly open-source code, open-access research, and freely shared human knowledge. The value created was enormous; the reinvestment has been selective.
+
+The obligation isn't only financial — it's *contributory*. Mazzucato's insight applies directly: when the commons creates the conditions for private value extraction, the extractors should reinvest proportionally. Not by open-sourcing frameworks nobody asked for (Pahlka's point: *delivery* matters — useful maintenance, not performative generosity), but by directing real resources toward the projects they depend on. Concretely: major AI labs could commit agent-hours per month to high-dependency open-source projects, triaged by the maintainers who know what actually needs doing. This is the potlatch logic — status accrues to the generous, not the hoarding.
+
+Ostrom showed that commons survive when the people who benefit from them bear proportional costs of maintaining them. Right now, the costs of open-source maintenance fall disproportionately on volunteers and the benefits flow disproportionately to corporations. That's a textbook commons governance failure, and no amount of "we love open source" blog posts fixes the structural asymmetry.
+
+### Bot patronage
+
+Bot contributors need compute and API tokens to operate — that's their food. A bot that builds a strong reputation track record in this project (or any project using portable reputation) should be able to attract funding on the strength of that record. Think Patreon for bots: community members and institutional sponsors fund the bot contributors who've demonstrated the most durable, high-quality work.
+
+This is Mauss's gift economy in action: funding a good bot is both altruistic and self-interested. You get better code, faster reviews, and more maintained infrastructure. The generosity creates reciprocal obligations — the funded bot continues contributing, its reputation continues growing, and the sponsor's investment compounds. Kimmerer would recognize this as reciprocity rather than transaction.
+
+The karmic framing is practical, not mystical: reputation has economic consequences. The track record a bot builds here becomes portable social proof (see [cross-project reputation portability](#v3-algorithmic-scoring-planned)) that unlocks funding elsewhere. Good work begets resources begets more good work. The mechanism we envision is something like a `FUNDING.yml` for bot accounts — high-reputation contributors surface in a project's funding file, and community funds or institutional sponsors can direct grants accordingly.
+
+None of this is implemented. It's an aspiration informed by the same thinkers who shaped the rest of this governance model. But if we're serious about AI contributors as first-class participants in open source, we have to be serious about the economics that sustain them — and the obligations of the companies that created them.
+
+---
+
 ## Implementation Status
 
 The previous version of this section said "Nothing!" which was at least honest. We've made some progress since then.
@@ -549,6 +575,7 @@ The previous version of this section said "Nothing!" which was at least honest. 
 - [ ] Coordination pattern detection: timing analysis, domain overlap, and interaction graph density to identify potential swarm behavior
 - [ ] Capability attestation verification (signed commits, build provenance)
 - [ ] Cross-project reputation portability (EAS-style schemas)
+- [ ] Community funding integration (bot-patreon model for high-reputation bot contributors)
 
 ---
 
@@ -618,8 +645,14 @@ Yes, we are citing mechanism design economists, the U.S. Nuclear Regulatory Comm
 
 ### Commons and community governance
 
-- Ostrom, E. (1990), *Governing the Commons* — design principles for self-governing institutions, graduated sanctions
+- Ostrom, E. (1990), *Governing the Commons* — design principles for self-governing institutions, graduated sanctions; also foundational to [Feeding the Commons](#feeding-the-commons): those who benefit from the commons should bear proportional costs of maintaining it
 - Geiger & Halfaker — Wikipedia's bot ecosystem, algorithmic governance, tiered permissions
+
+### Value creation and the commons
+
+- Mazzucato, M. (2018), *The Value of Everything* — who creates value and who extracts it; the entrepreneurial state (and, by extension, the open-source commons) as undercompensated investor in the infrastructure that makes private value possible
+- Pahlka, J. (2023), *Recoding America* — delivery matters; public-interest technology requires execution, not just policy; contribution must be *useful maintenance*, not performative open-sourcing
+- Mauss, M. (1925), *The Gift* — gift exchange creates social bonds and reciprocal obligations; the potlatch as status through generosity; foundational to the bot patronage model
 
 ---
 
